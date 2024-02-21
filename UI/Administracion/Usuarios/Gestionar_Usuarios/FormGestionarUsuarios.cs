@@ -16,5 +16,14 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
         {
             InitializeComponent();
         }
+
+        private void buttonVerDetalles_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario pop-up
+            FormDetallesUsuario formPopup = new FormDetallesUsuario();
+
+            // Mostrar el formulario como un cuadro de diálogo modal
+            formPopup.ShowDialog();
+        }
     }
 }

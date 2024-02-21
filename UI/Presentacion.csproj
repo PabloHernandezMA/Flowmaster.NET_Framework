@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>letra-f.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -51,6 +54,12 @@
     </Compile>
     <Compile Include="Administracion\FormAdministracion.Designer.cs">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.Designer.cs">
+      <DependentUpon>FormDetallesUsuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.cs">
       <SubType>Form</SubType>
@@ -76,11 +85,11 @@
     <Compile Include="FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMain.cs">
+    <Compile Include="FormMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMain.Designer.cs">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <Compile Include="FormMainMenu.Designer.cs">
+      <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
     <Compile Include="Productos\FormGestionarProductos.cs">
       <SubType>Form</SubType>
@@ -92,6 +101,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Administracion\FormAdministracion.resx">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.resx">
+      <DependentUpon>FormDetallesUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.resx">
       <DependentUpon>FormGestionarUsuarios.cs</DependentUpon>
@@ -105,25 +117,26 @@
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
+    <EmbeddedResource Include="FormMainMenu.resx">
+      <DependentUpon>FormMainMenu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Productos\FormGestionarProductos.resx">
       <DependentUpon>FormGestionarProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
@@ -137,6 +150,17 @@
     <Folder Include="Administracion\Usuarios\Gestionar_Grupos\" />
     <Folder Include="Dashboard\" />
     <Folder Include="Pedidos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="letra-f.ico" />
+    <None Include="Resources\exclamation-mark.png" />
+    <None Include="Resources\warning-icon-png.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Dominio\Dominio.csproj">
+      <Project>{7a2808fb-4048-40b4-a688-4195bdef0fcc}</Project>
+      <Name>Dominio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

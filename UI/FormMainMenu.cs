@@ -12,11 +12,52 @@ using UI.Configuracion;
 
 namespace UI
 {
-    public partial class FormMain : Form
+    public partial class FormMainMenu : Form
     {
-        public FormMain()
+        public FormMainMenu()
         {
             InitializeComponent();
+        }
+
+        private void buttonCerrarAplicacion_Click(object sender, EventArgs e)
+        {
+            // Mostrar un MessageBox preguntando al usuario si desea cerrar la aplicación
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea cerrar la aplicación?", "Flowmaster", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Verificar la respuesta del usuario
+            if (result == DialogResult.Yes)
+            {
+                // Cerrar la aplicación si el usuario ha confirmado
+                Application.Exit();
+            }
+        }
+
+        private void buttonMaximizarAplicacion_Click(object sender, EventArgs e)
+        {
+            // Maximizar o restaurar el tamaño del formulario
+            if (this.WindowState == FormWindowState.Normal)
+                this.WindowState = FormWindowState.Maximized;
+            else
+                this.WindowState = FormWindowState.Normal;
+        }
+
+        private void buttonMinimizarAplicacion_Click(object sender, EventArgs e)
+        {
+            // Minimizar el formulario
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void buttonCerrarSesion_Click(object sender, EventArgs e)
+        {
+            // Mostrar un MessageBox preguntando al usuario si desea cerrar la aplicación
+            DialogResult result = MessageBox.Show("¿Está seguro de que desea cerrar sesión?", "Flowmaster", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+            // Verificar la respuesta del usuario
+            if (result == DialogResult.Yes)
+            {
+                // Cerrar la aplicación si el usuario ha confirmado
+                this.Close();
+            }
         }
 
         private void buttonFlowmaster_Click(object sender, EventArgs e)
