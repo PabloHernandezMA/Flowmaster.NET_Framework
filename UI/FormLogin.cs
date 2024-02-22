@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Dominio;
 
 namespace UI
 {
@@ -25,10 +26,21 @@ namespace UI
             {
                 if(textBoxPassword.Text!="")
                 { 
-                    FormMainMenu MainMenu = new FormMainMenu();
-                    MainMenu.Show();
-                    MainMenu.FormClosed += CerrarSesion;
-                    this.Hide();
+                    UsuarioModel usuario = new UsuarioModel();
+                    var validUser = usuario.LoginUser(textBoxUsername.Text,textBoxPassword.Text);
+                    if (validUser)
+                    {
+                        FormMainMenu MainMenu = new FormMainMenu();
+                        MainMenu.Show();
+                        MainMenu.FormClosed += CerrarSesion;
+                        this.Hide();
+                    }
+                    else
+                    {
+                        msgError("El usuario o contraseña no son válidos");
+                        textBoxPassword.Clear();
+                        textBoxPassword.Focus();
+                    }
                 }
                 else
                 {
