@@ -49,78 +49,79 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administracion\FormAdministracion.cs">
+    <Compile Include="Formularios\Administracion\FormAdministracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\FormAdministracion.Designer.cs">
+    <Compile Include="Formularios\Administracion\FormAdministracion.Designer.cs">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.cs">
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.Designer.cs">
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.Designer.cs">
       <DependentUpon>FormDetallesUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.cs">
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.Designer.cs">
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.Designer.cs">
       <DependentUpon>FormGestionarUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion\Base_De_Datos\FormBaseDeDatos.cs">
+    <Compile Include="Formularios\Configuracion\Base_De_Datos\FormBaseDeDatos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion\Base_De_Datos\FormBaseDeDatos.Designer.cs">
+    <Compile Include="Formularios\Configuracion\Base_De_Datos\FormBaseDeDatos.Designer.cs">
       <DependentUpon>FormBaseDeDatos.cs</DependentUpon>
     </Compile>
-    <Compile Include="Configuracion\FormConfiguracion.cs">
+    <Compile Include="Formularios\Configuracion\FormConfiguracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Configuracion\FormConfiguracion.Designer.cs">
+    <Compile Include="Formularios\Configuracion\FormConfiguracion.Designer.cs">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Formularios\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Formularios\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormMainMenu.cs">
+    <Compile Include="Formularios\FormMainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormMainMenu.Designer.cs">
+    <Compile Include="Formularios\FormMainMenu.Designer.cs">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
-    <Compile Include="Productos\FormGestionarProductos.cs">
+    <Compile Include="Formularios\Productos\FormGestionarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Productos\FormGestionarProductos.Designer.cs">
+    <Compile Include="Formularios\Productos\FormGestionarProductos.Designer.cs">
       <DependentUpon>FormGestionarProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Administracion\FormAdministracion.resx">
+    <Compile Include="ValidacionesForm.cs" />
+    <EmbeddedResource Include="Formularios\Administracion\FormAdministracion.resx">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.resx">
+    <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.resx">
       <DependentUpon>FormDetallesUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.resx">
+    <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.resx">
       <DependentUpon>FormGestionarUsuarios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion\Base_De_Datos\FormBaseDeDatos.resx">
+    <EmbeddedResource Include="Formularios\Configuracion\Base_De_Datos\FormBaseDeDatos.resx">
       <DependentUpon>FormBaseDeDatos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Configuracion\FormConfiguracion.resx">
+    <EmbeddedResource Include="Formularios\Configuracion\FormConfiguracion.resx">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Formularios\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormMainMenu.resx">
+    <EmbeddedResource Include="Formularios\FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Productos\FormGestionarProductos.resx">
+    <EmbeddedResource Include="Formularios\Productos\FormGestionarProductos.resx">
       <DependentUpon>FormGestionarProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -147,9 +148,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Administracion\Usuarios\Gestionar_Grupos\" />
-    <Folder Include="Dashboard\" />
-    <Folder Include="Pedidos\" />
+    <Folder Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\" />
+    <Folder Include="Formularios\Dashboard\" />
+    <Folder Include="Formularios\Pedidos\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="letra-f.ico" />
@@ -157,9 +158,9 @@
     <None Include="Resources\warning-icon-png.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dominio\Dominio.csproj">
+    <ProjectReference Include="..\Dominio\Negocio.csproj">
       <Project>{7a2808fb-4048-40b4-a688-4195bdef0fcc}</Project>
-      <Name>Dominio</Name>
+      <Name>Negocio</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

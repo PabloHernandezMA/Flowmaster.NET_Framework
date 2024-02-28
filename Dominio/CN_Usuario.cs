@@ -7,9 +7,9 @@ using DataAccess;
 
 namespace Dominio
 {
-    public class UsuarioModel
+    public class CN_Usuario
     {
-        UsuarioDA usuarioDA = new UsuarioDA();
+        EUsuario usuarioDA = new EUsuario();
         public bool LoginUser(String Username, String Password)
         {
             return usuarioDA.Login(Username, Password); 

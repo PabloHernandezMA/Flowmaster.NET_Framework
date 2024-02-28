@@ -22,11 +22,11 @@ namespace UI
 
         private void buttonIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (textBoxUsername.Text!="")
+            if (ValidacionesForm.NoEstaVacio(textBoxUsername.Text))
             {
-                if(textBoxPassword.Text!="")
+                if(ValidacionesForm.NoEstaVacio(textBoxPassword.Text))
                 { 
-                    UsuarioModel usuario = new UsuarioModel();
+                    CN_Usuario usuario = new CN_Usuario();
                     var validUser = usuario.LoginUser(textBoxUsername.Text,textBoxPassword.Text);
                     if (validUser)
                     {

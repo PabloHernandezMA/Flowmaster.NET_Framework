@@ -35,6 +35,7 @@
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,9 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConnectionToSQL.cs" />
+    <Compile Include="CD_Contratos\IRepositorioGenerico.cs" />
+    <Compile Include="CD_Contratos\IUsuarios.cs" />
+    <Compile Include="CD_Entidades\EUsuarios.cs" />
+    <Compile Include="CD_Repositorios\ConnectionToSQL.cs" />
+    <Compile Include="CD_Repositorios\RepositorioMaestro.cs" />
+    <Compile Include="CD_Repositorios\RepoUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsuarioDA.cs" />
+    <Compile Include="CD_Entidades\EUsuario.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="configSQL.json" />

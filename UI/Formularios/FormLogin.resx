@@ -120,14 +120,14 @@
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="labelErrorMessage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAAAHUAAAB1AePCB2UAAAAZdEVYdFNvZnR3YXJlAHd3dy5pbmtzY2FwZS5vcmeb7jwa
-        AAABN0lEQVQ4T2OgCfgU6SDyMtSx7lOsR9uPJL/iH6l+fv/TfLmg0rjBfwYGpueBthtfhTl+B2r8/ysl
-        ABm//5XsXwhUwwhVjgpAmp/6Wd77EOUG1/S9rwGI65ENAeHFWA15HmS36VWwPYriD29egzGyGBQXQLVB
-        AMjPD7xM/6I7+8OHD2CMLAbF7/4XhnJCtTMwPAuya34aYI2hEI8B//8kB3lDtQOdH2i7+VWIA4YifAb8
-        Tg0sgmrH7n8QBofBa6xh8B8UI1DtUC/4Y3rhe2/9/+89dRjiIIziBVyBiCMaQfgtSiCCwLMA6w3o4fDx
-        xXMwRhaD4MA8qDYEACWkJ77Wdz9EusIVYvdC4EK8qfFFgO361yGO37Ak5bcgm3FqRgYfQ92FgN6p+RTp
-        Bs5Mf1IDfTD8TB3AwAAAkrKe8b6dmbQAAAAASUVORK5CYII=
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
+        dAAAAHQBMYXlgQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE3SURBVDhPY6AJ
+        +BTpIPIy1LHuU6xH248kv+IfqX5+/9N8uaDSuMF/Bgam54G2G1+FOX4Havz/KyUAGb//lexfCFTDCFWO
+        CkCan/pZ3vsQ5QbX9L2vAYjrkQ0B4cVYDXkeZLfpVbA9iuIPb16DMbIYFBdAtUEAyM8PvEz/ojv7w4cP
+        YIwsBsXv/heGckK1MzA8C7JrfhpgjaEQjwH//yQHeUO1A50faLv5VYgDhiJ8BvxODSyCasfufxAGh8Fr
+        rGHwHxQjUO1QL/hjeuF7b/3/7z11GOIgjOIFXIGIIxpB+C1KIILAswDrDejh8PHFczBGFoPgwDyoNgQA
+        JaQnvtZ3P0S6whVi90LgQryp8UWA7frXIY7fsCTltyCbcWpGBh9D3YWA3qn5FOkGzkx/UgN9MPxMHcDA
+        AACSsp7xvp2ZtAAAAABJRU5ErkJggg==
 </value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

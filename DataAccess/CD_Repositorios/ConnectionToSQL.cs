@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.IO;
 using Newtonsoft.Json;
+using System.Configuration;
 
 namespace DataAccess
 {
@@ -19,7 +20,7 @@ namespace DataAccess
 
     public abstract class ConnectionToSQL
     {
-        private readonly string configFilePath = "F:\\Ingenieria de software\\Flowmaster\\DataAccess\\configSQL.json";
+        private readonly string configFilePath = ConfigurationManager.AppSettings["SQLConfigFilePath"];
         private ConnectionConfig config;
 
         public ConnectionToSQL()
@@ -36,7 +37,7 @@ namespace DataAccess
             }
             else
             {
-                throw new FileNotFoundException("El archivo de configuración no se encontró.");
+                throw new FileNotFoundException("El archivo de configuración de la base de datos no se encontró.");
             }
         }
 

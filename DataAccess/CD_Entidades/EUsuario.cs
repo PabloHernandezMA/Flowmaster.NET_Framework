@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public class UsuarioDA:ConnectionToSQL
+    public class EUsuario:ConnectionToSQL
     {
         public bool Login(string user, string pass)
         {
@@ -20,7 +20,7 @@ namespace DataAccess
                 {
                     command.CommandType = CommandType.Text;
                     command.Connection = connection;
-                    command.CommandText = "SELECT * FROM USUARIOS WHERE Username = @username AND User_Password = @password";
+                    command.CommandText = "SELECT * FROM USUARIOS WHERE Username COLLATE Latin1_General_CS_AS = @username COLLATE Latin1_General_CS_AS AND User_Password COLLATE Latin1_General_CS_AS = @password COLLATE Latin1_General_CS_AS;";
                     command.Parameters.AddWithValue("username", user);
                     command.Parameters.AddWithValue("password", pass);
                     SqlDataReader reader = command.ExecuteReader();
