@@ -10,7 +10,15 @@ namespace DataAccess.CD_Repositorios
 {
     public abstract class RepositorioMaestro:ConnectionToSQL
     {
-        protected List<SqlParameter> parametros;
+        protected static List<SqlParameter> parametros;
+
+        protected RepositorioMaestro()
+        {
+            if (parametros == null)
+            {
+                parametros = new List<SqlParameter>(); // Solo se inicializa si es la primera instancia
+            }
+        }
 
         protected int ExecuteNonQuery(string transaccionSQL) 
         { 
@@ -43,11 +51,16 @@ namespace DataAccess.CD_Repositorios
                     command.Connection = connection;
                     command.CommandText = transaccionSQL;
                     command.CommandType = CommandType.Text;
+                    foreach (SqlParameter item in parametros)
+                    {
+                        command.Parameters.Add(item);
+                    }
                     SqlDataReader reader = command.ExecuteReader();
                     using(var table  = new DataTable())
                     {
                         table.Load(reader);
                         reader.Dispose();
+                        parametros.Clear(); // Limpiar la lista de parámetros
                         return table;
                     }
                 }

@@ -9,7 +9,7 @@ namespace Dominio
 {
     public class CN_Usuario
     {
-        EUsuario usuarioDA = new EUsuario();
+        RepoUsuario usuarioDA = new RepoUsuario();
         public bool LoginUser(String Username, String Password)
         {
             return usuarioDA.Login(Username, Password); 

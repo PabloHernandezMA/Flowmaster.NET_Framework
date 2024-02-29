@@ -121,6 +121,7 @@
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(237, 29);
             this.textBoxNombre.TabIndex = 3;
+            this.textBoxNombre.TextChanged += new System.EventHandler(this.textBoxNombre_TextChanged);
             // 
             // label2
             // 
@@ -243,9 +244,9 @@
             this.panel4.Controls.Add(this.linkLabelPaginaSiguiente);
             this.panel4.Controls.Add(this.linkLabelPaginaPrevia);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 459);
+            this.panel4.Location = new System.Drawing.Point(0, 430);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 50);
+            this.panel4.Size = new System.Drawing.Size(200, 79);
             this.panel4.TabIndex = 0;
             // 
             // labelNumeroDePagina
@@ -363,6 +364,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormGestionarUsuarios";
             this.Text = "FormGestionarUsuarios";
+            this.Load += new System.EventHandler(this.FormGestionarUsuarios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);

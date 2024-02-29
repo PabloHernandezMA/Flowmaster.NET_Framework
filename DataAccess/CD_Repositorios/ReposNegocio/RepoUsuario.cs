@@ -9,9 +9,10 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public class EUsuario:ConnectionToSQL
+    public class RepoUsuario:ConnectionToSQL
     {
-        public bool Login(string user, string pass)
+       
+    public bool Login(string user, string pass)
         {
             using (var connection = OpenConnection())
             {

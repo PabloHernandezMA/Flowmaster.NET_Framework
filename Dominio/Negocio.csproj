@@ -41,16 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\CN_Usuarios.cs" />
     <Compile Include="CN_Usuario.cs" />
-    <Compile Include="CN_Usuarios.cs" />
-    <Compile Include="Modelos\ModelUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ValorObjeto\EstadoEntidad.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj">
       <Project>{51e19680-c66b-4121-ba02-3a5846b97c51}</Project>
       <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{3E98B92F-E7A3-4358-8591-428555EAF1F1}</Project>
+      <Name>Modelo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
