@@ -11,6 +11,8 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
 {
     public class RepoUsuarios: RepositorioMaestro
     {
+        public List<Grupo> ObtenerTodosLosGruposMiembro;
+
         public List<Usuario> ObtenerTodosLosUsuarios()
         {
             List<Usuario> usuarios = new List<Usuario>();

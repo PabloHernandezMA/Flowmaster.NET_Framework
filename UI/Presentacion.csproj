@@ -55,6 +55,12 @@
     <Compile Include="Formularios\Administracion\FormAdministracion.Designer.cs">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormGestionarGrupos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormGestionarGrupos.Designer.cs">
+      <DependentUpon>FormGestionarGrupos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +109,9 @@
     <EmbeddedResource Include="Formularios\Administracion\FormAdministracion.resx">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormGestionarGrupos.resx">
+      <DependentUpon>FormGestionarGrupos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.resx">
       <DependentUpon>FormDetallesUsuario.cs</DependentUpon>
     </EmbeddedResource>
@@ -148,7 +157,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\" />
     <Folder Include="Formularios\Dashboard\" />
     <Folder Include="Formularios\Pedidos\" />
   </ItemGroup>

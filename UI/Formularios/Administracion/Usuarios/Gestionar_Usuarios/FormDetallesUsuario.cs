@@ -15,6 +15,7 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
 {
     public partial class FormDetallesUsuario : Form
     {
+        private CN_Grupos grupos;
         private CN_Usuarios usuario;
         private int idUsuario;
 
@@ -35,7 +36,6 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             try
             {
                 Usuario usuarioData = usuario.ObtenerUsuarioPorID(idUsuario);
-
                 if (usuario != null)
                 {
                     textBoxNombre.Text = usuarioData.Username;
@@ -54,6 +54,21 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             {
                 MessageBox.Show("Error al cargar los datos del usuario: " + ex.Message);
                // this.Close(); // Cierra el formulario en caso de error
+            }
+            CargarGrupos();
+        }
+
+        private void CargarGrupos()
+        {
+            grupos = CN_Grupos.ObtenerInstancia();
+            try
+            {
+                dataGridViewGruposDisponibles.DataSource = grupos.ObtenerGruposNoAsociadosAUsuario(idUsuario);
+                dataGridViewGruposMiembro.DataSource = grupos.ObtenerGruposPorUsuario(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }
