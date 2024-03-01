@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Dominio;
 using Dominio.Clases;
+using Modelo;
 
 namespace UI.Administracion.Usuarios.Gestionar_Usuarios
 {
@@ -43,6 +44,10 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
+            textBoxNombre.Text = "";
+            textBoxNumero.Text = "";
+            textBoxEmail.Text = "";
+            checkBoxSoloHabilitados.Checked = false;
             listarUsuarios();
         }
 
@@ -58,13 +63,52 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             }
         }
 
-        private void textBoxNombre_TextChanged(object sender, EventArgs e)
+        private void FiltrarDatos(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = usuarios.Filtrar(textBoxNombre.Text);
+            dataGridView1.DataSource = usuarios.Filtrar(textBoxNombre.Text, textBoxNumero.Text, textBoxEmail.Text, checkBoxSoloHabilitados.Checked);
+        }
+
+        private void dataGridView1_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            // Obtener la columna en la que se hizo clic
+            DataGridViewColumn columna = dataGridView1.Columns[e.ColumnIndex];
+
+            // Obtener los datos del DataGridView
+            List<Usuario> usuarios = dataGridView1.DataSource as List<Usuario>;
+
+            // Verificar si la columna es válida y si hay datos
+            if (columna != null && usuarios != null && usuarios.Any())
+            {
+                // Ordenar los datos según la columna en la que se hizo clic
+                switch (columna.DataPropertyName)
+                {
+                    case "Username":
+                        usuarios = usuarios.OrderBy(u => u.Username).ToList();
+                        break;
+                    case "ID_User":
+                        usuarios = usuarios.OrderBy(u => u.ID_User).ToList();
+                        break;
+                    case "User_Email":
+                        usuarios = usuarios.OrderBy(u => u.User_Email).ToList();
+                        break;
+                    case "is_Enabled":
+                        usuarios = usuarios.OrderBy(u => u.is_Enabled).ToList();
+                        break;
+                }
+                // Actualizar el origen de datos del DataGridView
+                dataGridView1.DataSource = null;
+                dataGridView1.DataSource = usuarios;
+            }
         }
 
         private void FormGestionarUsuarios_Load(object sender, EventArgs e)
         {
+            // Suscribir eventos para los controles
+            textBoxNombre.TextChanged += FiltrarDatos;
+            textBoxNumero.TextChanged += FiltrarDatos;
+            textBoxEmail.TextChanged += FiltrarDatos;
+            checkBoxSoloHabilitados.CheckedChanged += FiltrarDatos;
+            dataGridView1.ColumnHeaderMouseClick += dataGridView1_ColumnHeaderMouseClick;
             usuarios = CN_Usuarios.ObtenerInstancia();
         }
     }

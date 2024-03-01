@@ -64,14 +64,22 @@ namespace Dominio.Clases
             }
         }
 
-        public IEnumerable<Usuario> Filtrar(string filtro)
+        public IEnumerable<Usuario> Filtrar(string filtroUsername, string filtroID_User, string filtroUser_Email, bool filtroIs_Enabled)
         {
             if (usuarios != null && usuarios.Any())
             {
                 try
                 {
+                    // Realiza la búsqueda filtrada en la lista de usuarios
+                    var resultado = usuarios.Where(u =>
+                    (string.IsNullOrEmpty(filtroUsername) || u.Username.ToLower().Contains(filtroUsername.ToLower())) &&
+                    (string.IsNullOrEmpty(filtroID_User) || u.ID_User.ToString().Equals(filtroID_User)) &&
+                    (string.IsNullOrEmpty(filtroUser_Email) || u.User_Email.ToLower().Contains(filtroUser_Email.ToLower())) &&
+                    (!filtroIs_Enabled || u.is_Enabled)
+                    );
+                    return resultado.ToList();
                     // Intenta realizar la búsqueda filtrada en la lista de usuarios
-                    return usuarios.FindAll(e => e.Username.ToLower().Contains(filtro.ToLower()));
+                    //return usuarios.FindAll(e => e.Username.ToLower().Contains(filtro.ToLower()));
                 }
                 catch (Exception ex)
                 {
