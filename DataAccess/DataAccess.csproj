@@ -47,7 +47,10 @@
   <ItemGroup>
     <Compile Include="CD_Repositorios\ConnectionToSQL.cs" />
     <Compile Include="CD_Repositorios\RepositorioMaestro.cs" />
+    <Compile Include="CD_Repositorios\ReposNegocio\RepoFormularios.cs" />
     <Compile Include="CD_Repositorios\ReposNegocio\RepoGrupos.cs" />
+    <Compile Include="CD_Repositorios\ReposNegocio\RepoModulos.cs" />
+    <Compile Include="CD_Repositorios\ReposNegocio\RepoPermisos.cs" />
     <Compile Include="CD_Repositorios\ReposNegocio\RepoUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="CD_Repositorios\ReposNegocio\RepoUsuario.cs" />
