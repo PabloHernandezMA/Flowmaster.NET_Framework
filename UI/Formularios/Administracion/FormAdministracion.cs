@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administracion.Usuarios.Gestionar_Usuarios;
 using UI.Formularios.Administracion.Usuarios.Gestionar_Grupos;
+using UI.Formularios.Administracion.Usuarios.Gestionar_Permisos;
 
 namespace UI.Administracion
 {
@@ -39,6 +40,22 @@ namespace UI.Administracion
         {
             // Crear una instancia del formulario que deseas mostrar
             FormGestionarGrupos formAdmin = new FormGestionarGrupos();
+
+            // Configurar la forma para que pueda ser incrustada
+            formAdmin.TopLevel = false;
+            formAdmin.FormBorderStyle = FormBorderStyle.None;
+            formAdmin.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al PanelCenter
+            panelCenter.Controls.Clear(); // Limpiar cualquier control existente en el PanelCenter
+            panelCenter.Controls.Add(formAdmin); // Agregar el formulario al PanelCenter
+            formAdmin.Show(); // Mostrar el formulario
+        }
+
+        private void gestionarPermisosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario que deseas mostrar
+            FormGestionarPermisos formAdmin = new FormGestionarPermisos();
 
             // Configurar la forma para que pueda ser incrustada
             formAdmin.TopLevel = false;

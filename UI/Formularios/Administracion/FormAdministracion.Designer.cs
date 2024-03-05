@@ -47,6 +47,7 @@
             this.gestionarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarGruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCenter = new System.Windows.Forms.Panel();
+            this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -64,7 +65,7 @@
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(102)))), ((int)(((byte)(110)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(171)))), ((int)(((byte)(184)))));
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proveedoresToolStripMenuItem,
@@ -173,7 +174,8 @@
             // 
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionarUsuariosToolStripMenuItem,
-            this.gestionarGruposToolStripMenuItem});
+            this.gestionarGruposToolStripMenuItem,
+            this.gestionarPermisosToolStripMenuItem});
             this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
             this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(84, 26);
             this.usuariosToolStripMenuItem.Text = "Usuarios";
@@ -181,14 +183,14 @@
             // gestionarUsuariosToolStripMenuItem
             // 
             this.gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
-            this.gestionarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.gestionarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.gestionarUsuariosToolStripMenuItem.Text = "Gestionar usuarios";
             this.gestionarUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionarUsuariosToolStripMenuItem_Click);
             // 
             // gestionarGruposToolStripMenuItem
             // 
             this.gestionarGruposToolStripMenuItem.Name = "gestionarGruposToolStripMenuItem";
-            this.gestionarGruposToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.gestionarGruposToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.gestionarGruposToolStripMenuItem.Text = "Gestionar grupos";
             this.gestionarGruposToolStripMenuItem.Click += new System.EventHandler(this.gestionarGruposToolStripMenuItem_Click);
             // 
@@ -200,6 +202,13 @@
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(936, 558);
             this.panelCenter.TabIndex = 1;
+            // 
+            // gestionarPermisosToolStripMenuItem
+            // 
+            this.gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
+            this.gestionarPermisosToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.gestionarPermisosToolStripMenuItem.Text = "Gestionar permisos";
+            this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
             // 
             // FormAdministracion
             // 
@@ -239,5 +248,6 @@
         private System.Windows.Forms.ToolStripMenuItem remitosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarGruposToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestionarPermisosToolStripMenuItem;
     }
 }

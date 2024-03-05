@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace UI.Administracion.Usuarios.Gestionar_Usuarios
 {
@@ -20,7 +21,7 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
         private CN_Permisos permisos;
         private CN_Modulos modulos;
         private CN_Formularios formularios;
-
+        private bool isUpdatingNodeState = false;
         private int idUsuario;
 
         public FormDetallesUsuario(int idUsuario)
@@ -39,7 +40,6 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             CargarGrupos();
             CargarPermisos();
             MarcarPermisos(treeViewPermisos.Nodes, permisos.ObtenerPermisosDeUsuario(idUsuario), permisos.ObtenerPermisosDeGruposPorID_User(idUsuario));
-            treeViewPermisos.AfterCheck += treeViewPermisos_VerificarDespues;
         }
 
         private void CargarDatosUsuario()
@@ -143,15 +143,16 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             foreach (TreeNode node in nodes)
             {
                 // Verificar si el nombre del permiso del nodo está en la lista de permisos del usuario
-                if (permisosUsuario.Any(permiso => permiso.PermissionName == node.Text))
+                if (permisosGrupos.Any(permiso => permiso.PermissionName == node.Text))
                 {
                     node.Checked = true; // Marcar el checkbox del nodo
+                    node.ForeColor = System.Drawing.Color.Gold; // Cambiar el color de fondo para indicar que está deshabilitado    
                 }
                 // Verificar si el nombre del permiso del nodo está en la lista de permisos heredados de grupos
-                else if (permisosGrupos.Any(permiso => permiso.PermissionName == node.Text))
+                else if (permisosUsuario.Any(permiso => permiso.PermissionName == node.Text))
                 {
-                    node.Checked = true; // Marcar el checkbox del nodo
-                    node.ForeColor = System.Drawing.Color.Gold; // Cambiar el color de fondo para indicar que está deshabilitado                                                                     
+                    node.Checked = true; // Marcar el checkbox del nodo                                                                 
+                    node.EnsureVisible();
                 }
 
                 // Llamar recursivamente a la función para los nodos hijos
@@ -172,17 +173,19 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             }
         }
 
-        private void treeViewPermisos_VerificarDespues(object sender, TreeViewEventArgs e)
+        private void treeViewPermisos_MarcarNodosRaiz()
         {
-            // Verificar si el nodo está marcado
-            if (e.Node.Checked)
+            // Verificar si ya se está actualizando los nodos
+            if (!isUpdatingNodeState)
             {
-                // Buscar el nombre del permiso en la lista permisosGrupos
-                if (permisos.ObtenerPermisosDeGruposPorID_User(idUsuario).Any(permiso => permiso.PermissionName == e.Node.Text))
-                {
-                    // Mostrar un mensaje de advertencia al usuario
-                    MessageBox.Show("Aunque desactive este permiso, el usuario aún tendrá acceso debido a que es un permiso heredado de un grupo al que pertenece.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                // Establecer la bandera para evitar la recursión infinita
+                isUpdatingNodeState = true;
+
+                // Actualizar los nodos raíz
+                ValidacionesForm.CheckRootNodes(treeViewPermisos);
+
+                // Restablecer la bandera
+                isUpdatingNodeState = false;
             }
         }
     }

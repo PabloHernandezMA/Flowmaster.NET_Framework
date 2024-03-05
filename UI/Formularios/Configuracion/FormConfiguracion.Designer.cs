@@ -63,7 +63,7 @@
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
-            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(102)))), ((int)(((byte)(110)))));
+            this.menuStrip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(171)))), ((int)(((byte)(184)))));
             this.menuStrip1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proveedoresToolStripMenuItem,
@@ -86,13 +86,13 @@
             // gestionarProveedoresToolStripMenuItem
             // 
             this.gestionarProveedoresToolStripMenuItem.Name = "gestionarProveedoresToolStripMenuItem";
-            this.gestionarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.gestionarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.gestionarProveedoresToolStripMenuItem.Text = "Idioma";
             // 
             // órdenesDeCompraToolStripMenuItem
             // 
             this.órdenesDeCompraToolStripMenuItem.Name = "órdenesDeCompraToolStripMenuItem";
-            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
             this.órdenesDeCompraToolStripMenuItem.Text = "Aceca de";
             // 
             // productosToolStripMenuItem
@@ -107,14 +107,14 @@
             // gestionarProductosToolStripMenuItem
             // 
             this.gestionarProductosToolStripMenuItem.Name = "gestionarProductosToolStripMenuItem";
-            this.gestionarProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.gestionarProductosToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.gestionarProductosToolStripMenuItem.Text = "Conexión";
             this.gestionarProductosToolStripMenuItem.Click += new System.EventHandler(this.gestionarProductosToolStripMenuItem_Click);
             // 
             // tiposToolStripMenuItem
             // 
             this.tiposToolStripMenuItem.Name = "tiposToolStripMenuItem";
-            this.tiposToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.tiposToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
             this.tiposToolStripMenuItem.Text = "Respaldo";
             // 
             // FormConfiguracion

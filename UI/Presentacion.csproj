@@ -55,11 +55,29 @@
     <Compile Include="Formularios\Administracion\FormAdministracion.Designer.cs">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.Designer.cs">
+      <DependentUpon>FormDetallesGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormGestionarGrupos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormGestionarGrupos.Designer.cs">
       <DependentUpon>FormGestionarGrupos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Permisos\FormDetallesPermiso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Permisos\FormDetallesPermiso.Designer.cs">
+      <DependentUpon>FormDetallesPermiso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Permisos\FormGestionarPermisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Permisos\FormGestionarPermisos.Designer.cs">
+      <DependentUpon>FormGestionarPermisos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.cs">
       <SubType>Form</SubType>
@@ -109,8 +127,17 @@
     <EmbeddedResource Include="Formularios\Administracion\FormAdministracion.resx">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.resx">
+      <DependentUpon>FormDetallesGrupo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormGestionarGrupos.resx">
       <DependentUpon>FormGestionarGrupos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Permisos\FormDetallesPermiso.resx">
+      <DependentUpon>FormDetallesPermiso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Permisos\FormGestionarPermisos.resx">
+      <DependentUpon>FormGestionarPermisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormDetallesUsuario.resx">
       <DependentUpon>FormDetallesUsuario.cs</DependentUpon>

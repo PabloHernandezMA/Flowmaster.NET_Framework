@@ -1,6 +1,6 @@
-﻿namespace UI.Administracion.Usuarios.Gestionar_Usuarios
+﻿namespace UI.Formularios.Administracion.Usuarios.Gestionar_Grupos
 {
-    partial class FormDetallesUsuario
+    partial class FormDetallesGrupo
     {
         /// <summary>
         /// Required designer variable.
@@ -34,88 +34,39 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallesUsuario));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallesGrupo));
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelNumeroID = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPageUsuario = new System.Windows.Forms.TabPage();
-            this.checkBoxHabilitado = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.textBoxContrasena = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.tabPageGrupo = new System.Windows.Forms.TabPage();
+            this.checkBoxHabilitado = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.tabPageUsuarios = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridViewGruposMiembro = new System.Windows.Forms.DataGridView();
-            this.dataGridViewGruposDisponibles = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUsuariosMiembro = new System.Windows.Forms.DataGridView();
+            this.dataGridViewUsuariosDisponibles = new System.Windows.Forms.DataGridView();
             this.buttonQuitar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.tabPagePermisos = new System.Windows.Forms.TabPage();
             this.treeViewPermisos = new System.Windows.Forms.TreeView();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPageUsuario.SuspendLayout();
             this.tabPageGrupo.SuspendLayout();
+            this.tabPageUsuarios.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposMiembro)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposDisponibles)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuariosMiembro)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuariosDisponibles)).BeginInit();
             this.tabPagePermisos.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(173)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.labelNumeroID);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(874, 61);
-            this.panel1.TabIndex = 0;
-            // 
-            // labelNumeroID
-            // 
-            this.labelNumeroID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNumeroID.Location = new System.Drawing.Point(704, 24);
-            this.labelNumeroID.Name = "labelNumeroID";
-            this.labelNumeroID.Size = new System.Drawing.Size(158, 23);
-            this.labelNumeroID.TabIndex = 2;
-            this.labelNumeroID.Text = "0000001";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.label2.Location = new System.Drawing.Point(606, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(92, 28);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Número:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 40);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Detalle de usuario";
             // 
             // panel2
             // 
@@ -126,7 +77,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 531);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(874, 80);
-            this.panel2.TabIndex = 1;
+            this.panel2.TabIndex = 23;
             // 
             // button3
             // 
@@ -158,46 +109,75 @@
             this.button2.Text = "Guardar cambios";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // panel1
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.panel3.Controls.Add(this.tabControl1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 61);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(874, 470);
-            this.panel3.TabIndex = 2;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(173)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.labelNumeroID);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(874, 61);
+            this.panel1.TabIndex = 22;
+            // 
+            // labelNumeroID
+            // 
+            this.labelNumeroID.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNumeroID.Location = new System.Drawing.Point(704, 24);
+            this.labelNumeroID.Name = "labelNumeroID";
+            this.labelNumeroID.Size = new System.Drawing.Size(158, 23);
+            this.labelNumeroID.TabIndex = 2;
+            this.labelNumeroID.Text = "0000001";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 15F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.label2.Location = new System.Drawing.Point(606, 18);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(92, 28);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Número:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(33)))));
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(236, 40);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Detalle de grupo";
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPageUsuario);
             this.tabControl1.Controls.Add(this.tabPageGrupo);
+            this.tabControl1.Controls.Add(this.tabPageUsuarios);
             this.tabControl1.Controls.Add(this.tabPagePermisos);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.Location = new System.Drawing.Point(0, 0);
+            this.tabControl1.Location = new System.Drawing.Point(0, 61);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(874, 470);
-            this.tabControl1.TabIndex = 21;
+            this.tabControl1.TabIndex = 25;
             // 
-            // tabPageUsuario
+            // tabPageGrupo
             // 
-            this.tabPageUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.tabPageUsuario.Controls.Add(this.checkBoxHabilitado);
-            this.tabPageUsuario.Controls.Add(this.label5);
-            this.tabPageUsuario.Controls.Add(this.textBoxContrasena);
-            this.tabPageUsuario.Controls.Add(this.label4);
-            this.tabPageUsuario.Controls.Add(this.label3);
-            this.tabPageUsuario.Controls.Add(this.textBoxEmail);
-            this.tabPageUsuario.Controls.Add(this.textBoxNombre);
-            this.tabPageUsuario.Location = new System.Drawing.Point(4, 30);
-            this.tabPageUsuario.Name = "tabPageUsuario";
-            this.tabPageUsuario.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageUsuario.Size = new System.Drawing.Size(866, 436);
-            this.tabPageUsuario.TabIndex = 0;
-            this.tabPageUsuario.Text = "Usuario";
+            this.tabPageGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
+            this.tabPageGrupo.Controls.Add(this.checkBoxHabilitado);
+            this.tabPageGrupo.Controls.Add(this.label4);
+            this.tabPageGrupo.Controls.Add(this.textBoxNombre);
+            this.tabPageGrupo.Location = new System.Drawing.Point(4, 30);
+            this.tabPageGrupo.Name = "tabPageGrupo";
+            this.tabPageGrupo.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageGrupo.Size = new System.Drawing.Size(866, 436);
+            this.tabPageGrupo.TabIndex = 0;
+            this.tabPageGrupo.Text = "Grupo";
             // 
             // checkBoxHabilitado
             // 
@@ -211,25 +191,6 @@
             this.checkBoxHabilitado.Text = "Habilitado";
             this.checkBoxHabilitado.UseVisualStyleBackColor = true;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label5.Location = new System.Drawing.Point(10, 153);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(127, 30);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "Contraseña:";
-            // 
-            // textBoxContrasena
-            // 
-            this.textBoxContrasena.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.textBoxContrasena.Location = new System.Drawing.Point(11, 186);
-            this.textBoxContrasena.Name = "textBoxContrasena";
-            this.textBoxContrasena.Size = new System.Drawing.Size(508, 32);
-            this.textBoxContrasena.TabIndex = 20;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -241,25 +202,6 @@
             this.label4.TabIndex = 15;
             this.label4.Text = "Nombre:";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label3.Location = new System.Drawing.Point(10, 84);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(69, 30);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Email:";
-            // 
-            // textBoxEmail
-            // 
-            this.textBoxEmail.Font = new System.Drawing.Font("Segoe UI", 14F);
-            this.textBoxEmail.Location = new System.Drawing.Point(11, 117);
-            this.textBoxEmail.Name = "textBoxEmail";
-            this.textBoxEmail.Size = new System.Drawing.Size(508, 32);
-            this.textBoxEmail.TabIndex = 18;
-            // 
             // textBoxNombre
             // 
             this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 14F);
@@ -268,16 +210,16 @@
             this.textBoxNombre.Size = new System.Drawing.Size(508, 32);
             this.textBoxNombre.TabIndex = 17;
             // 
-            // tabPageGrupo
+            // tabPageUsuarios
             // 
-            this.tabPageGrupo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.tabPageGrupo.Controls.Add(this.tableLayoutPanel1);
-            this.tabPageGrupo.Location = new System.Drawing.Point(4, 30);
-            this.tabPageGrupo.Name = "tabPageGrupo";
-            this.tabPageGrupo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageGrupo.Size = new System.Drawing.Size(866, 436);
-            this.tabPageGrupo.TabIndex = 1;
-            this.tabPageGrupo.Text = "Grupos";
+            this.tabPageUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
+            this.tabPageUsuarios.Controls.Add(this.tableLayoutPanel1);
+            this.tabPageUsuarios.Location = new System.Drawing.Point(4, 30);
+            this.tabPageUsuarios.Name = "tabPageUsuarios";
+            this.tabPageUsuarios.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageUsuarios.Size = new System.Drawing.Size(866, 436);
+            this.tabPageUsuarios.TabIndex = 1;
+            this.tabPageUsuarios.Text = "Usuarios";
             // 
             // tableLayoutPanel1
             // 
@@ -285,8 +227,8 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewGruposMiembro, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.dataGridViewGruposDisponibles, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewUsuariosMiembro, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridViewUsuariosDisponibles, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonQuitar, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.label7, 2, 0);
@@ -302,16 +244,16 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(860, 430);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // dataGridViewGruposMiembro
+            // dataGridViewUsuariosMiembro
             // 
-            this.dataGridViewGruposMiembro.AllowUserToAddRows = false;
-            this.dataGridViewGruposMiembro.AllowUserToDeleteRows = false;
-            this.dataGridViewGruposMiembro.AllowUserToOrderColumns = true;
-            this.dataGridViewGruposMiembro.AllowUserToResizeRows = false;
-            this.dataGridViewGruposMiembro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGruposMiembro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.dataGridViewGruposMiembro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewGruposMiembro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewUsuariosMiembro.AllowUserToAddRows = false;
+            this.dataGridViewUsuariosMiembro.AllowUserToDeleteRows = false;
+            this.dataGridViewUsuariosMiembro.AllowUserToOrderColumns = true;
+            this.dataGridViewUsuariosMiembro.AllowUserToResizeRows = false;
+            this.dataGridViewUsuariosMiembro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewUsuariosMiembro.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            this.dataGridViewUsuariosMiembro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewUsuariosMiembro.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,8 +262,8 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGruposMiembro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewGruposMiembro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsuariosMiembro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewUsuariosMiembro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -329,37 +271,37 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGruposMiembro.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewGruposMiembro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewGruposMiembro.EnableHeadersVisualStyles = false;
-            this.dataGridViewGruposMiembro.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewGruposMiembro.Location = new System.Drawing.Point(519, 71);
-            this.dataGridViewGruposMiembro.MultiSelect = false;
-            this.dataGridViewGruposMiembro.Name = "dataGridViewGruposMiembro";
-            this.dataGridViewGruposMiembro.ReadOnly = true;
-            this.dataGridViewGruposMiembro.RowHeadersVisible = false;
-            this.dataGridViewGruposMiembro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewUsuariosMiembro.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewUsuariosMiembro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewUsuariosMiembro.EnableHeadersVisualStyles = false;
+            this.dataGridViewUsuariosMiembro.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridViewUsuariosMiembro.Location = new System.Drawing.Point(519, 71);
+            this.dataGridViewUsuariosMiembro.MultiSelect = false;
+            this.dataGridViewUsuariosMiembro.Name = "dataGridViewUsuariosMiembro";
+            this.dataGridViewUsuariosMiembro.ReadOnly = true;
+            this.dataGridViewUsuariosMiembro.RowHeadersVisible = false;
+            this.dataGridViewUsuariosMiembro.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewGruposMiembro.RowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewGruposMiembro, 2);
-            this.dataGridViewGruposMiembro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGruposMiembro.Size = new System.Drawing.Size(338, 356);
-            this.dataGridViewGruposMiembro.TabIndex = 17;
+            this.dataGridViewUsuariosMiembro.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewUsuariosMiembro, 2);
+            this.dataGridViewUsuariosMiembro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUsuariosMiembro.Size = new System.Drawing.Size(338, 356);
+            this.dataGridViewUsuariosMiembro.TabIndex = 17;
             // 
-            // dataGridViewGruposDisponibles
+            // dataGridViewUsuariosDisponibles
             // 
-            this.dataGridViewGruposDisponibles.AllowUserToAddRows = false;
-            this.dataGridViewGruposDisponibles.AllowUserToDeleteRows = false;
-            this.dataGridViewGruposDisponibles.AllowUserToOrderColumns = true;
-            this.dataGridViewGruposDisponibles.AllowUserToResizeRows = false;
-            this.dataGridViewGruposDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewGruposDisponibles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.dataGridViewGruposDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewGruposDisponibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dataGridViewUsuariosDisponibles.AllowUserToAddRows = false;
+            this.dataGridViewUsuariosDisponibles.AllowUserToDeleteRows = false;
+            this.dataGridViewUsuariosDisponibles.AllowUserToOrderColumns = true;
+            this.dataGridViewUsuariosDisponibles.AllowUserToResizeRows = false;
+            this.dataGridViewUsuariosDisponibles.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewUsuariosDisponibles.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            this.dataGridViewUsuariosDisponibles.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewUsuariosDisponibles.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -368,8 +310,8 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGruposDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewGruposDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewUsuariosDisponibles.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewUsuariosDisponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -377,26 +319,26 @@
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewGruposDisponibles.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dataGridViewGruposDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewGruposDisponibles.EnableHeadersVisualStyles = false;
-            this.dataGridViewGruposDisponibles.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewGruposDisponibles.Location = new System.Drawing.Point(3, 71);
-            this.dataGridViewGruposDisponibles.MultiSelect = false;
-            this.dataGridViewGruposDisponibles.Name = "dataGridViewGruposDisponibles";
-            this.dataGridViewGruposDisponibles.ReadOnly = true;
-            this.dataGridViewGruposDisponibles.RowHeadersVisible = false;
-            this.dataGridViewGruposDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewUsuariosDisponibles.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewUsuariosDisponibles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridViewUsuariosDisponibles.EnableHeadersVisualStyles = false;
+            this.dataGridViewUsuariosDisponibles.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridViewUsuariosDisponibles.Location = new System.Drawing.Point(3, 71);
+            this.dataGridViewUsuariosDisponibles.MultiSelect = false;
+            this.dataGridViewUsuariosDisponibles.Name = "dataGridViewUsuariosDisponibles";
+            this.dataGridViewUsuariosDisponibles.ReadOnly = true;
+            this.dataGridViewUsuariosDisponibles.RowHeadersVisible = false;
+            this.dataGridViewUsuariosDisponibles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewGruposDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewGruposDisponibles, 2);
-            this.dataGridViewGruposDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewGruposDisponibles.Size = new System.Drawing.Size(338, 356);
-            this.dataGridViewGruposDisponibles.TabIndex = 16;
+            this.dataGridViewUsuariosDisponibles.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.tableLayoutPanel1.SetRowSpan(this.dataGridViewUsuariosDisponibles, 2);
+            this.dataGridViewUsuariosDisponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUsuariosDisponibles.Size = new System.Drawing.Size(338, 356);
+            this.dataGridViewUsuariosDisponibles.TabIndex = 16;
             // 
             // buttonQuitar
             // 
@@ -428,7 +370,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(338, 68);
             this.label6.TabIndex = 3;
-            this.label6.Text = "Grupos disponibles:";
+            this.label6.Text = "Usuarios disponibles:";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -441,7 +383,7 @@
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(338, 68);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Grupos que integra el usuario:";
+            this.label7.Text = "Usuarios miembro:";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // buttonAgregar
@@ -486,35 +428,32 @@
             this.treeViewPermisos.Name = "treeViewPermisos";
             this.treeViewPermisos.Size = new System.Drawing.Size(475, 396);
             this.treeViewPermisos.TabIndex = 0;
-            this.treeViewPermisos.BeforeCheck += new System.Windows.Forms.TreeViewCancelEventHandler(this.treeViewPermisos_VerificarAntes);
             // 
-            // FormDetallesUsuario
+            // FormDetallesGrupo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(874, 611);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "FormDetallesUsuario";
+            this.Name = "FormDetallesGrupo";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FormDetallesUsuario";
-            this.Load += new System.EventHandler(this.FormDetallesUsuario_Load);
+            this.Text = "FormDetallesGrupo";
+            this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPageUsuario.ResumeLayout(false);
-            this.tabPageUsuario.PerformLayout();
             this.tabPageGrupo.ResumeLayout(false);
+            this.tabPageGrupo.PerformLayout();
+            this.tabPageUsuarios.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposMiembro)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGruposDisponibles)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuariosMiembro)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsuariosDisponibles)).EndInit();
             this.tabPagePermisos.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -522,32 +461,27 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label labelNumeroID;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPageUsuario;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBoxContrasena;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.TabPage tabPageGrupo;
-        private System.Windows.Forms.TabPage tabPagePermisos;
         private System.Windows.Forms.CheckBox checkBoxHabilitado;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.TabPage tabPageUsuarios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView dataGridViewUsuariosMiembro;
+        private System.Windows.Forms.DataGridView dataGridViewUsuariosDisponibles;
+        private System.Windows.Forms.Button buttonQuitar;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonAgregar;
-        private System.Windows.Forms.Button buttonQuitar;
+        private System.Windows.Forms.TabPage tabPagePermisos;
         private System.Windows.Forms.TreeView treeViewPermisos;
-        private System.Windows.Forms.DataGridView dataGridViewGruposMiembro;
-        private System.Windows.Forms.DataGridView dataGridViewGruposDisponibles;
     }
 }
