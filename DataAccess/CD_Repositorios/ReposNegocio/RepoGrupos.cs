@@ -111,5 +111,51 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
                 throw ex;
             }
         }
+
+        public List<Grupo> ObtenerGruposAsociadosAPermiso(int permisoID)
+        {
+            List<Grupo> grupos = new List<Grupo>();
+            string consultaSQL = "SELECT G.* FROM GRUPOS G JOIN PxG ON G.ID_Group = PxG.ID_Group WHERE PxG.ID_Permission = @permisoID";
+
+            parametros.Add(new SqlParameter("@permisoID", permisoID));
+
+            DataTable tablaGrupos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaGrupos.Rows)
+            {
+                Grupo grupo = new Grupo
+                {
+                    ID_Group = Convert.ToInt32(fila["ID_Group"]),
+                    Groupname = fila["Groupname"].ToString(),
+                    is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
+                };
+                grupos.Add(grupo);
+            }
+
+            return grupos;
+        }
+
+        public List<Grupo> ObtenerGruposNoAsociadosAPermiso(int permisoID)
+        {
+            List<Grupo> grupos = new List<Grupo>();
+            string consultaSQL = "SELECT G.* FROM GRUPOS G LEFT JOIN PxG ON G.ID_Group = PxG.ID_Group AND PxG.ID_Permission = @permisoID WHERE PxG.ID_Group IS NULL";
+
+            parametros.Add(new SqlParameter("@permisoID", permisoID));
+
+            DataTable tablaGrupos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaGrupos.Rows)
+            {
+                Grupo grupo = new Grupo
+                {
+                    ID_Group = Convert.ToInt32(fila["ID_Group"]),
+                    Groupname = fila["Groupname"].ToString(),
+                    is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
+                };
+                grupos.Add(grupo);
+            }
+
+            return grupos;
+        }
     }
 }

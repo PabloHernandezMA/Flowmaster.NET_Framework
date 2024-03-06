@@ -106,9 +106,59 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
         public List<Usuario> ObtenerUsuariosNoAsociadosAGrupo(int grupoID)
         {
             List<Usuario> usuarios = new List<Usuario>();
-            string consultaSQL = "SELECT USUARIOS.* FROM USUARIOS LEFT JOIN UxG ON USUARIOS.ID_User = UxG.ID_User AND UxG.ID_Group = @grupoID WHERE UxG.ID_User IS NULL;";
+            string consultaSQL = "SELECT USUARIOS.* FROM USUARIOS LEFT JOIN UxG ON USUARIOS.ID_User = UxG.ID_User AND UxG.ID_Group = @grupoID WHERE UxG.ID_User IS NULL";
 
             parametros.Add(new SqlParameter("@grupoID", grupoID));
+
+            DataTable tablaUsuarios = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaUsuarios.Rows)
+            {
+                Usuario usuario = new Usuario
+                {
+                    ID_User = Convert.ToInt32(fila["ID_User"]),
+                    Username = fila["Username"].ToString(),
+                    User_Password = fila["User_Password"].ToString(),
+                    User_Email = fila["User_Email"].ToString(),
+                    is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
+                };
+                usuarios.Add(usuario);
+            }
+
+            return usuarios;
+        }
+
+        public List<Usuario> ObtenerUsuariosAsociadosAPermiso(int permisoID)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            string consultaSQL = "SELECT U.* FROM USUARIOS U JOIN PxU ON U.ID_User = PxU.ID_User WHERE PxU.ID_Permission = @permisoID";
+
+            parametros.Add(new SqlParameter("@permisoID", permisoID));
+
+            DataTable tablaUsuarios = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaUsuarios.Rows)
+            {
+                Usuario usuario = new Usuario
+                {
+                    ID_User = Convert.ToInt32(fila["ID_User"]),
+                    Username = fila["Username"].ToString(),
+                    User_Password = fila["User_Password"].ToString(),
+                    User_Email = fila["User_Email"].ToString(),
+                    is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
+                };
+                usuarios.Add(usuario);
+            }
+
+            return usuarios;
+        }
+
+        public List<Usuario> ObtenerUsuariosNoAsociadosAPermiso(int permisoID)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            string consultaSQL = "SELECT U.* FROM USUARIOS U LEFT JOIN PxU ON U.ID_User = PxU.ID_User AND PxU.ID_Permission = @permisoID WHERE PxU.ID_User IS NULL";
+
+            parametros.Add(new SqlParameter("@permisoID", permisoID));
 
             DataTable tablaUsuarios = ExecuteReader(consultaSQL);
 

@@ -122,5 +122,33 @@ namespace Dominio.Clases
                 throw ex;
             }
         }
+
+        public List<Usuario> ObtenerUsuariosAsociadosAPermiso(int permisoID)
+        {
+            try
+            {
+                usuarios = repositorioUsuarios.ObtenerUsuariosAsociadosAPermiso(permisoID);
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
+        public List<Usuario> ObtenerUsuariosNoAsociadosAPermiso(int permisoID)
+        {
+            try
+            {
+                usuarios = repositorioUsuarios.ObtenerUsuariosNoAsociadosAPermiso(permisoID);
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
     }
 }

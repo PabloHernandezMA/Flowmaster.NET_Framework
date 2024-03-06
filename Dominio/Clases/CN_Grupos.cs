@@ -117,5 +117,33 @@ namespace Dominio.Clases
             }
         }
 
+        public List<Grupo> ObtenerGruposAsociadosAPermiso(int permisoID)
+        {
+            try
+            {
+                grupos = repositorioGrupos.ObtenerGruposAsociadosAPermiso(permisoID);
+                return grupos;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
+        public List<Grupo> ObtenerGruposNoAsociadosAPermiso(int permisoID)
+        {
+            try
+            {
+                grupos = repositorioGrupos.ObtenerGruposNoAsociadosAPermiso(permisoID);
+                return grupos;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
     }
 }
