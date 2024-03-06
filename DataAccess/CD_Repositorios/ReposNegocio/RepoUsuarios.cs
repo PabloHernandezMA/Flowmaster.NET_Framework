@@ -76,20 +76,20 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
             {
                 throw ex;
             }
-            /*
-            Usuario usuario = null;
-            string consultaSQL = "SELECT * FROM Usuarios WHERE ID_User = @ID";
+        }
 
-            SqlParameter parametroID = new SqlParameter("@ID", SqlDbType.Int);
-            parametroID.Value = idUsuario;
-            parametros.Add(parametroID);
+        public List<Usuario> ObtenerUsuariosPorGrupo(int grupoID)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            string consultaSQL = "SELECT USUARIOS.* FROM USUARIOS JOIN UxG ON USUARIOS.ID_User = UxG.ID_User WHERE UxG.ID_Group = @grupoID";
 
-            DataTable tablaUsuario = ExecuteReader(consultaSQL);
+            parametros.Add(new SqlParameter("@grupoID", grupoID));
 
-            if (tablaUsuario.Rows.Count > 0)
+            DataTable tablaUsuarios = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaUsuarios.Rows)
             {
-                DataRow fila = tablaUsuario.Rows[0];
-                usuario = new Usuario
+                Usuario usuario = new Usuario
                 {
                     ID_User = Convert.ToInt32(fila["ID_User"]),
                     Username = fila["Username"].ToString(),
@@ -97,9 +97,35 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
                     User_Email = fila["User_Email"].ToString(),
                     is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
                 };
+                usuarios.Add(usuario);
             }
-            return usuario;
-            */
+
+            return usuarios;
+        }
+
+        public List<Usuario> ObtenerUsuariosNoAsociadosAGrupo(int grupoID)
+        {
+            List<Usuario> usuarios = new List<Usuario>();
+            string consultaSQL = "SELECT USUARIOS.* FROM USUARIOS LEFT JOIN UxG ON USUARIOS.ID_User = UxG.ID_User AND UxG.ID_Group = @grupoID WHERE UxG.ID_User IS NULL;";
+
+            parametros.Add(new SqlParameter("@grupoID", grupoID));
+
+            DataTable tablaUsuarios = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaUsuarios.Rows)
+            {
+                Usuario usuario = new Usuario
+                {
+                    ID_User = Convert.ToInt32(fila["ID_User"]),
+                    Username = fila["Username"].ToString(),
+                    User_Password = fila["User_Password"].ToString(),
+                    User_Email = fila["User_Email"].ToString(),
+                    is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
+                };
+                usuarios.Add(usuario);
+            }
+
+            return usuarios;
         }
     }
 }

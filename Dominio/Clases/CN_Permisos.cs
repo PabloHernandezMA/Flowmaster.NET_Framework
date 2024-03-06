@@ -64,6 +64,21 @@ namespace Dominio.Clases
                 throw ex;
             }
         }
+        
+        public List<Permiso> ObtenerPermisosDeGrupoPorID_Group(int grupoID)
+        {
+            try
+            {
+                permisos = repositorioPermisos.ObtenerPermisosDeGrupoPorID_Group(grupoID);
+                return permisos;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+        
 
         public List<Permiso> ObtenerPermisosDeGruposPorID_User(int userID)
         {

@@ -33,6 +33,7 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
         private void FormDetallesUsuario_Load(object sender, EventArgs e)
         {
             usuario = CN_Usuarios.ObtenerInstancia();
+            grupos = CN_Grupos.ObtenerInstancia();
             permisos = CN_Permisos.ObtenerInstancia();
             modulos = CN_Modulos.ObtenerInstancia();
             formularios = CN_Formularios.ObtenerInstancia();
@@ -70,7 +71,6 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
 
         private void CargarGrupos()
         {
-            grupos = CN_Grupos.ObtenerInstancia();
             try
             {
                 dataGridViewGruposDisponibles.DataSource = grupos.ObtenerGruposNoAsociadosAUsuario(idUsuario);

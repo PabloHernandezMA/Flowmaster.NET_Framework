@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess.CD_Repositorios.ReposNegocio
 {
-    public class RepoGrupos: RepositorioMaestro
+    public class RepoGrupos : RepositorioMaestro
     {
         public List<Grupo> ObtenerTodosLosGrupos()
         {
@@ -77,6 +77,39 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
             }
 
             return grupos;
+        }
+
+        public Grupo ObtenerGrupoPorID(int idGrupo)
+        {
+            try
+            {
+                List<Grupo> grupos = new List<Grupo>();
+                parametros.Clear();
+                string consultaSQL = "SELECT * FROM Grupos WHERE ID_Group = @ID";
+
+                parametros.Add(new SqlParameter("@ID", idGrupo));
+
+                DataTable tablaGrupo = ExecuteReader(consultaSQL);
+                if (tablaGrupo.Rows.Count > 0)
+                {
+                    DataRow fila = tablaGrupo.Rows[0];
+                    Grupo grupo = new Grupo
+                    {
+                        ID_Group = Convert.ToInt32(fila["ID_Group"]),
+                        Groupname = fila["Groupname"].ToString(),
+                        is_Enabled = Convert.ToBoolean(fila["is_Enabled"])
+                    };
+                    return grupo;
+                }
+                else
+                {
+                    return null; // Retorna null si no se encuentra el usuario
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

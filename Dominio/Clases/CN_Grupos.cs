@@ -49,6 +49,17 @@ namespace Dominio.Clases
                 throw ex;
             }
         }
+        public Grupo ObtenerGrupoPorID(int idGrupo)
+        {
+            try
+            {
+                return repositorioGrupos.ObtenerGrupoPorID(idGrupo);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public IEnumerable<Grupo> Filtrar(string filtroGroupname, string filtroID_Group, bool filtroIs_Enabled)
         {

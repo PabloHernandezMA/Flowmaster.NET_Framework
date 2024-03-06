@@ -94,5 +94,33 @@ namespace Dominio.Clases
                 return usuarios;
             }
         }
+
+        public List<Usuario> ObtenerUsuariosPorGrupo(int groupID)
+        {
+            try
+            {
+                usuarios = repositorioUsuarios.ObtenerUsuariosPorGrupo(groupID);
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
+        public List<Usuario> ObtenerUsuariosNoAsociadosAGrupo(int groupID)
+        {
+            try
+            {
+                usuarios = repositorioUsuarios.ObtenerUsuariosNoAsociadosAGrupo(groupID);
+                return usuarios;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Administracion.Usuarios.Gestionar_Usuarios;
 
 namespace UI.Formularios.Administracion.Usuarios.Gestionar_Grupos
 {
@@ -76,7 +77,21 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Grupos
 
         private void buttonVerDetalles_Click(object sender, EventArgs e)
         {
+            // Verificar si hay una fila seleccionada en el DataGridView
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                int idGrupoSeleccionado = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_Group"].Value);
 
+                // Usando el bloque using, se asegura de que la instancia del formulario se libere correctamente
+                using (FormDetallesGrupo formDetallesGrupo = new FormDetallesGrupo(idGrupoSeleccionado))
+                {
+                    formDetallesGrupo.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un grupo primero.");
+            }
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)

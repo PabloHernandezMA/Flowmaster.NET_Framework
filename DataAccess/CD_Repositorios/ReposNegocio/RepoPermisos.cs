@@ -36,7 +36,7 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
         public List<Permiso> ObtenerPermisosDeUsuario(int userID)
         {
             List<Permiso> permisos = new List<Permiso>();
-            string consultaSQL = "SELECT DISTINCT P.ID_Permission, P.PermissionName, P.ID_Form FROM PERMISOS P JOIN PxU ON P.ID_Permission = PxU.ID_Permission JOIN USUARIOS U ON PxU.ID_User = U.ID_User WHERE U.ID_User = @UserID";
+            string consultaSQL = "SELECT DISTINCT P.* FROM PERMISOS P JOIN PxU ON P.ID_Permission = PxU.ID_Permission JOIN USUARIOS U ON PxU.ID_User = U.ID_User WHERE U.ID_User = @UserID";
             parametros.Add(new SqlParameter("@UserID", userID));
             DataTable tablaPermisos = ExecuteReader(consultaSQL);
 
@@ -56,7 +56,7 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
         public List<Permiso> ObtenerPermisosDeGruposPorID_User(int userID)
         {
             List<Permiso> permisos = new List<Permiso>();
-            string consultaSQL = "SELECT DISTINCT P.ID_Permission, P.PermissionName, P.ID_Form FROM PERMISOS P JOIN PxG ON P.ID_Permission = PxG.ID_Permission JOIN GRUPOS G ON PxG.ID_Group = G.ID_Group JOIN UxG ON G.ID_Group = UxG.ID_Group JOIN USUARIOS U ON UxG.ID_User = U.ID_User WHERE U.ID_User = @UserID";
+            string consultaSQL = "SELECT P.* FROM PERMISOS P JOIN PxG ON P.ID_Permission = PxG.ID_Permission JOIN GRUPOS G ON PxG.ID_Group = G.ID_Group JOIN UxG ON G.ID_Group = UxG.ID_Group JOIN USUARIOS U ON UxG.ID_User = U.ID_User WHERE U.ID_User = @UserID";
             parametros.Add(new SqlParameter("@UserID", userID));
             DataTable tablaPermisos = ExecuteReader(consultaSQL);
 
@@ -72,46 +72,24 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
             }
             return permisos;
         }
-
-        /*
-        public List<Permiso> ObtenerPermisosDeUsuario(int userID)
+        public List<Permiso> ObtenerPermisosDeGrupoPorID_Group(int grupoID)
         {
-            List<Permiso> Permisos = new List<Permiso>();
-            string consultaSQL = "SELECT DISTINCT P.PermissionName FROM PERMISOS P JOIN PxU ON P.ID_Permission = PxU.ID_Permission JOIN USUARIOS U ON PxU.ID_User = U.ID_User WHERE U.ID_User = @UserID";
-            parametros.Add(new SqlParameter("@UserID", userID));
+            List<Permiso> permisos = new List<Permiso>();
+            string consultaSQL = "SELECT PERMISOS.* FROM PERMISOS JOIN PxG ON PERMISOS.ID_Permission = PxG.ID_Permission WHERE PxG.ID_Group = @grupoID";
+            parametros.Add(new SqlParameter("@grupoID", grupoID));
             DataTable tablaPermisos = ExecuteReader(consultaSQL);
 
             foreach (DataRow fila in tablaPermisos.Rows)
             {
-                Permiso Permiso = new Permiso
+                Permiso permiso = new Permiso
                 {
                     ID_Permission = Convert.ToInt32(fila["ID_Permission"]),
                     PermissionName = fila["PermissionName"].ToString(),
                     ID_Form = Convert.ToInt32(fila["ID_Form"])
                 };
-                Permisos.Add(Permiso);
+                permisos.Add(permiso);
             }
-            return Permisos;
+            return permisos;
         }
-
-        public List<Permiso> ObtenerPermisosDeGruposPorID_User(int userID)
-        {
-            List<Permiso> Permisos = new List<Permiso>();
-            string consultaSQL = "SELECT DISTINCT P.PermissionName FROM PERMISOS P JOIN PxG ON P.ID_Permission = PxG.ID_Permission JOIN GRUPOS G ON PxG.ID_Group = G.ID_Group JOIN UxG ON G.ID_Group = UxG.ID_Group JOIN USUARIOS U ON UxG.ID_User = U.ID_User WHERE U.ID_User = @UserID";
-            parametros.Add(new SqlParameter("@UserID", userID));
-            DataTable tablaPermisos = ExecuteReader(consultaSQL);
-
-            foreach (DataRow fila in tablaPermisos.Rows)
-            {
-                Permiso Permiso = new Permiso
-                {
-                    ID_Permission = Convert.ToInt32(fila["ID_Permission"]),
-                    PermissionName = fila["PermissionName"].ToString(),
-                    ID_Form = Convert.ToInt32(fila["ID_Form"])
-                };
-                Permisos.Add(Permiso);
-            }
-            return Permisos;
-        }*/
     }
 }
