@@ -38,26 +38,29 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.buttonCancelar = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewDisponibles = new System.Windows.Forms.DataGridView();
             this.dataGridViewAsociados = new System.Windows.Forms.DataGridView();
             this.treeViewPermisos = new System.Windows.Forms.TreeView();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonQuitarPermiso = new System.Windows.Forms.Button();
+            this.buttonDarPermiso = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBoxUsuarios = new System.Windows.Forms.CheckBox();
-            this.checkBoxGrupos = new System.Windows.Forms.CheckBox();
-            this.checkBoxSoloHabilitados = new System.Windows.Forms.CheckBox();
             this.panel7 = new System.Windows.Forms.Panel();
+            this.checkBoxSoloHabilitados = new System.Windows.Forms.CheckBox();
+            this.checkBoxGrupos = new System.Windows.Forms.CheckBox();
+            this.checkBoxUsuarios = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.labelPermiso = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -67,6 +70,7 @@
             this.panel4.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -93,43 +97,45 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
-            this.panel2.Controls.Add(this.button3);
-            this.panel2.Controls.Add(this.button2);
+            this.panel2.Controls.Add(this.buttonCancelar);
+            this.panel2.Controls.Add(this.buttonGuardar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 596);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1050, 80);
             this.panel2.TabIndex = 24;
             // 
-            // button3
+            // buttonCancelar
             // 
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button3.Location = new System.Drawing.Point(616, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(126, 43);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonCancelar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.IndianRed;
+            this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.buttonCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonCancelar.Location = new System.Drawing.Point(616, 20);
+            this.buttonCancelar.Name = "buttonCancelar";
+            this.buttonCancelar.Size = new System.Drawing.Size(126, 43);
+            this.buttonCancelar.TabIndex = 13;
+            this.buttonCancelar.Text = "Cancelar";
+            this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
-            // button2
+            // buttonGuardar
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button2.Location = new System.Drawing.Point(748, 20);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(195, 43);
-            this.button2.TabIndex = 12;
-            this.button2.Text = "Guardar cambios";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonGuardar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuardar.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonGuardar.Location = new System.Drawing.Point(748, 20);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(195, 43);
+            this.buttonGuardar.TabIndex = 12;
+            this.buttonGuardar.Text = "Guardar cambios";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // panel3
             // 
@@ -147,13 +153,14 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewDisponibles, 3, 4);
             this.tableLayoutPanel1.Controls.Add(this.dataGridViewAsociados, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.treeViewPermisos, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.treeViewPermisos, 0, 2);
             this.tableLayoutPanel1.Controls.Add(this.panel4, 2, 3);
             this.tableLayoutPanel1.Controls.Add(this.panel5, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel6, 2, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel8, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -165,19 +172,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1050, 535);
             this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(406, 50);
-            this.label2.TabIndex = 20;
-            this.label2.Text = "Permisos:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewDisponibles
             // 
@@ -281,18 +275,18 @@
             this.treeViewPermisos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.treeViewPermisos.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.treeViewPermisos.LineColor = System.Drawing.Color.SteelBlue;
-            this.treeViewPermisos.Location = new System.Drawing.Point(3, 53);
+            this.treeViewPermisos.Location = new System.Drawing.Point(3, 103);
             this.treeViewPermisos.Name = "treeViewPermisos";
-            this.tableLayoutPanel1.SetRowSpan(this.treeViewPermisos, 4);
-            this.treeViewPermisos.Size = new System.Drawing.Size(406, 479);
+            this.tableLayoutPanel1.SetRowSpan(this.treeViewPermisos, 3);
+            this.treeViewPermisos.Size = new System.Drawing.Size(406, 429);
             this.treeViewPermisos.TabIndex = 1;
             this.treeViewPermisos.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeViewPermisos_AfterSelect);
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.label3);
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button1);
+            this.panel4.Controls.Add(this.buttonQuitarPermiso);
+            this.panel4.Controls.Add(this.buttonDarPermiso);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(435, 295);
             this.panel4.Name = "panel4";
@@ -306,35 +300,37 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.label3.Location = new System.Drawing.Point(3, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(308, 30);
+            this.label3.Size = new System.Drawing.Size(310, 30);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Usuarios y Grupos disponibles:";
+            this.label3.Text = "Usuarios y Grupos sin permiso:";
             // 
-            // button4
+            // buttonQuitarPermiso
             // 
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
-            this.button4.Location = new System.Drawing.Point(537, 5);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(42, 33);
-            this.button4.TabIndex = 23;
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonQuitarPermiso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonQuitarPermiso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
+            this.buttonQuitarPermiso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonQuitarPermiso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonQuitarPermiso.Image = ((System.Drawing.Image)(resources.GetObject("buttonQuitarPermiso.Image")));
+            this.buttonQuitarPermiso.Location = new System.Drawing.Point(537, 5);
+            this.buttonQuitarPermiso.Name = "buttonQuitarPermiso";
+            this.buttonQuitarPermiso.Size = new System.Drawing.Size(42, 33);
+            this.buttonQuitarPermiso.TabIndex = 23;
+            this.buttonQuitarPermiso.UseVisualStyleBackColor = true;
+            this.buttonQuitarPermiso.Click += new System.EventHandler(this.buttonQuitarPermiso_Click);
             // 
-            // button1
+            // buttonDarPermiso
             // 
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(484, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(42, 33);
-            this.button1.TabIndex = 22;
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonDarPermiso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonDarPermiso.FlatAppearance.MouseOverBackColor = System.Drawing.Color.CadetBlue;
+            this.buttonDarPermiso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDarPermiso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonDarPermiso.Image = ((System.Drawing.Image)(resources.GetObject("buttonDarPermiso.Image")));
+            this.buttonDarPermiso.Location = new System.Drawing.Point(484, 5);
+            this.buttonDarPermiso.Name = "buttonDarPermiso";
+            this.buttonDarPermiso.Size = new System.Drawing.Size(42, 33);
+            this.buttonDarPermiso.TabIndex = 22;
+            this.buttonDarPermiso.UseVisualStyleBackColor = true;
+            this.buttonDarPermiso.Click += new System.EventHandler(this.buttonDarPermiso_Click);
             // 
             // panel5
             // 
@@ -350,11 +346,11 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label4.Location = new System.Drawing.Point(10, 7);
+            this.label4.Location = new System.Drawing.Point(6, 7);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(237, 30);
+            this.label4.Size = new System.Drawing.Size(319, 30);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Entidades con permiso:";
+            this.label4.Text = "Usuarios y Grupos con permiso:";
             // 
             // panel6
             // 
@@ -369,30 +365,29 @@
             this.panel6.Size = new System.Drawing.Size(612, 44);
             this.panel6.TabIndex = 25;
             // 
-            // label5
+            // panel7
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label5.Location = new System.Drawing.Point(10, 7);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 30);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Mostrar:";
+            this.panel7.BackColor = System.Drawing.Color.White;
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel7.Location = new System.Drawing.Point(0, 42);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(612, 2);
+            this.panel7.TabIndex = 5;
             // 
-            // checkBoxUsuarios
+            // checkBoxSoloHabilitados
             // 
-            this.checkBoxUsuarios.AutoSize = true;
-            this.checkBoxUsuarios.Checked = true;
-            this.checkBoxUsuarios.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxUsuarios.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.checkBoxUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.checkBoxUsuarios.Location = new System.Drawing.Point(136, 6);
-            this.checkBoxUsuarios.Name = "checkBoxUsuarios";
-            this.checkBoxUsuarios.Size = new System.Drawing.Size(114, 34);
-            this.checkBoxUsuarios.TabIndex = 2;
-            this.checkBoxUsuarios.Text = "Usuarios";
-            this.checkBoxUsuarios.UseVisualStyleBackColor = true;
+            this.checkBoxSoloHabilitados.AutoSize = true;
+            this.checkBoxSoloHabilitados.Enabled = false;
+            this.checkBoxSoloHabilitados.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.checkBoxSoloHabilitados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.checkBoxSoloHabilitados.Location = new System.Drawing.Point(417, 6);
+            this.checkBoxSoloHabilitados.Name = "checkBoxSoloHabilitados";
+            this.checkBoxSoloHabilitados.Size = new System.Drawing.Size(189, 34);
+            this.checkBoxSoloHabilitados.TabIndex = 4;
+            this.checkBoxSoloHabilitados.Text = "Sólo Habilitados";
+            this.checkBoxSoloHabilitados.UseVisualStyleBackColor = true;
+            this.checkBoxSoloHabilitados.Visible = false;
+            this.checkBoxSoloHabilitados.CheckedChanged += new System.EventHandler(this.FiltrarDataGridView);
             // 
             // checkBoxGrupos
             // 
@@ -407,27 +402,79 @@
             this.checkBoxGrupos.TabIndex = 3;
             this.checkBoxGrupos.Text = "Grupos";
             this.checkBoxGrupos.UseVisualStyleBackColor = true;
+            this.checkBoxGrupos.CheckedChanged += new System.EventHandler(this.FiltrarDataGridView);
             // 
-            // checkBoxSoloHabilitados
+            // checkBoxUsuarios
             // 
-            this.checkBoxSoloHabilitados.AutoSize = true;
-            this.checkBoxSoloHabilitados.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.checkBoxSoloHabilitados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.checkBoxSoloHabilitados.Location = new System.Drawing.Point(417, 6);
-            this.checkBoxSoloHabilitados.Name = "checkBoxSoloHabilitados";
-            this.checkBoxSoloHabilitados.Size = new System.Drawing.Size(189, 34);
-            this.checkBoxSoloHabilitados.TabIndex = 4;
-            this.checkBoxSoloHabilitados.Text = "Sólo Habilitados";
-            this.checkBoxSoloHabilitados.UseVisualStyleBackColor = true;
+            this.checkBoxUsuarios.AutoSize = true;
+            this.checkBoxUsuarios.Checked = true;
+            this.checkBoxUsuarios.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxUsuarios.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.checkBoxUsuarios.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.checkBoxUsuarios.Location = new System.Drawing.Point(136, 6);
+            this.checkBoxUsuarios.Name = "checkBoxUsuarios";
+            this.checkBoxUsuarios.Size = new System.Drawing.Size(114, 34);
+            this.checkBoxUsuarios.TabIndex = 2;
+            this.checkBoxUsuarios.Text = "Usuarios";
+            this.checkBoxUsuarios.UseVisualStyleBackColor = true;
+            this.checkBoxUsuarios.CheckedChanged += new System.EventHandler(this.FiltrarDataGridView);
             // 
-            // panel7
+            // label5
             // 
-            this.panel7.BackColor = System.Drawing.Color.White;
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel7.Location = new System.Drawing.Point(0, 42);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(612, 2);
-            this.panel7.TabIndex = 5;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label5.Location = new System.Drawing.Point(10, 7);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 30);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Mostrar:";
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.labelPermiso);
+            this.panel8.Controls.Add(this.label6);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel8.Location = new System.Drawing.Point(3, 3);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(406, 44);
+            this.panel8.TabIndex = 26;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(201, 44);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Permiso seleccionado:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label2.Location = new System.Drawing.Point(3, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 50);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Permisos:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelPermiso
+            // 
+            this.labelPermiso.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelPermiso.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.labelPermiso.ForeColor = System.Drawing.Color.Goldenrod;
+            this.labelPermiso.Location = new System.Drawing.Point(201, 0);
+            this.labelPermiso.Name = "labelPermiso";
+            this.labelPermiso.Size = new System.Drawing.Size(205, 44);
+            this.labelPermiso.TabIndex = 23;
+            this.labelPermiso.Text = "Nada seleccionado";
+            this.labelPermiso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormDetallesPermiso
             // 
@@ -449,7 +496,6 @@
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDisponibles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAsociados)).EndInit();
             this.panel4.ResumeLayout(false);
@@ -458,6 +504,7 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -467,18 +514,17 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button buttonCancelar;
+        private System.Windows.Forms.Button buttonGuardar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeViewPermisos;
         private System.Windows.Forms.DataGridView dataGridViewDisponibles;
         private System.Windows.Forms.DataGridView dataGridViewAsociados;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonDarPermiso;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button buttonQuitarPermiso;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
@@ -487,5 +533,9 @@
         private System.Windows.Forms.CheckBox checkBoxUsuarios;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelPermiso;
     }
 }

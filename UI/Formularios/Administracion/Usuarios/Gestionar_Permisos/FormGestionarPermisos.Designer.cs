@@ -37,7 +37,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonModificar = new System.Windows.Forms.Button();
             this.buttonVerDetalles = new System.Windows.Forms.Button();
-            this.buttonBuscar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -73,7 +72,6 @@
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
             this.panel2.Controls.Add(this.buttonModificar);
             this.panel2.Controls.Add(this.buttonVerDetalles);
-            this.panel2.Controls.Add(this.buttonBuscar);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(751, 100);
             this.panel2.Name = "panel2";
@@ -110,21 +108,6 @@
             this.buttonVerDetalles.Text = "Ver detalles";
             this.buttonVerDetalles.UseVisualStyleBackColor = true;
             this.buttonVerDetalles.Click += new System.EventHandler(this.buttonVerDetalles_Click);
-            // 
-            // buttonBuscar
-            // 
-            this.buttonBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.buttonBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonBuscar.Location = new System.Drawing.Point(18, 11);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(170, 35);
-            this.buttonBuscar.TabIndex = 5;
-            this.buttonBuscar.Text = "Buscar";
-            this.buttonBuscar.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -212,7 +195,6 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonModificar;
         private System.Windows.Forms.Button buttonVerDetalles;
-        private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;
