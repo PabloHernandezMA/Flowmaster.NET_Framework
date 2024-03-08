@@ -42,6 +42,7 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewDisponibles = new System.Windows.Forms.DataGridView();
             this.dataGridViewAsociados = new System.Windows.Forms.DataGridView();
             this.treeViewPermisos = new System.Windows.Forms.TreeView();
@@ -58,9 +59,8 @@
             this.checkBoxUsuarios = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.labelPermiso = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -172,6 +172,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1050, 535);
             this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label2.Location = new System.Drawing.Point(3, 50);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 50);
+            this.label2.TabIndex = 27;
+            this.label2.Text = "Permisos:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dataGridViewDisponibles
             // 
@@ -364,6 +376,7 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(612, 44);
             this.panel6.TabIndex = 25;
+            this.panel6.Visible = false;
             // 
             // panel7
             // 
@@ -440,30 +453,6 @@
             this.panel8.Size = new System.Drawing.Size(406, 44);
             this.panel8.TabIndex = 26;
             // 
-            // label6
-            // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(201, 44);
-            this.label6.TabIndex = 22;
-            this.label6.Text = "Permiso seleccionado:";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label2
-            // 
-            this.label2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label2.Location = new System.Drawing.Point(3, 50);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 50);
-            this.label2.TabIndex = 27;
-            this.label2.Text = "Permisos:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // labelPermiso
             // 
             this.labelPermiso.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -475,6 +464,18 @@
             this.labelPermiso.TabIndex = 23;
             this.labelPermiso.Text = "Nada seleccionado";
             this.labelPermiso.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(201, 44);
+            this.label6.TabIndex = 22;
+            this.label6.Text = "Permiso seleccionado:";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // FormDetallesPermiso
             // 

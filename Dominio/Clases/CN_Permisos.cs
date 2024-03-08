@@ -93,5 +93,10 @@ namespace Dominio.Clases
                 throw ex;
             }
         }
+
+        public void GuardarCambios(List<Object> Asociados, List<Object> Disponibles)
+        {
+
+        }
     }
 }

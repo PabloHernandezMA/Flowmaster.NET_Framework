@@ -24,24 +24,14 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
         // Declaración de variables globales para almacenar el estado de los filtros
         bool mostrarUsuarios = true;
         bool mostrarGrupos = true;
-        bool mostrarSoloHabilitados = false;
+
+        private bool flagCambios = false;
 
         // Define una variable global para almacenar los datos originales
         private List<object> datosOriginalesAsociados = new List<object>();
         private List<object> datosOriginalesDisponibles = new List<object>();
-
-        // Declarar una lista para almacenar los cambios en los usuarios y grupos asociados a un permiso
-        private List<CambioPermiso> cambiosAsociados = new List<CambioPermiso>();
-        // Declarar una lista para almacenar los cambios en los usuarios y grupos no asociados a un permiso
-        private List<CambioPermiso> cambiosNoAsociados = new List<CambioPermiso>();
-        // Clase para representar un cambio en un permiso
-        private class CambioPermiso
-        {
-            public int ID_Permission { get; set; }
-            public int ID_UserGroup { get; set; }
-            public string Type { get; set; } // "Usuario" o "Grupo"
-            public bool Asociado { get; set; } // true si está asociado, false si no lo está
-        }
+        private int idPermiso;
+        
 
         public FormDetallesPermiso()
         {
@@ -54,6 +44,9 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
             checkBoxUsuarios.CheckedChanged += FiltrarDataGridView;
             checkBoxGrupos.CheckedChanged += FiltrarDataGridView;
             checkBoxSoloHabilitados.CheckedChanged += FiltrarDataGridView;
+            // Suscribirte al evento CellFormatting para ambos DataGridView
+            dataGridViewDisponibles.CellFormatting += dataGridView_CellFormatting;
+            dataGridViewAsociados.CellFormatting += dataGridView_CellFormatting;
 
             usuario = CN_Usuarios.ObtenerInstancia();
             grupos = CN_Grupos.ObtenerInstancia();
@@ -230,14 +223,36 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
             // Verificar si el nodo seleccionado es un PermisoTreeNode
             if (e.Node is PermisoTreeNode)
             {
+                if (flagCambios)
+                {
+                    DialogResult result = MessageBox.Show("Antes de continuar deberá guardar los cambios ahora o cancelar los cambios realizados ¿Desea guardar los cambios?", "Guardar cambios", MessageBoxButtons.YesNo);
+
+                    if (result == DialogResult.Yes)
+                    {
+                        try
+                        {
+                            guardarCambios();
+                            MessageBox.Show("Los cambios han sido guardados correctamente en la base de datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show($"Error al guardar los cambios en la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cambios descartados.");
+                    }
+                }
+                
                 PermisoTreeNode permisoNode = (PermisoTreeNode)e.Node;
-                int idPermiso = permisoNode.ID_Permission;
+                idPermiso = permisoNode.ID_Permission;
                 labelPermiso.Text = permisoNode.Text;
 
                 // Realizar la acción deseada con el ID del permiso
                 CargarUsuariosYGruposAsociados(idPermiso);
                 CargarUsuariosYGruposNoAsociados(idPermiso);
-                
+                flagCambios = false;
             }
         }
 
@@ -246,7 +261,6 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
             // Actualizar el estado de los filtros
             mostrarUsuarios = checkBoxUsuarios.Checked;
             mostrarGrupos = checkBoxGrupos.Checked;
-            mostrarSoloHabilitados = checkBoxSoloHabilitados.Checked;
 
             // Aplicar el filtro al DataGridView de usuarios y grupos asociados
             FiltrarDatosEnDataGridView(dataGridViewAsociados, datosOriginalesAsociados);
@@ -256,47 +270,33 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
 
         private void FiltrarDatosEnDataGridView(DataGridView dataGridView, List<object> datosOriginales)
         {
-            // Obtener la vista del DataGridView
             var vista = dataGridView.DataSource as List<object>;
             if (vista != null)
             {
-                // Verificar si ni usuarios ni grupos están chequeados
                 if (!mostrarUsuarios && !mostrarGrupos)
                 {
-                    // No mostrar nada si ninguna opción está seleccionada
                     dataGridView.DataSource = new List<object>();
+                    dataGridView.Refresh(); // Refrescar la vista después de cambiar los datos
                     return;
                 }
 
-                // Verificar si la combinación es Usuarios: true, Grupos: true, Solo Habilitados: false
-                if (mostrarUsuarios && mostrarGrupos && !mostrarSoloHabilitados)
+                if (mostrarUsuarios && mostrarGrupos)
                 {
-                    // Cargar los datos originales
                     dataGridView.DataSource = datosOriginales;
+                    dataGridView.Refresh(); // Refrescar la vista después de cambiar los datos
                     return;
                 }
 
-                // Aplicar filtros según el estado de los CheckBox
                 dataGridView.DataSource = datosOriginales
                     .Where(item => {
                         string tipo = (string)item.GetType().GetProperty("Tipo").GetValue(item);
-                        bool habilitado = ((string)item.GetType().GetProperty("Habilitado").GetValue(item)) == "Sí";
-
-                        // Aplicar filtro para usuarios
                         bool filtroUsuarios = mostrarUsuarios && tipo == "Usuario";
-                        bool filtroUsuariosHabilitados = mostrarUsuarios && tipo == "Usuario" && habilitado;
-
-                        // Aplicar filtro para grupos
                         bool filtroGrupos = mostrarGrupos && tipo == "Grupo";
-                        bool filtroGruposHabilitados = mostrarGrupos && tipo == "Grupo" && habilitado;
-
-                        // Aplicar filtro de sólo habilitados para grupos
-                        bool filtroSoloGruposHabilitados = mostrarSoloHabilitados && mostrarGrupos && tipo == "Grupo" && habilitado;
-
-                        // Combinar filtros
-                        return (filtroUsuarios || filtroUsuariosHabilitados || filtroGrupos || filtroSoloGruposHabilitados) && !(mostrarSoloHabilitados && !mostrarUsuarios && !mostrarGrupos);
+                        return filtroUsuarios || filtroGrupos;
                     })
                     .ToList();
+
+                dataGridView.Refresh(); // Refrescar la vista después de aplicar los filtros
             }
         }
 
@@ -318,11 +318,15 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
                 // Eliminar la fila seleccionada
                 asociados.Remove(selectedRow);
 
+                datosOriginalesAsociados = asociados;
+                datosOriginalesDisponibles = disponibles;
+
                 // Actualizar los DataGridViews
                 dataGridViewDisponibles.DataSource = null;
                 dataGridViewDisponibles.DataSource = disponibles;
                 dataGridViewAsociados.DataSource = null;
                 dataGridViewAsociados.DataSource = asociados;
+                flagCambios = true;
             }
             else
             {
@@ -348,17 +352,41 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
                 // Eliminar la fila seleccionada de los disponibles
                 disponibles.Remove(selectedRow);
 
+                datosOriginalesAsociados = asociados;
+                datosOriginalesDisponibles = disponibles;
+
                 // Actualizar los DataGridViews
                 dataGridViewDisponibles.DataSource = null;
                 dataGridViewDisponibles.DataSource = disponibles;
                 dataGridViewAsociados.DataSource = null;
                 dataGridViewAsociados.DataSource = asociados;
+                flagCambios = true;
             }
             else
             {
                 MessageBox.Show("Seleccione una fila de los usuarios o grupos disponibles para asignar el permiso.");
             }
         }
+
+        private void dataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridView dataGridView = sender as DataGridView;
+
+                // Obtener el valor de la columna "Tipo"
+                string tipo = dataGridView.Rows[e.RowIndex].Cells["Tipo"].Value.ToString();
+
+                // Verificar si la columna actual es "Tipo" y el valor es "Grupo"
+                if (dataGridView.Columns[e.ColumnIndex].Name == "Tipo" && tipo == "Grupo")
+                {
+                    // Cambiar el color de fondo de la celda
+                    e.CellStyle.BackColor = Color.CadetBlue;
+                    // Puedes cambiar otros atributos de estilo aquí según tus necesidades
+                }
+            }
+        }
+
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
@@ -369,41 +397,14 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                // Guardar los cambios en la base de datos
-                //GuardarCambiosEnBaseDeDatos();
-
-                MessageBox.Show("Los cambios han sido guardados correctamente en la base de datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error al guardar los cambios en la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            guardarCambios();
+            this.Dispose();
+            this.Close();
         }
 
-        // Función para registrar un cambio en los usuarios y grupos asociados a un permiso
-        private void RegistrarCambioEAsociado(int idPermiso, int idUserGroup, string type, bool asociado)
+        private void guardarCambios()
         {
-            cambiosAsociados.Add(new CambioPermiso
-            {
-                ID_Permission = idPermiso,
-                ID_UserGroup = idUserGroup,
-                Type = type,
-                Asociado = asociado
-            });
-        }
-
-        // Función para registrar un cambio en los usuarios y grupos no asociados a un permiso
-        private void RegistrarCambioENoAsociado(int idPermiso, int idUserGroup, string type, bool asociado)
-        {
-            cambiosNoAsociados.Add(new CambioPermiso
-            {
-                ID_Permission = idPermiso,
-                ID_UserGroup = idUserGroup,
-                Type = type,
-                Asociado = asociado
-            });
+            permisos.GuardarCambios(dataGridViewAsociados.DataSource as List<object>, dataGridViewDisponibles.DataSource as List<Object>);
         }
     }
 }
