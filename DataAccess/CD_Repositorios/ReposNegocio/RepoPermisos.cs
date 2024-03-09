@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace DataAccess.CD_Repositorios.ReposNegocio
 {
@@ -90,6 +91,35 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
                 permisos.Add(permiso);
             }
             return permisos;
+        }
+
+        public int QuitarTodosLosUsuariosAsociadosAPermiso(int permisoId)
+        {
+            string consultaSQL = "DELETE FROM PxU WHERE ID_Permission = @permisoId";
+            parametros.Add(new SqlParameter("@permisoId", permisoId));
+            return ExecuteNonQuery(consultaSQL);
+        }
+        public int QuitarTodosLosGruposAsociadosAPermiso(int permisoId)
+        {
+            string consultaSQL = "DELETE FROM PxG WHERE ID_Permission = @permisoId";
+            parametros.Add(new SqlParameter("@permisoId", permisoId));
+            return ExecuteNonQuery(consultaSQL);
+        }
+
+        public int AgregarATablaPxU(int permisoId, int usuarioId)
+        {
+            string consultaSQL = "INSERT INTO PxU (ID_Permission, ID_User) VALUES (@permisoId, @usuarioId)";
+            parametros.Add(new SqlParameter("@permisoId", permisoId));
+            parametros.Add(new SqlParameter("@usuarioId", usuarioId));
+            return ExecuteNonQuery(consultaSQL);
+        }
+
+        public int AgregarATablaPxG(int permisoId, int grupoId)
+        {
+            string consultaSQL = "INSERT INTO PxG (ID_Permission, ID_Group) VALUES (@permisoId, @grupoId)";
+            parametros.Add(new SqlParameter("@permisoId", permisoId));
+            parametros.Add(new SqlParameter("@grupoId", grupoId));
+            return ExecuteNonQuery(consultaSQL);
         }
     }
 }

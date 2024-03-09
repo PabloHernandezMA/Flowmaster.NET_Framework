@@ -225,14 +225,13 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
             {
                 if (flagCambios)
                 {
-                    DialogResult result = MessageBox.Show("Antes de continuar deberá guardar los cambios ahora o cancelar los cambios realizados ¿Desea guardar los cambios?", "Guardar cambios", MessageBoxButtons.YesNo);
+                    DialogResult result = MessageBox.Show("Antes de continuar deberá guardar los cambios ahora o cancelar los cambios realizados ¿Desea guardar los cambios?", "Guardar cambios", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                     if (result == DialogResult.Yes)
                     {
                         try
                         {
                             guardarCambios();
-                            MessageBox.Show("Los cambios han sido guardados correctamente en la base de datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         catch (Exception ex)
                         {
@@ -241,7 +240,7 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
                     }
                     else
                     {
-                        Console.WriteLine("Cambios descartados.");
+                        MessageBox.Show("Cambios descartados", "Cambios descartados", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                 }
                 
@@ -404,7 +403,17 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
 
         private void guardarCambios()
         {
-            permisos.GuardarCambios(dataGridViewAsociados.DataSource as List<object>, dataGridViewDisponibles.DataSource as List<Object>);
+            try
+            {
+                permisos.GuardarCambios(idPermiso, dataGridViewAsociados.DataSource as List<object>, dataGridViewDisponibles.DataSource as List<Object>);
+                MessageBox.Show("Los cambios han sido guardados correctamente en la base de datos.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show($"Error al guardar los cambios en la base de datos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
     }
 }

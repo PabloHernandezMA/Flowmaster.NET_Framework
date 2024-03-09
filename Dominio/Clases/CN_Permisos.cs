@@ -1,6 +1,7 @@
 ﻿using DataAccess.CD_Repositorios.ReposNegocio;
 using Modelo;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -94,9 +95,27 @@ namespace Dominio.Clases
             }
         }
 
-        public void GuardarCambios(List<Object> Asociados, List<Object> Disponibles)
+        public void GuardarCambios(int idPermiso, List<Object> Asociados, List<Object> Disponibles)
         {
+            repositorioPermisos.QuitarTodosLosUsuariosAsociadosAPermiso(idPermiso);
+            repositorioPermisos.QuitarTodosLosGruposAsociadosAPermiso(idPermiso);
+            foreach (var objeto in Asociados)
+            {
+                // Obtener el valor de la propiedad "Tipo"
+                var tipo = objeto.GetType().GetProperty("Tipo").GetValue(objeto);
+                // Obtener el valor de la propiedad "ID"
+                var id = objeto.GetType().GetProperty("ID").GetValue(objeto);
 
+                // Determinar si el tipo es "Usuario" o "Grupo" y llamar a la función correspondiente
+                if (tipo.ToString() == "Usuario")
+                {
+                    repositorioPermisos.AgregarATablaPxU(idPermiso, (int)id);
+                }
+                else if (tipo.ToString() == "Grupo")
+                {
+                    repositorioPermisos.AgregarATablaPxG(idPermiso, (int)id);
+                }
+            }
         }
     }
 }
