@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Administracion\Empleados\FormGestionarEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Empleados\FormGestionarEmpleados.Designer.cs">
+      <DependentUpon>FormGestionarEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Administracion\FormAdministracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +110,12 @@
     <Compile Include="Formularios\Configuracion\FormConfiguracion.Designer.cs">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Dashboard\FormDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Dashboard\FormDashboard.Designer.cs">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +128,24 @@
     <Compile Include="Formularios\FormMainMenu.Designer.cs">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Pedidos\FormDetallesPedido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pedidos\FormDetallesPedido.Designer.cs">
+      <DependentUpon>FormDetallesPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Pedidos\FormGestionarPedidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pedidos\FormGestionarPedidos.Designer.cs">
+      <DependentUpon>FormGestionarPedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Productos\FormDetallesProducto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Productos\FormDetallesProducto.Designer.cs">
+      <DependentUpon>FormDetallesProducto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Productos\FormGestionarProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +155,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidacionesForm.cs" />
+    <EmbeddedResource Include="Formularios\Administracion\Empleados\FormGestionarEmpleados.resx">
+      <DependentUpon>FormGestionarEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\FormAdministracion.resx">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,11 +185,23 @@
     <EmbeddedResource Include="Formularios\Configuracion\FormConfiguracion.resx">
       <DependentUpon>FormConfiguracion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Dashboard\FormDashboard.resx">
+      <DependentUpon>FormDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\FormMainMenu.resx">
       <DependentUpon>FormMainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pedidos\FormDetallesPedido.resx">
+      <DependentUpon>FormDetallesPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pedidos\FormGestionarPedidos.resx">
+      <DependentUpon>FormGestionarPedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Productos\FormDetallesProducto.resx">
+      <DependentUpon>FormDetallesProducto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Productos\FormGestionarProductos.resx">
       <DependentUpon>FormGestionarProductos.cs</DependentUpon>
@@ -183,10 +229,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Formularios\Dashboard\" />
-    <Folder Include="Formularios\Pedidos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="letra-f.ico" />
     <None Include="Resources\exclamation-mark.png" />

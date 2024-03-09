@@ -8,22 +8,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Productos
+namespace UI.Formularios.Dashboard
 {
-    public partial class FormGestionarProductos : Form
+    public partial class FormDashboard : Form
     {
-        private static FormGestionarProductos instance;
+        private static FormDashboard instance;
 
-        private FormGestionarProductos()
+        // Constructor privado para evitar la creación de instancias fuera de la clase
+        private FormDashboard()
         {
             InitializeComponent();
         }
 
-        public static FormGestionarProductos GetInstance()
+        // Método estático para obtener la instancia única del formulario
+        public static FormDashboard GetInstance()
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new FormGestionarProductos();
+                instance = new FormDashboard();
             }
             return instance;
         }

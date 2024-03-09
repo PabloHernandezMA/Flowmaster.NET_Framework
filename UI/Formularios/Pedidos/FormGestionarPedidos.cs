@@ -8,22 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Productos
+namespace UI.Formularios.Pedidos
 {
-    public partial class FormGestionarProductos : Form
+    public partial class FormGestionarPedidos : Form
     {
-        private static FormGestionarProductos instance;
+        private static FormGestionarPedidos instance;
 
-        private FormGestionarProductos()
+        private FormGestionarPedidos()
         {
             InitializeComponent();
         }
 
-        public static FormGestionarProductos GetInstance()
+        public static FormGestionarPedidos GetInstance()
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new FormGestionarProductos();
+                instance = new FormGestionarPedidos();
             }
             return instance;
         }

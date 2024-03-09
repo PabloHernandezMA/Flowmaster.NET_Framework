@@ -15,9 +15,20 @@ namespace UI.Administracion
 {
     public partial class FormAdministracion : Form
     {
-        public FormAdministracion()
+        private static FormAdministracion instance;
+
+        private FormAdministracion()
         {
             InitializeComponent();
+        }
+
+        public static FormAdministracion GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new FormAdministracion();
+            }
+            return instance;
         }
 
         private void gestionarUsuariosToolStripMenuItem_Click(object sender, EventArgs e)

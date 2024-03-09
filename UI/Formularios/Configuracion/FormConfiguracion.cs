@@ -14,9 +14,20 @@ namespace UI.Configuracion
 {
     public partial class FormConfiguracion : Form
     {
-        public FormConfiguracion()
+        private static FormConfiguracion instance;
+
+        private FormConfiguracion()
         {
             InitializeComponent();
+        }
+
+        public static FormConfiguracion GetInstance()
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new FormConfiguracion();
+            }
+            return instance;
         }
 
         private void gestionarProductosToolStripMenuItem_Click(object sender, EventArgs e)
