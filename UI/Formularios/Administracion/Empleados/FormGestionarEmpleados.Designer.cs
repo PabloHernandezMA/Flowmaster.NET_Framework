@@ -36,16 +36,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
             this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonEliminar = new System.Windows.Forms.Button();
@@ -58,11 +50,18 @@
             this.linkLabelPaginaSiguiente = new System.Windows.Forms.LinkLabel();
             this.linkLabelPaginaPrevia = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panelABM = new System.Windows.Forms.Panel();
+            this.panelSeleccion = new System.Windows.Forms.Panel();
+            this.buttonSeleccionar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panelABM.SuspendLayout();
+            this.panelSeleccion.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -78,18 +77,12 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.textBoxNombre);
+            this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.comboBox1);
             this.panel3.Controls.Add(this.label7);
-            this.panel3.Controls.Add(this.textBox1);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Controls.Add(this.dateTimePicker1);
-            this.panel3.Controls.Add(this.label8);
-            this.panel3.Controls.Add(this.comboBoxCategoria);
             this.panel3.Controls.Add(this.textBoxNumero);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Controls.Add(this.textBoxNombre);
-            this.panel3.Controls.Add(this.label2);
-            this.panel3.Controls.Add(this.label1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(171, 0);
             this.panel3.Name = "panel3";
@@ -100,7 +93,7 @@
             // 
             this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(788, 57);
+            this.comboBox1.Location = new System.Drawing.Point(100, 58);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(146, 29);
             this.comboBox1.TabIndex = 29;
@@ -110,59 +103,11 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label7.Location = new System.Drawing.Point(734, 57);
+            this.label7.Location = new System.Drawing.Point(46, 58);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(48, 21);
             this.label7.TabIndex = 28;
             this.label7.Text = "Area:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox1.Location = new System.Drawing.Point(439, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(237, 29);
-            this.textBox1.TabIndex = 27;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label4.Location = new System.Drawing.Point(347, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 21);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Empleado:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(536, 57);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(140, 26);
-            this.dateTimePicker1.TabIndex = 25;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label8.Location = new System.Drawing.Point(347, 60);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(174, 21);
-            this.label8.TabIndex = 24;
-            this.label8.Text = "Fecha ingreso (desde):";
-            // 
-            // comboBoxCategoria
-            // 
-            this.comboBoxCategoria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(86, 57);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(237, 29);
-            this.comboBoxCategoria.TabIndex = 21;
             // 
             // textBoxNumero
             // 
@@ -183,36 +128,6 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Número:";
             // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxNombre.Location = new System.Drawing.Point(86, 19);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(237, 29);
-            this.textBoxNombre.TabIndex = 15;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label2.Location = new System.Drawing.Point(14, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 21);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Estado:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label1.Location = new System.Drawing.Point(14, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 21);
-            this.label1.TabIndex = 13;
-            this.label1.Text = "Cliente:";
-            // 
             // label6
             // 
             this.label6.Dock = System.Windows.Forms.DockStyle.Left;
@@ -228,9 +143,8 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.panel2.Controls.Add(this.buttonEliminar);
-            this.panel2.Controls.Add(this.buttonModificar);
-            this.panel2.Controls.Add(this.buttonAgregar);
+            this.panel2.Controls.Add(this.panelSeleccion);
+            this.panel2.Controls.Add(this.panelABM);
             this.panel2.Controls.Add(this.buttonVerDetalles);
             this.panel2.Controls.Add(this.buttonBuscar);
             this.panel2.Controls.Add(this.panel4);
@@ -248,7 +162,7 @@
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonEliminar.Location = new System.Drawing.Point(18, 214);
+            this.buttonEliminar.Location = new System.Drawing.Point(5, 87);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(170, 35);
             this.buttonEliminar.TabIndex = 9;
@@ -263,7 +177,7 @@
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonModificar.Location = new System.Drawing.Point(18, 173);
+            this.buttonModificar.Location = new System.Drawing.Point(5, 46);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(170, 35);
             this.buttonModificar.TabIndex = 8;
@@ -278,7 +192,7 @@
             this.buttonAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAgregar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonAgregar.Location = new System.Drawing.Point(18, 132);
+            this.buttonAgregar.Location = new System.Drawing.Point(5, 5);
             this.buttonAgregar.Name = "buttonAgregar";
             this.buttonAgregar.Size = new System.Drawing.Size(170, 35);
             this.buttonAgregar.TabIndex = 7;
@@ -422,6 +336,58 @@
             this.dataGridView1.Size = new System.Drawing.Size(942, 499);
             this.dataGridView1.TabIndex = 8;
             // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxNombre.Location = new System.Drawing.Point(100, 22);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(237, 29);
+            this.textBoxNombre.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 21);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Nombre:";
+            // 
+            // panelABM
+            // 
+            this.panelABM.Controls.Add(this.buttonAgregar);
+            this.panelABM.Controls.Add(this.buttonEliminar);
+            this.panelABM.Controls.Add(this.buttonModificar);
+            this.panelABM.Location = new System.Drawing.Point(12, 108);
+            this.panelABM.Name = "panelABM";
+            this.panelABM.Size = new System.Drawing.Size(185, 134);
+            this.panelABM.TabIndex = 10;
+            // 
+            // panelSeleccion
+            // 
+            this.panelSeleccion.Controls.Add(this.buttonSeleccionar);
+            this.panelSeleccion.Location = new System.Drawing.Point(12, 270);
+            this.panelSeleccion.Name = "panelSeleccion";
+            this.panelSeleccion.Size = new System.Drawing.Size(185, 134);
+            this.panelSeleccion.TabIndex = 11;
+            // 
+            // buttonSeleccionar
+            // 
+            this.buttonSeleccionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSeleccionar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSeleccionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonSeleccionar.Location = new System.Drawing.Point(5, 5);
+            this.buttonSeleccionar.Name = "buttonSeleccionar";
+            this.buttonSeleccionar.Size = new System.Drawing.Size(170, 35);
+            this.buttonSeleccionar.TabIndex = 7;
+            this.buttonSeleccionar.Text = "Seleccionar";
+            this.buttonSeleccionar.UseVisualStyleBackColor = true;
+            // 
             // FormGestionarEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -439,6 +405,8 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panelABM.ResumeLayout(false);
+            this.panelSeleccion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -449,16 +417,8 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox comboBoxCategoria;
         private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonEliminar;
@@ -471,5 +431,10 @@
         private System.Windows.Forms.LinkLabel linkLabelPaginaSiguiente;
         private System.Windows.Forms.LinkLabel linkLabelPaginaPrevia;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panelABM;
+        private System.Windows.Forms.Panel panelSeleccion;
+        private System.Windows.Forms.Button buttonSeleccionar;
     }
 }
