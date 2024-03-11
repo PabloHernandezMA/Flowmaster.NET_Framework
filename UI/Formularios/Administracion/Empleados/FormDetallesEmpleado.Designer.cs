@@ -40,16 +40,14 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.checkBoxSoloHabilitados = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.checkBoxSoloHabilitados = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -185,8 +183,6 @@
             this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.textBox2);
             this.panel5.Controls.Add(this.label7);
-            this.panel5.Controls.Add(this.textBox1);
-            this.panel5.Controls.Add(this.label6);
             this.panel5.Controls.Add(this.button5);
             this.panel5.Controls.Add(this.textBoxNombre);
             this.panel5.Controls.Add(this.label5);
@@ -195,6 +191,58 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(687, 309);
             this.panel5.TabIndex = 0;
+            // 
+            // checkBoxSoloHabilitados
+            // 
+            this.checkBoxSoloHabilitados.AutoSize = true;
+            this.checkBoxSoloHabilitados.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.checkBoxSoloHabilitados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.checkBoxSoloHabilitados.Location = new System.Drawing.Point(11, 271);
+            this.checkBoxSoloHabilitados.Name = "checkBoxSoloHabilitados";
+            this.checkBoxSoloHabilitados.Size = new System.Drawing.Size(105, 25);
+            this.checkBoxSoloHabilitados.TabIndex = 38;
+            this.checkBoxSoloHabilitados.Text = "Habilitado";
+            this.checkBoxSoloHabilitados.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label3.Location = new System.Drawing.Point(7, 104);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(48, 21);
+            this.label3.TabIndex = 37;
+            this.label3.Text = "Area:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(88, 101);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(208, 29);
+            this.comboBox1.TabIndex = 36;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBox2.Location = new System.Drawing.Point(426, 10);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(208, 29);
+            this.textBox2.TabIndex = 35;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label7.Location = new System.Drawing.Point(345, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(69, 21);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Usuario:";
             // 
             // button5
             // 
@@ -231,77 +279,6 @@
             this.label5.Size = new System.Drawing.Size(75, 21);
             this.label5.TabIndex = 29;
             this.label5.Text = "Nombre:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox1.Location = new System.Drawing.Point(88, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(208, 29);
-            this.textBox1.TabIndex = 33;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(7, 57);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(76, 21);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Apellido:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBox2.Location = new System.Drawing.Point(426, 10);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(208, 29);
-            this.textBox2.TabIndex = 35;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label7.Location = new System.Drawing.Point(345, 13);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(69, 21);
-            this.label7.TabIndex = 34;
-            this.label7.Text = "Usuario:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(88, 101);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(208, 29);
-            this.comboBox1.TabIndex = 36;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label3.Location = new System.Drawing.Point(7, 104);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 21);
-            this.label3.TabIndex = 37;
-            this.label3.Text = "Area:";
-            // 
-            // checkBoxSoloHabilitados
-            // 
-            this.checkBoxSoloHabilitados.AutoSize = true;
-            this.checkBoxSoloHabilitados.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBoxSoloHabilitados.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.checkBoxSoloHabilitados.Location = new System.Drawing.Point(11, 271);
-            this.checkBoxSoloHabilitados.Name = "checkBoxSoloHabilitados";
-            this.checkBoxSoloHabilitados.Size = new System.Drawing.Size(105, 25);
-            this.checkBoxSoloHabilitados.TabIndex = 38;
-            this.checkBoxSoloHabilitados.Text = "Habilitado";
-            this.checkBoxSoloHabilitados.UseVisualStyleBackColor = true;
             // 
             // FormDetallesEmpleado
             // 
@@ -342,8 +319,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Label label5;

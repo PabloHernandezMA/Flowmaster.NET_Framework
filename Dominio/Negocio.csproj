@@ -41,11 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\CN_Formularios.cs" />
-    <Compile Include="Clases\CN_Grupos.cs" />
-    <Compile Include="Clases\CN_Modulos.cs" />
-    <Compile Include="Clases\CN_Permisos.cs" />
-    <Compile Include="Clases\CN_Usuarios.cs" />
+    <Compile Include="Aplicacion\CN_Productos.cs" />
+    <Compile Include="Seguridad\CN_Formularios.cs" />
+    <Compile Include="Seguridad\CN_Grupos.cs" />
+    <Compile Include="Seguridad\CN_Modulos.cs" />
+    <Compile Include="Seguridad\CN_Permisos.cs" />
+    <Compile Include="Seguridad\CN_Usuarios.cs" />
     <Compile Include="CN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
