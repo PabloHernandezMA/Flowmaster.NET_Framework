@@ -44,10 +44,16 @@
     <Compile Include="Aplicacion\CN_Areas.cs" />
     <Compile Include="Aplicacion\CN_Categorias_Producto.cs" />
     <Compile Include="Aplicacion\CN_Ciudades.cs" />
+    <Compile Include="Aplicacion\CN_Clientes.cs" />
+    <Compile Include="Aplicacion\CN_DetallesPedido.cs" />
+    <Compile Include="Aplicacion\CN_Empleados.cs" />
+    <Compile Include="Aplicacion\CN_EmpleadosPedido.cs" />
+    <Compile Include="Aplicacion\CN_EstadosPedido.cs" />
     <Compile Include="Aplicacion\CN_Pedidos.cs" />
     <Compile Include="Aplicacion\CN_Productos.cs" />
     <Compile Include="Aplicacion\CN_Proveedores.cs" />
     <Compile Include="Aplicacion\CN_Provincias.cs" />
+    <Compile Include="Aplicacion\CN_Sucursales.cs" />
     <Compile Include="Aplicacion\CN_Tipos_Producto.cs" />
     <Compile Include="Seguridad\CN_Formularios.cs" />
     <Compile Include="Seguridad\CN_Grupos.cs" />

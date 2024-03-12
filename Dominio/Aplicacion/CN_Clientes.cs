@@ -8,39 +8,39 @@ using System.Threading.Tasks;
 
 namespace Dominio.Aplicacion
 {
-    public class CN_Pedidos
+    public class CN_Clientes
     {
-        private static CN_Pedidos instancia;
-        private RepoPedidos repositorio;
-        private List<Pedido> pedidos;
+        private static CN_Clientes instancia;
+        private RepoClientes repositorio;
+        private List<Cliente> clientes;
 
-        private CN_Pedidos()
+        private CN_Clientes()
         {
-            repositorio = new RepoPedidos();
-            pedidos = new List<Pedido>();
+            repositorio = new RepoClientes();
+            clientes = new List<Cliente>();
         }
 
-        public static CN_Pedidos ObtenerInstancia()
+        public static CN_Clientes ObtenerInstancia()
         {
             if (instancia == null)
             {
-                instancia = new CN_Pedidos();
+                instancia = new CN_Clientes();
             }
             return instancia;
         }
 
-        public List<Pedido> ObtenerTodosLosPedidos()
+        public List<Cliente> ObtenerTodosLosClientes()
         {
             try
             {
-                if (pedidos.Count > 0)
+                if (clientes.Count > 0)
                 {
-                    return pedidos;
+                    return clientes;
                 }
                 else
                 {
-                    pedidos = repositorio.ObtenerTodosLosPedidos();
-                    return pedidos;
+                    clientes = repositorio.ObtenerTodosLosClientes();
+                    return clientes;
                 }
             }
             catch (Exception ex)

@@ -49,9 +49,16 @@
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoAreas.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoCategorias_Producto.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoCiudades.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoClientes.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoDetallesPedido.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoEmpleados.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoEmpleadosPedido.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoEstadosPedido.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoPedidos.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProductos.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProveedores.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProvincias.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoSucursales.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoTipos_Producto.cs" />
     <Compile Include="CD_Repositorios\RepositorioMaestro.cs" />
     <Compile Include="CD_Repositorios\ReposSeguridad\RepoFormularios.cs" />
