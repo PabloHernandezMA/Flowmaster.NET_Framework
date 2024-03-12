@@ -25,9 +25,9 @@ namespace UI
             if (ValidacionesForm.NoEstaVacio(textBoxUsername.Text))
             {
                 if(ValidacionesForm.NoEstaVacio(textBoxPassword.Text))
-                { 
-                    CN_Usuario usuario = new CN_Usuario();
-                    var validUser = usuario.LoginUser(textBoxUsername.Text,textBoxPassword.Text);
+                {
+                    CN_UsuarioEnSesion usuarioEnSesion = CN_UsuarioEnSesion.ObtenerInstancia();
+                    var validUser = usuarioEnSesion.LoginUser(textBoxUsername.Text,textBoxPassword.Text);
                     if (validUser)
                     {
                         FormMainMenu MainMenu = new FormMainMenu();

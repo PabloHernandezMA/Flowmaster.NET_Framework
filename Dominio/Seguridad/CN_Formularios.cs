@@ -11,20 +11,19 @@ namespace Dominio.Clases
 {
     public class CN_Formularios
     {
-        private List<Formulario> formularios;
-        // Instancia estática privada para almacenar la única instancia de CN_Usuarios.
+        // Instancia estática privada para almacenar la única instancia de CN_Formularios.
         private static CN_Formularios instancia;
-
-        // Repositorio de usuarios
-        private RepoFormularios repositorioFormularios;
+        private RepoFormularios repositorio;
+        private List<Formulario> formularios;
 
         // Constructor privado para evitar la creación de instancias desde fuera de la clase.
         private CN_Formularios()
         {
-            repositorioFormularios = new RepoFormularios();
+            repositorio = new RepoFormularios();
+            formularios = new List<Formulario>();
         }
 
-        // Método estático para obtener la instancia única de CN_Usuarios.
+        // Método estático para obtener la instancia única de CN_Formularios.
         public static CN_Formularios ObtenerInstancia()
         {
             // Si la instancia aún no se ha creado, la creamos.
@@ -41,8 +40,17 @@ namespace Dominio.Clases
         {
             try
             {
-                formularios = repositorioFormularios.ObtenerTodosLosFormularios();
-                return formularios;
+                // Si ya se han cargado los formularios previamente, los devolvemos directamente.
+                if (formularios.Count > 0)
+                {
+                    return formularios;
+                }
+                else
+                {
+                    // Si no se han cargado previamente, los cargamos desde el repositorio y los almacenamos en memoria.
+                    formularios = repositorio.ObtenerTodosLosFormularios();
+                    return formularios;
+                }
             }
             catch (Exception ex)
             {

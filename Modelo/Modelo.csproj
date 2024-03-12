@@ -41,9 +41,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Aplicacion\Area.cs" />
     <Compile Include="Aplicacion\Categoria_Producto.cs" />
+    <Compile Include="Aplicacion\Ciudad.cs" />
+    <Compile Include="Aplicacion\Cliente.cs" />
+    <Compile Include="Aplicacion\Detalle_Pedido.cs" />
+    <Compile Include="Aplicacion\Empleado.cs" />
+    <Compile Include="Aplicacion\Empleado_Pedido.cs" />
+    <Compile Include="Aplicacion\Estado_Pedido.cs" />
+    <Compile Include="Aplicacion\Pedido.cs" />
     <Compile Include="Aplicacion\Producto.cs" />
     <Compile Include="Aplicacion\Proveedor.cs" />
+    <Compile Include="Aplicacion\Provincia.cs" />
+    <Compile Include="Aplicacion\Sucursal.cs" />
     <Compile Include="Aplicacion\Tipo_Producto.cs" />
     <Compile Include="Seguridad\Formulario.cs" />
     <Compile Include="Seguridad\Grupo.cs" />

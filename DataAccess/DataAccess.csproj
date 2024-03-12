@@ -46,9 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CD_Repositorios\ConnectionToSQL.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoAreas.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoCategorias_Producto.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoCiudades.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProductos.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProveedores.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoProvincias.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoTipos_Producto.cs" />
     <Compile Include="CD_Repositorios\RepositorioMaestro.cs" />
     <Compile Include="CD_Repositorios\ReposSeguridad\RepoFormularios.cs" />
@@ -57,7 +60,7 @@
     <Compile Include="CD_Repositorios\ReposSeguridad\RepoPermisos.cs" />
     <Compile Include="CD_Repositorios\ReposSeguridad\RepoUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CD_Repositorios\ReposSeguridad\RepoUsuario.cs" />
+    <Compile Include="CD_Repositorios\ReposSeguridad\RepoUsuarioEnSesion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="configSQL.json" />

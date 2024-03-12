@@ -10,20 +10,19 @@ namespace Dominio.Clases
 {
     public class CN_Modulos
     {
-        private List<Modulo> modulos;
-        // Instancia estática privada para almacenar la única instancia de CN_Usuarios.
+        // Instancia estática privada para almacenar la única instancia de CN_Modulos.
         private static CN_Modulos instancia;
-
-        // Repositorio de usuarios
-        private RepoModulos repositorioModulos;
+        private RepoModulos repositorio;
+        private List<Modulo> modulos;
 
         // Constructor privado para evitar la creación de instancias desde fuera de la clase.
         private CN_Modulos()
         {
-            repositorioModulos = new RepoModulos();
+            repositorio = new RepoModulos();
+            modulos = new List<Modulo>();
         }
 
-        // Método estático para obtener la instancia única de CN_Usuarios.
+        // Método estático para obtener la instancia única de CN_Modulos.
         public static CN_Modulos ObtenerInstancia()
         {
             // Si la instancia aún no se ha creado, la creamos.
@@ -40,8 +39,17 @@ namespace Dominio.Clases
         {
             try
             {
-                modulos = repositorioModulos.ObtenerTodosLosModulos();
-                return modulos;
+                // Si ya se han cargado los módulos previamente, los devolvemos directamente.
+                if (modulos.Count > 0)
+                {
+                    return modulos;
+                }
+                else
+                {
+                    // Si no se han cargado previamente, los cargamos desde el repositorio y los almacenamos en memoria.
+                    modulos = repositorio.ObtenerTodosLosModulos();
+                    return modulos;
+                }
             }
             catch (Exception ex)
             {

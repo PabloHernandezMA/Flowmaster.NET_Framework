@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Modelo;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -137,6 +139,12 @@ namespace UI
             // Aquí llamamos al método GetInstance() en lugar de crear una nueva instancia
             FormConfiguracion formAdmin = FormConfiguracion.GetInstance();
             AbrirFormulario(formAdmin);
+        }
+
+        private void FormMainMenu_Load(object sender, EventArgs e)
+        {
+            Usuario usuarioEnSesion = CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario();
+            labelUsername.Text = usuarioEnSesion.Username;
         }
     }
 }

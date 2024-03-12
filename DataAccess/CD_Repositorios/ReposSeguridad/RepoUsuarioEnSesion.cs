@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 
 namespace DataAccess
 {
-    public class RepoUsuario:ConnectionToSQL
+    public class RepoUsuarioEnSesion:ConnectionToSQL
     {
        
     public bool Login(string user, string pass)

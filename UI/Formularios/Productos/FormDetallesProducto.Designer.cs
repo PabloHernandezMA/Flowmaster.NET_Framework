@@ -36,15 +36,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.checkBoxHabilitado = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.comboBoxTipo = new System.Windows.Forms.ComboBox();
             this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBoxStock = new System.Windows.Forms.TextBox();
+            this.checkBoxHabilitado = new System.Windows.Forms.CheckBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.textBoxStockMinimo = new System.Windows.Forms.TextBox();
+            this.textBoxExistencias = new System.Windows.Forms.TextBox();
+            this.labelExistencias = new System.Windows.Forms.Label();
+            this.textBoxPrecioVenta = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.comboBoxProveedor = new System.Windows.Forms.ComboBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -75,6 +81,7 @@
             this.buttonCancelar.TabIndex = 13;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonGuardar
             // 
@@ -90,6 +97,7 @@
             this.buttonGuardar.TabIndex = 12;
             this.buttonGuardar.Text = "Guardar cambios";
             this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
             // 
             // panel1
             // 
@@ -138,7 +146,13 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.panel3.Controls.Add(this.textBoxStock);
+            this.panel3.Controls.Add(this.comboBoxProveedor);
+            this.panel3.Controls.Add(this.label8);
+            this.panel3.Controls.Add(this.textBoxPrecioVenta);
+            this.panel3.Controls.Add(this.label7);
+            this.panel3.Controls.Add(this.textBoxExistencias);
+            this.panel3.Controls.Add(this.labelExistencias);
+            this.panel3.Controls.Add(this.textBoxStockMinimo);
             this.panel3.Controls.Add(this.comboBoxTipo);
             this.panel3.Controls.Add(this.comboBoxCategoria);
             this.panel3.Controls.Add(this.label5);
@@ -152,6 +166,57 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(698, 414);
             this.panel3.TabIndex = 4;
+            // 
+            // comboBoxTipo
+            // 
+            this.comboBoxTipo.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxTipo.FormattingEnabled = true;
+            this.comboBoxTipo.Location = new System.Drawing.Point(113, 97);
+            this.comboBoxTipo.Name = "comboBoxTipo";
+            this.comboBoxTipo.Size = new System.Drawing.Size(237, 29);
+            this.comboBoxTipo.TabIndex = 30;
+            // 
+            // comboBoxCategoria
+            // 
+            this.comboBoxCategoria.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxCategoria.FormattingEnabled = true;
+            this.comboBoxCategoria.Location = new System.Drawing.Point(113, 141);
+            this.comboBoxCategoria.Name = "comboBoxCategoria";
+            this.comboBoxCategoria.Size = new System.Drawing.Size(237, 29);
+            this.comboBoxCategoria.TabIndex = 28;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label5.Location = new System.Drawing.Point(394, 192);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(114, 21);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Stock minimo:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label3.Location = new System.Drawing.Point(15, 100);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(47, 21);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Tipo:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label6.Location = new System.Drawing.Point(15, 141);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 21);
+            this.label6.TabIndex = 25;
+            this.label6.Text = "Categoría:";
             // 
             // checkBoxHabilitado
             // 
@@ -184,64 +249,71 @@
             this.textBoxNombre.Size = new System.Drawing.Size(651, 32);
             this.textBoxNombre.TabIndex = 23;
             // 
-            // comboBoxTipo
+            // textBoxStockMinimo
             // 
-            this.comboBoxTipo.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxTipo.FormattingEnabled = true;
-            this.comboBoxTipo.Location = new System.Drawing.Point(433, 98);
-            this.comboBoxTipo.Name = "comboBoxTipo";
-            this.comboBoxTipo.Size = new System.Drawing.Size(237, 29);
-            this.comboBoxTipo.TabIndex = 30;
+            this.textBoxStockMinimo.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxStockMinimo.Location = new System.Drawing.Point(514, 186);
+            this.textBoxStockMinimo.Name = "textBoxStockMinimo";
+            this.textBoxStockMinimo.Size = new System.Drawing.Size(83, 29);
+            this.textBoxStockMinimo.TabIndex = 31;
             // 
-            // comboBoxCategoria
+            // textBoxExistencias
             // 
-            this.comboBoxCategoria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(111, 98);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(237, 29);
-            this.comboBoxCategoria.TabIndex = 28;
+            this.textBoxExistencias.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxExistencias.Location = new System.Drawing.Point(514, 140);
+            this.textBoxExistencias.Name = "textBoxExistencias";
+            this.textBoxExistencias.Size = new System.Drawing.Size(83, 29);
+            this.textBoxExistencias.TabIndex = 33;
             // 
-            // label5
+            // labelExistencias
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label5.Location = new System.Drawing.Point(20, 147);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 21);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Stock:";
+            this.labelExistencias.AutoSize = true;
+            this.labelExistencias.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.labelExistencias.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.labelExistencias.Location = new System.Drawing.Point(394, 146);
+            this.labelExistencias.Name = "labelExistencias";
+            this.labelExistencias.Size = new System.Drawing.Size(92, 21);
+            this.labelExistencias.TabIndex = 32;
+            this.labelExistencias.Text = "Existencias:";
             // 
-            // label3
+            // textBoxPrecioVenta
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label3.Location = new System.Drawing.Point(373, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 21);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Tipo:";
+            this.textBoxPrecioVenta.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxPrecioVenta.Location = new System.Drawing.Point(514, 97);
+            this.textBoxPrecioVenta.Name = "textBoxPrecioVenta";
+            this.textBoxPrecioVenta.Size = new System.Drawing.Size(156, 29);
+            this.textBoxPrecioVenta.TabIndex = 35;
             // 
-            // label6
+            // label7
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(20, 101);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(85, 21);
-            this.label6.TabIndex = 25;
-            this.label6.Text = "Categoría:";
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label7.Location = new System.Drawing.Point(381, 100);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(127, 21);
+            this.label7.TabIndex = 34;
+            this.label7.Text = "Precio de venta:";
             // 
-            // textBoxStock
+            // comboBoxProveedor
             // 
-            this.textBoxStock.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxStock.Location = new System.Drawing.Point(111, 144);
-            this.textBoxStock.Name = "textBoxStock";
-            this.textBoxStock.Size = new System.Drawing.Size(236, 29);
-            this.textBoxStock.TabIndex = 31;
+            this.comboBoxProveedor.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxProveedor.FormattingEnabled = true;
+            this.comboBoxProveedor.Location = new System.Drawing.Point(113, 186);
+            this.comboBoxProveedor.Name = "comboBoxProveedor";
+            this.comboBoxProveedor.Size = new System.Drawing.Size(237, 29);
+            this.comboBoxProveedor.TabIndex = 37;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label8.Location = new System.Drawing.Point(15, 194);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(92, 21);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Proveedor:";
             // 
             // FormDetallesProducto
             // 
@@ -257,6 +329,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FormDetallesProducto";
+            this.Load += new System.EventHandler(this.FormDetallesProducto_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -284,6 +357,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBoxStock;
+        private System.Windows.Forms.TextBox textBoxPrecioVenta;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxExistencias;
+        private System.Windows.Forms.Label labelExistencias;
+        private System.Windows.Forms.TextBox textBoxStockMinimo;
+        private System.Windows.Forms.ComboBox comboBoxProveedor;
+        private System.Windows.Forms.Label label8;
     }
 }

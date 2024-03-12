@@ -17,7 +17,7 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
     public partial class FormGestionarUsuarios : Form
     {
         private CN_Usuarios usuarios;
-
+        private CN_UsuarioEnSesion usuarioEnSesion;
         public FormGestionarUsuarios()
         {
             InitializeComponent();
@@ -110,6 +110,32 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             checkBoxSoloHabilitados.CheckedChanged += FiltrarDatos;
             dataGridView1.ColumnHeaderMouseClick += dataGridView1_ColumnHeaderMouseClick;
             usuarios = CN_Usuarios.ObtenerInstancia();
+            VerificarPermisos();
+        }
+
+        private void VerificarPermisos()
+        {
+            usuarioEnSesion = CN_UsuarioEnSesion.ObtenerInstancia();
+            if (!usuarioEnSesion.VerificarPermiso(98))
+            {
+                buttonBuscar.Enabled = false;
+            }
+            if (!usuarioEnSesion.VerificarPermiso(99))
+            {
+                buttonVerDetalles.Enabled = false;
+            }
+            if (!usuarioEnSesion.VerificarPermiso(100))
+            {
+                buttonAgregar.Enabled = false;
+            }
+            if (!usuarioEnSesion.VerificarPermiso(101))
+            {
+                buttonEliminar.Enabled = false;
+            }
+            if (!usuarioEnSesion.VerificarPermiso(102))
+            {
+                buttonModificar.Enabled = false;
+            }
         }
     }
 }

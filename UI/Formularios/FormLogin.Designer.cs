@@ -140,6 +140,7 @@
             this.textBoxPassword.Font = new System.Drawing.Font("Segoe UI", 14F);
             this.textBoxPassword.Location = new System.Drawing.Point(32, 163);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(457, 32);
             this.textBoxPassword.TabIndex = 3;
             // 

@@ -51,7 +51,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTopBar = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelUsername = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel10.SuspendLayout();
@@ -354,24 +354,24 @@
             // 
             // panel5
             // 
-            this.panel5.Controls.Add(this.label6);
+            this.panel5.Controls.Add(this.labelUsername);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(664, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(265, 50);
             this.panel5.TabIndex = 4;
             // 
-            // label6
+            // labelUsername
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(265, 50);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Username";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelUsername.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.labelUsername.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.labelUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.labelUsername.Location = new System.Drawing.Point(0, 0);
+            this.labelUsername.Name = "labelUsername";
+            this.labelUsername.Size = new System.Drawing.Size(265, 50);
+            this.labelUsername.TabIndex = 4;
+            this.labelUsername.Text = "Username";
+            this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel11
             // 
@@ -408,6 +408,7 @@
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Flowmaster";
+            this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.panel10.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panelSideBar.ResumeLayout(false);
@@ -437,7 +438,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelTopBar;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonMinimizarAplicacion;
         private System.Windows.Forms.Button buttonCerrarAplicacion;
