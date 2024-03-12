@@ -408,6 +408,7 @@
             this.Name = "FormMainMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Flowmaster";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormMainMenu_Load);
             this.panel10.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

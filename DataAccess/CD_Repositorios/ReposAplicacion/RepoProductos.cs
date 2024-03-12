@@ -37,6 +37,31 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             }
             return productos;
         }
+        public List<Producto> ObtenerProductosPorIDProducto(int idProducto)
+        {
+            List<Producto> productos = new List<Producto>();
+            string consultaSQL = "SELECT * FROM Productos WHERE ID_Producto = @ID_Producto";
+            parametros.Add(new SqlParameter("@ID_Producto", idProducto));
+            DataTable tablaProductos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaProductos.Rows)
+            {
+                Producto producto = new Producto
+                {
+                    ID_Producto = Convert.ToInt32(fila["ID_Producto"]),
+                    Nombre = fila["Nombre"].ToString(),
+                    ID_Categoria = Convert.ToInt32(fila["ID_Categoria"]),
+                    ID_Tipo = Convert.ToInt32(fila["ID_Tipo"]),
+                    PrecioVenta = Convert.ToDecimal(fila["PrecioVenta"]),
+                    Existencias = Convert.ToInt32(fila["Existencias"]),
+                    Habilitado = Convert.ToBoolean(fila["Habilitado"]),
+                    StockMinimo = Convert.ToInt32(fila["StockMinimo"]),
+                    ID_Proveedor = Convert.ToInt32(fila["ID_Proveedor"])
+                };
+                productos.Add(producto);
+            }
+            return productos;
+        }
 
         public int AltaProducto(Producto producto)
         {

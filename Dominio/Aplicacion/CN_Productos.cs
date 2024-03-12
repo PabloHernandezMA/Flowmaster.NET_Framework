@@ -54,6 +54,20 @@ namespace Dominio.Aplicacion
             }
         }
 
+        public List<Producto> ObtenerProductosPorIDProducto(int idProducto)
+        {
+            try
+            {
+                productos = repositorioProductos.ObtenerProductosPorIDProducto(idProducto);
+                return productos;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
         public int AltaProducto(Producto producto)
         {
             try

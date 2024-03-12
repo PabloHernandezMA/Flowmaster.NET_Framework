@@ -48,5 +48,18 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+
+        public List<Cliente> ObtenerClientePorIDCliente(int idCliente)
+        {
+            try
+            {
+                return repositorio.ObtenerClientePorIDCliente(idCliente);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

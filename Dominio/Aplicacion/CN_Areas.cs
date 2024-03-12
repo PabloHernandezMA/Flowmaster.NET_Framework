@@ -42,21 +42,33 @@ namespace Dominio.Aplicacion
         {
             try
             {
-                // Si ya se han cargado las áreas previamente, las devolvemos directamente.
-                if (areas.Count > 0)
-                {
-                    return areas;
-                }
-                else
-                {
-                    // Si no se han cargado previamente, las cargamos desde el repositorio y las almacenamos en memoria.
-                    areas = repositorio.ObtenerTodasLasAreas();
-                    return areas;
-                }
+                return repositorio.ObtenerTodasLasAreas();
             }
             catch (Exception ex)
             {
                 // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+        public List<Area> ObtenerAreasPorIDPedido(int idPedido)
+        {
+            try
+            {
+                return repositorio.ObtenerAreasPorIDPedido(idPedido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Area> ObtenerAreasPorIDEmpleado(int idEmpleado)
+        {
+            try
+            {
+                return repositorio.ObtenerAreasPorIDEmpleado(idEmpleado);
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
         }

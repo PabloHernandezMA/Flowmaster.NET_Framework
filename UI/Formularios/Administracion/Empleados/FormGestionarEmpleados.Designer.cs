@@ -34,15 +34,20 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.panelSeleccion = new System.Windows.Forms.Panel();
+            this.buttonSeleccionar = new System.Windows.Forms.Button();
+            this.panelABM = new System.Windows.Forms.Panel();
+            this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonModificar = new System.Windows.Forms.Button();
-            this.buttonAgregar = new System.Windows.Forms.Button();
             this.buttonVerDetalles = new System.Windows.Forms.Button();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -50,18 +55,13 @@
             this.linkLabelPaginaSiguiente = new System.Windows.Forms.LinkLabel();
             this.linkLabelPaginaPrevia = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panelABM = new System.Windows.Forms.Panel();
-            this.panelSeleccion = new System.Windows.Forms.Panel();
-            this.buttonSeleccionar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panelSeleccion.SuspendLayout();
+            this.panelABM.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.panelABM.SuspendLayout();
-            this.panelSeleccion.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -88,6 +88,25 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(949, 100);
             this.panel3.TabIndex = 14;
+            // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxNombre.Location = new System.Drawing.Point(100, 22);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(237, 29);
+            this.textBoxNombre.TabIndex = 31;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label1.Location = new System.Drawing.Point(19, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(75, 21);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "Nombre:";
             // 
             // comboBox1
             // 
@@ -154,6 +173,56 @@
             this.panel2.Size = new System.Drawing.Size(200, 499);
             this.panel2.TabIndex = 7;
             // 
+            // panelSeleccion
+            // 
+            this.panelSeleccion.Controls.Add(this.buttonSeleccionar);
+            this.panelSeleccion.Location = new System.Drawing.Point(12, 270);
+            this.panelSeleccion.Name = "panelSeleccion";
+            this.panelSeleccion.Size = new System.Drawing.Size(185, 134);
+            this.panelSeleccion.TabIndex = 11;
+            // 
+            // buttonSeleccionar
+            // 
+            this.buttonSeleccionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSeleccionar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonSeleccionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonSeleccionar.Location = new System.Drawing.Point(5, 5);
+            this.buttonSeleccionar.Name = "buttonSeleccionar";
+            this.buttonSeleccionar.Size = new System.Drawing.Size(170, 35);
+            this.buttonSeleccionar.TabIndex = 7;
+            this.buttonSeleccionar.Text = "Seleccionar";
+            this.buttonSeleccionar.UseVisualStyleBackColor = true;
+            this.buttonSeleccionar.Click += new System.EventHandler(this.buttonSeleccionar_Click);
+            // 
+            // panelABM
+            // 
+            this.panelABM.Controls.Add(this.buttonAgregar);
+            this.panelABM.Controls.Add(this.buttonEliminar);
+            this.panelABM.Controls.Add(this.buttonModificar);
+            this.panelABM.Location = new System.Drawing.Point(12, 108);
+            this.panelABM.Name = "panelABM";
+            this.panelABM.Size = new System.Drawing.Size(185, 134);
+            this.panelABM.TabIndex = 10;
+            this.panelABM.Visible = false;
+            // 
+            // buttonAgregar
+            // 
+            this.buttonAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAgregar.Location = new System.Drawing.Point(5, 5);
+            this.buttonAgregar.Name = "buttonAgregar";
+            this.buttonAgregar.Size = new System.Drawing.Size(170, 35);
+            this.buttonAgregar.TabIndex = 7;
+            this.buttonAgregar.Text = "Agregar";
+            this.buttonAgregar.UseVisualStyleBackColor = true;
+            // 
             // buttonEliminar
             // 
             this.buttonEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
@@ -184,21 +253,6 @@
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
             // 
-            // buttonAgregar
-            // 
-            this.buttonAgregar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonAgregar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.buttonAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAgregar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonAgregar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonAgregar.Location = new System.Drawing.Point(5, 5);
-            this.buttonAgregar.Name = "buttonAgregar";
-            this.buttonAgregar.Size = new System.Drawing.Size(170, 35);
-            this.buttonAgregar.TabIndex = 7;
-            this.buttonAgregar.Text = "Agregar";
-            this.buttonAgregar.UseVisualStyleBackColor = true;
-            // 
             // buttonVerDetalles
             // 
             this.buttonVerDetalles.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
@@ -213,6 +267,7 @@
             this.buttonVerDetalles.TabIndex = 6;
             this.buttonVerDetalles.Text = "Ver detalles";
             this.buttonVerDetalles.UseVisualStyleBackColor = true;
+            this.buttonVerDetalles.Visible = false;
             // 
             // buttonBuscar
             // 
@@ -228,6 +283,7 @@
             this.buttonBuscar.TabIndex = 5;
             this.buttonBuscar.Text = "Buscar";
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Visible = false;
             // 
             // panel4
             // 
@@ -336,58 +392,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(942, 499);
             this.dataGridView1.TabIndex = 8;
             // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxNombre.Location = new System.Drawing.Point(100, 22);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(237, 29);
-            this.textBoxNombre.TabIndex = 31;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label1.Location = new System.Drawing.Point(19, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 21);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "Nombre:";
-            // 
-            // panelABM
-            // 
-            this.panelABM.Controls.Add(this.buttonAgregar);
-            this.panelABM.Controls.Add(this.buttonEliminar);
-            this.panelABM.Controls.Add(this.buttonModificar);
-            this.panelABM.Location = new System.Drawing.Point(12, 108);
-            this.panelABM.Name = "panelABM";
-            this.panelABM.Size = new System.Drawing.Size(185, 134);
-            this.panelABM.TabIndex = 10;
-            // 
-            // panelSeleccion
-            // 
-            this.panelSeleccion.Controls.Add(this.buttonSeleccionar);
-            this.panelSeleccion.Location = new System.Drawing.Point(12, 270);
-            this.panelSeleccion.Name = "panelSeleccion";
-            this.panelSeleccion.Size = new System.Drawing.Size(185, 134);
-            this.panelSeleccion.TabIndex = 11;
-            // 
-            // buttonSeleccionar
-            // 
-            this.buttonSeleccionar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonSeleccionar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonSeleccionar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.buttonSeleccionar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSeleccionar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonSeleccionar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonSeleccionar.Location = new System.Drawing.Point(5, 5);
-            this.buttonSeleccionar.Name = "buttonSeleccionar";
-            this.buttonSeleccionar.Size = new System.Drawing.Size(170, 35);
-            this.buttonSeleccionar.TabIndex = 7;
-            this.buttonSeleccionar.Text = "Seleccionar";
-            this.buttonSeleccionar.UseVisualStyleBackColor = true;
-            // 
             // FormGestionarEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -398,15 +402,16 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormGestionarEmpleados";
             this.Text = "FormGestionarEmpleados";
+            this.Load += new System.EventHandler(this.FormGestionarEmpleados_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panelSeleccion.ResumeLayout(false);
+            this.panelABM.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.panelABM.ResumeLayout(false);
-            this.panelSeleccion.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

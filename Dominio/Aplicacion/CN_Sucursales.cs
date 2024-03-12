@@ -48,5 +48,27 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public List<Sucursal> ObtenerSucursalesPorIDCliente(int idCliente)
+        {
+            try
+            {
+                return repositorio.ObtenerSucursalesPorCliente(idCliente);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Sucursal> ObtenerSucursalesPorIDSucursal(int idSucursal)
+        {
+            try
+            {
+                return repositorio.ObtenerSucursalesPorIDSucursal(idSucursal);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

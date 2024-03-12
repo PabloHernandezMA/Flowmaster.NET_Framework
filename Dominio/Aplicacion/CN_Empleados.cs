@@ -17,7 +17,6 @@ namespace Dominio.Aplicacion
         private CN_Empleados()
         {
             repositorio = new RepoEmpleados();
-            empleados = new List<Empleado>();
         }
 
         public static CN_Empleados ObtenerInstancia()
@@ -33,19 +32,35 @@ namespace Dominio.Aplicacion
         {
             try
             {
-                if (empleados.Count > 0)
-                {
-                    return empleados;
-                }
-                else
-                {
-                    empleados = repositorio.ObtenerTodosLosEmpleados();
-                    return empleados;
-                }
+                return repositorio.ObtenerTodosLosEmpleados();
             }
             catch (Exception ex)
             {
                 throw ex;
+            }
+        }
+        public List<Empleado> ObtenerEmpleadosPorIDEmpleado(int idEmpleado)
+        {
+            try
+            {
+                return repositorio.ObtenerEmpleadosPorIDEmpleado(idEmpleado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public List<Empleado> ObtenerEmpleadosAsociadosAPedido(int idPedido)
+        {
+            try
+            {
+                return repositorio.ObtenerEmpleadosAsociadosAPedido(idPedido);
+            }
+            catch (Exception)
+            {
+
+                throw;
             }
         }
     }

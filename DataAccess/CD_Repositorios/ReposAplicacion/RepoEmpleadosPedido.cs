@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,6 +28,24 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
                 empleadosPedido.Add(empleadoPedido);
             }
             return empleadosPedido;
+        }
+        public List<EmpleadoPedido> ObtenerEmpleadosPedidosPorIDPedido(int idPedido)
+        {
+            List<EmpleadoPedido> empleadosPedidos = new List<EmpleadoPedido>();
+            string consultaSQL = "SELECT * FROM Empleados_Pedidos WHERE ID_Pedido = @ID_Pedido";
+            parametros.Add(new SqlParameter("@ID_Pedido", idPedido));
+            DataTable tablaEmpleadosPedidos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaEmpleadosPedidos.Rows)
+            {
+                EmpleadoPedido empleadoPedido = new EmpleadoPedido
+                {
+                    ID_Empleado = Convert.ToInt32(fila["ID_Empleado"]),
+                    ID_Pedido = Convert.ToInt32(fila["ID_Pedido"])
+                };
+                empleadosPedidos.Add(empleadoPedido);
+            }
+            return empleadosPedidos;
         }
     }
 }

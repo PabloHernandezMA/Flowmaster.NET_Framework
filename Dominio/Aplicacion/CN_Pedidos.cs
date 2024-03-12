@@ -48,5 +48,42 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public int AltaPedido(Pedido pedido)
+        {
+            try
+            {
+                return repositorio.AltaPedido(pedido);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
+        public int BajaPedido(int idPedido)
+        {
+            try
+            {
+                return repositorio.BajaPedido(idPedido);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+        public int ModificarPedido(Pedido pedido, int idPedido)
+        {
+            try
+            {
+                return repositorio.ModificarPedido(pedido, idPedido);
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
     }
 }
