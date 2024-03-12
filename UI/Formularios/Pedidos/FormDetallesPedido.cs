@@ -1,4 +1,9 @@
 ﻿using Dominio.Aplicacion;
+using iText.Kernel.Colors;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas.Draw;
+using iText.Layout;
+using iText.Layout.Element;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
@@ -13,8 +18,7 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 using UI.Formularios.Administracion.Clientes;
 using UI.Formularios.Administracion.Empleados;
-using iTextSharp.text;
-using iTextSharp.text.pdf;
+
 
 namespace UI.Formularios.Pedidos
 {
@@ -78,15 +82,15 @@ namespace UI.Formularios.Pedidos
             CargarSucursales();
         }
 
-       private void CargarAreas()
+        private void CargarAreas()
         {
-                List<Area> listaAreas = CN_Areas.ObtenerInstancia().ObtenerTodasLasAreas();
-                comboBoxArea.DisplayMember = "Nombre"; // Indica la propiedad que se mostrará en el ComboBox
-                comboBoxArea.ValueMember = "ID_Area"; // Indica la propiedad que se utilizará como valor seleccionado
-                comboBoxArea.DataSource = listaAreas;
-                // Habilitamos el autocompletado
-                comboBoxArea.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-                comboBoxArea.AutoCompleteSource = AutoCompleteSource.ListItems;
+            List<Area> listaAreas = CN_Areas.ObtenerInstancia().ObtenerTodasLasAreas();
+            comboBoxArea.DisplayMember = "Nombre"; // Indica la propiedad que se mostrará en el ComboBox
+            comboBoxArea.ValueMember = "ID_Area"; // Indica la propiedad que se utilizará como valor seleccionado
+            comboBoxArea.DataSource = listaAreas;
+            // Habilitamos el autocompletado
+            comboBoxArea.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            comboBoxArea.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
 
         private void CargarSucursales()
@@ -103,14 +107,14 @@ namespace UI.Formularios.Pedidos
                 comboBoxSucursal.AutoCompleteSource = AutoCompleteSource.ListItems;
                 comboBoxSucursal.SelectedValue = pedidoSeleccionado.ID_Sucursal;
             }
-            
+
         }
 
         private void CargarModo()
         {
             if (modo == 0) //Ver
             {
-                pedidoSeleccionado = pedidos.ObtenerTodosLosPedidos().FirstOrDefault(p => p.ID_Pedido== idPedidoSeleccionado);
+                pedidoSeleccionado = pedidos.ObtenerTodosLosPedidos().FirstOrDefault(p => p.ID_Pedido == idPedidoSeleccionado);
                 buttonCancelar.Visible = false;
                 buttonGuardar.Visible = false;
             }
@@ -210,7 +214,7 @@ namespace UI.Formularios.Pedidos
                 dataGridViewEmpleados.DataSource = listaEmpleados;
                 if (dataGridViewEmpleados.RowCount == 0)
                 {
-                 labelEstado.Text = "Asignado";
+                    labelEstado.Text = "Asignado";
                 }
             }
             else
@@ -334,56 +338,111 @@ namespace UI.Formularios.Pedidos
 
         private void buttonVerFactura_Click(object sender, EventArgs e)
         {
-            // Crear un nuevo documento PDF
-            Document doc = new Document();
+            // Establecer el color negro
+            iText.Kernel.Colors.Color colorNegro = new DeviceRgb(0, 0, 0);
 
-            // Ruta donde se guardará el PDF
-            string filePath = "Factura.pdf";
+            // Crear un nuevo cuadro de diálogo de guardado de archivos
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
 
-            // Crear un objeto PdfWriter para escribir en el documento
-            PdfWriter.GetInstance(doc, new FileStream(filePath, FileMode.Create));
+            // Establecer las propiedades del cuadro de diálogo
+            saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf|Todos los archivos (*.*)|*.*";
+            saveFileDialog.Title = "Guardar factura PDF";
+            saveFileDialog.FileName = "Factura.pdf"; // Nombre predeterminado del archivo
 
-            // Abrir el documento
-            doc.Open();
-
-            // Añadir contenido al documento
-            doc.Add(new Paragraph($"Número de pedido: {labelNumeroID.Text}"));
-            doc.Add(new Paragraph($"Cliente: {textBoxCliente.Text}"));
-            doc.Add(new Paragraph($"Sucursal: {comboBoxSucursal.SelectedValue}"));
-            doc.Add(new Paragraph($"Área: {comboBoxArea.SelectedValue}"));
-            doc.Add(new Paragraph($"Solicitud del cliente: {textBoxIngresoPedido.Text}"));
-            doc.Add(new Paragraph($"Atención brindada: {textBoxAtencionPedido.Text}"));
-            doc.Add(new Paragraph($"Fecha de ingreso: {dateTimePickerIngreso.Value}"));
-            doc.Add(new Paragraph($"Fecha de cierre: {dateTimePickerCierre.Value}"));
-            doc.Add(new Paragraph($"Total: {labelTotal.Text}"));
-
-            // Agregar empleados
-            if (dataGridViewEmpleados.DataSource != null)
+            // Mostrar el cuadro de diálogo y verificar si el usuario hace clic en "Guardar"
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-                List<Empleado> empleados = (List<Empleado>)dataGridViewEmpleados.DataSource;
-                doc.Add(new Paragraph("Empleados:"));
-                foreach (Empleado empleado in empleados)
+                // Obtener la ruta seleccionada por el usuario
+                string filePath = saveFileDialog.FileName;
+
+                // Crear un nuevo documento PDF
+                PdfDocument pdfDoc = new PdfDocument(new PdfWriter(filePath));
+                Document doc = new Document(pdfDoc);
+
+                // Establecer margenes
+                doc.SetMargins(20, 20, 20, 20);
+
+                // Agregar título centrado
+                Paragraph titulo = new Paragraph("Factura").SetTextAlignment(iText.Layout.Properties.TextAlignment.CENTER).SetFontSize(20);
+                doc.Add(titulo);
+
+                // Agregar línea horizontal
+                SolidLine line = new SolidLine(1f);
+                LineSeparator ls = new LineSeparator(line);
+                doc.Add(ls);
+
+                // Agregar número de pedido y cliente en la misma línea
+                Paragraph numeroCliente = new Paragraph()
+                .AddTabStops(new TabStop(400, iText.Layout.Properties.TabAlignment.RIGHT))
+                .Add($"Número de pedido: {labelNumeroID.Text}")
+                .Add(new Tab())
+                .Add("                              ") // Agregar espacios adicionales para separación
+                .Add($"Cliente: {textBoxCliente.Text}");
+                doc.Add(numeroCliente);
+
+                // Agregar sucursal y área en la misma línea
+                Paragraph sucursalArea = new Paragraph()
+                    .AddTabStops(new TabStop(400, iText.Layout.Properties.TabAlignment.RIGHT))
+                    .Add($"Sucursal: {comboBoxSucursal.SelectedValue}")
+                    .AddTabStops();
+                doc.Add(sucursalArea);
+
+                // Agregar solicitud del cliente
+                Paragraph solicitudCliente = new Paragraph($"Solicitud del cliente: {textBoxIngresoPedido.Text}");
+                doc.Add(solicitudCliente);
+
+                // Agregar tabla de empleados
+                if (dataGridViewEmpleados.DataSource != null)
                 {
-                    doc.Add(new Paragraph($"- ID: {empleado.ID_Empleado}, Nombre: {empleado.Nombre}, Área: {empleado.ID_Area}"));
+                    List<Empleado> empleados = (List<Empleado>)dataGridViewEmpleados.DataSource;
+                    Table tablaEmpleados = new Table(new float[] { 1, 3 }); // Dos columnas, una para ID y otra para nombre
+                    tablaEmpleados.AddCell("ID").SetBold();
+                    tablaEmpleados.AddCell("Nombre").SetBold();
+                    foreach (Empleado empleado in empleados)
+                    {
+                        tablaEmpleados.AddCell(empleado.ID_Empleado.ToString());
+                        tablaEmpleados.AddCell(empleado.Nombre);
+                    }
+                    doc.Add(tablaEmpleados);
                 }
-            }
 
-            // Agregar productos y servicios brindados
-            if (dataGridViewProductos.DataSource != null)
-            {
-                List<DetallePedido> detallesPedido = (List<DetallePedido>)dataGridViewProductos.DataSource;
-                doc.Add(new Paragraph("Productos y servicios brindados:"));
-                foreach (DetallePedido detalle in detallesPedido)
+                // Agregar atención brindada
+                Paragraph atencionBrindada = new Paragraph($"Atención brindada: {textBoxAtencionPedido.Text}");
+                doc.Add(atencionBrindada);
+
+                // Agregar tabla de productos y servicios brindados
+                if (dataGridViewProductos.DataSource != null)
                 {
-                    doc.Add(new Paragraph($"- ID Producto: {detalle.ID_Producto}, Cantidad: {detalle.Cantidad}, Total Detalle: {detalle.TotalDetalle}, Precio Unitario: {detalle.PrecioUnitario}"));
+                    List<DetallePedido> detallesPedido = (List<DetallePedido>)dataGridViewProductos.DataSource;
+                    Table tablaDetallesPedido = new Table(new float[] { 1, 2, 2, 2 }); // Cuatro columnas para ID Producto, Cantidad, Total Detalle y Precio Unitario
+                    tablaDetallesPedido.AddCell("ID Producto").SetBold();
+                    tablaDetallesPedido.AddCell("Cantidad").SetBold();
+                    tablaDetallesPedido.AddCell("Total Detalle").SetBold();
+                    tablaDetallesPedido.AddCell("Precio Unitario").SetBold();
+                    foreach (DetallePedido detalle in detallesPedido)
+                    {
+                        tablaDetallesPedido.AddCell(detalle.ID_Producto.ToString());
+                        tablaDetallesPedido.AddCell(detalle.Cantidad.ToString());
+                        tablaDetallesPedido.AddCell(detalle.TotalDetalle.ToString());
+                        tablaDetallesPedido.AddCell(detalle.PrecioUnitario.ToString());
+                    }
+                    doc.Add(tablaDetallesPedido);
                 }
+
+                // Agregar fecha factura
+                Paragraph fechaFactura = new Paragraph($"Fecha factura: {DateTime.Now.ToString("dd/MM/yyyy")}");
+                doc.Add(fechaFactura);
+
+                // Agregar total alineado a la derecha
+                Paragraph total = new Paragraph($"Total: {labelTotal.Text}").SetTextAlignment(iText.Layout.Properties.TextAlignment.RIGHT);
+                doc.Add(total);
+
+                // Cerrar el documento
+                doc.Close();
+
+                // Mostrar un mensaje de éxito
+                MessageBox.Show("PDF generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-            // Cerrar el documento
-            doc.Close();
-
-            // Mostrar un mensaje de éxito
-            MessageBox.Show("PDF generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
