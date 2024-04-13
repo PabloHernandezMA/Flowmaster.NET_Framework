@@ -46,8 +46,13 @@
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarGruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelCenter = new System.Windows.Forms.Panel();
             this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelCenter = new System.Windows.Forms.Panel();
+            this.gerenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auditoriaSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auditoriaProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -72,7 +77,8 @@
             this.productosToolStripMenuItem,
             this.empleadosToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.usuariosToolStripMenuItem});
+            this.usuariosToolStripMenuItem,
+            this.gerenciaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(936, 30);
@@ -194,6 +200,13 @@
             this.gestionarGruposToolStripMenuItem.Text = "Gestionar grupos";
             this.gestionarGruposToolStripMenuItem.Click += new System.EventHandler(this.gestionarGruposToolStripMenuItem_Click);
             // 
+            // gestionarPermisosToolStripMenuItem
+            // 
+            this.gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
+            this.gestionarPermisosToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
+            this.gestionarPermisosToolStripMenuItem.Text = "Gestionar permisos";
+            this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
+            // 
             // panelCenter
             // 
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
@@ -203,12 +216,43 @@
             this.panelCenter.Size = new System.Drawing.Size(936, 558);
             this.panelCenter.TabIndex = 1;
             // 
-            // gestionarPermisosToolStripMenuItem
+            // gerenciaToolStripMenuItem
             // 
-            this.gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
-            this.gestionarPermisosToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
-            this.gestionarPermisosToolStripMenuItem.Text = "Gestionar permisos";
-            this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
+            this.gerenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteToolStripMenuItem,
+            this.auditoriaToolStripMenuItem});
+            this.gerenciaToolStripMenuItem.Name = "gerenciaToolStripMenuItem";
+            this.gerenciaToolStripMenuItem.Size = new System.Drawing.Size(86, 26);
+            this.gerenciaToolStripMenuItem.Text = "Gerencia";
+            // 
+            // reporteToolStripMenuItem
+            // 
+            this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
+            this.reporteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.reporteToolStripMenuItem.Text = "Reporte";
+            this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
+            // 
+            // auditoriaToolStripMenuItem
+            // 
+            this.auditoriaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.auditoriaSesionesToolStripMenuItem,
+            this.auditoriaProductosToolStripMenuItem});
+            this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
+            this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.auditoriaToolStripMenuItem.Text = "Auditoria";
+            // 
+            // auditoriaSesionesToolStripMenuItem
+            // 
+            this.auditoriaSesionesToolStripMenuItem.Name = "auditoriaSesionesToolStripMenuItem";
+            this.auditoriaSesionesToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.auditoriaSesionesToolStripMenuItem.Text = "Auditoria Sesiones";
+            this.auditoriaSesionesToolStripMenuItem.Click += new System.EventHandler(this.auditoriaSesionesToolStripMenuItem_Click);
+            // 
+            // auditoriaProductosToolStripMenuItem
+            // 
+            this.auditoriaProductosToolStripMenuItem.Name = "auditoriaProductosToolStripMenuItem";
+            this.auditoriaProductosToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.auditoriaProductosToolStripMenuItem.Text = "Auditoria Productos";
             // 
             // FormAdministracion
             // 
@@ -249,5 +293,10 @@
         private System.Windows.Forms.ToolStripMenuItem gestionarUsuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarGruposToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarPermisosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gerenciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auditoriaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auditoriaSesionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auditoriaProductosToolStripMenuItem;
     }
 }

@@ -55,6 +55,7 @@
     <Compile Include="Aplicacion\CN_Provincias.cs" />
     <Compile Include="Aplicacion\CN_Sucursales.cs" />
     <Compile Include="Aplicacion\CN_Tipos_Producto.cs" />
+    <Compile Include="Seguridad\CN_AuditoriaSesiones.cs" />
     <Compile Include="Seguridad\CN_Formularios.cs" />
     <Compile Include="Seguridad\CN_Grupos.cs" />
     <Compile Include="Seguridad\CN_Modulos.cs" />

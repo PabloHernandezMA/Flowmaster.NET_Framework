@@ -62,6 +62,7 @@ namespace UI
 
         private void CerrarSesion(object sender, FormClosedEventArgs e)
         {
+
             textBoxUsername.Clear();
             textBoxPassword.Clear();
             labelErrorMessage.Visible = false;

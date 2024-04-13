@@ -168,6 +168,18 @@
     <Compile Include="Formularios\Administracion\FormAdministracion.Designer.cs">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Administracion\Gerencia\FormAuditoriaSesiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Gerencia\FormAuditoriaSesiones.Designer.cs">
+      <DependentUpon>FormAuditoriaSesiones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Gerencia\FormReporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Gerencia\FormReporte.Designer.cs">
+      <DependentUpon>FormReporte.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -281,6 +293,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\FormAdministracion.resx">
       <DependentUpon>FormAdministracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormAuditoriaSesiones.resx">
+      <DependentUpon>FormAuditoriaSesiones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormReporte.resx">
+      <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.resx">
       <DependentUpon>FormDetallesGrupo.cs</DependentUpon>

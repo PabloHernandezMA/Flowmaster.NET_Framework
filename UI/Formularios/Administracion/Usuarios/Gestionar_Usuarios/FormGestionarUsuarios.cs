@@ -56,6 +56,7 @@ namespace UI.Administracion.Usuarios.Gestionar_Usuarios
             try
             {
                 dataGridView1.DataSource = usuarios.ObtenerTodosLosUsuarios();
+                dataGridView1.Columns["User_password"].Visible = false;
             }
             catch (Exception ex)
             {

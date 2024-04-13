@@ -1,5 +1,7 @@
 ﻿using Dominio;
+using Dominio.Seguridad;
 using Modelo;
+using Modelo.Seguridad;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -92,6 +94,7 @@ namespace UI
             // Verificar la respuesta del usuario
             if (result == DialogResult.Yes)
             {
+                AuditarCierreSesion();
                 // Cerrar la aplicación si el usuario ha confirmado
                 this.Close();
             }
@@ -145,6 +148,23 @@ namespace UI
         {
             Usuario usuarioEnSesion = CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario();
             labelUsername.Text = usuarioEnSesion.Username;
+        }
+
+        private void FormMainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            AuditarCierreSesion();
+        }
+
+        private void AuditarCierreSesion()
+        {
+            AuditoriaSesiones auditoria = new AuditoriaSesiones
+            {
+                ID_User = CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User,
+                Username = CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().Username,
+                TipoOperacion = 2,
+                FechaHora = DateTime.Now
+            };
+            CN_AuditoriaSesiones.ObtenerInstancia().RegistrarAuditoria(auditoria);
         }
     }
 }

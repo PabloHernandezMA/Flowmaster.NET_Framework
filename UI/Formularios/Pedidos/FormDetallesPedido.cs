@@ -444,5 +444,57 @@ namespace UI.Formularios.Pedidos
                 MessageBox.Show("PDF generado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            // HAY QUE MODIFICAR VARIAS TABLAS: pedidos, detalles_pedido, empleados_pedido
+
+            // Variable para almacenar el ID_Estado
+            int idEstado;
+
+            // Evaluar el texto del labelEstado.Text y asignar el ID_Estado correspondiente
+            switch (labelEstado.Text)
+            {
+                case "Ingresado":
+                    idEstado = 1;
+                    break;
+                case "Asignado":
+                    idEstado = 2;
+                    break;
+                case "En proceso":
+                    idEstado = 3;
+                    break;
+                case "Completado":
+                    idEstado = 4;
+                    break;
+                case "Cancelado":
+                    idEstado = 5;
+                    break;
+                default:
+                    // En caso de que el texto del labelEstado.Text no coincida con ningún estado conocido
+                    // Aquí puedes manejar el caso según lo que sea necesario en tu aplicación
+                    idEstado = -1; // Por ejemplo, podrías asignar un valor indicando un estado no válido
+                    break;
+            }
+            Pedido nuevoPedido = new Pedido
+            {
+                ID_Pedido = idPedidoSeleccionado,
+                ID_Cliente = idClienteSeleccionado, // Asumiendo que el ID del cliente es un número
+                ID_Sucursal = int.Parse(comboBoxSucursal.SelectedValue.ToString()), // Asumiendo que el ID de la sucursal es un número
+                TotalPedido = decimal.Parse(labelTotal.Text),
+                ID_Area = int.Parse(comboBoxArea.SelectedValue.ToString()), // Asumiendo que el ID del área es un número
+                FechaInicio = dateTimePickerIngreso.Value,
+                FechaFin = dateTimePickerCierre.Value,
+                DescripcionSolicitud = textBoxIngresoPedido.Text,
+                DescripcionTareasRealizadas = "", // Debe llenarse dependiendo del flujo de la aplicación
+                ID_Estado = idEstado // Por ejemplo, 1 puede representar el estado "En proceso"
+            };
+            pedidos.ModificarPedido(nuevoPedido, idPedidoSeleccionado);
+
+            DetallePedido nuevoDetallePedido = new DetallePedido
+            {
+
+            };
+        }
     }
 }

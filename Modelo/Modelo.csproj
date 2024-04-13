@@ -55,6 +55,7 @@
     <Compile Include="Aplicacion\Provincia.cs" />
     <Compile Include="Aplicacion\Sucursal.cs" />
     <Compile Include="Aplicacion\Tipo_Producto.cs" />
+    <Compile Include="Seguridad\AuditoriaSesiones.cs" />
     <Compile Include="Seguridad\Formulario.cs" />
     <Compile Include="Seguridad\Grupo.cs" />
     <Compile Include="Seguridad\Modulo.cs" />

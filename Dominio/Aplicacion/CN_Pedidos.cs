@@ -48,6 +48,13 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public List<Pedido> ObtenerTodosLosPedidosPorIDEmpleado(int idEmpleado)
+        {
+            pedidos = repositorio.ObtenerTodosLosPedidosPorIDEmpleado(idEmpleado);
+            return pedidos;
+            
+        }
+
         public int AltaPedido(Pedido pedido)
         {
             try
@@ -85,5 +92,28 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+
+        public int ObtenerCantidadPedidosPendientes(DateTime FechaInicio, DateTime FechaFin)
+        {
+            try
+            {
+                if (pedidos.Count == 0)
+                {
+                    pedidos = repositorio.ObtenerTodosLosPedidos();
+                }
+                
+                    int cantidadPedidosEstado1 = pedidos.Count(pedido =>
+                                                        pedido.ID_Estado == 1 &&
+                                                        pedido.FechaInicio >= FechaInicio &&
+                                                        pedido.FechaFin <= FechaFin);
+                    return cantidadPedidosEstado1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }

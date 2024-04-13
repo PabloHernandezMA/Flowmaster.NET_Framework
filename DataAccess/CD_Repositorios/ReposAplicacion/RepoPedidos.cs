@@ -38,6 +38,40 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             return pedidos;
         }
 
+        public List<Pedido> ObtenerTodosLosPedidosPorIDEmpleado(int idEmpleado)
+        {
+            List<Pedido> pedidos = new List<Pedido>();
+            string consultaSQL = @"SELECT P.*
+                            FROM PEDIDOS P
+                            JOIN EMPLEADOS_PEDIDOS EP ON P.ID_Pedido = EP.ID_Pedido
+                            WHERE EP.ID_Empleado = @ID_Empleado";
+
+            // Debes inicializar la variable ID_Empleado antes de usarla en la consulta
+            SqlParameter parametroIDEmpleado = new SqlParameter("@ID_Empleado", idEmpleado);
+            parametros.Add(parametroIDEmpleado);
+
+            DataTable tablaPedidos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaPedidos.Rows)
+            {
+                Pedido pedido = new Pedido
+                {
+                    ID_Pedido = Convert.ToInt32(fila["ID_Pedido"]),
+                    ID_Cliente = Convert.ToInt32(fila["ID_Cliente"]),
+                    ID_Sucursal = Convert.ToInt32(fila["ID_Sucursal"]),
+                    TotalPedido = Convert.ToDecimal(fila["TotalPedido"]),
+                    ID_Area = Convert.ToInt32(fila["ID_Area"]),
+                    FechaInicio = Convert.ToDateTime(fila["FechaInicio"]),
+                    FechaFin = Convert.ToDateTime(fila["FechaFin"]),
+                    DescripcionSolicitud = fila["DescripcionSolicitud"].ToString(),
+                    DescripcionTareasRealizadas = fila["DescripcionTareasRealizadas"].ToString(),
+                    ID_Estado = Convert.ToInt32(fila["ID_Estado"])
+                };
+                pedidos.Add(pedido);
+            }
+            return pedidos;
+        }
+
         public int AltaPedido(Pedido pedido)
         {
             string consultaSQL = @"INSERT INTO Pedidos (ID_Cliente, ID_Sucursal, TotalPedido, ID_Area, FechaInicio, FechaFin, DescripcionSolicitud, DescripcionTareasRealizadas, ID_Estado) 
@@ -87,6 +121,55 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             parametros.Add(new SqlParameter("@ID_Pedido", idPedido));
 
             return ExecuteNonQuery(consultaSQL);
+        }
+
+        public int ObtenerCantidadPedidosAsignadosPorIDEmpleado(int idEmpleado)
+        {
+            int cantidadPedidosPendientes = 0;
+            string consultaSQL = @"SELECT COUNT(*)
+                           FROM PEDIDOS P
+                           JOIN EMPLEADOS_PEDIDOS EP ON P.ID_Pedido = EP.ID_Pedido
+                           WHERE EP.ID_Empleado = @ID_Empleado
+                           AND P.ID_Estado = 2"; // Filtra por pedidos en estado pendiente
+
+            // Debes inicializar la variable ID_Empleado antes de usarla en la consulta
+            SqlParameter parametroIDEmpleado = new SqlParameter("@ID_Empleado", idEmpleado);
+            parametros.Add(parametroIDEmpleado);
+
+            // Ejecuta la consulta y obtén el resultado como un escalar (un único valor)
+            object resultado = ExecuteReader(consultaSQL);
+
+            // Verifica si el resultado es nulo y si no, conviértelo a entero
+            if (resultado != null && resultado != DBNull.Value)
+            {
+                cantidadPedidosPendientes = Convert.ToInt32(resultado);
+            }
+
+            return cantidadPedidosPendientes;
+        }
+
+        public int ContarPedidosPendientesAPartirDeFecha(DateTime fechaInicio)
+        {
+            int cantidadPedidosPendientes = 0;
+            string consultaSQL = @"SELECT COUNT(*)
+                           FROM PEDIDOS
+                           WHERE ID_Estado = 1 -- Pedidos en estado pendiente
+                           AND FechaInicio >= @FechaInicio"; // Filtra por la fecha especificada
+
+            // Debes inicializar la variable FechaInicio antes de usarla en la consulta
+            SqlParameter parametroFechaInicio = new SqlParameter("@FechaInicio", fechaInicio);
+            parametros.Add(parametroFechaInicio);
+
+            // Ejecuta la consulta y obtén el resultado como un escalar (un único valor)
+            object resultado = ExecuteReader(consultaSQL);
+
+            // Verifica si el resultado es nulo y si no, conviértelo a entero
+            if (resultado != null && resultado != DBNull.Value)
+            {
+                cantidadPedidosPendientes = Convert.ToInt32(resultado);
+            }
+
+            return cantidadPedidosPendientes;
         }
     }
 }

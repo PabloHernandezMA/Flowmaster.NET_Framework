@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using DataAccess;
 using DataAccess.CD_Repositorios.ReposNegocio;
 using Dominio.Clases;
+using Dominio.Seguridad;
 using Modelo;
+using Modelo.Seguridad;
 
 namespace Dominio
 {
@@ -21,6 +23,7 @@ namespace Dominio
         List<Permiso> listpermisosDeGruposDelUsuarioEnSesion;
         private CN_Permisos permisos;
         private RepoPermisos repoPermisos;
+        private CN_AuditoriaSesiones auditoriaSesiones;
 
         // Constructor privado para evitar la creación de instancias desde fuera de la clase.
         private CN_UsuarioEnSesion()
@@ -81,6 +84,7 @@ namespace Dominio
                 {
                     usuario = usuarioEncontrado;
                     cargarPermisos();
+                    auditarInicioSesion();
                     return true;
                 }
                 else
@@ -93,6 +97,19 @@ namespace Dominio
                 // Manejar cualquier excepción que se produzca durante el proceso de autenticación
                 throw ex;
             }
+        }
+
+        private void auditarInicioSesion()
+        {
+            // Crear una nueva auditoría
+            AuditoriaSesiones nuevaAuditoria = new AuditoriaSesiones
+            {
+                ID_User = usuario.ID_User,
+                Username = usuario.Username,
+                TipoOperacion = 1,
+                FechaHora = DateTime.Now
+            };
+            CN_AuditoriaSesiones.ObtenerInstancia().RegistrarAuditoria(nuevaAuditoria);
         }
 
         private void cargarPermisos()
