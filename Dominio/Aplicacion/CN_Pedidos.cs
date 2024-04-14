@@ -13,6 +13,7 @@ namespace Dominio.Aplicacion
         private static CN_Pedidos instancia;
         private RepoPedidos repositorio;
         private List<Pedido> pedidos;
+        private List <Pedido> MisPedidosAsignados;
 
         private CN_Pedidos()
         {
@@ -105,7 +106,7 @@ namespace Dominio.Aplicacion
                     int cantidadPedidosEstado1 = pedidos.Count(pedido =>
                                                         pedido.ID_Estado == 1 &&
                                                         pedido.FechaInicio >= FechaInicio &&
-                                                        pedido.FechaFin <= FechaFin);
+                                                        pedido.FechaInicio <= FechaFin);
                     return cantidadPedidosEstado1;
             }
             catch (Exception ex)
@@ -114,6 +115,85 @@ namespace Dominio.Aplicacion
             }
         }
 
+        public int ObtenerCantidadPedidosAsignados(DateTime FechaInicio, DateTime FechaFin)
+        {
+            try
+            {
+                if (pedidos.Count == 0)
+                {
+                    pedidos = repositorio.ObtenerTodosLosPedidos();
+                }
 
+                int cantidadPedidosEstado1 = pedidos.Count(pedido =>
+                                                    pedido.ID_Estado == 2 &&
+                                                    pedido.FechaInicio >= FechaInicio &&
+                                                    pedido.FechaInicio <= FechaFin);
+                return cantidadPedidosEstado1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ObtenerCantidadPedidosEnProceso(DateTime FechaInicio, DateTime FechaFin)
+        {
+            try
+            {
+                if (pedidos.Count == 0)
+                {
+                    pedidos = repositorio.ObtenerTodosLosPedidos();
+                }
+
+                int cantidadPedidosEstado1 = pedidos.Count(pedido =>
+                                                    pedido.ID_Estado == 3 &&
+                                                    pedido.FechaInicio >= FechaInicio &&
+                                                    pedido.FechaInicio <= FechaFin);
+                return cantidadPedidosEstado1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ObtenerCantidadPedidosCompletados(DateTime FechaInicio, DateTime FechaFin)
+        {
+            try
+            {
+                if (pedidos.Count == 0)
+                {
+                    pedidos = repositorio.ObtenerTodosLosPedidos();
+                }
+
+                int cantidadPedidosEstado1 = pedidos.Count(pedido =>
+                                                    pedido.ID_Estado == 4 &&
+                                                    pedido.FechaInicio >= FechaInicio &&
+                                                    pedido.FechaInicio <= FechaFin);
+                return cantidadPedidosEstado1;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ObtenerCantidadMisPedidosPendientes(DateTime FechaInicio, DateTime FechaFin)
+        {
+            try
+            {
+                MisPedidosAsignados = repositorio.ObtenerTodosLosPedidosPorIDEmpleado(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User);
+                
+                int cantidadPedidos = MisPedidosAsignados.Count(pedido =>
+                                                    (pedido.ID_Estado == 2 || pedido.ID_Estado == 3) &&
+                                                    pedido.FechaInicio >= FechaInicio &&
+                                                    pedido.FechaInicio <= FechaFin);
+                return cantidadPedidos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

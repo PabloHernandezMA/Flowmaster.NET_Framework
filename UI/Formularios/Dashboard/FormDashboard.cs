@@ -72,6 +72,10 @@ namespace UI.Formularios.Dashboard
         private void cargarTarjetasDePedidos()
         {
             labelPedidosPendientes.Text = CN_Pedidos.ObtenerInstancia().ObtenerCantidadPedidosPendientes(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value).ToString();
+            labelPedidosAsignados.Text = CN_Pedidos.ObtenerInstancia().ObtenerCantidadPedidosAsignados(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value).ToString();
+            labelPedidosEnProceso.Text = CN_Pedidos.ObtenerInstancia().ObtenerCantidadPedidosEnProceso(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value).ToString();
+            labelPedidosCompletados.Text = CN_Pedidos.ObtenerInstancia().ObtenerCantidadPedidosCompletados(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value).ToString();
+            labelMisPedidosPendientes.Text = CN_Pedidos.ObtenerInstancia().ObtenerCantidadMisPedidosPendientes(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value).ToString();
         }
 
         private void DateTimePickerFecha_ValueChanged(object sender, EventArgs e)
@@ -109,6 +113,7 @@ namespace UI.Formularios.Dashboard
 
             // Limpiar los puntos existentes en el gráfico
             chartBars.Series["Pedidos"].Points.Clear();
+           
 
             // Agregar los datos al gráfico de barras
             foreach (var kvp in cantidadPedidosPorMes)
