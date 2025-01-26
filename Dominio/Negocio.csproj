@@ -53,6 +53,7 @@
     <Compile Include="Aplicacion\CN_Productos.cs" />
     <Compile Include="Aplicacion\CN_Proveedores.cs" />
     <Compile Include="Aplicacion\CN_Provincias.cs" />
+    <Compile Include="Aplicacion\CN_Proyectos.cs" />
     <Compile Include="Aplicacion\CN_Sucursales.cs" />
     <Compile Include="Aplicacion\CN_Tipos_Producto.cs" />
     <Compile Include="Seguridad\CN_AuditoriaSesiones.cs" />

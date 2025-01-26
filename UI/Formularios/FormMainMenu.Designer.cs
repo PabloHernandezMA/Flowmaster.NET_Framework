@@ -54,6 +54,8 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
+            this.buttonProyectos = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelSideBar.SuspendLayout();
@@ -142,6 +144,8 @@
             // panelSideBar
             // 
             this.panelSideBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
+            this.panelSideBar.Controls.Add(this.buttonProyectos);
+            this.panelSideBar.Controls.Add(this.panel12);
             this.panelSideBar.Controls.Add(this.buttonConfiguracion);
             this.panelSideBar.Controls.Add(this.panel1);
             this.panelSideBar.Controls.Add(this.buttonCerrarSesion);
@@ -391,6 +395,33 @@
             this.panelCenter.Size = new System.Drawing.Size(929, 607);
             this.panelCenter.TabIndex = 12;
             // 
+            // buttonProyectos
+            // 
+            this.buttonProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
+            this.buttonProyectos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonProyectos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonProyectos.FlatAppearance.BorderSize = 0;
+            this.buttonProyectos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonProyectos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonProyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProyectos.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.buttonProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonProyectos.Location = new System.Drawing.Point(0, 277);
+            this.buttonProyectos.Name = "buttonProyectos";
+            this.buttonProyectos.Size = new System.Drawing.Size(200, 43);
+            this.buttonProyectos.TabIndex = 21;
+            this.buttonProyectos.Text = "Proyectos";
+            this.buttonProyectos.UseVisualStyleBackColor = false;
+            this.buttonProyectos.Click += new System.EventHandler(this.buttonProyectos_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 272);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(200, 5);
+            this.panel12.TabIndex = 20;
+            // 
             // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -447,5 +478,7 @@
         private System.Windows.Forms.Button buttonMaximizarAplicacion;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.Panel panelCenter;
+        private System.Windows.Forms.Button buttonProyectos;
+        private System.Windows.Forms.Panel panel12;
     }
 }

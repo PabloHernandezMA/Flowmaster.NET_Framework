@@ -16,6 +16,7 @@ using UI.Configuracion;
 using UI.Formularios.Dashboard;
 using UI.Formularios.Pedidos;
 using UI.Productos;
+using UI.Formularios.Proyectos;
 
 namespace UI
 {
@@ -141,6 +142,12 @@ namespace UI
         {
             // Aquí llamamos al método GetInstance() en lugar de crear una nueva instancia
             FormConfiguracion formAdmin = FormConfiguracion.GetInstance();
+            AbrirFormulario(formAdmin);
+        }
+
+        private void buttonProyectos_Click(object sender, EventArgs e)
+        {
+            FormGestionarProyectos formAdmin = FormGestionarProyectos.GetInstance();
             AbrirFormulario(formAdmin);
         }
 

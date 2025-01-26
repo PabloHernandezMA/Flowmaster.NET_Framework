@@ -276,6 +276,42 @@
     <Compile Include="Formularios\Productos\FormGestionarProductos.Designer.cs">
       <DependentUpon>FormGestionarProductos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Proyectos\FormDetalleProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormDetalleProyecto.Designer.cs">
+      <DependentUpon>FormDetalleProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormDetalleTarjeta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormDetalleTarjeta.Designer.cs">
+      <DependentUpon>FormDetalleTarjeta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormGestionarProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormGestionarProyectos.Designer.cs">
+      <DependentUpon>FormGestionarProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\FormProyecto.Designer.cs">
+      <DependentUpon>FormProyecto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\UserControlColumna.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\UserControlColumna.Designer.cs">
+      <DependentUpon>UserControlColumna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\UserControlTarjeta.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\UserControlTarjeta.Designer.cs">
+      <DependentUpon>UserControlTarjeta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ValidacionesForm.cs" />
@@ -347,6 +383,24 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Productos\FormGestionarProductos.resx">
       <DependentUpon>FormGestionarProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\FormDetalleProyecto.resx">
+      <DependentUpon>FormDetalleProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\FormDetalleTarjeta.resx">
+      <DependentUpon>FormDetalleTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\FormGestionarProyectos.resx">
+      <DependentUpon>FormGestionarProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\FormProyecto.resx">
+      <DependentUpon>FormProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\UserControlColumna.resx">
+      <DependentUpon>UserControlColumna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\UserControlTarjeta.resx">
+      <DependentUpon>UserControlTarjeta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

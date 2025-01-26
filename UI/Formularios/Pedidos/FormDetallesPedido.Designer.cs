@@ -28,15 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormDetallesPedido));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.buttonGuardar = new System.Windows.Forms.Button();
@@ -51,6 +51,9 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonBuscarCliente = new System.Windows.Forms.Button();
+            this.textBoxCliente = new System.Windows.Forms.TextBox();
+            this.comboBoxSucursal = new System.Windows.Forms.ComboBox();
             this.textBoxIngresoPedido = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxArea = new System.Windows.Forms.ComboBox();
@@ -65,6 +68,7 @@
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.checkBoxEnProceso = new System.Windows.Forms.CheckBox();
             this.buttonEliminarProducto = new System.Windows.Forms.Button();
             this.buttonAgregarProducto = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
@@ -72,18 +76,14 @@
             this.textBoxAtencionPedido = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.groupBoxFin = new System.Windows.Forms.GroupBox();
+            this.checkBoxCancelado = new System.Windows.Forms.CheckBox();
+            this.checkBoxCerrado = new System.Windows.Forms.CheckBox();
             this.buttonVerFactura = new System.Windows.Forms.Button();
             this.labelTotal = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.dateTimePickerCierre = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
-            this.groupBoxFin = new System.Windows.Forms.GroupBox();
-            this.comboBoxSucursal = new System.Windows.Forms.ComboBox();
-            this.checkBoxEnProceso = new System.Windows.Forms.CheckBox();
-            this.textBoxCliente = new System.Windows.Forms.TextBox();
-            this.buttonBuscarCliente = new System.Windows.Forms.Button();
-            this.checkBoxCerrado = new System.Windows.Forms.CheckBox();
-            this.checkBoxCancelado = new System.Windows.Forms.CheckBox();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -262,6 +262,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
             this.tabPage1.Controls.Add(this.buttonBuscarCliente);
             this.tabPage1.Controls.Add(this.textBoxCliente);
@@ -280,6 +281,33 @@
             this.tabPage1.Size = new System.Drawing.Size(679, 402);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Ingreso";
+            // 
+            // buttonBuscarCliente
+            // 
+            this.buttonBuscarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCliente.Image")));
+            this.buttonBuscarCliente.Location = new System.Drawing.Point(317, 17);
+            this.buttonBuscarCliente.Name = "buttonBuscarCliente";
+            this.buttonBuscarCliente.Size = new System.Drawing.Size(27, 23);
+            this.buttonBuscarCliente.TabIndex = 31;
+            this.buttonBuscarCliente.UseVisualStyleBackColor = true;
+            this.buttonBuscarCliente.Click += new System.EventHandler(this.buttonBuscarCliente_Click);
+            // 
+            // textBoxCliente
+            // 
+            this.textBoxCliente.Location = new System.Drawing.Point(88, 15);
+            this.textBoxCliente.Name = "textBoxCliente";
+            this.textBoxCliente.Size = new System.Drawing.Size(219, 29);
+            this.textBoxCliente.TabIndex = 30;
+            // 
+            // comboBoxSucursal
+            // 
+            this.comboBoxSucursal.FormattingEnabled = true;
+            this.comboBoxSucursal.Location = new System.Drawing.Point(88, 68);
+            this.comboBoxSucursal.Name = "comboBoxSucursal";
+            this.comboBoxSucursal.Size = new System.Drawing.Size(256, 29);
+            this.comboBoxSucursal.TabIndex = 29;
             // 
             // textBoxIngresoPedido
             // 
@@ -363,6 +391,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.AutoScroll = true;
             this.tabPage2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
             this.tabPage2.Controls.Add(this.buttonEliminarEmpleado);
             this.tabPage2.Controls.Add(this.buttonAgregarEmpleado);
@@ -413,33 +442,33 @@
             this.dataGridViewEmpleados.AllowUserToDeleteRows = false;
             this.dataGridViewEmpleados.AllowUserToOrderColumns = true;
             this.dataGridViewEmpleados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle73.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle73.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle73.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle73.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             this.dataGridViewEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle74.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle74.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle74.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle74.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle74.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle74.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle74.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle75.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle75.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle75.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle75.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewEmpleados.EnableHeadersVisualStyles = false;
             this.dataGridViewEmpleados.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridViewEmpleados.Location = new System.Drawing.Point(19, 57);
@@ -448,12 +477,12 @@
             this.dataGridViewEmpleados.ReadOnly = true;
             this.dataGridViewEmpleados.RowHeadersVisible = false;
             this.dataGridViewEmpleados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle76.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle76.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle76.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle76.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle76.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEmpleados.Size = new System.Drawing.Size(440, 324);
             this.dataGridViewEmpleados.TabIndex = 18;
@@ -471,6 +500,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.AutoScroll = true;
             this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
             this.tabPage3.Controls.Add(this.checkBoxEnProceso);
             this.tabPage3.Controls.Add(this.buttonEliminarProducto);
@@ -484,6 +514,19 @@
             this.tabPage3.Size = new System.Drawing.Size(679, 402);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Atención";
+            // 
+            // checkBoxEnProceso
+            // 
+            this.checkBoxEnProceso.AutoSize = true;
+            this.checkBoxEnProceso.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.checkBoxEnProceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.checkBoxEnProceso.Location = new System.Drawing.Point(173, 16);
+            this.checkBoxEnProceso.Name = "checkBoxEnProceso";
+            this.checkBoxEnProceso.Size = new System.Drawing.Size(110, 25);
+            this.checkBoxEnProceso.TabIndex = 34;
+            this.checkBoxEnProceso.Text = "En proceso";
+            this.checkBoxEnProceso.UseVisualStyleBackColor = true;
+            this.checkBoxEnProceso.CheckedChanged += new System.EventHandler(this.checkBoxEnProceso_CheckedChanged);
             // 
             // buttonEliminarProducto
             // 
@@ -534,33 +577,33 @@
             this.dataGridViewProductos.AllowUserToDeleteRows = false;
             this.dataGridViewProductos.AllowUserToOrderColumns = true;
             this.dataGridViewProductos.AllowUserToResizeRows = false;
-            dataGridViewCellStyle77.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle77.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewProductos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewProductos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewProductos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             this.dataGridViewProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle78.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle78.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle78.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle78.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle79.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle79.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewProductos.DefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewProductos.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewProductos.EnableHeadersVisualStyles = false;
             this.dataGridViewProductos.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridViewProductos.Location = new System.Drawing.Point(346, 52);
@@ -569,12 +612,12 @@
             this.dataGridViewProductos.ReadOnly = true;
             this.dataGridViewProductos.RowHeadersVisible = false;
             this.dataGridViewProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle80.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle80.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle80.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewProductos.RowsDefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewProductos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewProductos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewProductos.Size = new System.Drawing.Size(327, 268);
             this.dataGridViewProductos.TabIndex = 29;
@@ -612,6 +655,42 @@
             this.tabPage4.Size = new System.Drawing.Size(679, 402);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Cierre";
+            // 
+            // groupBoxFin
+            // 
+            this.groupBoxFin.Controls.Add(this.checkBoxCancelado);
+            this.groupBoxFin.Controls.Add(this.checkBoxCerrado);
+            this.groupBoxFin.Location = new System.Drawing.Point(366, 24);
+            this.groupBoxFin.Name = "groupBoxFin";
+            this.groupBoxFin.Size = new System.Drawing.Size(140, 97);
+            this.groupBoxFin.TabIndex = 30;
+            this.groupBoxFin.TabStop = false;
+            // 
+            // checkBoxCancelado
+            // 
+            this.checkBoxCancelado.AutoSize = true;
+            this.checkBoxCancelado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.checkBoxCancelado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.checkBoxCancelado.Location = new System.Drawing.Point(22, 35);
+            this.checkBoxCancelado.Name = "checkBoxCancelado";
+            this.checkBoxCancelado.Size = new System.Drawing.Size(105, 25);
+            this.checkBoxCancelado.TabIndex = 27;
+            this.checkBoxCancelado.Text = "Cancelado";
+            this.checkBoxCancelado.UseVisualStyleBackColor = true;
+            this.checkBoxCancelado.CheckedChanged += new System.EventHandler(this.checkBoxCancelado_CheckedChanged);
+            // 
+            // checkBoxCerrado
+            // 
+            this.checkBoxCerrado.AutoSize = true;
+            this.checkBoxCerrado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.checkBoxCerrado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.checkBoxCerrado.Location = new System.Drawing.Point(22, 66);
+            this.checkBoxCerrado.Name = "checkBoxCerrado";
+            this.checkBoxCerrado.Size = new System.Drawing.Size(88, 25);
+            this.checkBoxCerrado.TabIndex = 26;
+            this.checkBoxCerrado.Text = "Cerrado";
+            this.checkBoxCerrado.UseVisualStyleBackColor = true;
+            this.checkBoxCerrado.CheckedChanged += new System.EventHandler(this.checkBoxCerrado_CheckedChanged);
             // 
             // buttonVerFactura
             // 
@@ -675,82 +754,6 @@
             this.label13.Size = new System.Drawing.Size(102, 21);
             this.label13.TabIndex = 24;
             this.label13.Text = "Fecha cierre:";
-            // 
-            // groupBoxFin
-            // 
-            this.groupBoxFin.Controls.Add(this.checkBoxCancelado);
-            this.groupBoxFin.Controls.Add(this.checkBoxCerrado);
-            this.groupBoxFin.Location = new System.Drawing.Point(366, 24);
-            this.groupBoxFin.Name = "groupBoxFin";
-            this.groupBoxFin.Size = new System.Drawing.Size(140, 97);
-            this.groupBoxFin.TabIndex = 30;
-            this.groupBoxFin.TabStop = false;
-            // 
-            // comboBoxSucursal
-            // 
-            this.comboBoxSucursal.FormattingEnabled = true;
-            this.comboBoxSucursal.Location = new System.Drawing.Point(88, 68);
-            this.comboBoxSucursal.Name = "comboBoxSucursal";
-            this.comboBoxSucursal.Size = new System.Drawing.Size(256, 29);
-            this.comboBoxSucursal.TabIndex = 29;
-            // 
-            // checkBoxEnProceso
-            // 
-            this.checkBoxEnProceso.AutoSize = true;
-            this.checkBoxEnProceso.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBoxEnProceso.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.checkBoxEnProceso.Location = new System.Drawing.Point(173, 16);
-            this.checkBoxEnProceso.Name = "checkBoxEnProceso";
-            this.checkBoxEnProceso.Size = new System.Drawing.Size(110, 25);
-            this.checkBoxEnProceso.TabIndex = 34;
-            this.checkBoxEnProceso.Text = "En proceso";
-            this.checkBoxEnProceso.UseVisualStyleBackColor = true;
-            this.checkBoxEnProceso.CheckedChanged += new System.EventHandler(this.checkBoxEnProceso_CheckedChanged);
-            // 
-            // textBoxCliente
-            // 
-            this.textBoxCliente.Location = new System.Drawing.Point(88, 15);
-            this.textBoxCliente.Name = "textBoxCliente";
-            this.textBoxCliente.Size = new System.Drawing.Size(219, 29);
-            this.textBoxCliente.TabIndex = 30;
-            // 
-            // buttonBuscarCliente
-            // 
-            this.buttonBuscarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscarCliente.Image")));
-            this.buttonBuscarCliente.Location = new System.Drawing.Point(317, 17);
-            this.buttonBuscarCliente.Name = "buttonBuscarCliente";
-            this.buttonBuscarCliente.Size = new System.Drawing.Size(27, 23);
-            this.buttonBuscarCliente.TabIndex = 31;
-            this.buttonBuscarCliente.UseVisualStyleBackColor = true;
-            this.buttonBuscarCliente.Click += new System.EventHandler(this.buttonBuscarCliente_Click);
-            // 
-            // checkBoxCerrado
-            // 
-            this.checkBoxCerrado.AutoSize = true;
-            this.checkBoxCerrado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBoxCerrado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.checkBoxCerrado.Location = new System.Drawing.Point(22, 66);
-            this.checkBoxCerrado.Name = "checkBoxCerrado";
-            this.checkBoxCerrado.Size = new System.Drawing.Size(88, 25);
-            this.checkBoxCerrado.TabIndex = 26;
-            this.checkBoxCerrado.Text = "Cerrado";
-            this.checkBoxCerrado.UseVisualStyleBackColor = true;
-            this.checkBoxCerrado.CheckedChanged += new System.EventHandler(this.checkBoxCerrado_CheckedChanged);
-            // 
-            // checkBoxCancelado
-            // 
-            this.checkBoxCancelado.AutoSize = true;
-            this.checkBoxCancelado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.checkBoxCancelado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.checkBoxCancelado.Location = new System.Drawing.Point(22, 35);
-            this.checkBoxCancelado.Name = "checkBoxCancelado";
-            this.checkBoxCancelado.Size = new System.Drawing.Size(105, 25);
-            this.checkBoxCancelado.TabIndex = 27;
-            this.checkBoxCancelado.Text = "Cancelado";
-            this.checkBoxCancelado.UseVisualStyleBackColor = true;
-            this.checkBoxCancelado.CheckedChanged += new System.EventHandler(this.checkBoxCancelado_CheckedChanged);
             // 
             // FormDetallesPedido
             // 
