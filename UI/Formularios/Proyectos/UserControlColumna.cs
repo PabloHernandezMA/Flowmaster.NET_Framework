@@ -16,5 +16,10 @@ namespace UI.Formularios.Proyectos
         {
             InitializeComponent();
         }
+        public string NombreColumna
+        {
+            get { return textBoxTituloColumna.Text; } // Para obtener el texto actual
+            set { textBoxTituloColumna.Text = value; } // Para establecer el texto
+        }
     }
 }

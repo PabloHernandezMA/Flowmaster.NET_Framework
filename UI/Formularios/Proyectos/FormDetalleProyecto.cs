@@ -13,17 +13,29 @@ namespace UI.Formularios.Proyectos
     public partial class FormDetalleProyecto : Form
     {
         private static FormDetalleProyecto instance;
+        private int idSeleccion;
+
+        public FormDetalleProyecto(int idSeleccion)
+        {
+            this.idSeleccion = idSeleccion;
+        }
+
         private FormDetalleProyecto()
         {
             InitializeComponent();
         }
-        public static FormDetalleProyecto GetInstance()
+        public static FormDetalleProyecto ObtenerInstancia(int idSeleccion)
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new FormDetalleProyecto();
+                instance = new FormDetalleProyecto(idSeleccion);
             }
             return instance;
+        }
+
+        private void FormDetalleProyecto_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }

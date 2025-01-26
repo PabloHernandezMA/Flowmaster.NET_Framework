@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio.Aplicacion;
+using Modelo.Aplicacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +15,7 @@ namespace UI.Formularios.Proyectos
 {
     public partial class FormGestionarProyectos : Form
     {
+        private CN_Proyectos proyectos;
         private static FormGestionarProyectos instance;
         private FormGestionarProyectos()
         {
@@ -29,9 +32,34 @@ namespace UI.Formularios.Proyectos
 
         private void buttonVerDetalles_Click(object sender, EventArgs e)
         {
-            using (FormProyecto formulario = FormProyecto.GetInstance())
+            if (dataGridView1.SelectedRows.Count > 0)
             {
-                formulario.ShowDialog();
+                int idSeleccion = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_Proyecto"].Value);
+                using (FormProyecto formulario = FormProyecto.ObtenerInstancia(idSeleccion))
+                {
+                    formulario.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un proeycto.");
+            }
+        }
+
+        private void FormGestionarProyectos_Load(object sender, EventArgs e)
+        {
+            proyectos = CN_Proyectos.ObtenerInstancia();
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dataGridView1.DataSource = proyectos.ObtenerTodosLosProyectos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

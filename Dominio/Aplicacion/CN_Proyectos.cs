@@ -19,6 +19,7 @@ namespace Dominio.Aplicacion
         {
             repositorio = new RepoProyectos();
             integrantes = new List<Integrante>();
+            proyectos = new List<Proyecto>();
         }
 
         public static CN_Proyectos ObtenerInstancia()
@@ -48,7 +49,11 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
-
+        public Proyecto ObtenerProyecto(int idProyecto)
+        {
+            Proyecto proyectoBuscado = proyectos.FirstOrDefault(p => p.ID_Proyecto == idProyecto);
+            return proyectoBuscado;
+        }
         public int AltaProyecto(Proyecto proyecto)
         {
             try
@@ -75,11 +80,11 @@ namespace Dominio.Aplicacion
         }
 
         // Método adicional: Modificación de un proyecto (ejemplo)
-        public int ModificarProyecto(Proyecto proyecto, int idProyecto)
+        public int ModificarProyecto(Proyecto proyecto)
         {
             try
             {
-                return repositorio.ModificarProyecto(proyecto, idProyecto);
+                return repositorio.ModificarProyecto(proyecto);
             }
             catch (Exception ex)
             {

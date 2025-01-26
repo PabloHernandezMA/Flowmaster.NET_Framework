@@ -61,6 +61,7 @@
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProvincias.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoProyectos.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoSucursales.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoTarjetas.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoTipos_Producto.cs" />
     <Compile Include="CD_Repositorios\RepositorioMaestro.cs" />
     <Compile Include="CD_Repositorios\ReposSeguridad\RepoAuditoriaSesiones.cs" />

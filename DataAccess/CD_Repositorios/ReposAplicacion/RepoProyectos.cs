@@ -95,68 +95,6 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             return proyectos;
         }
 
-        // Métodos para Tarjetas
-        public List<Tarjeta> ObtenerTodasLasTarjetasDeLaColumna(int idColumna)
-        {
-            List<Tarjeta> tarjetas = new List<Tarjeta>();
-            string consultaSQL = "SELECT * FROM TARJETAS WHERE ID_Columna = @ID_Columna ORDER BY Posicion";
-            parametros.Add(new SqlParameter("@ID_Columna", idColumna));
-
-            DataTable tablaTarjetas = ExecuteReader(consultaSQL);
-
-            foreach (DataRow fila in tablaTarjetas.Rows)
-            {
-                Tarjeta tarjeta = new Tarjeta
-                {
-                    ID_Tarjeta = Convert.ToInt32(fila["ID_Tarjeta"]),
-                    Nombre = fila["Nombre"].ToString(),
-                    Descripcion = fila["Descripcion"] != DBNull.Value ? fila["Descripcion"].ToString() : null,
-                    Posicion = Convert.ToInt32(fila["Posicion"]),
-                    Visible = Convert.ToBoolean(fila["Visible"]),
-                    ID_Columna = Convert.ToInt32(fila["ID_Columna"])
-                };
-                tarjetas.Add(tarjeta);
-            }
-            return tarjetas;
-        }
-
-        public int AltaTarjeta(Tarjeta tarjeta)
-        {
-            string consultaSQL = @"INSERT INTO TARJETAS (Nombre, Descripcion, Posicion, Visible, ID_Columna)
-                               VALUES (@Nombre, @Descripcion, @Posicion, @Visible, @ID_Columna)";
-            parametros.Add(new SqlParameter("@Nombre", tarjeta.Nombre));
-            parametros.Add(new SqlParameter("@Descripcion", tarjeta.Descripcion ?? (object)DBNull.Value));
-            parametros.Add(new SqlParameter("@Posicion", tarjeta.Posicion));
-            parametros.Add(new SqlParameter("@Visible", tarjeta.Visible));
-            parametros.Add(new SqlParameter("@ID_Columna", tarjeta.ID_Columna));
-
-            return ExecuteNonQuery(consultaSQL);
-        }
-
-        public int BajaTarjeta(int idTarjeta)
-        {
-            string consultaSQL = "DELETE FROM TARJETAS WHERE ID_Tarjeta = @ID_Tarjeta";
-            parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
-            return ExecuteNonQuery(consultaSQL);
-        }
-
-        public int ModificarTarjeta(Tarjeta tarjeta)
-        {
-            string consultaSQL = @"UPDATE TARJETAS
-                               SET Nombre = @Nombre,
-                                   Descripcion = @Descripcion,
-                                   Posicion = @Posicion,
-                                   Visible = @Visible
-                               WHERE ID_Tarjeta = @ID_Tarjeta";
-            parametros.Add(new SqlParameter("@Nombre", tarjeta.Nombre));
-            parametros.Add(new SqlParameter("@Descripcion", tarjeta.Descripcion ?? (object)DBNull.Value));
-            parametros.Add(new SqlParameter("@Posicion", tarjeta.Posicion));
-            parametros.Add(new SqlParameter("@Visible", tarjeta.Visible));
-            parametros.Add(new SqlParameter("@ID_Tarjeta", tarjeta.ID_Tarjeta));
-
-            return ExecuteNonQuery(consultaSQL);
-        }
-
         // Devuelve todos los integrantes de un proyecto y sus cargos
         public List<Integrante> ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(int idProyecto)
         {
@@ -183,34 +121,6 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             return integrantes;
         }
 
-        // Devuelve todos los proyectos en los que participa un usuario junto con su cargo
-        public List<ProyectoIntegracion> ObtenerTodosLosProyectosDeUnUsuarioYSuCargo(int idUsuario)
-        {
-            List<ProyectoIntegracion> proyectos = new List<ProyectoIntegracion>();
-            string consultaSQL = @"SELECT P.ID_Proyecto, P.Nombre AS NombreProyecto, P.FechaInicio, 
-                                      P.FechaFin, P.Estado, UP.Cargo
-                               FROM PROYECTOS P
-                               JOIN USUARIOxPROYECTO UP ON P.ID_Proyecto = UP.ID_Proyecto
-                               WHERE UP.ID_Usuario = @ID_Usuario";
-            parametros.Add(new SqlParameter("@ID_Usuario", idUsuario));
-
-            DataTable tablaProyectos = ExecuteReader(consultaSQL);
-
-            foreach (DataRow fila in tablaProyectos.Rows)
-            {
-                ProyectoIntegracion proyecto = new ProyectoIntegracion
-                {
-                    ID_Proyecto = Convert.ToInt32(fila["ID_Proyecto"]),
-                    NombreProyecto = fila["NombreProyecto"].ToString(),
-                    FechaInicio = Convert.ToDateTime(fila["FechaInicio"]),
-                    FechaFin = fila["FechaFin"] != DBNull.Value ? Convert.ToDateTime(fila["FechaFin"]) : (DateTime?)null,
-                    Estado = Convert.ToBoolean(fila["Estado"]),
-                    Cargo = fila["Cargo"].ToString()
-                };
-                proyectos.Add(proyecto);
-            }
-            return proyectos;
-        }
     }
 
 }

@@ -30,13 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlColumna));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBoxTituloColumna = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonMover = new System.Windows.Forms.Button();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.userControlTarjeta2 = new UI.Formularios.Proyectos.UserControlTarjeta();
             this.userControlTarjeta1 = new UI.Formularios.Proyectos.UserControlTarjeta();
             this.buttonAgregarColumna = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -44,7 +44,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.textBoxTituloColumna);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.buttonMover);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -52,6 +52,19 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(225, 43);
             this.panel1.TabIndex = 0;
+            // 
+            // textBoxTituloColumna
+            // 
+            this.textBoxTituloColumna.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
+            this.textBoxTituloColumna.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTituloColumna.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.textBoxTituloColumna.ForeColor = System.Drawing.SystemColors.Window;
+            this.textBoxTituloColumna.Location = new System.Drawing.Point(10, 12);
+            this.textBoxTituloColumna.Name = "textBoxTituloColumna";
+            this.textBoxTituloColumna.Size = new System.Drawing.Size(138, 22);
+            this.textBoxTituloColumna.TabIndex = 6;
+            this.textBoxTituloColumna.Text = "textBox Titulo";
+            this.textBoxTituloColumna.WordWrap = false;
             // 
             // button1
             // 
@@ -139,19 +152,6 @@
             this.buttonAgregarColumna.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAgregarColumna.UseVisualStyleBackColor = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox1.ForeColor = System.Drawing.SystemColors.Window;
-            this.textBox1.Location = new System.Drawing.Point(10, 12);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 22);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.Text = "textBox Titulo";
-            this.textBox1.WordWrap = false;
-            // 
             // UserControlColumna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -180,6 +180,6 @@
         private System.Windows.Forms.Button buttonAgregarColumna;
         private UserControlTarjeta userControlTarjeta1;
         private UserControlTarjeta userControlTarjeta2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxTituloColumna;
     }
 }

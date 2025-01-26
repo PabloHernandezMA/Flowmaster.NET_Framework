@@ -38,11 +38,11 @@
             this.textBoxNombreProyecto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.labelProyecto = new System.Windows.Forms.Label();
             this.flowLayoutPanelTablero = new System.Windows.Forms.FlowLayoutPanel();
-            this.buttonAgregarColumna = new System.Windows.Forms.Button();
             this.userControlColumna1 = new UI.Formularios.Proyectos.UserControlColumna();
             this.userControlColumna2 = new UI.Formularios.Proyectos.UserControlColumna();
+            this.buttonAgregarColumna = new System.Windows.Forms.Button();
             this.userControlColumna3 = new UI.Formularios.Proyectos.UserControlColumna();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -53,7 +53,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.label6);
+            this.panel1.Controls.Add(this.labelProyecto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
@@ -159,17 +159,17 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "Nombre:";
             // 
-            // label6
+            // labelProyecto
             // 
-            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
-            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(171, 100);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Proyecto";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelProyecto.Dock = System.Windows.Forms.DockStyle.Left;
+            this.labelProyecto.Font = new System.Drawing.Font("Segoe UI Semibold", 20F, System.Drawing.FontStyle.Bold);
+            this.labelProyecto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.labelProyecto.Location = new System.Drawing.Point(0, 0);
+            this.labelProyecto.Name = "labelProyecto";
+            this.labelProyecto.Size = new System.Drawing.Size(171, 100);
+            this.labelProyecto.TabIndex = 13;
+            this.labelProyecto.Text = "Proyecto";
+            this.labelProyecto.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flowLayoutPanelTablero
             // 
@@ -187,6 +187,26 @@
             this.flowLayoutPanelTablero.Size = new System.Drawing.Size(984, 466);
             this.flowLayoutPanelTablero.TabIndex = 9;
             this.flowLayoutPanelTablero.WrapContents = false;
+            // 
+            // userControlColumna1
+            // 
+            this.userControlColumna1.AutoSize = true;
+            this.userControlColumna1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userControlColumna1.Location = new System.Drawing.Point(17, 17);
+            this.userControlColumna1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.userControlColumna1.Name = "userControlColumna1";
+            this.userControlColumna1.Size = new System.Drawing.Size(225, 298);
+            this.userControlColumna1.TabIndex = 3;
+            // 
+            // userControlColumna2
+            // 
+            this.userControlColumna2.AutoSize = true;
+            this.userControlColumna2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.userControlColumna2.Location = new System.Drawing.Point(256, 17);
+            this.userControlColumna2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
+            this.userControlColumna2.Name = "userControlColumna2";
+            this.userControlColumna2.Size = new System.Drawing.Size(225, 298);
+            this.userControlColumna2.TabIndex = 4;
             // 
             // buttonAgregarColumna
             // 
@@ -210,26 +230,6 @@
             this.buttonAgregarColumna.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAgregarColumna.UseVisualStyleBackColor = false;
             // 
-            // userControlColumna1
-            // 
-            this.userControlColumna1.AutoSize = true;
-            this.userControlColumna1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.userControlColumna1.Location = new System.Drawing.Point(17, 17);
-            this.userControlColumna1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.userControlColumna1.Name = "userControlColumna1";
-            this.userControlColumna1.Size = new System.Drawing.Size(225, 298);
-            this.userControlColumna1.TabIndex = 3;
-            // 
-            // userControlColumna2
-            // 
-            this.userControlColumna2.AutoSize = true;
-            this.userControlColumna2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.userControlColumna2.Location = new System.Drawing.Point(256, 17);
-            this.userControlColumna2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.userControlColumna2.Name = "userControlColumna2";
-            this.userControlColumna2.Size = new System.Drawing.Size(225, 298);
-            this.userControlColumna2.TabIndex = 4;
-            // 
             // userControlColumna3
             // 
             this.userControlColumna3.AutoSize = true;
@@ -249,6 +249,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormProyecto";
             this.Text = "FormProyecto";
+            this.Load += new System.EventHandler(this.FormProyecto_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -265,7 +266,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label labelProyecto;
         private System.Windows.Forms.Button buttonVerDetalles;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTablero;
         private System.Windows.Forms.Button buttonAgregarColumna;
