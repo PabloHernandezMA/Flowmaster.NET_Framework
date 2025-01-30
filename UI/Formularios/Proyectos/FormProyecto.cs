@@ -55,16 +55,16 @@ namespace UI.Formularios.Proyectos
 
             foreach (Columna columna in columnasDelProyecto)
             {
-                // Crear una instancia del UserControlColumna
                 UserControlColumna userControlColumna = new UserControlColumna();
-
-                // Suponiendo que UserControlColumna tiene una propiedad para establecer el nombre de la columna
-                userControlColumna.NombreColumna = columna.Nombre; // Ajusta según tus propiedades
-
-                // Agregar el UserControl al FlowLayoutPanel
+                userControlColumna.ConfigurarColumna(columna);
                 flowLayoutPanelTablero.Controls.Add(userControlColumna);
             }
             flowLayoutPanelTablero.Controls.Add(buttonAgregarColumna);
+        }
+
+        private void buttonAgregarColumna_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

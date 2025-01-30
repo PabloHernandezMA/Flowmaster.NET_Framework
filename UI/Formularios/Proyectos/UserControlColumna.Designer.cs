@@ -33,12 +33,12 @@
             this.textBoxTituloColumna = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.buttonMover = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanelDeTarjetas = new System.Windows.Forms.FlowLayoutPanel();
             this.userControlTarjeta2 = new UI.Formularios.Proyectos.UserControlTarjeta();
             this.userControlTarjeta1 = new UI.Formularios.Proyectos.UserControlTarjeta();
-            this.buttonAgregarColumna = new System.Windows.Forms.Button();
+            this.buttonAgregarTarjeta = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.flowLayoutPanelDeTarjetas.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,21 +96,21 @@
             this.buttonMover.TabIndex = 3;
             this.buttonMover.UseVisualStyleBackColor = true;
             // 
-            // flowLayoutPanel1
+            // flowLayoutPanelDeTarjetas
             // 
-            this.flowLayoutPanel1.AutoSize = true;
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.flowLayoutPanel1.Controls.Add(this.userControlTarjeta2);
-            this.flowLayoutPanel1.Controls.Add(this.userControlTarjeta1);
-            this.flowLayoutPanel1.Controls.Add(this.buttonAgregarColumna);
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 43);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(225, 255);
-            this.flowLayoutPanel1.TabIndex = 1;
+            this.flowLayoutPanelDeTarjetas.AutoSize = true;
+            this.flowLayoutPanelDeTarjetas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanelDeTarjetas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
+            this.flowLayoutPanelDeTarjetas.Controls.Add(this.userControlTarjeta2);
+            this.flowLayoutPanelDeTarjetas.Controls.Add(this.userControlTarjeta1);
+            this.flowLayoutPanelDeTarjetas.Controls.Add(this.buttonAgregarTarjeta);
+            this.flowLayoutPanelDeTarjetas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanelDeTarjetas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanelDeTarjetas.Location = new System.Drawing.Point(0, 43);
+            this.flowLayoutPanelDeTarjetas.Name = "flowLayoutPanelDeTarjetas";
+            this.flowLayoutPanelDeTarjetas.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.flowLayoutPanelDeTarjetas.Size = new System.Drawing.Size(225, 255);
+            this.flowLayoutPanelDeTarjetas.TabIndex = 1;
             // 
             // userControlTarjeta2
             // 
@@ -130,27 +130,27 @@
             this.userControlTarjeta1.Size = new System.Drawing.Size(205, 80);
             this.userControlTarjeta1.TabIndex = 4;
             // 
-            // buttonAgregarColumna
+            // buttonAgregarTarjeta
             // 
-            this.buttonAgregarColumna.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonAgregarColumna.BackColor = System.Drawing.Color.Transparent;
-            this.buttonAgregarColumna.FlatAppearance.BorderColor = System.Drawing.Color.CadetBlue;
-            this.buttonAgregarColumna.FlatAppearance.BorderSize = 2;
-            this.buttonAgregarColumna.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
-            this.buttonAgregarColumna.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
-            this.buttonAgregarColumna.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonAgregarColumna.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarColumna.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonAgregarColumna.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarColumna.Image")));
-            this.buttonAgregarColumna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarColumna.Location = new System.Drawing.Point(10, 195);
-            this.buttonAgregarColumna.Margin = new System.Windows.Forms.Padding(10);
-            this.buttonAgregarColumna.Name = "buttonAgregarColumna";
-            this.buttonAgregarColumna.Size = new System.Drawing.Size(205, 45);
-            this.buttonAgregarColumna.TabIndex = 3;
-            this.buttonAgregarColumna.Text = "Agregar tarjeta        ";
-            this.buttonAgregarColumna.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAgregarColumna.UseVisualStyleBackColor = false;
+            this.buttonAgregarTarjeta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonAgregarTarjeta.BackColor = System.Drawing.Color.Transparent;
+            this.buttonAgregarTarjeta.FlatAppearance.BorderColor = System.Drawing.Color.CadetBlue;
+            this.buttonAgregarTarjeta.FlatAppearance.BorderSize = 2;
+            this.buttonAgregarTarjeta.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
+            this.buttonAgregarTarjeta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkCyan;
+            this.buttonAgregarTarjeta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregarTarjeta.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarTarjeta.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAgregarTarjeta.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarTarjeta.Image")));
+            this.buttonAgregarTarjeta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarTarjeta.Location = new System.Drawing.Point(10, 195);
+            this.buttonAgregarTarjeta.Margin = new System.Windows.Forms.Padding(10);
+            this.buttonAgregarTarjeta.Name = "buttonAgregarTarjeta";
+            this.buttonAgregarTarjeta.Size = new System.Drawing.Size(205, 45);
+            this.buttonAgregarTarjeta.TabIndex = 3;
+            this.buttonAgregarTarjeta.Text = "Agregar tarjeta        ";
+            this.buttonAgregarTarjeta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAgregarTarjeta.UseVisualStyleBackColor = false;
             // 
             // UserControlColumna
             // 
@@ -158,14 +158,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.flowLayoutPanelDeTarjetas);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.Name = "UserControlColumna";
             this.Size = new System.Drawing.Size(225, 298);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanelDeTarjetas.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,10 +174,10 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDeTarjetas;
         private System.Windows.Forms.Button buttonMover;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button buttonAgregarColumna;
+        private System.Windows.Forms.Button buttonAgregarTarjeta;
         private UserControlTarjeta userControlTarjeta1;
         private UserControlTarjeta userControlTarjeta2;
         private System.Windows.Forms.TextBox textBoxTituloColumna;

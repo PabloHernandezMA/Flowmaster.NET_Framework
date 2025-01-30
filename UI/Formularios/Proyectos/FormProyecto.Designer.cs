@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProyecto));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonGuardar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePickerFechaFinProyecto = new System.Windows.Forms.DateTimePicker();
             this.buttonVerDetalles = new System.Windows.Forms.Button();
@@ -40,10 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.labelProyecto = new System.Windows.Forms.Label();
             this.flowLayoutPanelTablero = new System.Windows.Forms.FlowLayoutPanel();
-            this.userControlColumna1 = new UI.Formularios.Proyectos.UserControlColumna();
-            this.userControlColumna2 = new UI.Formularios.Proyectos.UserControlColumna();
             this.buttonAgregarColumna = new System.Windows.Forms.Button();
-            this.userControlColumna3 = new UI.Formularios.Proyectos.UserControlColumna();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.flowLayoutPanelTablero.SuspendLayout();
@@ -52,6 +50,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
+            this.panel1.Controls.Add(this.buttonGuardar);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.labelProyecto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -59,6 +58,18 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(984, 100);
             this.panel1.TabIndex = 8;
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.SystemColors.Control;
+            this.buttonGuardar.Location = new System.Drawing.Point(897, 21);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.Size = new System.Drawing.Size(84, 62);
+            this.buttonGuardar.TabIndex = 15;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -105,6 +116,7 @@
             this.comboBoxEstadoProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
             this.comboBoxEstadoProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.comboBoxEstadoProyecto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxEstadoProyecto.ForeColor = System.Drawing.SystemColors.Window;
             this.comboBoxEstadoProyecto.FormattingEnabled = true;
             this.comboBoxEstadoProyecto.Items.AddRange(new object[] {
             "En proceso",
@@ -176,10 +188,7 @@
             this.flowLayoutPanelTablero.AllowDrop = true;
             this.flowLayoutPanelTablero.AutoScroll = true;
             this.flowLayoutPanelTablero.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            this.flowLayoutPanelTablero.Controls.Add(this.userControlColumna1);
-            this.flowLayoutPanelTablero.Controls.Add(this.userControlColumna2);
             this.flowLayoutPanelTablero.Controls.Add(this.buttonAgregarColumna);
-            this.flowLayoutPanelTablero.Controls.Add(this.userControlColumna3);
             this.flowLayoutPanelTablero.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flowLayoutPanelTablero.Location = new System.Drawing.Point(0, 100);
             this.flowLayoutPanelTablero.Name = "flowLayoutPanelTablero";
@@ -187,26 +196,6 @@
             this.flowLayoutPanelTablero.Size = new System.Drawing.Size(984, 466);
             this.flowLayoutPanelTablero.TabIndex = 9;
             this.flowLayoutPanelTablero.WrapContents = false;
-            // 
-            // userControlColumna1
-            // 
-            this.userControlColumna1.AutoSize = true;
-            this.userControlColumna1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.userControlColumna1.Location = new System.Drawing.Point(17, 17);
-            this.userControlColumna1.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.userControlColumna1.Name = "userControlColumna1";
-            this.userControlColumna1.Size = new System.Drawing.Size(225, 298);
-            this.userControlColumna1.TabIndex = 3;
-            // 
-            // userControlColumna2
-            // 
-            this.userControlColumna2.AutoSize = true;
-            this.userControlColumna2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.userControlColumna2.Location = new System.Drawing.Point(256, 17);
-            this.userControlColumna2.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.userControlColumna2.Name = "userControlColumna2";
-            this.userControlColumna2.Size = new System.Drawing.Size(225, 298);
-            this.userControlColumna2.TabIndex = 4;
             // 
             // buttonAgregarColumna
             // 
@@ -221,7 +210,7 @@
             this.buttonAgregarColumna.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.buttonAgregarColumna.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarColumna.Image")));
             this.buttonAgregarColumna.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarColumna.Location = new System.Drawing.Point(495, 17);
+            this.buttonAgregarColumna.Location = new System.Drawing.Point(17, 17);
             this.buttonAgregarColumna.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
             this.buttonAgregarColumna.Name = "buttonAgregarColumna";
             this.buttonAgregarColumna.Size = new System.Drawing.Size(225, 44);
@@ -229,16 +218,7 @@
             this.buttonAgregarColumna.Text = "Agregar columna        ";
             this.buttonAgregarColumna.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAgregarColumna.UseVisualStyleBackColor = false;
-            // 
-            // userControlColumna3
-            // 
-            this.userControlColumna3.AutoSize = true;
-            this.userControlColumna3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.userControlColumna3.Location = new System.Drawing.Point(734, 17);
-            this.userControlColumna3.Margin = new System.Windows.Forms.Padding(7, 0, 7, 0);
-            this.userControlColumna3.Name = "userControlColumna3";
-            this.userControlColumna3.Size = new System.Drawing.Size(225, 298);
-            this.userControlColumna3.TabIndex = 5;
+            this.buttonAgregarColumna.Click += new System.EventHandler(this.buttonAgregarColumna_Click);
             // 
             // FormProyecto
             // 
@@ -254,7 +234,6 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.flowLayoutPanelTablero.ResumeLayout(false);
-            this.flowLayoutPanelTablero.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -270,11 +249,9 @@
         private System.Windows.Forms.Button buttonVerDetalles;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTablero;
         private System.Windows.Forms.Button buttonAgregarColumna;
-        private UserControlColumna userControlColumna1;
-        private UserControlColumna userControlColumna2;
-        private UserControlColumna userControlColumna3;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaFinProyecto;
         private System.Windows.Forms.ComboBox comboBoxEstadoProyecto;
         private System.Windows.Forms.TextBox textBoxNombreProyecto;
+        private System.Windows.Forms.Button buttonGuardar;
     }
 }
