@@ -20,30 +20,21 @@ namespace UI.Formularios.Proyectos
             InitializeComponent();
         }
 
-        public int id_Columna { get; set; }
-        public string nombreColumna
-        {
-            get { return textBoxTituloColumna.Text; }
-            set { textBoxTituloColumna.Text = value; }
-        }
-        public int posicion { get; set; }
-        public bool visible { get; set; }
-        public int id_Proyecto { get; set; }
+        private Columna columnaDB;
+        private Columna columnaEditada;
 
-        public void ConfigurarColumna(Columna datosColumna)
+        public void ConfigurarColumna(Columna columnaGuardada)
         {
-            id_Columna = datosColumna.ID_Columna;
-            nombreColumna = datosColumna.Nombre;
-            posicion = datosColumna.Posicion;
-            visible = datosColumna.Visible;
-            id_Proyecto = datosColumna.ID_Proyecto;
-            this.Visible = visible; // Controlar la visibilidad
+            columnaDB = columnaGuardada;
+            this.Visible = columnaDB.Visible; // Controlar la visibilidad
+            textBoxTituloColumna.Text = columnaDB.Nombre;
             cargarTarjetas(); // Cargar tarjetas después de la configuración
         }
         private void cargarTarjetas()
         {
             tarjetas = CN_Tarjetas.ObtenerInstancia();
-            List<Tarjeta> tarjetasDeColumna = tarjetas.ObtenerTodasLasTarjetasDeLaColumna(id_Columna);
+            List<Tarjeta> tarjetasDeColumna = tarjetas.ObtenerTodasLasTarjetasDeLaColumna(columnaDB.ID_Columna);
+            tarjetasDeColumna = tarjetasDeColumna.OrderBy(o => o.Posicion).ToList();
             Button buttonAgregarTarjeta = this.buttonAgregarTarjeta;
             flowLayoutPanelDeTarjetas.Controls.Clear();
             

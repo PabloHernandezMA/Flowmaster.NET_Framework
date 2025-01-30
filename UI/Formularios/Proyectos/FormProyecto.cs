@@ -15,36 +15,35 @@ namespace UI.Formularios.Proyectos
     public partial class FormProyecto : Form
     {
         private CN_Proyectos proyecto;
-        private Proyecto proyectoSeleccionado;
+        private Proyecto esteProyecto;
         private static FormProyecto instance;
-        private int idProyectoSeleccionado;
         private CN_Columnas columnas;
         private FormProyecto()
         {
             InitializeComponent();
         }
-        private FormProyecto(int idProyecto)
+        private FormProyecto(Proyecto proyecto)
         {
             InitializeComponent();
-            this.idProyectoSeleccionado = idProyecto;
+            esteProyecto = proyecto;
         }
-        public static FormProyecto ObtenerInstancia(int idProyecto)
+        public static FormProyecto ObtenerInstancia(Proyecto proyectoSeleccionado)
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new FormProyecto(idProyecto);
+                instance = new FormProyecto(proyectoSeleccionado);
             }
             return instance;
         }
 
         private void FormProyecto_Load(object sender, EventArgs e)
         {
-            proyectoSeleccionado = CN_Proyectos.ObtenerInstancia().ObtenerProyecto(idProyectoSeleccionado);
-            labelProyecto.Text = $"Proyecto: {proyectoSeleccionado.ID_Proyecto}";
-            textBoxNombreProyecto.Text = proyectoSeleccionado.Nombre;
-            dateTimePickerFechaFinProyecto.Text = proyectoSeleccionado.FechaFin.ToShortDateString();
-            comboBoxEstadoProyecto.Text = proyectoSeleccionado.Estado.ToString();
-            cargarColumnas(proyectoSeleccionado.ID_Proyecto);
+            this.Text = $"Proyecto: {esteProyecto.Nombre}";
+            labelProyecto.Text = $"Proyecto: {esteProyecto.ID_Proyecto}";
+            textBoxNombreProyecto.Text = esteProyecto.Nombre;
+            dateTimePickerFechaFinProyecto.Text = esteProyecto.FechaFin.ToShortDateString();
+            comboBoxEstadoProyecto.Text = esteProyecto.Estado.ToString();
+            cargarColumnas(esteProyecto.ID_Proyecto);
         }
         private void cargarColumnas(int idProyecto)
         {
@@ -63,6 +62,11 @@ namespace UI.Formularios.Proyectos
         }
 
         private void buttonAgregarColumna_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonVerDetalles_Click(object sender, EventArgs e)
         {
 
         }

@@ -34,15 +34,15 @@ namespace UI.Formularios.Proyectos
         {
             if (dataGridView1.SelectedRows.Count > 0)
             {
-                int idSeleccion = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_Proyecto"].Value);
-                using (FormProyecto formulario = FormProyecto.ObtenerInstancia(idSeleccion))
+                Proyecto ObjSeleccionado = (Proyecto)dataGridView1.SelectedRows[0].DataBoundItem;
+                using (FormProyecto formulario = FormProyecto.ObtenerInstancia(ObjSeleccionado))
                 {
                     formulario.ShowDialog();
                 }
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione un proeycto.");
+                MessageBox.Show("Por favor, seleccione un proyecto.");
             }
         }
 

@@ -110,6 +110,7 @@
             this.buttonVerDetalles.TabIndex = 31;
             this.buttonVerDetalles.Text = "Ver detalles";
             this.buttonVerDetalles.UseVisualStyleBackColor = true;
+            this.buttonVerDetalles.Click += new System.EventHandler(this.buttonVerDetalles_Click);
             // 
             // comboBoxEstadoProyecto
             // 
@@ -144,6 +145,7 @@
             this.textBoxNombreProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
             this.textBoxNombreProyecto.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxNombreProyecto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxNombreProyecto.ForeColor = System.Drawing.Color.White;
             this.textBoxNombreProyecto.Location = new System.Drawing.Point(101, 19);
             this.textBoxNombreProyecto.Name = "textBoxNombreProyecto";
             this.textBoxNombreProyecto.Size = new System.Drawing.Size(222, 22);
