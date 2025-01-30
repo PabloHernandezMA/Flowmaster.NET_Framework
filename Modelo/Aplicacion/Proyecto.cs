@@ -12,6 +12,6 @@ namespace Modelo.Aplicacion
         public string Nombre { get; set; }
         public DateTime FechaInicio { get; set; }
         public DateTime FechaFin { get; set; }
-        public bool Estado { get; set; }
+        public string Estado { get; set; }
     }
 }

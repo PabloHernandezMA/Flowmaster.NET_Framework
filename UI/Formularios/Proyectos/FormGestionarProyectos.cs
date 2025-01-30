@@ -62,5 +62,13 @@ namespace UI.Formularios.Proyectos
                 MessageBox.Show(ex.ToString());
             }
         }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            using (FormDetalleProyecto formulario = FormDetalleProyecto.ObtenerInstancia())
+            {
+                formulario.ShowDialog();
+            }
+        }
     }
 }

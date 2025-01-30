@@ -30,14 +30,18 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxCategoria = new System.Windows.Forms.ComboBox();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.textBoxNumero = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBoxNombre = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dateTimePickerInicio = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerFin = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxEstadoProyecto = new System.Windows.Forms.ComboBox();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,10 +61,14 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.comboBoxCategoria);
+            this.panel2.Controls.Add(this.comboBoxEstadoProyecto);
+            this.panel2.Controls.Add(this.dateTimePickerFin);
+            this.panel2.Controls.Add(this.dateTimePickerInicio);
+            this.panel2.Controls.Add(this.label5);
+            this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.textBoxNombre);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.textBoxNumero);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.button3);
@@ -70,15 +78,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(629, 397);
             this.panel2.TabIndex = 8;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(83, 91);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(191, 29);
-            this.comboBox2.TabIndex = 36;
             // 
             // label4
             // 
@@ -91,22 +90,14 @@
             this.label4.TabIndex = 35;
             this.label4.Text = "Estado:";
             // 
-            // comboBoxCategoria
+            // textBoxNumero
             // 
-            this.comboBoxCategoria.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxCategoria.FormattingEnabled = true;
-            this.comboBoxCategoria.Location = new System.Drawing.Point(83, 56);
-            this.comboBoxCategoria.Name = "comboBoxCategoria";
-            this.comboBoxCategoria.Size = new System.Drawing.Size(191, 29);
-            this.comboBoxCategoria.TabIndex = 34;
-            // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.textBoxNombre.Location = new System.Drawing.Point(83, 21);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(191, 29);
-            this.textBoxNombre.TabIndex = 33;
+            this.textBoxNumero.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxNumero.Location = new System.Drawing.Point(129, 16);
+            this.textBoxNumero.Name = "textBoxNumero";
+            this.textBoxNumero.ReadOnly = true;
+            this.textBoxNumero.Size = new System.Drawing.Size(191, 29);
+            this.textBoxNumero.TabIndex = 33;
             // 
             // label2
             // 
@@ -115,9 +106,9 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.label2.Location = new System.Drawing.Point(11, 59);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 21);
+            this.label2.Size = new System.Drawing.Size(75, 21);
             this.label2.TabIndex = 32;
-            this.label2.Text = "Cliente:";
+            this.label2.Text = "Nombre:";
             // 
             // label3
             // 
@@ -153,22 +144,89 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button2.Location = new System.Drawing.Point(326, 335);
+            this.button2.Location = new System.Drawing.Point(422, 337);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(195, 43);
             this.button2.TabIndex = 10;
             this.button2.Text = "Guardar cambios";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBoxNombre
+            // 
+            this.textBoxNombre.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.textBoxNombre.Location = new System.Drawing.Point(129, 51);
+            this.textBoxNombre.Name = "textBoxNombre";
+            this.textBoxNombre.Size = new System.Drawing.Size(191, 29);
+            this.textBoxNombre.TabIndex = 37;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label5.Location = new System.Drawing.Point(362, 57);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 21);
+            this.label5.TabIndex = 39;
+            this.label5.Text = "Fecha fin:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label6.Location = new System.Drawing.Point(362, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(99, 21);
+            this.label6.TabIndex = 38;
+            this.label6.Text = "Fecha inicio:";
+            // 
+            // dateTimePickerInicio
+            // 
+            this.dateTimePickerInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerInicio.Location = new System.Drawing.Point(477, 22);
+            this.dateTimePickerInicio.Name = "dateTimePickerInicio";
+            this.dateTimePickerInicio.Size = new System.Drawing.Size(140, 26);
+            this.dateTimePickerInicio.TabIndex = 40;
+            // 
+            // dateTimePickerFin
+            // 
+            this.dateTimePickerFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dateTimePickerFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFin.Location = new System.Drawing.Point(477, 54);
+            this.dateTimePickerFin.Name = "dateTimePickerFin";
+            this.dateTimePickerFin.Size = new System.Drawing.Size(140, 26);
+            this.dateTimePickerFin.TabIndex = 41;
+            // 
+            // comboBoxEstadoProyecto
+            // 
+            this.comboBoxEstadoProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
+            this.comboBoxEstadoProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxEstadoProyecto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxEstadoProyecto.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxEstadoProyecto.FormattingEnabled = true;
+            this.comboBoxEstadoProyecto.Items.AddRange(new object[] {
+            "En proceso",
+            "Terminado",
+            "Pausado",
+            "Cancelado"});
+            this.comboBoxEstadoProyecto.Location = new System.Drawing.Point(129, 91);
+            this.comboBoxEstadoProyecto.Name = "comboBoxEstadoProyecto";
+            this.comboBoxEstadoProyecto.Size = new System.Drawing.Size(191, 29);
+            this.comboBoxEstadoProyecto.TabIndex = 42;
             // 
             // FormDetalleProyecto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(629, 457);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label1);
             this.Name = "FormDetalleProyecto";
-            this.Text = "FormDetalleProyecto";
+            this.Text = "Detllas del proyecto";
             this.Load += new System.EventHandler(this.FormDetalleProyecto_Load);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -182,11 +240,15 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBoxCategoria;
-        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.TextBox textBoxNumero;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBoxNombre;
+        private System.Windows.Forms.DateTimePicker dateTimePickerFin;
+        private System.Windows.Forms.DateTimePicker dateTimePickerInicio;
+        private System.Windows.Forms.ComboBox comboBoxEstadoProyecto;
     }
 }

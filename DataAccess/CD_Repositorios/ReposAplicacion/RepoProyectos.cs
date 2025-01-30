@@ -26,7 +26,7 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
                     Nombre = fila["Nombre"].ToString(),
                     FechaInicio = Convert.ToDateTime(fila["FechaInicio"]),
                     FechaFin = Convert.ToDateTime(fila["FechaFin"]),
-                    Estado = Convert.ToBoolean(fila["Estado"])
+                    Estado = fila["Estado"].ToString()
                 };
                 proyectos.Add(proyecto);
             }
@@ -88,7 +88,7 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
                     Nombre = fila["Nombre"].ToString(),
                     FechaInicio = Convert.ToDateTime(fila["FechaInicio"]),
                     FechaFin = (DateTime)(fila["FechaFin"] != DBNull.Value ? Convert.ToDateTime(fila["FechaFin"]) : (DateTime?)null),
-                    Estado = Convert.ToBoolean(fila["Estado"])
+                    Estado = fila["Estado"].ToString()
                 };
                 proyectos.Add(proyecto);
             }

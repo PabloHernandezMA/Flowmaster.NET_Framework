@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Modelo.Aplicacion;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,22 +14,33 @@ namespace UI.Formularios.Proyectos
     public partial class FormDetalleProyecto : Form
     {
         private static FormDetalleProyecto instance;
-        private int idSeleccion;
-
-        public FormDetalleProyecto(int idSeleccion)
+        private Proyecto esteProyecto;
+        public FormDetalleProyecto(Proyecto proyecto)
         {
-            this.idSeleccion = idSeleccion;
+            esteProyecto = proyecto;
+            textBoxNumero.Text = proyecto.ID_Proyecto.ToString();
+            textBoxNombre.Text = proyecto.Nombre;
+            comboBoxEstadoProyecto.Text = proyecto.Estado.ToString();
+
         }
 
         private FormDetalleProyecto()
         {
             InitializeComponent();
         }
-        public static FormDetalleProyecto ObtenerInstancia(int idSeleccion)
+        public static FormDetalleProyecto ObtenerInstancia()
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new FormDetalleProyecto(idSeleccion);
+                instance = new FormDetalleProyecto();
+            }
+            return instance;
+        }
+        public static FormDetalleProyecto ObtenerInstancia(Proyecto proyecto)
+        {
+            if (instance == null || instance.IsDisposed)
+            {
+                instance = new FormDetalleProyecto(proyecto);
             }
             return instance;
         }
@@ -36,6 +48,11 @@ namespace UI.Formularios.Proyectos
         private void FormDetalleProyecto_Load(object sender, EventArgs e)
         {
             
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
