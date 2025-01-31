@@ -72,7 +72,6 @@ namespace UI.Formularios.Pedidos
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             modoFormDetalles = 1;
-            // Usando el bloque using, se asegura de que la instancia del formulario se libere correctamente
             using (FormDetallesPedido formulario = FormDetallesPedido.ObtenerInstancia(modoFormDetalles))
             {
                 formulario.ShowDialog();
@@ -85,8 +84,6 @@ namespace UI.Formularios.Pedidos
             {
                 modoFormDetalles = 2;
                 int idSeleccion = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["ID_Pedido"].Value);
-
-                // Usando el bloque using, se asegura de que la instancia del formulario se libere correctamente
                 using (FormDetallesPedido formulario = FormDetallesPedido.ObtenerInstancia(idSeleccion, modoFormDetalles))
                 {
                     formulario.ShowDialog();
