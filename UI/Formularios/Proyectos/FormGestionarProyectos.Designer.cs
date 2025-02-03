@@ -111,6 +111,7 @@
             this.comboBoxEstadoProyecto.ForeColor = System.Drawing.SystemColors.Window;
             this.comboBoxEstadoProyecto.FormattingEnabled = true;
             this.comboBoxEstadoProyecto.Items.AddRange(new object[] {
+            "Todos",
             "En proceso",
             "Terminado",
             "Pausado",

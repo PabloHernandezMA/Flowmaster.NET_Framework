@@ -96,11 +96,11 @@ namespace UI.Formularios.Proyectos
             if (comboBoxEmpleado.Enabled == false)
             {
                 // Significa que se deben mostrar los proyectos que cumplen con otros parametros de filtrado ya que se buscan Todos los empleados
-            listaFiltrada = ListaDeProyectos.Where(p =>
-                (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
-                (comboBoxEstadoProyecto.SelectedIndex == -1 || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&
-                (dateTimePickerFechaInicio.Checked == false || p.FechaInicio.Date >= dateTimePickerFechaInicio.Value.Date)
-            ).ToList();
+                listaFiltrada = ListaDeProyectos.Where(p =>
+        (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
+        (comboBoxEstadoProyecto.SelectedItem == null || comboBoxEstadoProyecto.SelectedItem.ToString() == "Todos" || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&
+        (dateTimePickerFechaInicio.Checked == false || p.FechaInicio.Date >= dateTimePickerFechaInicio.Value.Date)
+    ).ToList();
 
             }
             else
@@ -108,10 +108,10 @@ namespace UI.Formularios.Proyectos
                 // se deberá buscar tambien por los empleados que participan en un proyecto.
                 listaFiltrada = proyectos.ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario((int)comboBoxEmpleado.SelectedValue);
                 listaFiltrada = listaFiltrada.Where(p =>
-                (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
-                (comboBoxEstadoProyecto.SelectedIndex == -1 || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&
-                (dateTimePickerFechaInicio.Checked == false || p.FechaInicio.Date >= dateTimePickerFechaInicio.Value.Date)
-            ).ToList();
+    (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
+    (comboBoxEstadoProyecto.SelectedItem == null || comboBoxEstadoProyecto.SelectedItem.ToString() == "Todos" || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&
+    (dateTimePickerFechaInicio.Checked == false || p.FechaInicio.Date >= dateTimePickerFechaInicio.Value.Date)
+).ToList();
             }
 
             ActualizarDataGridView();
