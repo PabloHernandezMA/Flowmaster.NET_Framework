@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBoxEmpleado = new System.Windows.Forms.CheckBox();
+            this.comboBoxEstadoProyecto = new System.Windows.Forms.ComboBox();
             this.comboBoxEmpleado = new System.Windows.Forms.ComboBox();
+            this.labelEmpleado = new System.Windows.Forms.Label();
             this.dateTimePickerFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxNumero = new System.Windows.Forms.TextBox();
@@ -52,8 +55,6 @@
             this.linkLabelPaginaSiguiente = new System.Windows.Forms.LinkLabel();
             this.linkLabelPaginaPrevia = new System.Windows.Forms.LinkLabel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBoxEstadoProyecto = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -74,9 +75,10 @@
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.checkBoxEmpleado);
             this.panel3.Controls.Add(this.comboBoxEstadoProyecto);
             this.panel3.Controls.Add(this.comboBoxEmpleado);
-            this.panel3.Controls.Add(this.label4);
+            this.panel3.Controls.Add(this.labelEmpleado);
             this.panel3.Controls.Add(this.dateTimePickerFechaInicio);
             this.panel3.Controls.Add(this.label8);
             this.panel3.Controls.Add(this.textBoxNumero);
@@ -88,14 +90,56 @@
             this.panel3.Size = new System.Drawing.Size(949, 100);
             this.panel3.TabIndex = 14;
             // 
+            // checkBoxEmpleado
+            // 
+            this.checkBoxEmpleado.AutoSize = true;
+            this.checkBoxEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEmpleado.Location = new System.Drawing.Point(655, 25);
+            this.checkBoxEmpleado.Name = "checkBoxEmpleado";
+            this.checkBoxEmpleado.Size = new System.Drawing.Size(12, 11);
+            this.checkBoxEmpleado.TabIndex = 32;
+            this.checkBoxEmpleado.UseVisualStyleBackColor = true;
+            this.checkBoxEmpleado.CheckedChanged += new System.EventHandler(this.checkBoxEmpleado_CheckedChanged);
+            // 
+            // comboBoxEstadoProyecto
+            // 
+            this.comboBoxEstadoProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
+            this.comboBoxEstadoProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxEstadoProyecto.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxEstadoProyecto.ForeColor = System.Drawing.SystemColors.Window;
+            this.comboBoxEstadoProyecto.FormattingEnabled = true;
+            this.comboBoxEstadoProyecto.Items.AddRange(new object[] {
+            "En proceso",
+            "Terminado",
+            "Pausado",
+            "Cancelado"});
+            this.comboBoxEstadoProyecto.Location = new System.Drawing.Point(101, 55);
+            this.comboBoxEstadoProyecto.Name = "comboBoxEstadoProyecto";
+            this.comboBoxEstadoProyecto.Size = new System.Drawing.Size(191, 29);
+            this.comboBoxEstadoProyecto.TabIndex = 31;
+            // 
             // comboBoxEmpleado
             // 
+            this.comboBoxEmpleado.Enabled = false;
             this.comboBoxEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.comboBoxEmpleado.FormattingEnabled = true;
             this.comboBoxEmpleado.Location = new System.Drawing.Point(412, 16);
             this.comboBoxEmpleado.Name = "comboBoxEmpleado";
             this.comboBoxEmpleado.Size = new System.Drawing.Size(237, 29);
             this.comboBoxEmpleado.TabIndex = 30;
+            // 
+            // labelEmpleado
+            // 
+            this.labelEmpleado.AutoSize = true;
+            this.labelEmpleado.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.labelEmpleado.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.labelEmpleado.Location = new System.Drawing.Point(307, 19);
+            this.labelEmpleado.Name = "labelEmpleado";
+            this.labelEmpleado.Size = new System.Drawing.Size(87, 21);
+            this.labelEmpleado.TabIndex = 26;
+            this.labelEmpleado.Text = "Empleado:";
             // 
             // dateTimePickerFechaInicio
             // 
@@ -314,33 +358,33 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle26.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.EnableHeadersVisualStyles = false;
             this.dataGridView1.GridColor = System.Drawing.Color.SteelBlue;
@@ -350,43 +394,15 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(973, 564);
             this.dataGridView1.TabIndex = 8;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label4.Location = new System.Drawing.Point(307, 19);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 21);
-            this.label4.TabIndex = 26;
-            this.label4.Text = "Empleado:";
-            // 
-            // comboBoxEstadoProyecto
-            // 
-            this.comboBoxEstadoProyecto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
-            this.comboBoxEstadoProyecto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBoxEstadoProyecto.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxEstadoProyecto.ForeColor = System.Drawing.SystemColors.Window;
-            this.comboBoxEstadoProyecto.FormattingEnabled = true;
-            this.comboBoxEstadoProyecto.Items.AddRange(new object[] {
-            "En proceso",
-            "Terminado",
-            "Pausado",
-            "Cancelado"});
-            this.comboBoxEstadoProyecto.Location = new System.Drawing.Point(101, 55);
-            this.comboBoxEstadoProyecto.Name = "comboBoxEstadoProyecto";
-            this.comboBoxEstadoProyecto.Size = new System.Drawing.Size(191, 29);
-            this.comboBoxEstadoProyecto.TabIndex = 31;
             // 
             // FormGestionarProyectos
             // 
@@ -432,7 +448,8 @@
         private System.Windows.Forms.LinkLabel linkLabelPaginaSiguiente;
         private System.Windows.Forms.LinkLabel linkLabelPaginaPrevia;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label labelEmpleado;
         private System.Windows.Forms.ComboBox comboBoxEstadoProyecto;
+        private System.Windows.Forms.CheckBox checkBoxEmpleado;
     }
 }

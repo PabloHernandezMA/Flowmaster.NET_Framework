@@ -51,10 +51,24 @@ namespace UI.Formularios.Proyectos
 
         private void FormGestionarProyectos_Load(object sender, EventArgs e)
         {
-            proyectos = CN_Proyectos.ObtenerInstancia();
             InicializarEventos();
         }
-
+        private void InicializarEventos()
+        {
+            proyectos = CN_Proyectos.ObtenerInstancia();
+            CargarComboBoxEmpleados();
+            textBoxNumero.TextChanged += (s, e) => FiltrarResultados();
+            comboBoxEstadoProyecto.SelectedIndexChanged += (s, e) => FiltrarResultados();
+            dateTimePickerFechaInicio.ValueChanged += (s, e) => FiltrarResultados();
+            comboBoxEmpleado.SelectedValueChanged += (s, e) => FiltrarResultados();
+        }
+        private void CargarComboBoxEmpleados() {
+            List<Empleado> empleados = CN_Empleados.ObtenerInstancia().ObtenerTodosLosEmpleados();
+            comboBoxEmpleado.DataSource = empleados;
+            comboBoxEmpleado.ValueMember = "ID_User";
+            comboBoxEmpleado.DisplayMember = "Nombre";
+            comboBoxEmpleado.Text = "Todos";
+        }
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
             try
@@ -73,21 +87,32 @@ namespace UI.Formularios.Proyectos
             listaFiltrada = new List<Proyecto>(ListaDeProyectos);
             ActualizarDataGridView();
         }
-        private void InicializarEventos()
-        {
-            textBoxNumero.TextChanged += (s, e) => FiltrarResultados();
-            comboBoxEstadoProyecto.SelectedIndexChanged += (s, e) => FiltrarResultados();
-            dateTimePickerFechaInicio.ValueChanged += (s, e) => FiltrarResultados();
-        }
+
         private void FiltrarResultados()
         {
+            labelEmpleado.Text = comboBoxEmpleado.SelectedValue.ToString();
             CargarProyectos();
             // Filtrado usando LINQ
+            if (comboBoxEmpleado.Enabled == false)
+            {
+                // Significa que se deben mostrar los proyectos que cumplen con otros parametros de filtrado ya que se buscan Todos los empleados
             listaFiltrada = ListaDeProyectos.Where(p =>
                 (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
                 (comboBoxEstadoProyecto.SelectedIndex == -1 || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&
                 (dateTimePickerFechaInicio.Checked == false || p.FechaInicio.Date >= dateTimePickerFechaInicio.Value.Date)
             ).ToList();
+
+            }
+            else
+            {
+                // se deberá buscar tambien por los empleados que participan en un proyecto.
+                listaFiltrada = proyectos.ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario((int)comboBoxEmpleado.SelectedValue);
+                listaFiltrada = listaFiltrada.Where(p =>
+                (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
+                (comboBoxEstadoProyecto.SelectedIndex == -1 || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&
+                (dateTimePickerFechaInicio.Checked == false || p.FechaInicio.Date >= dateTimePickerFechaInicio.Value.Date)
+            ).ToList();
+            }
 
             ActualizarDataGridView();
         }
@@ -104,6 +129,12 @@ namespace UI.Formularios.Proyectos
             {
                 formulario.ShowDialog();
             }
+        }
+
+        private void checkBoxEmpleado_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBoxEmpleado.Checked) { comboBoxEmpleado.Enabled = true; }
+            else { comboBoxEmpleado.Enabled = false; comboBoxEmpleado.Text = "Todos"; }
         }
     }
 }

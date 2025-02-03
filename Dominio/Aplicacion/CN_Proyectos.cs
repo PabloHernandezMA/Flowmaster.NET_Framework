@@ -34,15 +34,8 @@ namespace Dominio.Aplicacion
         {
             try
             {
-                if (proyectos.Count > 0)
-                {
-                    return proyectos;
-                }
-                else
-                {
-                    proyectos = repositorio.ObtenerTodosLosProyectos();
-                    return proyectos;
-                }
+                proyectos = repositorio.ObtenerTodosLosProyectos();
+                return proyectos;
             }
             catch (Exception ex)
             {
@@ -85,6 +78,18 @@ namespace Dominio.Aplicacion
             try
             {
                 return repositorio.ModificarProyecto(proyecto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Proyecto> ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario(int idUsuario)
+        {
+            try
+            {
+                proyectos = repositorio.ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario(idUsuario);
+                return proyectos;
             }
             catch (Exception ex)
             {
