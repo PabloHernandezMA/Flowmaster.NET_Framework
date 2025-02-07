@@ -136,5 +136,21 @@ namespace UI.Formularios.Proyectos
             if (checkBoxEmpleado.Checked) { comboBoxEmpleado.Enabled = true; }
             else { comboBoxEmpleado.Enabled = false; comboBoxEmpleado.Text = "Todos"; }
         }
+
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                Proyecto ObjSeleccionado = (Proyecto)dataGridView1.SelectedRows[0].DataBoundItem;
+                using (FormDetalleProyecto formulario = FormDetalleProyecto.ObtenerInstancia(ObjSeleccionado))
+                {
+                    formulario.ShowDialog();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un proyecto.");
+            }
+        }
     }
 }

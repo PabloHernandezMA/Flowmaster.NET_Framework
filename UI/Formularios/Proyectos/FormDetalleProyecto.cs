@@ -1,4 +1,5 @@
-﻿using Modelo.Aplicacion;
+﻿using Dominio.Aplicacion;
+using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static UI.ValidacionesForm;
 
 namespace UI.Formularios.Proyectos
 {
@@ -15,44 +17,86 @@ namespace UI.Formularios.Proyectos
     {
         private static FormDetalleProyecto instance;
         private Proyecto esteProyecto;
-        public FormDetalleProyecto(Proyecto proyecto)
-        {
-            esteProyecto = proyecto;
-            textBoxNumero.Text = proyecto.ID_Proyecto.ToString();
-            textBoxNombre.Text = proyecto.Nombre;
-            comboBoxEstadoProyecto.Text = proyecto.Estado.ToString();
-
-        }
 
         private FormDetalleProyecto()
         {
             InitializeComponent();
+            comboBoxEstadoProyecto.SelectedIndex = 0;
         }
-        public static FormDetalleProyecto ObtenerInstancia()
+
+        private FormDetalleProyecto(Proyecto proyecto) : this()
+        {
+            esteProyecto = proyecto;
+            RellenarCampos();
+        }
+
+        public static FormDetalleProyecto ObtenerInstancia(Proyecto proyecto = null)
         {
             if (instance == null || instance.IsDisposed)
             {
-                instance = new FormDetalleProyecto();
+                instance = proyecto == null ? new FormDetalleProyecto() : new FormDetalleProyecto(proyecto);
             }
             return instance;
         }
-        public static FormDetalleProyecto ObtenerInstancia(Proyecto proyecto)
+        
+        private void RellenarCampos()
         {
-            if (instance == null || instance.IsDisposed)
+            textBoxNumero.Text = esteProyecto.ID_Proyecto.ToString();
+            textBoxNombre.Text = esteProyecto.Nombre;
+            comboBoxEstadoProyecto.Text = esteProyecto.Estado.ToString();
+            dateTimePickerInicio.Value = esteProyecto.FechaInicio;
+            dateTimePickerFin.Value = esteProyecto.FechaFin;
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
+
+        private void buttonGuardar_Click(object sender, EventArgs e)
+        {
+            if (!VerificarCampos())
             {
-                instance = new FormDetalleProyecto(proyecto);
+                MessageBox.Show("Verifique los campos del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            return instance;
+
+            Proyecto proyecto = new Proyecto
+            {
+                ID_Proyecto = string.IsNullOrWhiteSpace(textBoxNumero.Text) ? 0 : int.Parse(textBoxNumero.Text),
+                Nombre = textBoxNombre.Text.Trim(),
+                FechaInicio = dateTimePickerInicio.Value,
+                FechaFin = dateTimePickerFin.Value,
+                Estado = comboBoxEstadoProyecto.Text
+            };
+
+            int filasAfectadas = proyecto.ID_Proyecto == 0
+                ? CN_Proyectos.ObtenerInstancia().AltaProyecto(proyecto)
+                : CN_Proyectos.ObtenerInstancia().ModificarProyecto(proyecto);
+
+            MessageBox.Show(filasAfectadas > 0
+                ? "Proyecto guardado correctamente."
+                : "No se pudo completar la operación.");
         }
 
-        private void FormDetalleProyecto_Load(object sender, EventArgs e)
+        private bool VerificarCampos()
         {
-            
-        }
+            errorProvider1.Clear();
+            bool esValido = true;
 
-        private void button2_Click(object sender, EventArgs e)
-        {
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+            {
+                errorProvider1.SetError(textBoxNombre, "El nombre no puede estar vacío");
+                esValido = false;
+            }
 
+            if (dateTimePickerInicio.Value >= dateTimePickerFin.Value)
+            {
+                errorProvider1.SetError(dateTimePickerFin, "La fecha de fin debe ser posterior a la de inicio.");
+                esValido = false;
+            }
+
+            return esValido;
         }
     }
 }

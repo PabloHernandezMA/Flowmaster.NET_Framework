@@ -249,6 +249,7 @@
             this.buttonModificar.TabIndex = 8;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonAgregar
             // 
