@@ -69,14 +69,14 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             return ExecuteNonQuery(consultaSQL);
         }
 
-        public List<Proyecto> ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario(int idUsuario)
+        public List<Proyecto> ObtenerTodosLosProyectosEnLosQueParticipaUnEmpleado(int idEmpleado)
         {
             List<Proyecto> proyectos = new List<Proyecto>();
             string consultaSQL = @"SELECT P.*
                                FROM PROYECTOS P
-                               JOIN USUARIOxPROYECTO UP ON P.ID_Proyecto = UP.ID_Proyecto
-                               WHERE UP.ID_User = @ID_User";
-            parametros.Add(new SqlParameter("@ID_User", idUsuario));
+                               JOIN EMPLEADOxPROYECTO EP ON P.ID_Proyecto = EP.ID_Proyecto
+                               WHERE EP.ID_Empleado = @ID_Empleado";
+            parametros.Add(new SqlParameter("@ID_Empleado", idEmpleado));
 
             DataTable tablaProyectos = ExecuteReader(consultaSQL);
 
@@ -99,11 +99,11 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
         public List<Integrante> ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(int idProyecto)
         {
             List<Integrante> integrantes = new List<Integrante>();
-            string consultaSQL = @"SELECT U.ID_Usuario, U.Nombre AS NombreUsuario, U.Apellido, 
-                                      UP.Cargo
-                               FROM USUARIOS U
-                               JOIN USUARIOxPROYECTO UP ON U.ID_Usuario = UP.ID_Usuario
-                               WHERE UP.ID_Proyecto = @ID_Proyecto";
+            string consultaSQL = @"SELECT E.ID_Empleado, E.Nombre,
+                                      EP.Cargo, EP.ID_Proyecto
+                               FROM EMPLEADOS E
+                               JOIN EMPLEADOxPROYECTO EP ON E.ID_Empleado = EP.ID_Empleado
+                               WHERE EP.ID_Proyecto = @ID_Proyecto";
             parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
 
             DataTable tablaIntegrantes = ExecuteReader(consultaSQL);
@@ -112,13 +112,45 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             {
                 Integrante integrante = new Integrante
                 {
-                    ID_Usuario = Convert.ToInt32(fila["ID_Usuario"]),
+                    ID_Empleado = Convert.ToInt32(fila["ID_Empleado"]),
                     ID_Proyecto = Convert.ToInt32(fila["ID_Proyecto"]),
-                    Cargo = fila["Cargo"].ToString()
+                    Cargo = fila["Cargo"].ToString(),
+                    Nombre = fila["Nombre"].ToString()
                 };
                 integrantes.Add(integrante);
             }
             return integrantes;
+        }
+        public int ModificarEmpleadosxProyecto(List<Integrante> integrantes)
+        {
+            // Obtenemos el ID del proyecto de la lista de integrantes
+            if (integrantes == null || integrantes.Count == 0)
+            {
+                return 0; // Si la lista está vacía, no hay nada que modificar
+            }
+
+            int idProyecto = integrantes[0].ID_Proyecto;
+
+            // Eliminar todos los registros para el proyecto
+            string consultaSQLEliminar = @"DELETE FROM EMPLEADOxPROYECTO WHERE ID_Proyecto = @ID_Proyecto";
+            parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
+            int filasEliminadas = ExecuteNonQuery(consultaSQLEliminar);
+
+            // Insertar los nuevos registros de la lista
+            foreach (var integrante in integrantes)
+            {
+                string consultaSQLInsertar = @"INSERT INTO EMPLEADOxPROYECTO (ID_Empleado, ID_Proyecto, Cargo)
+                                      VALUES (@ID_Empleado, @ID_Proyecto, @Cargo)";
+                parametros.Add(new SqlParameter("@ID_Empleado", integrante.ID_Empleado));
+                parametros.Add(new SqlParameter("@ID_Proyecto", integrante.ID_Proyecto));
+                parametros.Add(new SqlParameter("@Cargo", integrante.Cargo));
+
+                // Ejecutamos la inserción para cada integrante
+                ExecuteNonQuery(consultaSQLInsertar);
+            }
+
+            // Retornamos la cantidad de filas eliminadas (esto es solo una opción, podrías retornarlo de otra forma si prefieres)
+            return filasEliminadas;
         }
 
     }

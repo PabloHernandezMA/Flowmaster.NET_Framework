@@ -39,5 +39,16 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public List<Columna> ObtenerTodasLasColumnasDelProyectoPorTarjeta(int idTarjeta)
+        {
+            try
+            {
+                return repositorio.ObtenerTodasLasColumnasDelProyectoPorTarjeta(idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

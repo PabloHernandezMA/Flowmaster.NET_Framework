@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Formularios.Administracion.Empleados;
 using static UI.ValidacionesForm;
 
 namespace UI.Formularios.Proyectos
@@ -17,6 +18,7 @@ namespace UI.Formularios.Proyectos
     {
         private static FormDetalleProyecto instance;
         private Proyecto esteProyecto;
+        private List<Integrante> listaIntegrantes;
 
         private FormDetalleProyecto()
         {
@@ -46,7 +48,33 @@ namespace UI.Formularios.Proyectos
             comboBoxEstadoProyecto.Text = esteProyecto.Estado.ToString();
             dateTimePickerInicio.Value = esteProyecto.FechaInicio;
             dateTimePickerFin.Value = esteProyecto.FechaFin;
+            listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
+            CargarEmpleados(listaIntegrantes);
         }
+        private void CargarEmpleados(List<Integrante> listaDeIntegrantes)
+        {
+            // Configurar DataGridView
+            dataGridViewEmpleados.AutoGenerateColumns = false;
+            dataGridViewEmpleados.Columns.Clear();
+
+            // Crear columnas manualmente
+            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            colNombre.Name = "Nombre";
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.ReadOnly = true; // Solo lectura
+            dataGridViewEmpleados.Columns.Add(colNombre);
+
+            DataGridViewComboBoxColumn colCargo = new DataGridViewComboBoxColumn();
+            colCargo.Name = "Cargo";
+            colCargo.DataPropertyName = "Cargo";
+            colCargo.DataSource = new string[] { "Administrador", "Observador", "Colaborador" }; // Opciones para el combo
+            colCargo.ReadOnly = false;
+            dataGridViewEmpleados.Columns.Add(colCargo);
+
+            // Asignar la lista de integrantes al DataGridView
+            dataGridViewEmpleados.DataSource = listaDeIntegrantes;
+        }
+
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
@@ -70,15 +98,61 @@ namespace UI.Formularios.Proyectos
                 Estado = comboBoxEstadoProyecto.Text
             };
 
-            int filasAfectadas = proyecto.ID_Proyecto == 0
-                ? CN_Proyectos.ObtenerInstancia().AltaProyecto(proyecto)
-                : CN_Proyectos.ObtenerInstancia().ModificarProyecto(proyecto);
+            int filasAfectadas;
+
+            // Determinar si se trata de un nuevo proyecto o de una modificación
+            if (proyecto.ID_Proyecto == 0)
+            {
+                // Alta de nuevo proyecto
+                filasAfectadas = CN_Proyectos.ObtenerInstancia().AltaProyecto(proyecto);
+            }
+            else
+            {
+                // Modificación de proyecto existente
+                filasAfectadas = CN_Proyectos.ObtenerInstancia().ModificarProyecto(proyecto);
+                GuardarEmpleados();
+            }
 
             MessageBox.Show(filasAfectadas > 0
                 ? "Proyecto guardado correctamente."
                 : "No se pudo completar la operación.");
         }
+        private void GuardarEmpleados()
+        {
+            // Crear una lista para almacenar los integrantes
+            List<Integrante> listaIntegrantes = new List<Integrante>();
 
+            // Recorrer las filas del DataGridView
+            foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
+            {
+                // Verificar si la fila no es una fila nueva
+                if (!row.IsNewRow)
+                {
+                    // Obtener el objeto Integrante de la fila (asumiendo que tu DataGridView tiene la propiedad DataSource correctamente configurada)
+                    Integrante integrante = (Integrante)row.DataBoundItem;
+
+                    // Crear un nuevo objeto Integrante y asignar los valores de la fila
+                    // (si necesitas asignar algún valor adicional desde las celdas visibles, lo puedes hacer aquí)
+                    integrante.Cargo = row.Cells["Cargo"].Value.ToString(); // Asignar el valor visible del Cargo
+
+                    // Agregar el integrante a la lista
+                    listaIntegrantes.Add(integrante);
+                }
+            }
+
+            // Llamar al método ModificarEmpleadosxProyecto pasando la lista
+            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes);
+
+            // Mostrar un mensaje según el resultado
+            if (resultado > 0)
+            {
+                MessageBox.Show("Registros modificados exitosamente.");
+            }
+            else
+            {
+                MessageBox.Show("No se realizaron cambios.");
+            }
+        }
         private bool VerificarCampos()
         {
             errorProvider1.Clear();
@@ -97,6 +171,51 @@ namespace UI.Formularios.Proyectos
             }
 
             return esValido;
+        }
+
+        private void buttonAgregar_Click(object sender, EventArgs e)
+        {
+            FormGestionarEmpleados form = FormGestionarEmpleados.ObtenerInstancia(1);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Empleado empleadoSeleccionado = form.EmpleadoSeleccionado;
+                if (empleadoSeleccionado != null && !listaIntegrantes.Any(i => i.ID_Empleado == empleadoSeleccionado.ID_Empleado))
+                {
+                    Integrante nuevoIntegrante = new Integrante
+                    {
+                        Nombre = empleadoSeleccionado.Nombre,
+                        ID_Empleado = empleadoSeleccionado.ID_Empleado,
+                        ID_Proyecto = string.IsNullOrWhiteSpace(textBoxNumero.Text) ? 0 : int.Parse(textBoxNumero.Text),
+                        Cargo = "Colaborador"
+                    };
+                    // List<Integrante> listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
+                    listaIntegrantes.Add(nuevoIntegrante);
+                    CargarEmpleados(listaIntegrantes);
+                }
+            }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewEmpleados.SelectedRows.Count > 0)
+            {
+                // Crear una lista para almacenar los integrantes
+                listaIntegrantes = new List<Integrante>();
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dataGridViewEmpleados.SelectedRows[0];
+
+                // Obtener el objeto Integrante correspondiente a la fila seleccionada
+                Integrante integranteSeleccionado = (Integrante)filaSeleccionada.DataBoundItem;
+
+                // Obtener la lista de Integrantes del DataSource del DataGridView
+                listaIntegrantes = (List<Integrante>)dataGridViewEmpleados.DataSource;
+
+                // Eliminar el objeto Integrante de la lista
+                listaIntegrantes.Remove(integranteSeleccionado);
+
+                // Actualizar el DataGridView (esto es necesario si el DataGridView no se actualiza automáticamente)
+                CargarEmpleados(listaIntegrantes);
+            }
         }
     }
 }

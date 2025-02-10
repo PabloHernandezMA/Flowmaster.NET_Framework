@@ -64,8 +64,9 @@ namespace UI.Formularios.Proyectos
         }
         private void CargarComboBoxEmpleados() {
             List<Empleado> empleados = CN_Empleados.ObtenerInstancia().ObtenerTodosLosEmpleados();
-            comboBoxEmpleado.DataSource = empleados;
-            comboBoxEmpleado.ValueMember = "ID_User";
+            var empleadosHabilitados = empleados.Where(e => e.Habilitado).ToList();
+            comboBoxEmpleado.DataSource = empleadosHabilitados;
+            comboBoxEmpleado.ValueMember = "ID_Empleado";
             comboBoxEmpleado.DisplayMember = "Nombre";
             comboBoxEmpleado.Text = "Todos";
         }
@@ -106,7 +107,7 @@ namespace UI.Formularios.Proyectos
             else
             {
                 // se deberá buscar tambien por los empleados que participan en un proyecto.
-                listaFiltrada = proyectos.ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario((int)comboBoxEmpleado.SelectedValue);
+                listaFiltrada = proyectos.ObtenerTodosLosProyectosEnLosQueParticipaUnEmpleado((int)comboBoxEmpleado.SelectedValue);
                 listaFiltrada = listaFiltrada.Where(p =>
     (string.IsNullOrEmpty(textBoxNumero.Text) || p.ID_Proyecto.ToString().Contains(textBoxNumero.Text)) &&
     (comboBoxEstadoProyecto.SelectedItem == null || comboBoxEstadoProyecto.SelectedItem.ToString() == "Todos" || p.Estado == comboBoxEstadoProyecto.SelectedItem.ToString()) &&

@@ -44,6 +44,7 @@ namespace Dominio.Aplicacion
         }
         public Proyecto ObtenerProyecto(int idProyecto)
         {
+            proyectos = repositorio.ObtenerTodosLosProyectos();
             Proyecto proyectoBuscado = proyectos.FirstOrDefault(p => p.ID_Proyecto == idProyecto);
             return proyectoBuscado;
         }
@@ -84,12 +85,35 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
-        public List<Proyecto> ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario(int idUsuario)
+        public List<Proyecto> ObtenerTodosLosProyectosEnLosQueParticipaUnEmpleado(int idEmpleado)
         {
             try
             {
-                proyectos = repositorio.ObtenerTodosLosProyectosEnLosQueParticipaUnUsuario(idUsuario);
+                proyectos = repositorio.ObtenerTodosLosProyectosEnLosQueParticipaUnEmpleado(idEmpleado);
                 return proyectos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<Integrante> ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(int idProyecto)
+        {
+            try
+            {
+                integrantes = repositorio.ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(idProyecto);
+                return integrantes;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int ModificarEmpleadosxProyecto(List<Integrante> integrantes)
+        {
+            try
+            {
+                return repositorio.ModificarEmpleadosxProyecto(integrantes);
             }
             catch (Exception ex)
             {

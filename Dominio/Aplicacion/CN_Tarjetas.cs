@@ -40,5 +40,39 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public int AltaTarjeta(Tarjeta tarjeta)
+        {
+            try
+            {
+                return repositorio.AltaTarjeta(tarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ModificarTarjeta(Tarjeta tarjeta)
+        {
+            try
+            {
+                return repositorio.ModificarTarjeta(tarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int BajaTarjeta(int idTarjeta)
+        {
+            try
+            {
+                return repositorio.BajaTarjeta(idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

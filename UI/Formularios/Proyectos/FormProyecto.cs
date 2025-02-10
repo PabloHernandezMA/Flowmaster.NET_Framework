@@ -14,7 +14,7 @@ namespace UI.Formularios.Proyectos
 {
     public partial class FormProyecto : Form
     {
-        private CN_Proyectos proyecto;
+        private CN_Proyectos proyectos;
         private Proyecto esteProyecto;
         private static FormProyecto instance;
         private CN_Columnas columnas;
@@ -26,6 +26,7 @@ namespace UI.Formularios.Proyectos
         {
             InitializeComponent();
             esteProyecto = proyecto;
+            proyectos = CN_Proyectos.ObtenerInstancia();
         }
         public static FormProyecto ObtenerInstancia(Proyecto proyectoSeleccionado)
         {
@@ -38,12 +39,17 @@ namespace UI.Formularios.Proyectos
 
         private void FormProyecto_Load(object sender, EventArgs e)
         {
+            cargarDatosProyecto();
+            cargarColumnas(esteProyecto.ID_Proyecto);
+        }
+        private void cargarDatosProyecto()
+        {
             this.Text = $"Proyecto: {esteProyecto.Nombre}";
             labelProyecto.Text = $"Proyecto: {esteProyecto.ID_Proyecto}";
             textBoxNombreProyecto.Text = esteProyecto.Nombre;
             dateTimePickerFechaFinProyecto.Text = esteProyecto.FechaFin.ToShortDateString();
             comboBoxEstadoProyecto.Text = esteProyecto.Estado.ToString();
-            cargarColumnas(esteProyecto.ID_Proyecto);
+            
         }
         private void cargarColumnas(int idProyecto)
         {
@@ -68,7 +74,12 @@ namespace UI.Formularios.Proyectos
 
         private void buttonVerDetalles_Click(object sender, EventArgs e)
         {
-
+            using (FormDetalleProyecto formulario = FormDetalleProyecto.ObtenerInstancia(esteProyecto))
+            {
+                formulario.ShowDialog();
+            }
+            esteProyecto = proyectos.ObtenerProyecto(esteProyecto.ID_Proyecto);
+            cargarDatosProyecto();
         }
     }
 }

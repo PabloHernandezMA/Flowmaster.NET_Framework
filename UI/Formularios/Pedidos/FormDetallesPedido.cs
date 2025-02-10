@@ -183,23 +183,33 @@ namespace UI.Formularios.Pedidos
 
         private void buttonAgregarEmpleado_Click(object sender, EventArgs e)
         {
-            // Crear una instancia del formulario GestionarClientes
-            FormGestionarEmpleados formGestionarEmpleados = new FormGestionarEmpleados();
+            // Obtener instancia del formulario de empleados
+            FormGestionarEmpleados formGestionarEmpleados = FormGestionarEmpleados.ObtenerInstancia(1);
 
-            // Mostrar el formulario GestionarClientes como un diálogo modal
+            // Mostrar el formulario como diálogo modal
             DialogResult resultado = formGestionarEmpleados.ShowDialog();
 
-            // Verificar si se ha seleccionado un cliente y el resultado es OK
-            if (resultado == DialogResult.OK)
+            // Si el usuario seleccionó un empleado correctamente
+            if (resultado == DialogResult.OK && formGestionarEmpleados.EmpleadoSeleccionado != null)
             {
-                // Obtener el ID_Cliente seleccionado del formulario GestionarClientes
-                idEmpleadoSeleccionado = formGestionarEmpleados.ObtenerIDEmpleadoSeleccionado();
-                listaEmpleados.Add(CN_Empleados.ObtenerInstancia().ObtenerEmpleadosPorIDEmpleado(idEmpleadoSeleccionado)[0]);
+                // Obtener el empleado seleccionado
+                Empleado empleadoSeleccionado = formGestionarEmpleados.EmpleadoSeleccionado;
+
+                // Agregarlo a la lista si no está ya en ella
+                if (!listaEmpleados.Any(emp => emp.ID_Empleado == empleadoSeleccionado.ID_Empleado))
+                {
+                    listaEmpleados.Add(empleadoSeleccionado);
+                }
+
+                // Refrescar el DataGridView
                 dataGridViewEmpleados.DataSource = null;
                 dataGridViewEmpleados.DataSource = listaEmpleados;
+
+                // Cambiar el estado
                 labelEstado.Text = "Asignado";
             }
         }
+
 
         private void buttonEliminarEmpleado_Click(object sender, EventArgs e)
         {

@@ -231,6 +231,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormProyecto";
             this.Text = "FormProyecto";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormProyecto_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

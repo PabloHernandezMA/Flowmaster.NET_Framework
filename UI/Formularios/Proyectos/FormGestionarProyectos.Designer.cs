@@ -279,7 +279,7 @@
             this.buttonVerDetalles.Name = "buttonVerDetalles";
             this.buttonVerDetalles.Size = new System.Drawing.Size(170, 35);
             this.buttonVerDetalles.TabIndex = 6;
-            this.buttonVerDetalles.Text = "Ver detalles";
+            this.buttonVerDetalles.Text = "Abrir";
             this.buttonVerDetalles.UseVisualStyleBackColor = true;
             this.buttonVerDetalles.Click += new System.EventHandler(this.buttonVerDetalles_Click);
             // 

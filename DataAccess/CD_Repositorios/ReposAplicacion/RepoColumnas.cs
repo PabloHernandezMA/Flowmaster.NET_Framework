@@ -55,6 +55,28 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             }
             return columnas;
         }
+        public List<Columna> ObtenerTodasLasColumnasDelProyectoPorTarjeta(int idTarjeta)
+        {
+            List<Columna> columnas = new List<Columna>();
+            string consultaSQL = "SELECT c.* FROM COLUMNAS c WHERE c.ID_Proyecto = (SELECT c2.ID_Proyecto FROM COLUMNAS c2 JOIN TARJETAS t ON c2.ID_Columna = t.ID_Columna WHERE t.ID_Tarjeta = @ID_Tarjeta)";
+            parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
+
+            DataTable tablaColumnas = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaColumnas.Rows)
+            {
+                Columna columna = new Columna
+                {
+                    ID_Columna = Convert.ToInt32(fila["ID_Columna"]),
+                    Nombre = fila["Nombre"].ToString(),
+                    Posicion = Convert.ToInt32(fila["Posicion"]),
+                    Visible = Convert.ToBoolean(fila["Visible"]),
+                    ID_Proyecto = Convert.ToInt32(fila["ID_Proyecto"])
+                };
+                columnas.Add(columna);
+            }
+            return columnas;
+        }
         public int AltaColumna(Columna columna)
         {
             string consultaSQL = @"INSERT INTO COLUMNAS (Nombre, Posicion, Visible, ID_Proyecto)
