@@ -74,7 +74,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(675, 84);
+            this.panel1.Size = new System.Drawing.Size(723, 84);
             this.panel1.TabIndex = 25;
             // 
             // textBoxTitulo
@@ -120,7 +120,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel3.Location = new System.Drawing.Point(0, 541);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(675, 64);
+            this.panel3.Size = new System.Drawing.Size(723, 64);
             this.panel3.TabIndex = 26;
             // 
             // button1
@@ -146,7 +146,7 @@
             this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonGuardar.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonGuardar.Location = new System.Drawing.Point(457, 9);
+            this.buttonGuardar.Location = new System.Drawing.Point(507, 9);
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.Size = new System.Drawing.Size(195, 43);
             this.buttonGuardar.TabIndex = 12;
@@ -162,7 +162,7 @@
             this.buttonCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCancelar.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.buttonCancelar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonCancelar.Location = new System.Drawing.Point(323, 9);
+            this.buttonCancelar.Location = new System.Drawing.Point(365, 9);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(126, 43);
             this.buttonCancelar.TabIndex = 13;
@@ -179,7 +179,7 @@
             this.tabControlTarjeta.Location = new System.Drawing.Point(0, 84);
             this.tabControlTarjeta.Name = "tabControlTarjeta";
             this.tabControlTarjeta.SelectedIndex = 0;
-            this.tabControlTarjeta.Size = new System.Drawing.Size(675, 457);
+            this.tabControlTarjeta.Size = new System.Drawing.Size(723, 457);
             this.tabControlTarjeta.TabIndex = 27;
             // 
             // tabPage1
@@ -192,7 +192,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(667, 423);
+            this.tabPage1.Size = new System.Drawing.Size(715, 423);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalles";
             // 
@@ -256,7 +256,7 @@
             this.textBoxDescTarjeta.Location = new System.Drawing.Point(15, 53);
             this.textBoxDescTarjeta.Multiline = true;
             this.textBoxDescTarjeta.Name = "textBoxDescTarjeta";
-            this.textBoxDescTarjeta.Size = new System.Drawing.Size(633, 161);
+            this.textBoxDescTarjeta.Size = new System.Drawing.Size(683, 161);
             this.textBoxDescTarjeta.TabIndex = 26;
             // 
             // label9
@@ -281,7 +281,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(667, 423);
+            this.tabPage2.Size = new System.Drawing.Size(715, 423);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignacion";
             // 
@@ -385,7 +385,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(675, 605);
+            this.ClientSize = new System.Drawing.Size(723, 605);
             this.ControlBox = false;
             this.Controls.Add(this.tabControlTarjeta);
             this.Controls.Add(this.panel3);

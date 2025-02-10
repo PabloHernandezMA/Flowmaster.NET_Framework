@@ -119,39 +119,17 @@ namespace UI.Formularios.Proyectos
         }
         private void GuardarEmpleados()
         {
-            // Crear una lista para almacenar los integrantes
             List<Integrante> listaIntegrantes = new List<Integrante>();
-
-            // Recorrer las filas del DataGridView
             foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
             {
-                // Verificar si la fila no es una fila nueva
                 if (!row.IsNewRow)
                 {
-                    // Obtener el objeto Integrante de la fila (asumiendo que tu DataGridView tiene la propiedad DataSource correctamente configurada)
                     Integrante integrante = (Integrante)row.DataBoundItem;
-
-                    // Crear un nuevo objeto Integrante y asignar los valores de la fila
-                    // (si necesitas asignar algún valor adicional desde las celdas visibles, lo puedes hacer aquí)
-                    integrante.Cargo = row.Cells["Cargo"].Value.ToString(); // Asignar el valor visible del Cargo
-
-                    // Agregar el integrante a la lista
+                    integrante.Cargo = row.Cells["Cargo"].Value.ToString();
                     listaIntegrantes.Add(integrante);
                 }
             }
-
-            // Llamar al método ModificarEmpleadosxProyecto pasando la lista
-            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes);
-
-            // Mostrar un mensaje según el resultado
-            if (resultado > 0)
-            {
-                MessageBox.Show("Registros modificados exitosamente.");
-            }
-            else
-            {
-                MessageBox.Show("No se realizaron cambios.");
-            }
+            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes);        
         }
         private bool VerificarCampos()
         {

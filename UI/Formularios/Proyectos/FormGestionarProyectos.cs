@@ -122,6 +122,23 @@ namespace UI.Formularios.Proyectos
         {
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listaFiltrada;
+            // Ocultar columnas no deseadas
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.Visible = false; // Ocultar todas las columnas inicialmente
+            }
+
+            // Mostrar solo las columnas deseadas
+            dataGridView1.Columns["Nombre"].Visible = true;
+            dataGridView1.Columns["FechaInicio"].Visible = true;
+            dataGridView1.Columns["FechaFin"].Visible = true;
+            dataGridView1.Columns["Estado"].Visible = true;
+
+            // Ajustar el tamaño de las columnas
+            dataGridView1.Columns["Nombre"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns["FechaInicio"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns["FechaFin"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridView1.Columns["Estado"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
