@@ -47,7 +47,29 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
         public int BajaProyecto(int idProyecto)
         {
-            string consultaSQL = "DELETE FROM PROYECTOS WHERE ID_Proyecto = @ID_Proyecto";
+            string consultaSQL = @"-- Eliminar empleados asociados a tarjetas del proyecto
+                                        DELETE FROM EMPLEADOxTARJETA
+                                        WHERE ID_Tarjeta IN (
+                                            SELECT ID_Tarjeta FROM TARJETAS
+                                            WHERE ID_Columna IN (
+                                                SELECT ID_Columna FROM COLUMNAS WHERE ID_Proyecto = @ID_Proyecto
+                                            )
+                                        );
+
+                                        -- Eliminar tarjetas del proyecto
+                                        DELETE FROM TARJETAS
+                                        WHERE ID_Columna IN (
+                                            SELECT ID_Columna FROM COLUMNAS WHERE ID_Proyecto = @ID_Proyecto
+                                        );
+
+                                        -- Eliminar columnas del proyecto
+                                        DELETE FROM COLUMNAS WHERE ID_Proyecto = @ID_Proyecto;
+
+                                        -- Eliminar relaciones empleado-proyecto
+                                        DELETE FROM EMPLEADOxPROYECTO WHERE ID_Proyecto = @ID_Proyecto;
+
+                                        -- Finalmente, eliminar el proyecto
+                                        DELETE FROM PROYECTOS WHERE ID_Proyecto = @ID_Proyecto";
             parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
             return ExecuteNonQuery(consultaSQL);
         }
@@ -121,15 +143,22 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             }
             return integrantes;
         }
-        public int ModificarEmpleadosxProyecto(List<Integrante> integrantes)
+        public int ModificarEmpleadosxProyecto(List<Integrante> integrantes, int idProyecto)
         {
             // Obtenemos el ID del proyecto de la lista de integrantes
             if (integrantes == null || integrantes.Count == 0)
             {
+                if (idProyecto != 0)
+                {
+                    // Eliminar todos los registros para el proyecto
+                    string consultaSQLEliminarTodo = @"DELETE FROM EMPLEADOxPROYECTO WHERE ID_Proyecto = @ID_Proyecto";
+                    parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
+                    return ExecuteNonQuery(consultaSQLEliminarTodo);
+                }
                 return 0; // Si la lista está vacía, no hay nada que modificar
             }
 
-            int idProyecto = integrantes[0].ID_Proyecto;
+            idProyecto = integrantes[0].ID_Proyecto;
 
             // Eliminar todos los registros para el proyecto
             string consultaSQLEliminar = @"DELETE FROM EMPLEADOxPROYECTO WHERE ID_Proyecto = @ID_Proyecto";

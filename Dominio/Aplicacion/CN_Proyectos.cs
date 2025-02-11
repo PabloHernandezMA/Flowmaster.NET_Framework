@@ -109,11 +109,11 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
-        public int ModificarEmpleadosxProyecto(List<Integrante> integrantes)
+        public int ModificarEmpleadosxProyecto(List<Integrante> integrantes, int idProyecto)
         {
             try
             {
-                return repositorio.ModificarEmpleadosxProyecto(integrantes);
+                return repositorio.ModificarEmpleadosxProyecto(integrantes, idProyecto);
             }
             catch (Exception ex)
             {

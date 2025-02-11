@@ -74,5 +74,17 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+
+        public int ModificarEmpleadoTarjetas(List<Empleado_Tarjeta> list, int idTarjeta)
+        {
+            try
+            {
+                return repositorio.ModificarEmpleadoTarjetas(list, idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

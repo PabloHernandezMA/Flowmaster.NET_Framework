@@ -147,6 +147,7 @@ namespace UI.Formularios.Proyectos
             {
                 formulario.ShowDialog();
             }
+            CargarProyectos();
         }
 
         private void checkBoxEmpleado_CheckedChanged(object sender, EventArgs e)
@@ -163,6 +164,35 @@ namespace UI.Formularios.Proyectos
                 using (FormDetalleProyecto formulario = FormDetalleProyecto.ObtenerInstancia(ObjSeleccionado))
                 {
                     formulario.ShowDialog();
+                }
+                CargarProyectos();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione un proyecto.");
+            }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count > 0)
+            {
+                Proyecto ObjSeleccionado = (Proyecto)dataGridView1.SelectedRows[0].DataBoundItem;
+                DialogResult resultado = MessageBox.Show(
+                $"¿Está seguro de que desea eliminar el proyecto {ObjSeleccionado.Nombre} y sus dependencias?",
+                "Eliminar proyecto",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    CN_Proyectos.ObtenerInstancia().BajaProyecto(ObjSeleccionado.ID_Proyecto);
+                    MessageBox.Show("Operación completada.");
+                    CargarProyectos();
+                }
+                else
+                {
+                    MessageBox.Show("Operación cancelada.");
                 }
             }
             else

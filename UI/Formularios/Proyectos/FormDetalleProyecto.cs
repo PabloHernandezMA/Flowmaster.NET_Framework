@@ -105,6 +105,17 @@ namespace UI.Formularios.Proyectos
             {
                 // Alta de nuevo proyecto
                 filasAfectadas = CN_Proyectos.ObtenerInstancia().AltaProyecto(proyecto);
+                List<Proyecto> listaProyectos = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosProyectos();
+                Proyecto ultimoProyecto = listaProyectos.OrderByDescending(p => p.ID_Proyecto).FirstOrDefault();
+                textBoxNumero.Text = ultimoProyecto.ID_Proyecto.ToString();
+                foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
+                {
+                    if (row.DataBoundItem is Integrante integrante)
+                    {
+                        integrante.ID_Proyecto = ultimoProyecto.ID_Proyecto;
+                    }
+                }
+                GuardarEmpleados();
             }
             else
             {
@@ -129,7 +140,7 @@ namespace UI.Formularios.Proyectos
                     listaIntegrantes.Add(integrante);
                 }
             }
-            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes);        
+            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes, string.IsNullOrWhiteSpace(textBoxNumero.Text) ? 0 : int.Parse(textBoxNumero.Text));        
         }
         private bool VerificarCampos()
         {
@@ -157,6 +168,10 @@ namespace UI.Formularios.Proyectos
             if (form.ShowDialog() == DialogResult.OK)
             {
                 Empleado empleadoSeleccionado = form.EmpleadoSeleccionado;
+                if (listaIntegrantes == null)
+                {
+                    listaIntegrantes = new List<Integrante>();
+                }
                 if (empleadoSeleccionado != null && !listaIntegrantes.Any(i => i.ID_Empleado == empleadoSeleccionado.ID_Empleado))
                 {
                     Integrante nuevoIntegrante = new Integrante
@@ -190,7 +205,7 @@ namespace UI.Formularios.Proyectos
 
                 // Eliminar el objeto Integrante de la lista
                 listaIntegrantes.Remove(integranteSeleccionado);
-
+                dataGridViewEmpleados.DataSource = null;
                 // Actualizar el DataGridView (esto es necesario si el DataGridView no se actualiza automáticamente)
                 CargarEmpleados(listaIntegrantes);
             }
