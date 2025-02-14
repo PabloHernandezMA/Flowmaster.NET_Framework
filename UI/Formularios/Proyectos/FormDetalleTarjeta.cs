@@ -31,7 +31,7 @@ namespace UI.Formularios.Proyectos
         }
         public static FormDetalleTarjeta ObtenerInstancia()
         {
-            if (instancia == null)
+            if (instancia == null || instancia.IsDisposed)
             {
                 instancia = new FormDetalleTarjeta();
             }
@@ -39,7 +39,7 @@ namespace UI.Formularios.Proyectos
         }
         public static FormDetalleTarjeta ObtenerInstancia(Tarjeta tarjeta)
         {
-            if (instancia == null)
+            if (instancia == null || instancia.IsDisposed)
             {
                 instancia = new FormDetalleTarjeta(tarjeta);
             }
@@ -94,6 +94,11 @@ namespace UI.Formularios.Proyectos
             if (string.IsNullOrWhiteSpace(textBoxTitulo.Text))
             {
                 errorProvider1.SetError(textBoxTitulo, "El nombre no puede estar vacío");
+                esValido = false;
+            }
+            if (string.IsNullOrWhiteSpace(textBoxDescTarjeta.Text))
+            {
+                errorProvider1.SetError(textBoxDescTarjeta, "La descripcion no puede estar vacía");
                 esValido = false;
             }
             return esValido;

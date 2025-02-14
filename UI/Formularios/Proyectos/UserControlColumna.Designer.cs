@@ -28,24 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlColumna));
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxTituloColumna = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonOpciones = new System.Windows.Forms.Button();
             this.buttonMover = new System.Windows.Forms.Button();
             this.flowLayoutPanelDeTarjetas = new System.Windows.Forms.FlowLayoutPanel();
+            this.buttonAgregarTarjeta = new System.Windows.Forms.Button();
+            this.contextMenuStripColumna = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.userControlTarjeta2 = new UI.Formularios.Proyectos.UserControlTarjeta();
             this.userControlTarjeta1 = new UI.Formularios.Proyectos.UserControlTarjeta();
-            this.buttonAgregarTarjeta = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.flowLayoutPanelDeTarjetas.SuspendLayout();
+            this.contextMenuStripColumna.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
             this.panel1.Controls.Add(this.textBoxTituloColumna);
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.buttonOpciones);
             this.panel1.Controls.Add(this.buttonMover);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -66,20 +70,21 @@
             this.textBoxTituloColumna.Text = "textBox Titulo";
             this.textBoxTituloColumna.WordWrap = false;
             // 
-            // button1
+            // buttonOpciones
             // 
-            this.button1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(149, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(10);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(38, 43);
-            this.button1.TabIndex = 5;
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonOpciones.ContextMenuStrip = this.contextMenuStripColumna;
+            this.buttonOpciones.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonOpciones.FlatAppearance.BorderSize = 0;
+            this.buttonOpciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
+            this.buttonOpciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonOpciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonOpciones.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpciones.Image")));
+            this.buttonOpciones.Location = new System.Drawing.Point(149, 0);
+            this.buttonOpciones.Margin = new System.Windows.Forms.Padding(10);
+            this.buttonOpciones.Name = "buttonOpciones";
+            this.buttonOpciones.Size = new System.Drawing.Size(38, 43);
+            this.buttonOpciones.TabIndex = 5;
+            this.buttonOpciones.UseVisualStyleBackColor = true;
             // 
             // buttonMover
             // 
@@ -112,24 +117,6 @@
             this.flowLayoutPanelDeTarjetas.Size = new System.Drawing.Size(225, 255);
             this.flowLayoutPanelDeTarjetas.TabIndex = 1;
             // 
-            // userControlTarjeta2
-            // 
-            this.userControlTarjeta2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
-            this.userControlTarjeta2.Location = new System.Drawing.Point(10, 10);
-            this.userControlTarjeta2.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.userControlTarjeta2.Name = "userControlTarjeta2";
-            this.userControlTarjeta2.Size = new System.Drawing.Size(205, 80);
-            this.userControlTarjeta2.TabIndex = 5;
-            // 
-            // userControlTarjeta1
-            // 
-            this.userControlTarjeta1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
-            this.userControlTarjeta1.Location = new System.Drawing.Point(10, 100);
-            this.userControlTarjeta1.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
-            this.userControlTarjeta1.Name = "userControlTarjeta1";
-            this.userControlTarjeta1.Size = new System.Drawing.Size(205, 80);
-            this.userControlTarjeta1.TabIndex = 4;
-            // 
             // buttonAgregarTarjeta
             // 
             this.buttonAgregarTarjeta.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -151,6 +138,52 @@
             this.buttonAgregarTarjeta.Text = "Agregar tarjeta        ";
             this.buttonAgregarTarjeta.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonAgregarTarjeta.UseVisualStyleBackColor = false;
+            this.buttonAgregarTarjeta.Click += new System.EventHandler(this.buttonAgregarTarjeta_Click);
+            // 
+            // contextMenuStripColumna
+            // 
+            this.contextMenuStripColumna.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStripColumna.Name = "contextMenuStripColumna";
+            this.contextMenuStripColumna.ShowImageMargin = false;
+            this.contextMenuStripColumna.Size = new System.Drawing.Size(156, 48);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
+            // userControlTarjeta2
+            // 
+            this.userControlTarjeta2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
+            this.userControlTarjeta2.descripcion = null;
+            this.userControlTarjeta2.id_Columna = 0;
+            this.userControlTarjeta2.id_Tarjeta = 0;
+            this.userControlTarjeta2.Location = new System.Drawing.Point(10, 10);
+            this.userControlTarjeta2.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.userControlTarjeta2.Name = "userControlTarjeta2";
+            this.userControlTarjeta2.nombre = null;
+            this.userControlTarjeta2.posicion = 0;
+            this.userControlTarjeta2.Size = new System.Drawing.Size(205, 80);
+            this.userControlTarjeta2.TabIndex = 5;
+            this.userControlTarjeta2.visible = false;
+            // 
+            // userControlTarjeta1
+            // 
+            this.userControlTarjeta1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
+            this.userControlTarjeta1.descripcion = null;
+            this.userControlTarjeta1.id_Columna = 0;
+            this.userControlTarjeta1.id_Tarjeta = 0;
+            this.userControlTarjeta1.Location = new System.Drawing.Point(10, 100);
+            this.userControlTarjeta1.Margin = new System.Windows.Forms.Padding(10, 5, 10, 5);
+            this.userControlTarjeta1.Name = "userControlTarjeta1";
+            this.userControlTarjeta1.nombre = null;
+            this.userControlTarjeta1.posicion = 0;
+            this.userControlTarjeta1.Size = new System.Drawing.Size(205, 80);
+            this.userControlTarjeta1.TabIndex = 4;
+            this.userControlTarjeta1.visible = false;
             // 
             // UserControlColumna
             // 
@@ -166,6 +199,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.flowLayoutPanelDeTarjetas.ResumeLayout(false);
+            this.contextMenuStripColumna.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,10 +210,12 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDeTarjetas;
         private System.Windows.Forms.Button buttonMover;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonOpciones;
         private System.Windows.Forms.Button buttonAgregarTarjeta;
         private UserControlTarjeta userControlTarjeta1;
         private UserControlTarjeta userControlTarjeta2;
         private System.Windows.Forms.TextBox textBoxTituloColumna;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripColumna;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }

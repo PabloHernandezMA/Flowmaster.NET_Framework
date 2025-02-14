@@ -91,7 +91,10 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
         public int BajaColumna(int idColumna)
         {
-            string consultaSQL = "DELETE FROM COLUMNAS WHERE ID_Columna = @ID_Columna";
+            string consultaSQL = @"DELETE FROM EMPLEADOxTARJETA
+                                    WHERE ID_Tarjeta IN (SELECT ID_Tarjeta FROM TARJETAS WHERE ID_Columna = @ID_Columna);
+                                    DELETE FROM TARJETAS WHERE ID_Columna = @ID_Columna;
+                                    DELETE FROM COLUMNAS WHERE ID_Columna = @ID_Columna";
             parametros.Add(new SqlParameter("@ID_Columna", idColumna));
             return ExecuteNonQuery(consultaSQL);
         }

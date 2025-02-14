@@ -15,6 +15,8 @@ namespace UI.Formularios.Proyectos
     public partial class UserControlColumna : UserControl
     {
         CN_Tarjetas tarjetas;
+        public event EventHandler AgregarTarjetaClicked;
+        public event EventHandler EliminarColumnaClicked;
         public UserControlColumna()
         {
             InitializeComponent();
@@ -45,6 +47,21 @@ namespace UI.Formularios.Proyectos
                 flowLayoutPanelDeTarjetas.Controls.Add(userControlTarjeta);
             }               
             flowLayoutPanelDeTarjetas.Controls.Add(buttonAgregarTarjeta);
+        }
+
+        private void buttonAgregarTarjeta_Click(object sender, EventArgs e)
+        {
+            using (FormDetalleTarjeta formulario = FormDetalleTarjeta.ObtenerInstancia())
+            {
+                formulario.ShowDialog();
+            }
+            AgregarTarjetaClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CN_Columnas.ObtenerInstancia().BajaColumna(columnaDB.ID_Columna);
+            EliminarColumnaClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

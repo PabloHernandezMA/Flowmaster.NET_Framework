@@ -28,6 +28,7 @@ namespace UI.Formularios.Proyectos
             esteProyecto = proyecto;
             proyectos = CN_Proyectos.ObtenerInstancia();
         }
+
         public static FormProyecto ObtenerInstancia(Proyecto proyectoSeleccionado)
         {
             if (instance == null || instance.IsDisposed)
@@ -62,14 +63,34 @@ namespace UI.Formularios.Proyectos
             {
                 UserControlColumna userControlColumna = new UserControlColumna();
                 userControlColumna.ConfigurarColumna(columna);
+                userControlColumna.AgregarTarjetaClicked += ControlColumna_AgregarTarjetaClicked;
+                userControlColumna.EliminarColumnaClicked += ControlColumna_EliminarColumnaClicked;
                 flowLayoutPanelTablero.Controls.Add(userControlColumna);
+
             }
             flowLayoutPanelTablero.Controls.Add(buttonAgregarColumna);
         }
 
+        private void ControlColumna_AgregarTarjetaClicked(object sender, EventArgs e)
+        {
+            cargarColumnas(esteProyecto.ID_Proyecto);
+        }
+        private void ControlColumna_EliminarColumnaClicked(object sender, EventArgs e)
+        {
+            cargarColumnas(esteProyecto.ID_Proyecto);
+        }
         private void buttonAgregarColumna_Click(object sender, EventArgs e)
         {
-
+            int numeroDeColumnas = 0;
+            numeroDeColumnas = flowLayoutPanelTablero.Controls.OfType<UserControlColumna>().Count();
+            Columna objColumnaNueva = new Columna();
+            objColumnaNueva.ID_Columna = 0;
+            objColumnaNueva.Nombre = "Nueva*";
+            objColumnaNueva.Posicion = numeroDeColumnas + 1;
+            objColumnaNueva.Visible = true;
+            objColumnaNueva.ID_Proyecto = esteProyecto.ID_Proyecto;
+            CN_Columnas.ObtenerInstancia().AltaColumna(objColumnaNueva);
+            cargarColumnas(esteProyecto.ID_Proyecto);
         }
 
         private void buttonVerDetalles_Click(object sender, EventArgs e)

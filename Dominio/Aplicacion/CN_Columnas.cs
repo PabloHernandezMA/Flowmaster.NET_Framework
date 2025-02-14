@@ -50,5 +50,39 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public int AltaColumna(Columna columna)
+        {
+            try
+            {
+                return repositorio.AltaColumna(columna);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ModificarColumna(Columna columna)
+        {
+            try
+            {
+                return repositorio.ModificarColumna(columna);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int BajaColumna(int idColumna)
+        {
+            try
+            {
+                return repositorio.BajaColumna(idColumna);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
