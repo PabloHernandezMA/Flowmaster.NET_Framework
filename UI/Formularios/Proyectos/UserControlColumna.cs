@@ -17,17 +17,22 @@ namespace UI.Formularios.Proyectos
         CN_Tarjetas tarjetas;
         public event EventHandler AgregarTarjetaClicked;
         public event EventHandler EliminarColumnaClicked;
+        
         public UserControlColumna()
         {
             InitializeComponent();
+            panelTop.MouseDown += panelTop_MouseDown;
         }
 
         private Columna columnaDB;
         private Columna columnaEditada;
 
+        public Columna ObjetoColumna { get; internal set; }
+
         public void ConfigurarColumna(Columna columnaGuardada)
         {
             columnaDB = columnaGuardada;
+            ObjetoColumna = columnaGuardada;
             this.Visible = columnaDB.Visible; // Controlar la visibilidad
             textBoxTituloColumna.Text = columnaDB.Nombre;
             cargarTarjetas(); // Cargar tarjetas después de la configuración
@@ -62,6 +67,14 @@ namespace UI.Formularios.Proyectos
         {
             CN_Columnas.ObtenerInstancia().BajaColumna(columnaDB.ID_Columna);
             EliminarColumnaClicked?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void panelTop_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.DoDragDrop(this, DragDropEffects.Move);
+            }
         }
     }
 }

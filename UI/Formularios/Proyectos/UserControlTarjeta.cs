@@ -19,12 +19,15 @@ namespace UI.Formularios.Proyectos
         public int posicion { get; set; }
         public bool visible { get; set; }
         public int id_Columna { get; set; }
+        public Tarjeta ObjetoTarjeta { get; internal set; }
+
         public UserControlTarjeta()
         {
             InitializeComponent();
         }
         public void ConfigurarTarjeta(Tarjeta datosTarjeta)
         {
+            ObjetoTarjeta = datosTarjeta;
             id_Tarjeta = datosTarjeta.ID_Tarjeta;
             nombre = datosTarjeta.Nombre;
             posicion = datosTarjeta.Posicion;
@@ -44,5 +47,6 @@ namespace UI.Formularios.Proyectos
         {
 
         }
+
     }
 }

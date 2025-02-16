@@ -113,5 +113,14 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
             return ExecuteNonQuery(consultaSQL);
         }
+
+        public int ActualizarColumna(Columna columna)
+        {
+            string consultaSQL = @"UPDATE COLUMNAS SET Posicion = @Posicion WHERE ID_Columna = @ID_Columna";
+            parametros.Add(new SqlParameter("@Posicion", columna.Posicion));
+            parametros.Add(new SqlParameter("@ID_Columna", columna.ID_Columna));
+
+            return ExecuteNonQuery(consultaSQL);
+        }
     }
 }

@@ -2,6 +2,7 @@
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -78,6 +79,17 @@ namespace Dominio.Aplicacion
             try
             {
                 return repositorio.BajaColumna(idColumna);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int ActualizarColumna(Columna columna)
+        {
+            try
+            {
+                return repositorio.ActualizarColumna(columna);
             }
             catch (Exception ex)
             {

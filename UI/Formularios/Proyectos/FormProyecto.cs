@@ -21,12 +21,18 @@ namespace UI.Formularios.Proyectos
         private FormProyecto()
         {
             InitializeComponent();
+            flowLayoutPanelTablero.AllowDrop = true;
+            flowLayoutPanelTablero.DragEnter += flowLayoutPanelTablero_DragEnter;
+            flowLayoutPanelTablero.DragDrop += flowLayoutPanelTablero_DragDrop;
         }
         private FormProyecto(Proyecto proyecto)
         {
             InitializeComponent();
             esteProyecto = proyecto;
             proyectos = CN_Proyectos.ObtenerInstancia();
+            flowLayoutPanelTablero.AllowDrop = true;
+            flowLayoutPanelTablero.DragEnter += flowLayoutPanelTablero_DragEnter;
+            flowLayoutPanelTablero.DragDrop += flowLayoutPanelTablero_DragDrop;
         }
 
         public static FormProyecto ObtenerInstancia(Proyecto proyectoSeleccionado)
@@ -55,7 +61,7 @@ namespace UI.Formularios.Proyectos
         private void cargarColumnas(int idProyecto)
         {
             columnas = CN_Columnas.ObtenerInstancia();
-            List<Columna> columnasDelProyecto = columnas.ObtenerTodasLasColumnasDelProyecto(idProyecto);
+            List<Columna> columnasDelProyecto = columnas.ObtenerTodasLasColumnasDelProyecto(idProyecto).OrderBy(c => c.Posicion).ToList();
             Button buttonAgregarColumna = this.buttonAgregarColumna;
             flowLayoutPanelTablero.Controls.Clear();
 
@@ -101,6 +107,68 @@ namespace UI.Formularios.Proyectos
             }
             esteProyecto = proyectos.ObtenerProyecto(esteProyecto.ID_Proyecto);
             cargarDatosProyecto();
+        }
+
+        private void flowLayoutPanelTablero_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(UserControlColumna)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+        }
+
+        private void flowLayoutPanelTablero_DragDrop(object sender, DragEventArgs e)
+        {
+            UserControlColumna columnaMovida = (UserControlColumna)e.Data.GetData(typeof(UserControlColumna));
+
+            // Obtener la posición donde se soltó la columna
+            Point puntoSoltado = flowLayoutPanelTablero.PointToClient(new Point(e.X, e.Y));
+            int nuevoIndice = ObtenerPosicionEnFlowLayout(puntoSoltado);
+
+            if (nuevoIndice >= 0)
+            {
+                MoverColumnaPorArrastre(columnaMovida, nuevoIndice);
+            }
+        }
+
+        private int ObtenerPosicionEnFlowLayout(Point punto)
+        {
+            for (int i = 0; i < flowLayoutPanelTablero.Controls.Count; i++)
+            {
+                Control control = flowLayoutPanelTablero.Controls[i];
+
+                if (control.Bounds.Contains(punto))
+                {
+                    return i;
+                }
+            }
+            return -1; // Si no se encuentra la posición
+        }
+
+        private void MoverColumnaPorArrastre(UserControlColumna columnaMovida, int nuevaPosicion)
+        {
+            List<Columna> columnasDelProyecto = columnas.ObtenerTodasLasColumnasDelProyecto(esteProyecto.ID_Proyecto)
+                                                         .OrderBy(c => c.Posicion)
+                                                         .ToList();
+
+            int posicionActual = columnasDelProyecto.FindIndex(c => c.ID_Columna == columnaMovida.ObjetoColumna.ID_Columna);
+
+            if (posicionActual != nuevaPosicion && nuevaPosicion >= 0 && nuevaPosicion < columnasDelProyecto.Count)
+            {
+                Columna columnaDB = columnasDelProyecto[posicionActual];
+                columnasDelProyecto.RemoveAt(posicionActual);
+                columnasDelProyecto.Insert(nuevaPosicion, columnaDB);
+
+                // Reasignar posiciones en la base de datos
+                for (int i = 0; i < columnasDelProyecto.Count; i++)
+                {
+                    columnasDelProyecto[i].Posicion = i + 1; // Ajustar a base 1
+                    columnas.ActualizarColumna(columnasDelProyecto[i]);
+                }
+
+                // Recargar UI
+                cargarColumnas(esteProyecto.ID_Proyecto);
+            }
         }
     }
 }
