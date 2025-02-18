@@ -13,34 +13,23 @@ namespace UI.Formularios.Proyectos
 {
     public partial class UserControlTarjeta : UserControl
     {
-        public int id_Tarjeta { get; set; }
-        public string nombre { get; set; }
-        public string descripcion { get; set; }
-        public int posicion { get; set; }
-        public bool visible { get; set; }
-        public int id_Columna { get; set; }
-        public Tarjeta ObjetoTarjeta { get; internal set; }
+        public Tarjeta ObjetoTarjeta { get; set; }
 
         public UserControlTarjeta()
         {
             InitializeComponent();
+            panelRight.MouseDown += panelRight_MouseDown;
         }
         public void ConfigurarTarjeta(Tarjeta datosTarjeta)
         {
             ObjetoTarjeta = datosTarjeta;
-            id_Tarjeta = datosTarjeta.ID_Tarjeta;
-            nombre = datosTarjeta.Nombre;
-            posicion = datosTarjeta.Posicion;
-            descripcion = datosTarjeta.Descripcion;
-            visible = datosTarjeta.Visible;
-            id_Columna = datosTarjeta.ID_Columna;
-            this.Visible = visible; // Controlar la visibilidad
+            this.Visible = ObjetoTarjeta.Visible; // Controlar la visibilidad
             ActualizarFormulario();
         }
         public void ActualizarFormulario()
         {
-            labelTarjeta.Text = nombre;
-            labelFechaFin.Text = posicion.ToString();
+            labelTarjeta.Text = ObjetoTarjeta.Nombre;
+            labelFechaFin.Text = ObjetoTarjeta.Posicion.ToString();
         }
 
         private void buttonOpciones_Click(object sender, EventArgs e)
@@ -48,5 +37,12 @@ namespace UI.Formularios.Proyectos
 
         }
 
+        private void panelRight_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                this.DoDragDrop(this, DragDropEffects.Move);
+            }
+        }
     }
 }

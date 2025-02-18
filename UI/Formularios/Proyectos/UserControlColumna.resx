@@ -131,17 +131,6 @@
         SUVORK5CYII=
 </value>
   </data>
-  <data name="buttonMover.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEYSURBVEhL7ZVB
-        SgNBFERnEXAtRPBG8T5GzUZynSQ3kIiIaxfqwuuMr7rrh+lx08x0dnlQoanfqR9+92S6Wvq+X6JX68Z2
-        GxSIvlHwi25dngdB4/CgTRNCnlNc5skKtt42HUKu0A6tbclbo4Nqti40gHnqnutAJ89V30VbVD4nGAr/
-        QmJvuwB/ge6she0CfB28+EG5iRZoeM9PtyXAU/hHqmbe0b8mePepmslN+NCjH2y8twBfv3rMyuUC/Mdc
-        ThxlHPM6cZYGmn/NiDSW4A3VjciFYZNdMkfgq8nKqj/kAON81/TCLDxXHd7w7/oB7VWzNR1CdGiBXjab
-        vEw0eeFco88UV6JrvfS2eRA0btIuPFAgerEqw7vuD5RkPQmNAxcPAAAAAElFTkSuQmCC
-</value>
-  </data>
   <data name="buttonAgregarTarjeta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO

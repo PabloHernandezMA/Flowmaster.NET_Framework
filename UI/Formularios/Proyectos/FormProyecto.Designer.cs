@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProyecto));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.buttonGuardar = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePickerFechaFinProyecto = new System.Windows.Forms.DateTimePicker();
             this.buttonVerDetalles = new System.Windows.Forms.Button();
@@ -50,7 +49,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(35)))), ((int)(((byte)(41)))));
-            this.panel1.Controls.Add(this.buttonGuardar);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.labelProyecto);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -58,18 +56,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(984, 100);
             this.panel1.TabIndex = 8;
-            // 
-            // buttonGuardar
-            // 
-            this.buttonGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonGuardar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGuardar.ForeColor = System.Drawing.SystemColors.Control;
-            this.buttonGuardar.Location = new System.Drawing.Point(897, 21);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.Size = new System.Drawing.Size(84, 62);
-            this.buttonGuardar.TabIndex = 15;
-            this.buttonGuardar.Text = "Guardar";
-            this.buttonGuardar.UseVisualStyleBackColor = true;
             // 
             // panel3
             // 
@@ -255,6 +241,5 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaFinProyecto;
         private System.Windows.Forms.ComboBox comboBoxEstadoProyecto;
         private System.Windows.Forms.TextBox textBoxNombreProyecto;
-        private System.Windows.Forms.Button buttonGuardar;
     }
 }

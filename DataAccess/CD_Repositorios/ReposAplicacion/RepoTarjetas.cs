@@ -61,12 +61,14 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
                                SET Nombre = @Nombre,
                                    Descripcion = @Descripcion,
                                    Posicion = @Posicion,
-                                   Visible = @Visible
+                                   Visible = @Visible,
+                                   ID_Columna = @ID_Columna
                                WHERE ID_Tarjeta = @ID_Tarjeta";
             parametros.Add(new SqlParameter("@Nombre", tarjeta.Nombre));
             parametros.Add(new SqlParameter("@Descripcion", tarjeta.Descripcion ?? (object)DBNull.Value));
             parametros.Add(new SqlParameter("@Posicion", tarjeta.Posicion));
             parametros.Add(new SqlParameter("@Visible", tarjeta.Visible));
+            parametros.Add(new SqlParameter("@ID_Columna", tarjeta.ID_Columna));
             parametros.Add(new SqlParameter("@ID_Tarjeta", tarjeta.ID_Tarjeta));
 
             return ExecuteNonQuery(consultaSQL);
