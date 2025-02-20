@@ -32,7 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlColumna));
             this.panelTop = new System.Windows.Forms.Panel();
             this.textBoxTituloColumna = new System.Windows.Forms.TextBox();
-            this.buttonOpciones = new System.Windows.Forms.Button();
             this.contextMenuStripColumna = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.flowLayoutPanelDeTarjetas = new System.Windows.Forms.FlowLayoutPanel();
@@ -45,8 +44,8 @@
             // panelTop
             // 
             this.panelTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(55)))), ((int)(((byte)(64)))));
+            this.panelTop.ContextMenuStrip = this.contextMenuStripColumna;
             this.panelTop.Controls.Add(this.textBoxTituloColumna);
-            this.panelTop.Controls.Add(this.buttonOpciones);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
             this.panelTop.Name = "panelTop";
@@ -66,22 +65,6 @@
             this.textBoxTituloColumna.Text = "textBox Titulo";
             this.textBoxTituloColumna.WordWrap = false;
             this.textBoxTituloColumna.Leave += new System.EventHandler(this.textBoxTituloColumna_Leave);
-            // 
-            // buttonOpciones
-            // 
-            this.buttonOpciones.ContextMenuStrip = this.contextMenuStripColumna;
-            this.buttonOpciones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.buttonOpciones.FlatAppearance.BorderSize = 0;
-            this.buttonOpciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
-            this.buttonOpciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonOpciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpciones.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpciones.Image")));
-            this.buttonOpciones.Location = new System.Drawing.Point(187, 0);
-            this.buttonOpciones.Margin = new System.Windows.Forms.Padding(10);
-            this.buttonOpciones.Name = "buttonOpciones";
-            this.buttonOpciones.Size = new System.Drawing.Size(38, 43);
-            this.buttonOpciones.TabIndex = 5;
-            this.buttonOpciones.UseVisualStyleBackColor = true;
             // 
             // contextMenuStripColumna
             // 
@@ -159,7 +142,6 @@
 
         private System.Windows.Forms.Panel panelTop;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelDeTarjetas;
-        private System.Windows.Forms.Button buttonOpciones;
         private System.Windows.Forms.Button buttonAgregarTarjeta;
         private System.Windows.Forms.TextBox textBoxTituloColumna;
         private System.Windows.Forms.ContextMenuStrip contextMenuStripColumna;

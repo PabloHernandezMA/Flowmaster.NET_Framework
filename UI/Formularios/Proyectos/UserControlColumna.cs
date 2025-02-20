@@ -58,7 +58,7 @@ namespace UI.Formularios.Proyectos
 
         private void buttonAgregarTarjeta_Click(object sender, EventArgs e)
         {
-            using (FormDetalleTarjeta formulario = FormDetalleTarjeta.ObtenerInstancia())
+            using (FormDetalleTarjeta formulario = FormDetalleTarjeta.ObtenerInstancia(ObjetoColumna))
             {
                 formulario.ShowDialog();
             }
@@ -68,7 +68,16 @@ namespace UI.Formularios.Proyectos
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CN_Columnas.ObtenerInstancia().BajaColumna(columnaDB.ID_Columna);
-            EliminarColumnaClicked?.Invoke(this, EventArgs.Empty);
+            FlowLayoutPanel parent = this.Parent as FlowLayoutPanel;
+
+            if (parent != null)
+            {
+                // Remover este UserControl del FlowLayoutPanel
+                parent.Controls.Remove(this);
+
+                // Liberar recursos si es necesario
+                this.Dispose();
+            }
         }
 
         private void panelTop_MouseDown(object sender, MouseEventArgs e)

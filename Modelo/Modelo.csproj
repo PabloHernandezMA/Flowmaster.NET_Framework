@@ -58,6 +58,7 @@
     <Compile Include="Aplicacion\Provincia.cs" />
     <Compile Include="Aplicacion\Proyecto.cs" />
     <Compile Include="Aplicacion\Sucursal.cs" />
+    <Compile Include="Aplicacion\TareaTarjeta.cs" />
     <Compile Include="Aplicacion\Tarjeta.cs" />
     <Compile Include="Aplicacion\Tipo_Producto.cs" />
     <Compile Include="Seguridad\AuditoriaSesiones.cs" />

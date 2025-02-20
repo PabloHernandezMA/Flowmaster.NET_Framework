@@ -86,5 +86,51 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+
+        public List<TareaTarjeta> ObtenerTodasLasTareasDeLaTarjeta(int idTarjeta)
+        {
+            try
+            {
+                return repositorio.ObtenerTodasLasTareasDeLaTarjeta(idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int AltaTarea(TareaTarjeta tarea)
+        {
+            try
+            {
+                return repositorio.AltaTarea(tarea);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public int ModificarTarea(TareaTarjeta tarea)
+        {
+            try
+            {
+                return repositorio.ModificarTarea(tarea);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int BajaTarea(int idTarea)
+        {
+            try
+            {
+                return repositorio.BajaTarea(idTarea);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

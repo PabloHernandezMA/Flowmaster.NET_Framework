@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.textBoxTitulo = new System.Windows.Forms.TextBox();
             this.comboBoxColumna = new System.Windows.Forms.ComboBox();
@@ -43,10 +43,11 @@
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.tabControlTarjeta = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.checkedListBoxTareas = new System.Windows.Forms.CheckedListBox();
+            this.buttonAddEdit = new System.Windows.Forms.Button();
+            this.flowLayoutPanelTareas = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
+            this.labelProgresoTareas = new System.Windows.Forms.Label();
+            this.progressBarTareas = new System.Windows.Forms.ProgressBar();
             this.textBoxDescTarjeta = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -59,7 +60,6 @@
             this.panel3.SuspendLayout();
             this.tabControlTarjeta.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
@@ -74,7 +74,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(723, 84);
+            this.panel1.Size = new System.Drawing.Size(746, 84);
             this.panel1.TabIndex = 25;
             // 
             // textBoxTitulo
@@ -118,9 +118,9 @@
             this.panel3.Controls.Add(this.buttonGuardar);
             this.panel3.Controls.Add(this.buttonCancelar);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(0, 541);
+            this.panel3.Location = new System.Drawing.Point(0, 518);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(723, 64);
+            this.panel3.Size = new System.Drawing.Size(746, 64);
             this.panel3.TabIndex = 26;
             // 
             // button1
@@ -179,77 +179,87 @@
             this.tabControlTarjeta.Location = new System.Drawing.Point(0, 84);
             this.tabControlTarjeta.Name = "tabControlTarjeta";
             this.tabControlTarjeta.SelectedIndex = 0;
-            this.tabControlTarjeta.Size = new System.Drawing.Size(723, 457);
+            this.tabControlTarjeta.Size = new System.Drawing.Size(746, 434);
             this.tabControlTarjeta.TabIndex = 27;
             // 
             // tabPage1
             // 
             this.tabPage1.AutoScroll = true;
             this.tabPage1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.tabPage1.Controls.Add(this.panel2);
+            this.tabPage1.Controls.Add(this.buttonAddEdit);
+            this.tabPage1.Controls.Add(this.flowLayoutPanelTareas);
+            this.tabPage1.Controls.Add(this.label1);
+            this.tabPage1.Controls.Add(this.labelProgresoTareas);
+            this.tabPage1.Controls.Add(this.progressBarTareas);
             this.tabPage1.Controls.Add(this.textBoxDescTarjeta);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Location = new System.Drawing.Point(4, 30);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(715, 423);
+            this.tabPage1.Size = new System.Drawing.Size(738, 400);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Detalles";
             // 
-            // panel2
+            // buttonAddEdit
             // 
-            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.button2);
-            this.panel2.Controls.Add(this.checkedListBoxTareas);
-            this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(15, 220);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(324, 200);
-            this.panel2.TabIndex = 30;
+            this.buttonAddEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.buttonAddEdit.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAddEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonAddEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonAddEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAddEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.buttonAddEdit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAddEdit.Location = new System.Drawing.Point(135, 222);
+            this.buttonAddEdit.Name = "buttonAddEdit";
+            this.buttonAddEdit.Size = new System.Drawing.Size(70, 31);
+            this.buttonAddEdit.TabIndex = 29;
+            this.buttonAddEdit.Text = "Agregar";
+            this.buttonAddEdit.UseVisualStyleBackColor = true;
+            this.buttonAddEdit.Click += new System.EventHandler(this.buttonAddEdit_Click);
             // 
-            // button2
+            // flowLayoutPanelTareas
             // 
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
-            this.button2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.button2.Location = new System.Drawing.Point(261, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 39);
-            this.button2.TabIndex = 29;
-            this.button2.Text = "Editar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // checkedListBoxTareas
-            // 
-            this.checkedListBoxTareas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.checkedListBoxTareas.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBoxTareas.ForeColor = System.Drawing.SystemColors.Window;
-            this.checkedListBoxTareas.FormattingEnabled = true;
-            this.checkedListBoxTareas.Items.AddRange(new object[] {
-            "Crear DB",
-            "Diseñar UI",
-            "Programar UI",
-            "Conectar UI con DB",
-            "Desplegar",
-            "Hacer BackUp"});
-            this.checkedListBoxTareas.Location = new System.Drawing.Point(7, 40);
-            this.checkedListBoxTareas.Name = "checkedListBoxTareas";
-            this.checkedListBoxTareas.Size = new System.Drawing.Size(232, 144);
-            this.checkedListBoxTareas.TabIndex = 27;
+            this.flowLayoutPanelTareas.AutoSize = true;
+            this.flowLayoutPanelTareas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
+            this.flowLayoutPanelTareas.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanelTareas.Location = new System.Drawing.Point(15, 259);
+            this.flowLayoutPanelTareas.MinimumSize = new System.Drawing.Size(327, 123);
+            this.flowLayoutPanelTareas.Name = "flowLayoutPanelTareas";
+            this.flowLayoutPanelTareas.Padding = new System.Windows.Forms.Padding(0, 5, 15, 5);
+            this.flowLayoutPanelTareas.Size = new System.Drawing.Size(327, 123);
+            this.flowLayoutPanelTareas.TabIndex = 33;
+            this.flowLayoutPanelTareas.WrapContents = false;
+            this.flowLayoutPanelTareas.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanelTareas_ControlRemoved);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label1.Location = new System.Drawing.Point(3, 11);
+            this.label1.Location = new System.Drawing.Point(11, 226);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 21);
             this.label1.TabIndex = 28;
             this.label1.Text = "Lista de tareas:";
+            // 
+            // labelProgresoTareas
+            // 
+            this.labelProgresoTareas.AutoSize = true;
+            this.labelProgresoTareas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.labelProgresoTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.labelProgresoTareas.Location = new System.Drawing.Point(409, 226);
+            this.labelProgresoTareas.Name = "labelProgresoTareas";
+            this.labelProgresoTareas.Size = new System.Drawing.Size(110, 21);
+            this.labelProgresoTareas.TabIndex = 32;
+            this.labelProgresoTareas.Text = "Progreso: 0/0";
+            // 
+            // progressBarTareas
+            // 
+            this.progressBarTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(187)))), ((int)(((byte)(23)))));
+            this.progressBarTareas.Location = new System.Drawing.Point(525, 226);
+            this.progressBarTareas.Name = "progressBarTareas";
+            this.progressBarTareas.Size = new System.Drawing.Size(173, 23);
+            this.progressBarTareas.TabIndex = 31;
             // 
             // textBoxDescTarjeta
             // 
@@ -281,7 +291,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 30);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(715, 423);
+            this.tabPage2.Size = new System.Drawing.Size(738, 400);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Asignacion";
             // 
@@ -321,33 +331,33 @@
             this.dataGridViewEmpleados.AllowUserToDeleteRows = false;
             this.dataGridViewEmpleados.AllowUserToOrderColumns = true;
             this.dataGridViewEmpleados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             this.dataGridViewEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             this.dataGridViewEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 12F);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle23;
             this.dataGridViewEmpleados.EnableHeadersVisualStyles = false;
             this.dataGridViewEmpleados.GridColor = System.Drawing.Color.SteelBlue;
             this.dataGridViewEmpleados.Location = new System.Drawing.Point(19, 57);
@@ -356,12 +366,12 @@
             this.dataGridViewEmpleados.ReadOnly = true;
             this.dataGridViewEmpleados.RowHeadersVisible = false;
             this.dataGridViewEmpleados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dataGridViewEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewEmpleados.Size = new System.Drawing.Size(386, 201);
             this.dataGridViewEmpleados.TabIndex = 18;
@@ -385,7 +395,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(723, 605);
+            this.ClientSize = new System.Drawing.Size(746, 582);
             this.ControlBox = false;
             this.Controls.Add(this.tabControlTarjeta);
             this.Controls.Add(this.panel3);
@@ -400,8 +410,6 @@
             this.tabControlTarjeta.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
@@ -429,10 +437,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBoxTitulo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckedListBox checkedListBoxTareas;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button buttonAddEdit;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ProgressBar progressBarTareas;
+        private System.Windows.Forms.Label labelProgresoTareas;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelTareas;
     }
 }

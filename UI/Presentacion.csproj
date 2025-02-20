@@ -300,6 +300,12 @@
     <Compile Include="Formularios\Proyectos\FormProyecto.Designer.cs">
       <DependentUpon>FormProyecto.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Proyectos\UserControlCheck.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Formularios\Proyectos\UserControlCheck.Designer.cs">
+      <DependentUpon>UserControlCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Proyectos\UserControlColumna.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -395,6 +401,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Proyectos\FormProyecto.resx">
       <DependentUpon>FormProyecto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proyectos\UserControlCheck.resx">
+      <DependentUpon>UserControlCheck.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Proyectos\UserControlColumna.resx">
       <DependentUpon>UserControlColumna.cs</DependentUpon>

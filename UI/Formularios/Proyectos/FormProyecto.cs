@@ -70,7 +70,6 @@ namespace UI.Formularios.Proyectos
                 UserControlColumna userControlColumna = new UserControlColumna();
                 userControlColumna.ConfigurarColumna(columna);
                 userControlColumna.AgregarTarjetaClicked += ControlColumna_AgregarTarjetaClicked;
-                userControlColumna.EliminarColumnaClicked += ControlColumna_EliminarColumnaClicked;
                 flowLayoutPanelTablero.Controls.Add(userControlColumna);
 
             }
@@ -78,10 +77,6 @@ namespace UI.Formularios.Proyectos
         }
 
         private void ControlColumna_AgregarTarjetaClicked(object sender, EventArgs e)
-        {
-            cargarColumnas(esteProyecto.ID_Proyecto);
-        }
-        private void ControlColumna_EliminarColumnaClicked(object sender, EventArgs e)
         {
             cargarColumnas(esteProyecto.ID_Proyecto);
         }

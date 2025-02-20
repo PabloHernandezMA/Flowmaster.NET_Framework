@@ -1,4 +1,5 @@
-﻿using Modelo.Aplicacion;
+﻿using Dominio.Aplicacion;
+using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -32,16 +33,47 @@ namespace UI.Formularios.Proyectos
             labelFechaFin.Text = ObjetoTarjeta.Posicion.ToString();
         }
 
-        private void buttonOpciones_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panelRight_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
                 this.DoDragDrop(this, DragDropEffects.Move);
+            }
+        }
+
+        private void abrirToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            using (FormDetalleTarjeta formulario = FormDetalleTarjeta.ObtenerInstancia(ObjetoTarjeta))
+            {
+                formulario.ShowDialog();
+            }
+        }
+
+        private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Está seguro de querer eliminar la tarjeta?",
+                                                      "Confirmar Eliminación",
+                                                      MessageBoxButtons.YesNo,
+                                                      MessageBoxIcon.Question);
+            if (resultado == DialogResult.Yes)
+            {
+                CN_Tarjetas.ObtenerInstancia().BajaTarjeta(ObjetoTarjeta.ID_Tarjeta);
+                // Obtener el control padre del UserControlCheck (que será FlowLayoutPanel)
+                FlowLayoutPanel parent = this.Parent as FlowLayoutPanel;
+
+                if (parent != null)
+                {
+                    // Remover este UserControl del FlowLayoutPanel
+                    parent.Controls.Remove(this);
+
+                    // Liberar recursos si es necesario
+                    this.Dispose();
+                }
+                MessageBox.Show("La tarjeta ha sido eliminada.");
+            }
+            else
+            {
+                MessageBox.Show("La eliminación ha sido cancelada.");
             }
         }
     }

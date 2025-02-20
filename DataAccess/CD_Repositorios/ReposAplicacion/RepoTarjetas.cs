@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace DataAccess.CD_Repositorios.ReposAplicacion
@@ -110,6 +111,61 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
             // Retornamos la cantidad de filas eliminadas (esto es solo una opción, podrías retornarlo de otra forma si prefieres)
             return filasEliminadas;
+        }
+
+        public List<TareaTarjeta> ObtenerTodasLasTareasDeLaTarjeta(int idTarjeta)
+        {
+            List<TareaTarjeta> tareas = new List<TareaTarjeta>();
+            string consultaSQL = "SELECT * FROM TAREASxTARJETA WHERE ID_Tarjeta = @ID_Tarjeta ORDER BY ID_Tarea";
+            parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
+
+            DataTable tablaTareas = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaTareas.Rows)
+            {
+                TareaTarjeta tarea = new TareaTarjeta
+                {
+                    ID_Tarea = Convert.ToInt32(fila["ID_Tarea"]),
+                    Descripcion = fila["Descripcion"].ToString(),
+                    Completada = Convert.ToBoolean(fila["Completada"]),
+                    ID_Tarjeta = Convert.ToInt32(fila["ID_Tarjeta"]),
+                };
+                tareas.Add(tarea);
+            }
+            return tareas;
+        }
+
+        public int AltaTarea(TareaTarjeta tarea)
+        {
+            string consultaSQL = @"INSERT INTO TAREASxTARJETA (Descripcion, Completada, ID_Tarjeta)
+                               VALUES (@Descripcion, @Completada, @ID_Tarjeta)";
+            parametros.Add(new SqlParameter("@Descripcion", tarea.Descripcion));
+            parametros.Add(new SqlParameter("@Completada", tarea.Completada));
+            parametros.Add(new SqlParameter("@ID_Tarjeta", tarea.ID_Tarjeta));
+
+            return ExecuteNonQuery(consultaSQL);
+        }
+
+        public int BajaTarea(int idTarea)
+        {
+            string consultaSQL = "DELETE FROM TAREASxTARJETA WHERE ID_Tarea = @ID_Tarea";
+            parametros.Add(new SqlParameter("@ID_Tarea", idTarea));
+            return ExecuteNonQuery(consultaSQL);
+        }
+
+        public int ModificarTarea(TareaTarjeta tarea)
+        {
+            string consultaSQL = @"UPDATE TAREASxTARJETA
+                               SET Descripcion = @Descripcion,
+                                   Completada = @Completada,
+                                   ID_Tarjeta = @ID_Tarjeta
+                               WHERE ID_Tarea = @ID_Tarea";
+            parametros.Add(new SqlParameter("@Descripcion", tarea.Descripcion));
+            parametros.Add(new SqlParameter("@Completada", tarea.Completada));
+            parametros.Add(new SqlParameter("@ID_Tarjeta", tarea.ID_Tarjeta));
+            parametros.Add(new SqlParameter("@ID_Tarea", tarea.ID_Tarea));
+
+            return ExecuteNonQuery(consultaSQL);
         }
     }
 }

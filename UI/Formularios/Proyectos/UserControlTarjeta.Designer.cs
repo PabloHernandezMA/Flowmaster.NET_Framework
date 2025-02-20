@@ -28,16 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserControlTarjeta));
+            this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
             this.labelFechaFin = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelTarjeta = new System.Windows.Forms.Label();
-            this.buttonOpciones = new System.Windows.Forms.Button();
             this.panelRight = new System.Windows.Forms.Panel();
+            this.contextMenuStripTarjeta = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.abrirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panelRight.SuspendLayout();
+            this.contextMenuStripTarjeta.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -81,36 +83,43 @@
             this.labelTarjeta.TabIndex = 6;
             this.labelTarjeta.Text = "labelTarjeta prueba texto";
             // 
-            // buttonOpciones
-            // 
-            this.buttonOpciones.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonOpciones.FlatAppearance.BorderSize = 0;
-            this.buttonOpciones.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(67)))), ((int)(((byte)(88)))));
-            this.buttonOpciones.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonOpciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonOpciones.Image = ((System.Drawing.Image)(resources.GetObject("buttonOpciones.Image")));
-            this.buttonOpciones.Location = new System.Drawing.Point(3, 3);
-            this.buttonOpciones.Margin = new System.Windows.Forms.Padding(10);
-            this.buttonOpciones.Name = "buttonOpciones";
-            this.buttonOpciones.Size = new System.Drawing.Size(38, 43);
-            this.buttonOpciones.TabIndex = 6;
-            this.buttonOpciones.UseVisualStyleBackColor = true;
-            this.buttonOpciones.Click += new System.EventHandler(this.buttonOpciones_Click);
-            // 
             // panelRight
             // 
-            this.panelRight.Controls.Add(this.buttonOpciones);
             this.panelRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.panelRight.Location = new System.Drawing.Point(161, 0);
             this.panelRight.Name = "panelRight";
             this.panelRight.Size = new System.Drawing.Size(44, 80);
             this.panelRight.TabIndex = 0;
             // 
+            // contextMenuStripTarjeta
+            // 
+            this.contextMenuStripTarjeta.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abrirToolStripMenuItem,
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStripTarjeta.Name = "contextMenuStripTarjeta";
+            this.contextMenuStripTarjeta.ShowImageMargin = false;
+            this.contextMenuStripTarjeta.Size = new System.Drawing.Size(93, 48);
+            // 
+            // abrirToolStripMenuItem
+            // 
+            this.abrirToolStripMenuItem.Name = "abrirToolStripMenuItem";
+            this.abrirToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.abrirToolStripMenuItem.Text = "Abrir";
+            this.abrirToolStripMenuItem.Click += new System.EventHandler(this.abrirToolStripMenuItem_Click_1);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(92, 22);
+            this.eliminarToolStripMenuItem.Text = "Eliminar";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarToolStripMenuItem_Click);
+            // 
             // UserControlTarjeta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
+            this.ContextMenuStrip = this.contextMenuStripTarjeta;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panelRight);
@@ -119,7 +128,7 @@
             this.Size = new System.Drawing.Size(205, 80);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panelRight.ResumeLayout(false);
+            this.contextMenuStripTarjeta.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -130,7 +139,9 @@
         private System.Windows.Forms.Label labelFechaFin;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelTarjeta;
-        private System.Windows.Forms.Button buttonOpciones;
         private System.Windows.Forms.Panel panelRight;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStripTarjeta;
+        private System.Windows.Forms.ToolStripMenuItem abrirToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem eliminarToolStripMenuItem;
     }
 }

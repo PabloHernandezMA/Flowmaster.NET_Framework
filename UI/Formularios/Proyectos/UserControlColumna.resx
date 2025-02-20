@@ -121,16 +121,6 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonOpciones.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vAAADrwBlbxySQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAACxSURBVEhL7ZVB
-        CoMwFEQDglfpHYq9Sj1ED1F7SXf2Gr/zzZMUGhcGpbb4YDB/1Bl0kYT/wcxq6SE9pVIGqZNqYhPcWIuO
-        2IRMb3fOWIvRu02MsAErwQ1jLIaYzxz8o2BHBVqepJtfmSvpiqrcM47WI4wJ/PeCPjrWM7dxHGlzzzjM
-        +yjY9heVQsxRMA8x3ymYtusGazF69xIj8tv1mgfOndiETD8yvWT6khLmj8wfJYQXrivOy7SiinYAAAAA
-        SUVORK5CYII=
-</value>
-  </data>
   <data name="buttonAgregarTarjeta.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
