@@ -132,11 +132,34 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public int ModificarTareaTarjetas(List<TareaTarjeta> list, int idTarjeta)
+        {
+            try
+            {
+                return repositorio.ModificarTareaTarjetas(list, idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public List<Empleado_Tarjeta> ObtenerTodosLosEmpleadosDeLaTarjeta(int idTarjeta)
         {
             try
             {
                 return repositorio.ObtenerTodosLosEmpleadosDeLaTarjeta(idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public List<TareaTarjeta> ObtenerTodasLasTareasDelProyecto(int idProyecto)
+        {
+            try
+            {
+                return repositorio.ObtenerTodasLasTareasDelProyecto(idProyecto);
             }
             catch (Exception ex)
             {

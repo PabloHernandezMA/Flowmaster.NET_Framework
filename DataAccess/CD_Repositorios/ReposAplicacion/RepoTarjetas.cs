@@ -51,7 +51,17 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
         public int BajaTarjeta(int idTarjeta)
         {
-            string consultaSQL = "DELETE FROM TARJETAS WHERE ID_Tarjeta = @ID_Tarjeta";
+            string consultaSQL = @"-- Eliminar registros relacionados en TAREASxTARJETA
+                                    DELETE FROM TAREASxTARJETA
+                                    WHERE ID_Tarjeta = @ID_Tarjeta;
+
+                                    -- Eliminar registros relacionados en EMPLEADOxTARJETA
+                                    DELETE FROM EMPLEADOxTARJETA
+                                    WHERE ID_Tarjeta = @ID_Tarjeta;
+
+                                    -- Eliminar la tarjeta de la tabla TARJETAS
+                                    DELETE FROM TARJETAS
+                                    WHERE ID_Tarjeta = @ID_Tarjeta";
             parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
             return ExecuteNonQuery(consultaSQL);
         }
@@ -112,7 +122,7 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             // Retornamos la cantidad de filas eliminadas (esto es solo una opción, podrías retornarlo de otra forma si prefieres)
             return filasEliminadas;
         }
-
+        
         public List<TareaTarjeta> ObtenerTodasLasTareasDeLaTarjeta(int idTarjeta)
         {
             List<TareaTarjeta> tareas = new List<TareaTarjeta>();
@@ -167,8 +177,45 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
             return ExecuteNonQuery(consultaSQL);
         }
+        public int ModificarTareaTarjetas(List<TareaTarjeta> list, int idTarjeta)
+        {
+            // Obtenemos el ID del proyecto de la lista de integrantes
+            if (list == null || list.Count == 0)
+            {
+                if (idTarjeta != 0)
+                {
+                    // Eliminar todos los registros para el proyecto
+                    string consultaSQLEliminarTodo = @"DELETE FROM TAREASxTARJETA WHERE ID_Tarjeta = @ID_Tarjeta";
+                    parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
+                    return ExecuteNonQuery(consultaSQLEliminarTodo);
+                }
+                return 0; // Si la lista está vacía, no hay nada que modificar
+            }
 
-        
+            //idTarjeta = list[0].ID_Tarjeta;
+
+            // Eliminar todos los registros para el proyecto
+            string consultaSQLEliminar = @"DELETE FROM TAREASxTARJETA WHERE ID_Tarjeta = @ID_Tarjeta";
+            parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
+            int filasEliminadas = ExecuteNonQuery(consultaSQLEliminar);
+
+            // Insertar los nuevos registros de la lista
+            foreach (var tarea in list)
+            {
+                string consultaSQLInsertar = @"INSERT INTO TAREASxTARJETA (Descripcion, Completada, ID_Tarjeta)
+                               VALUES (@Descripcion, @Completada, @ID_Tarjeta)";
+                parametros.Add(new SqlParameter("@Descripcion", tarea.Descripcion));
+                parametros.Add(new SqlParameter("@Completada", tarea.Completada));
+                parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
+
+                // Ejecutamos la inserción para cada integrante
+                ExecuteNonQuery(consultaSQLInsertar);
+            }
+
+            // Retornamos la cantidad de filas eliminadas (esto es solo una opción, podrías retornarlo de otra forma si prefieres)
+            return filasEliminadas;
+        }
+
         public List<Empleado_Tarjeta> ObtenerTodosLosEmpleadosDeLaTarjeta(int idTarjeta)
         {
             List<Empleado_Tarjeta> empleados = new List<Empleado_Tarjeta>();
@@ -192,6 +239,32 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
                 empleados.Add(empleado);
             }
             return empleados;
+        }
+        public List<TareaTarjeta> ObtenerTodasLasTareasDelProyecto(int idProyecto)
+        {
+            List<TareaTarjeta> tareas = new List<TareaTarjeta>();
+            string consultaSQL = @"SELECT t.ID_Tarea, t.Descripcion, t.Completada, t.ID_Tarjeta
+                                    FROM TAREASxTARJETA t
+                                    JOIN TARJETAS tr ON t.ID_Tarjeta = tr.ID_Tarjeta
+                                    JOIN COLUMNAS c ON tr.ID_Columna = c.ID_Columna
+                                    JOIN PROYECTOS p ON c.ID_Proyecto = p.ID_Proyecto
+                                    WHERE p.ID_Proyecto = @ID_Proyecto";
+            parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
+
+            DataTable tablaTareas = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaTareas.Rows)
+            {
+                TareaTarjeta tarea = new TareaTarjeta
+                {
+                    ID_Tarea = Convert.ToInt32(fila["ID_Tarea"]),
+                    Descripcion = fila["Descripcion"].ToString(),
+                    Completada = Convert.ToBoolean(fila["Completada"]),
+                    ID_Tarjeta = Convert.ToInt32(fila["ID_Tarjeta"]),
+                };
+                tareas.Add(tarea);
+            }
+            return tareas;
         }
     }
 }

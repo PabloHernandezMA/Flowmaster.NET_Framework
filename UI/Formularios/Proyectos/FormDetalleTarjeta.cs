@@ -164,17 +164,33 @@ namespace UI.Formularios.Proyectos
                         empleado.ID_Tarjeta = ultimaTarjeta.ID_Tarjeta;
                     }
                 }
+                foreach (UserControlCheck control in flowLayoutPanelTareas.Controls)
+                {
+                    control.ObjetoTareaTarjeta.ID_Tarjeta = idTarjeta;
+                }
                 GuardarEmpleados();
+                GuardarTareas();
             }
             else
             {
                 // Modificación de proyecto existente
                 filasAfectadas = CN_Tarjetas.ObtenerInstancia().ModificarTarjeta(tarjeta);
                 GuardarEmpleados();
+                GuardarTareas();
             }
             MessageBox.Show(filasAfectadas > 0
                 ? "Tarjeta guardada correctamente."
                 : "No se pudo completar la operación.");
+        }
+        private void GuardarTareas()
+        {
+            List<TareaTarjeta> listaTareas = new List<TareaTarjeta>();
+            foreach (UserControlCheck control in flowLayoutPanelTareas.Controls)
+            {
+                TareaTarjeta tarea = control.ObjetoTareaTarjeta;
+                listaTareas.Add(tarea);
+            }
+            int resultado = CN_Tarjetas.ObtenerInstancia().ModificarTareaTarjetas(listaTareas, idTarjeta);
         }
         private void GuardarEmpleados()
         {
@@ -204,6 +220,14 @@ namespace UI.Formularios.Proyectos
             {
                 errorProvider1.SetError(textBoxDescTarjeta, "La descripcion no puede estar vacía");
                 esValido = false;
+            }
+            foreach (UserControlCheck control in flowLayoutPanelTareas.Controls)
+            {
+                if (string.IsNullOrWhiteSpace(control.Descripcion.Text))
+                {
+                    errorProvider1.SetError(control.Descripcion, "La descripcion no puede estar vacía");
+                    esValido = false;
+                }
             }
             return esValido;
         }

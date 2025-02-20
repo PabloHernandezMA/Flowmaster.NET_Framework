@@ -48,6 +48,7 @@ namespace UI.Formularios.Proyectos
         {
             cargarDatosProyecto();
             cargarColumnas(esteProyecto.ID_Proyecto);
+            cargarTareas(esteProyecto.ID_Proyecto);
         }
         private void cargarDatosProyecto()
         {
@@ -58,6 +59,33 @@ namespace UI.Formularios.Proyectos
             comboBoxEstadoProyecto.Text = esteProyecto.Estado.ToString();
             
         }
+        private void cargarTareas(int idProyecto)
+        {
+            List<TareaTarjeta> tareas = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTareasDelProyecto(esteProyecto.ID_Proyecto);
+
+            // Obtener el total de tareas en el FlowLayoutPanel
+            int totalTareas = tareas.Count;
+            int tareasCompletadas = 0;
+
+            // Recorrer los controles de tipo UserControlCheck
+            foreach (TareaTarjeta tarea in tareas)
+            {
+                if (tarea.Completada)
+                {
+                    tareasCompletadas++;
+                }
+            }
+
+            // Actualizar el texto de labelProgresoTareas
+            labelProgresoTareas.Text = $"Tareas: {tareasCompletadas}/{totalTareas}";
+
+            // Calcular el porcentaje de progreso (evitar división por cero)
+            int porcentajeProgreso = (totalTareas > 0) ? (tareasCompletadas * 100) / totalTareas : 0;
+
+            // Actualizar el valor de progressBarTareas
+            progressBarTareas.Value = porcentajeProgreso;
+        }
+
         private void cargarColumnas(int idProyecto)
         {
             columnas = CN_Columnas.ObtenerInstancia();
@@ -79,6 +107,7 @@ namespace UI.Formularios.Proyectos
         private void ControlColumna_AgregarTarjetaClicked(object sender, EventArgs e)
         {
             cargarColumnas(esteProyecto.ID_Proyecto);
+            cargarTareas(esteProyecto.ID_Proyecto);
         }
         private void buttonAgregarColumna_Click(object sender, EventArgs e)
         {
@@ -164,6 +193,11 @@ namespace UI.Formularios.Proyectos
                 // Recargar UI
                 cargarColumnas(esteProyecto.ID_Proyecto);
             }
+        }
+
+        private void flowLayoutPanelTablero_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            cargarTareas(esteProyecto.ID_Proyecto);
         }
     }
 }

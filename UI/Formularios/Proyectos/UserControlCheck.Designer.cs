@@ -59,6 +59,7 @@
             this.textBoxDescripcion.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.textBoxDescripcion.Size = new System.Drawing.Size(177, 25);
             this.textBoxDescripcion.TabIndex = 44;
+            this.textBoxDescripcion.TextChanged += new System.EventHandler(this.textBoxDescripcion_TextChanged);
             // 
             // buttonEliminarTarea
             // 

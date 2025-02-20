@@ -15,6 +15,7 @@ namespace UI.Formularios.Proyectos
     public partial class UserControlCheck : UserControl
     {
         public TareaTarjeta ObjetoTareaTarjeta { get; set; }
+        public TextBox Descripcion { get {return textBoxDescripcion; } }
         public UserControlCheck()
         {
             InitializeComponent();
@@ -55,6 +56,11 @@ namespace UI.Formularios.Proyectos
         {
             this.ObjetoTareaTarjeta.Completada = checkBoxCompletada.Checked;
             CheckBoxChanged?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void textBoxDescripcion_TextChanged(object sender, EventArgs e)
+        {
+            ObjetoTareaTarjeta.Descripcion = textBoxDescripcion.Text;
         }
     }
 }

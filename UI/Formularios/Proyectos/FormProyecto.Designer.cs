@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProyecto));
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelProgresoTareas = new System.Windows.Forms.Label();
+            this.progressBarTareas = new System.Windows.Forms.ProgressBar();
             this.dateTimePickerFechaFinProyecto = new System.Windows.Forms.DateTimePicker();
             this.buttonVerDetalles = new System.Windows.Forms.Button();
             this.comboBoxEstadoProyecto = new System.Windows.Forms.ComboBox();
@@ -54,11 +56,13 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(984, 100);
+            this.panel1.Size = new System.Drawing.Size(1126, 100);
             this.panel1.TabIndex = 8;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.labelProgresoTareas);
+            this.panel3.Controls.Add(this.progressBarTareas);
             this.panel3.Controls.Add(this.dateTimePickerFechaFinProyecto);
             this.panel3.Controls.Add(this.buttonVerDetalles);
             this.panel3.Controls.Add(this.comboBoxEstadoProyecto);
@@ -69,8 +73,27 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(171, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(719, 100);
+            this.panel3.Size = new System.Drawing.Size(810, 100);
             this.panel3.TabIndex = 14;
+            // 
+            // labelProgresoTareas
+            // 
+            this.labelProgresoTareas.AutoSize = true;
+            this.labelProgresoTareas.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.labelProgresoTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.labelProgresoTareas.Location = new System.Drawing.Point(274, 58);
+            this.labelProgresoTareas.Name = "labelProgresoTareas";
+            this.labelProgresoTareas.Size = new System.Drawing.Size(88, 21);
+            this.labelProgresoTareas.TabIndex = 34;
+            this.labelProgresoTareas.Text = "Tareas: 0/0";
+            // 
+            // progressBarTareas
+            // 
+            this.progressBarTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(187)))), ((int)(((byte)(23)))));
+            this.progressBarTareas.Location = new System.Drawing.Point(368, 58);
+            this.progressBarTareas.Name = "progressBarTareas";
+            this.progressBarTareas.Size = new System.Drawing.Size(173, 23);
+            this.progressBarTareas.TabIndex = 33;
             // 
             // dateTimePickerFechaFinProyecto
             // 
@@ -90,7 +113,7 @@
             this.buttonVerDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonVerDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonVerDetalles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonVerDetalles.Location = new System.Drawing.Point(517, 50);
+            this.buttonVerDetalles.Location = new System.Drawing.Point(573, 51);
             this.buttonVerDetalles.Name = "buttonVerDetalles";
             this.buttonVerDetalles.Size = new System.Drawing.Size(128, 40);
             this.buttonVerDetalles.TabIndex = 31;
@@ -110,7 +133,7 @@
             "Terminado",
             "Pausado",
             "Cancelado"});
-            this.comboBoxEstadoProyecto.Location = new System.Drawing.Point(455, 15);
+            this.comboBoxEstadoProyecto.Location = new System.Drawing.Point(511, 16);
             this.comboBoxEstadoProyecto.Name = "comboBoxEstadoProyecto";
             this.comboBoxEstadoProyecto.Size = new System.Drawing.Size(191, 29);
             this.comboBoxEstadoProyecto.TabIndex = 30;
@@ -120,7 +143,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label4.Location = new System.Drawing.Point(386, 18);
+            this.label4.Location = new System.Drawing.Point(442, 19);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 21);
             this.label4.TabIndex = 26;
@@ -134,7 +157,7 @@
             this.textBoxNombreProyecto.ForeColor = System.Drawing.Color.White;
             this.textBoxNombreProyecto.Location = new System.Drawing.Point(101, 19);
             this.textBoxNombreProyecto.Name = "textBoxNombreProyecto";
-            this.textBoxNombreProyecto.Size = new System.Drawing.Size(222, 22);
+            this.textBoxNombreProyecto.Size = new System.Drawing.Size(335, 22);
             this.textBoxNombreProyecto.TabIndex = 15;
             // 
             // label2
@@ -181,9 +204,10 @@
             this.flowLayoutPanelTablero.Location = new System.Drawing.Point(0, 100);
             this.flowLayoutPanelTablero.Name = "flowLayoutPanelTablero";
             this.flowLayoutPanelTablero.Padding = new System.Windows.Forms.Padding(10, 17, 10, 17);
-            this.flowLayoutPanelTablero.Size = new System.Drawing.Size(984, 466);
+            this.flowLayoutPanelTablero.Size = new System.Drawing.Size(1126, 466);
             this.flowLayoutPanelTablero.TabIndex = 9;
             this.flowLayoutPanelTablero.WrapContents = false;
+            this.flowLayoutPanelTablero.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.flowLayoutPanelTablero_ControlRemoved);
             // 
             // buttonAgregarColumna
             // 
@@ -212,7 +236,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(984, 566);
+            this.ClientSize = new System.Drawing.Size(1126, 566);
             this.Controls.Add(this.flowLayoutPanelTablero);
             this.Controls.Add(this.panel1);
             this.Name = "FormProyecto";
@@ -241,5 +265,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaFinProyecto;
         private System.Windows.Forms.ComboBox comboBoxEstadoProyecto;
         private System.Windows.Forms.TextBox textBoxNombreProyecto;
+        private System.Windows.Forms.Label labelProgresoTareas;
+        private System.Windows.Forms.ProgressBar progressBarTareas;
     }
 }
