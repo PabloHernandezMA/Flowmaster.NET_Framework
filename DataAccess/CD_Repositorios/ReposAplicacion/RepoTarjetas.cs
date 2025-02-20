@@ -167,5 +167,31 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
             return ExecuteNonQuery(consultaSQL);
         }
+
+        
+        public List<Empleado_Tarjeta> ObtenerTodosLosEmpleadosDeLaTarjeta(int idTarjeta)
+        {
+            List<Empleado_Tarjeta> empleados = new List<Empleado_Tarjeta>();
+            string consultaSQL = @"select ET.*, E.Nombre
+                                    from EMPLEADOxTARJETA ET
+                                    INNER JOIN EMPLEADOS E ON
+                                    ET.ID_Empleado = E.ID_Empleado
+                                    WHERE ET.ID_Tarjeta = @ID_Tarjeta";
+            parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
+
+            DataTable tablaEmpleados = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaEmpleados.Rows)
+            {
+                Empleado_Tarjeta empleado = new Empleado_Tarjeta
+                {
+                    ID_Tarjeta = Convert.ToInt32(fila["ID_Tarjeta"]),
+                    Nombre = fila["Nombre"].ToString(),
+                    ID_Empleado = Convert.ToInt32(fila["ID_Empleado"])
+                };
+                empleados.Add(empleado);
+            }
+            return empleados;
+        }
     }
 }

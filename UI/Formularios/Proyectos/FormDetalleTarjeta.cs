@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UI.Formularios.Administracion.Empleados;
 
 namespace UI.Formularios.Proyectos
 {
@@ -18,6 +19,7 @@ namespace UI.Formularios.Proyectos
         private int idTarjeta;
         private static FormDetalleTarjeta instancia;
         private Tarjeta estaTarjeta;
+        private List<Empleado_Tarjeta> listaIntegrantes;
         private FormDetalleTarjeta()
         {
             InitializeComponent();
@@ -69,9 +71,10 @@ namespace UI.Formularios.Proyectos
             textBoxDescTarjeta.Text = estaTarjeta.Descripcion;
             comboBoxColumna.SelectedValue = estaTarjeta.ID_Columna;
             cargarTareas();
+            if (idTarjeta!=0) { CargarEmpleados(CN_Tarjetas.ObtenerInstancia().ObtenerTodosLosEmpleadosDeLaTarjeta(idTarjeta)); }
         }
         // Agregar como campo de la clase
-        private Dictionary<string, TareaTarjeta> tareasDict = new Dictionary<string, TareaTarjeta>();
+        //private Dictionary<string, TareaTarjeta> tareasDict = new Dictionary<string, TareaTarjeta>();
 
         private void cargarTareas()
         {
@@ -146,15 +149,47 @@ namespace UI.Formularios.Proyectos
                 Visible = true,
                 ID_Columna = (int)comboBoxColumna.SelectedValue
             };
-
-            int filasAfectadas = tarjeta.ID_Tarjeta == 0
-                ? CN_Tarjetas.ObtenerInstancia().AltaTarjeta(tarjeta)
-                : CN_Tarjetas.ObtenerInstancia().ModificarTarjeta(tarjeta);
-
+            int filasAfectadas;
+            if (tarjeta.ID_Tarjeta == 0)
+            {
+                // Alta de nuevo proyecto
+                filasAfectadas = CN_Tarjetas.ObtenerInstancia().AltaTarjeta(tarjeta);
+                List<Tarjeta> listaTarjetas = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTarjetasDeLaColumna((int)comboBoxColumna.SelectedValue);
+                Tarjeta ultimaTarjeta = listaTarjetas.OrderByDescending(p => p.ID_Tarjeta).FirstOrDefault();
+                idTarjeta = ultimaTarjeta.ID_Tarjeta;
+                foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
+                {
+                    if (row.DataBoundItem is Empleado_Tarjeta empleado)
+                    {
+                        empleado.ID_Tarjeta = ultimaTarjeta.ID_Tarjeta;
+                    }
+                }
+                GuardarEmpleados();
+            }
+            else
+            {
+                // Modificación de proyecto existente
+                filasAfectadas = CN_Tarjetas.ObtenerInstancia().ModificarTarjeta(tarjeta);
+                GuardarEmpleados();
+            }
             MessageBox.Show(filasAfectadas > 0
                 ? "Tarjeta guardada correctamente."
                 : "No se pudo completar la operación.");
         }
+        private void GuardarEmpleados()
+        {
+            List<Empleado_Tarjeta> listaIntegrantes = new List<Empleado_Tarjeta>();
+            foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    Empleado_Tarjeta integrante = (Empleado_Tarjeta)row.DataBoundItem;
+                    listaIntegrantes.Add(integrante);
+                }
+            }
+            int resultado = CN_Tarjetas.ObtenerInstancia().ModificarEmpleadoTarjetas(listaIntegrantes, idTarjeta);
+        }
+
         private bool VerificarCampos()
         {
             errorProvider1.Clear();
@@ -184,6 +219,69 @@ namespace UI.Formularios.Proyectos
         private void flowLayoutPanelTareas_ControlRemoved(object sender, ControlEventArgs e)
         {
             ActualizarProgreso();
+        }
+
+        private void buttonAgregarEmpleado_Click(object sender, EventArgs e)
+        {
+            FormGestionarEmpleados form = FormGestionarEmpleados.ObtenerInstancia(1);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Empleado empleadoSeleccionado = form.EmpleadoSeleccionado;
+                if (listaIntegrantes == null)
+                {
+                    listaIntegrantes = new List<Empleado_Tarjeta>();
+                }
+                if (empleadoSeleccionado != null && !listaIntegrantes.Any(i => i.ID_Empleado == empleadoSeleccionado.ID_Empleado))
+                {
+                    Empleado_Tarjeta nuevoIntegrante = new Empleado_Tarjeta
+                    {
+                        Nombre = empleadoSeleccionado.Nombre,
+                        ID_Empleado = empleadoSeleccionado.ID_Empleado,
+                        ID_Tarjeta = idTarjeta == 0 ? 0 : idTarjeta
+                    };
+                    // List<Integrante> listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
+                    listaIntegrantes.Add(nuevoIntegrante);
+                    CargarEmpleados(listaIntegrantes);
+                }
+            }
+        }
+        private void CargarEmpleados(List<Empleado_Tarjeta> listaDeIntegrantes)
+        {
+            // Configurar DataGridView
+            dataGridViewEmpleados.AutoGenerateColumns = false;
+            dataGridViewEmpleados.Columns.Clear();
+
+            // Crear columnas manualmente
+            DataGridViewTextBoxColumn colNombre = new DataGridViewTextBoxColumn();
+            colNombre.Name = "Nombre";
+            colNombre.DataPropertyName = "Nombre";
+            colNombre.ReadOnly = true; // Solo lectura
+            dataGridViewEmpleados.Columns.Add(colNombre);
+
+            // Asignar la lista de integrantes al DataGridView
+            dataGridViewEmpleados.DataSource = listaDeIntegrantes;
+        }
+
+        private void buttonEliminarEmpleado_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewEmpleados.SelectedRows.Count > 0)
+            {
+                // Crear una lista para almacenar los integrantes
+                listaIntegrantes = new List<Empleado_Tarjeta>();
+                // Obtener la fila seleccionada
+                DataGridViewRow filaSeleccionada = dataGridViewEmpleados.SelectedRows[0];
+
+                // Obtener el objeto Integrante correspondiente a la fila seleccionada
+                Empleado_Tarjeta integranteSeleccionado = (Empleado_Tarjeta)filaSeleccionada.DataBoundItem;
+
+                // Obtener la lista de Integrantes del DataSource del DataGridView
+                listaIntegrantes = (List<Empleado_Tarjeta>)dataGridViewEmpleados.DataSource;
+
+                // Eliminar el objeto Integrante de la lista
+                listaIntegrantes.Remove(integranteSeleccionado);
+                dataGridViewEmpleados.DataSource = null;
+                CargarEmpleados(listaIntegrantes);
+            }
         }
     }
 }

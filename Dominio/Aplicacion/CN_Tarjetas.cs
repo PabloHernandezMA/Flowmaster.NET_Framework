@@ -132,5 +132,16 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public List<Empleado_Tarjeta> ObtenerTodosLosEmpleadosDeLaTarjeta(int idTarjeta)
+        {
+            try
+            {
+                return repositorio.ObtenerTodosLosEmpleadosDeLaTarjeta(idTarjeta);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
