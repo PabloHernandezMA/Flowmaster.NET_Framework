@@ -90,7 +90,7 @@
             // progressBarTareas
             // 
             this.progressBarTareas.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(187)))), ((int)(((byte)(23)))));
-            this.progressBarTareas.Location = new System.Drawing.Point(368, 58);
+            this.progressBarTareas.Location = new System.Drawing.Point(377, 58);
             this.progressBarTareas.Name = "progressBarTareas";
             this.progressBarTareas.Size = new System.Drawing.Size(173, 23);
             this.progressBarTareas.TabIndex = 33;
@@ -242,6 +242,7 @@
             this.Name = "FormProyecto";
             this.Text = "FormProyecto";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormProyecto_FormClosing);
             this.Load += new System.EventHandler(this.FormProyecto_Load);
             this.panel1.ResumeLayout(false);
             this.panel3.ResumeLayout(false);

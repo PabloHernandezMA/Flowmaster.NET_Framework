@@ -70,6 +70,7 @@ namespace UI.Formularios.Proyectos
                     this.Dispose();
                 }
                 MessageBox.Show("La tarjeta ha sido eliminada.");
+                GestorTareas.ObtenerInstancia().NotificarObservadores();
             }
             else
             {

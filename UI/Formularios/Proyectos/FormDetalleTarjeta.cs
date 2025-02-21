@@ -170,6 +170,7 @@ namespace UI.Formularios.Proyectos
                 }
                 GuardarEmpleados();
                 GuardarTareas();
+                GestorTareas.ObtenerInstancia().NotificarObservadores();
             }
             else
             {
@@ -177,6 +178,7 @@ namespace UI.Formularios.Proyectos
                 filasAfectadas = CN_Tarjetas.ObtenerInstancia().ModificarTarjeta(tarjeta);
                 GuardarEmpleados();
                 GuardarTareas();
+                GestorTareas.ObtenerInstancia().NotificarObservadores();
             }
             MessageBox.Show(filasAfectadas > 0
                 ? "Tarjeta guardada correctamente."
