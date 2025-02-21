@@ -16,7 +16,7 @@ namespace UI.Formularios.Dashboard
     public partial class FormDashboard : Form
     {
         private static FormDashboard instance;
-
+        private static bool pedidos;
         // Constructor privado para evitar la creación de instancias fuera de la clase
         private FormDashboard()
         {
@@ -44,6 +44,7 @@ namespace UI.Formularios.Dashboard
             cargarGridViewProductosSinStock();
             cargarTarjetasDePedidos();
             CargarDatosEnChart();
+            pedidos = false;
         }
 
         private void button7Dias_Click(object sender, EventArgs e)
@@ -112,7 +113,7 @@ namespace UI.Formularios.Dashboard
             }
 
             // Limpiar los puntos existentes en el gráfico
-            chartBars.Series["Pedidos"].Points.Clear();
+            chartBarsP1.Series["Pedidos"].Points.Clear();
            
 
             // Agregar los datos al gráfico de barras
@@ -123,8 +124,34 @@ namespace UI.Formularios.Dashboard
                 point.SetValueXY(NombreMes(kvp.Key), kvp.Value); // Establecer los valores X e Y del punto
                 point.Label = kvp.Value.ToString(); // Establecer la etiqueta del punto como la cantidad de pedidos
                 point.LabelForeColor = Color.White;
-                chartBars.Series["Pedidos"].Points.Add(point); // Agregar el punto al gráfico
+                chartBarsP1.Series["Pedidos"].Points.Add(point); // Agregar el punto al gráfico
             }
         }
+
+        /*private void labelPedidos_Click(object sender, EventArgs e)
+        {
+            if (pedidos)
+            {
+                pedidos = false;
+                labelPedidos.Text = "Pedidos +";
+            }
+            else
+            {
+                pedidos = true;
+                labelPedidos.Text = "Pedidos -";
+            }
+            ActualizarPedidos();
+        }
+        private void ActualizarPedidos()
+        {
+            panelP1.Visible = pedidos;
+            panelP2.Visible = pedidos;
+            panelP3.Visible = pedidos;
+            panelP4.Visible = pedidos;
+            panelP5.Visible = pedidos;
+            panelP6.Visible = pedidos;
+            chartDonutP1.Visible = pedidos;
+            chartBarsP1.Visible = pedidos;
+        }*/
     }
 }
