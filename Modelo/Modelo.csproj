@@ -57,6 +57,7 @@
     <Compile Include="Aplicacion\Proveedor.cs" />
     <Compile Include="Aplicacion\Provincia.cs" />
     <Compile Include="Aplicacion\Proyecto.cs" />
+    <Compile Include="Aplicacion\ReporteProyectosProgreso.cs" />
     <Compile Include="Aplicacion\Sucursal.cs" />
     <Compile Include="Aplicacion\TareaTarjeta.cs" />
     <Compile Include="Aplicacion\Tarjeta.cs" />

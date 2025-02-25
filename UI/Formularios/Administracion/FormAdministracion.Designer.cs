@@ -47,12 +47,13 @@
             this.gestionarUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarGruposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelCenter = new System.Windows.Forms.Panel();
             this.gerenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelCenter = new System.Windows.Forms.Panel();
+            this.proyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -207,15 +208,6 @@
             this.gestionarPermisosToolStripMenuItem.Text = "Gestionar permisos";
             this.gestionarPermisosToolStripMenuItem.Click += new System.EventHandler(this.gestionarPermisosToolStripMenuItem_Click);
             // 
-            // panelCenter
-            // 
-            this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
-            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCenter.Location = new System.Drawing.Point(0, 35);
-            this.panelCenter.Name = "panelCenter";
-            this.panelCenter.Size = new System.Drawing.Size(936, 558);
-            this.panelCenter.TabIndex = 1;
-            // 
             // gerenciaToolStripMenuItem
             // 
             this.gerenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -227,6 +219,8 @@
             // 
             // reporteToolStripMenuItem
             // 
+            this.reporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.proyectosToolStripMenuItem});
             this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
             this.reporteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.reporteToolStripMenuItem.Text = "Reporte";
@@ -253,6 +247,22 @@
             this.auditoriaProductosToolStripMenuItem.Name = "auditoriaProductosToolStripMenuItem";
             this.auditoriaProductosToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.auditoriaProductosToolStripMenuItem.Text = "Auditoria Productos";
+            // 
+            // panelCenter
+            // 
+            this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
+            this.panelCenter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelCenter.Location = new System.Drawing.Point(0, 35);
+            this.panelCenter.Name = "panelCenter";
+            this.panelCenter.Size = new System.Drawing.Size(936, 558);
+            this.panelCenter.TabIndex = 1;
+            // 
+            // proyectosToolStripMenuItem
+            // 
+            this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
+            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.proyectosToolStripMenuItem.Text = "Proyectos";
+            this.proyectosToolStripMenuItem.Click += new System.EventHandler(this.proyectosToolStripMenuItem_Click);
             // 
             // FormAdministracion
             // 
@@ -298,5 +308,6 @@
         private System.Windows.Forms.ToolStripMenuItem auditoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaSesionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaProductosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proyectosToolStripMenuItem;
     }
 }

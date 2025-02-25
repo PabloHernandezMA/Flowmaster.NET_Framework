@@ -182,6 +182,48 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             return filasEliminadas;
         }
 
+        public List<ReporteProyectosProgreso> ObtenerProgresoProyectos(DateTime fechaDesde, string estado)
+        {
+            List<ReporteProyectosProgreso> proyectos = new List<ReporteProyectosProgreso>();
+            string consultaSQL = @"SELECT 
+                                p.ID_Proyecto, 
+                                p.Nombre, 
+                                COUNT(t.ID_Tarea) AS Total_Tareas, 
+                                SUM(CASE WHEN t.Completada = 1 THEN 1 ELSE 0 END) AS Tareas_Completadas, 
+                                CASE WHEN COUNT(t.ID_Tarea) = 0 THEN 0 ELSE (SUM(CASE WHEN t.Completada = 1 THEN 1 ELSE 0 END) * 100) / COUNT(t.ID_Tarea) END AS Porcentaje_Completado, 
+                                DATEDIFF(DAY, GETDATE(), p.FechaFin) AS Tiempo_Restante 
+                            FROM 
+                                PROYECTOS p 
+                            LEFT JOIN 
+                                COLUMNAS c ON p.ID_Proyecto = c.ID_Proyecto 
+                            LEFT JOIN 
+                                TARJETAS tr ON c.ID_Columna = tr.ID_Columna 
+                            LEFT JOIN 
+                                TAREASxTARJETA t ON tr.ID_Tarjeta = t.ID_Tarjeta 
+                            WHERE 
+                                (@Estado = 'Todos' OR @Estado IS NULL OR @Estado = '' OR p.Estado = @Estado) 
+                            GROUP BY 
+                                p.ID_Proyecto, p.Nombre, p.FechaFin";
+            parametros.Add(new SqlParameter("@FechaDesde", fechaDesde));
+            parametros.Add(new SqlParameter("@Estado", estado));
+
+            DataTable tablaProyectos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaProyectos.Rows)
+            {
+                proyectos.Add(new ReporteProyectosProgreso
+                {
+                    NumeroProyecto = Convert.ToInt32(fila["ID_Proyecto"]),
+                    NombreProyecto = fila["Nombre"].ToString(),
+                    TotalTareas = Convert.ToInt32(fila["Total_Tareas"]),
+                    TareasCompletadas = Convert.ToInt32(fila["Tareas_Completadas"]),
+                    PorcentajeCompletado = Convert.ToInt32(fila["Porcentaje_Completado"]),
+                    TiempoRestante = Convert.ToInt32(fila["Tiempo_Restante"])
+                });
+            }
+            return proyectos;
+        }
+
     }
 
 }

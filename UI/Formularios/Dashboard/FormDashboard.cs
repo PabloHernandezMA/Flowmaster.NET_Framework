@@ -1,4 +1,6 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
+using Modelo;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
@@ -16,7 +18,6 @@ namespace UI.Formularios.Dashboard
     public partial class FormDashboard : Form
     {
         private static FormDashboard instance;
-        private static bool pedidos;
         // Constructor privado para evitar la creación de instancias fuera de la clase
         private FormDashboard()
         {
@@ -40,34 +41,9 @@ namespace UI.Formularios.Dashboard
             dateTimePickerFechaInicio.MaxDate = DateTime.Now;
             dateTimePickerFechaInicio.ValueChanged += DateTimePickerFecha_ValueChanged;
             dateTimePickerFechaFin.ValueChanged += DateTimePickerFecha_ValueChanged;
-            button30Dias.PerformClick();
-            cargarGridViewProductosSinStock();
             cargarTarjetasDePedidos();
             CargarDatosEnChart();
-            pedidos = false;
-        }
-
-        private void button7Dias_Click(object sender, EventArgs e)
-        {
-            dateTimePickerFechaInicio.Value = DateTime.Today.AddDays(-7);
-            dateTimePickerFechaFin.Value = DateTime.Now;
-        }
-
-        private void button30Dias_Click(object sender, EventArgs e)
-        {
-            dateTimePickerFechaInicio.Value = DateTime.Today.AddDays(-30);
-            dateTimePickerFechaFin.Value = DateTime.Now;
-        }
-
-        private void button365Dias_Click(object sender, EventArgs e)
-        {
-            dateTimePickerFechaInicio.Value = DateTime.Today.AddDays(-365);
-            dateTimePickerFechaFin.Value = DateTime.Now;
-        }
-
-        private void cargarGridViewProductosSinStock()
-        {
-
+            CargarProyectos();
         }
 
         private void cargarTarjetasDePedidos()
@@ -83,6 +59,8 @@ namespace UI.Formularios.Dashboard
         {
             // Método para manejar el cambio de valor de los dateTimePicker
             cargarTarjetasDePedidos();
+            CargarDatosEnChart();
+            CargarProyectos();
         }
 
 
@@ -96,62 +74,97 @@ namespace UI.Formularios.Dashboard
             // Obtener la lista de todos los pedidos
             List<Pedido> listaPedidos = CN_Pedidos.ObtenerInstancia().ObtenerTodosLosPedidos();
 
-            // Crear un diccionario para almacenar la cantidad de pedidos por mes
-            Dictionary<int, int> cantidadPedidosPorMes = new Dictionary<int, int>();
+            // Obtener las fechas de los DateTimePicker
+            DateTime fechaInicio = dateTimePickerFechaInicio.Value;
+            DateTime fechaFin = dateTimePickerFechaFin.Value;
 
-            // Inicializar el diccionario con ceros para cada mes
-            for (int i = 1; i <= 12; i++)
-            {
-                cantidadPedidosPorMes.Add(i, 0);
-            }
+            // Filtrar la lista de pedidos según la FechaInicio
+            var pedidosFiltrados = listaPedidos
+                .Where(p => p.FechaInicio >= fechaInicio && p.FechaInicio <= fechaFin)
+                .ToList();
 
-            // Contar la cantidad de pedidos por mes
-            foreach (Pedido pedido in listaPedidos)
+            // Crear un diccionario para almacenar la cantidad de pedidos
+            Dictionary<string, int> cantidadPedidos = new Dictionary<string, int>();
+
+            // Determinar si las fechas abarcan años distintos
+            bool diferentesAños = fechaInicio.Year != fechaFin.Year;
+
+            // Contar la cantidad de pedidos por mes o por año
+            foreach (Pedido pedido in pedidosFiltrados)
             {
-                int mes = pedido.FechaInicio.Month;
-                cantidadPedidosPorMes[mes]++;
+                string clave;
+                if (diferentesAños)
+                {
+                    // Usar el año como clave
+                    clave = pedido.FechaInicio.Year.ToString();
+                }
+                else
+                {
+                    // Usar el mes y el año como clave
+                    clave = $"{pedido.FechaInicio.Year}-{pedido.FechaInicio.Month}";
+                }
+
+                if (!cantidadPedidos.ContainsKey(clave))
+                {
+                    cantidadPedidos[clave] = 0;
+                }
+                cantidadPedidos[clave]++;
             }
 
             // Limpiar los puntos existentes en el gráfico
             chartBarsP1.Series["Pedidos"].Points.Clear();
-           
 
             // Agregar los datos al gráfico de barras
-            foreach (var kvp in cantidadPedidosPorMes)
+            foreach (var kvp in cantidadPedidos)
             {
-                // Agregar el punto al gráfico con el nombre del mes y la cantidad de pedidos
+                // Agregar el punto al gráfico con la clave (año o mes-año) y la cantidad de pedidos
                 DataPoint point = new DataPoint(); // Crear un nuevo punto
-                point.SetValueXY(NombreMes(kvp.Key), kvp.Value); // Establecer los valores X e Y del punto
+                point.SetValueXY(diferentesAños ? kvp.Key : NombreMes(int.Parse(kvp.Key.Split('-')[1])), kvp.Value); // Establecer los valores X e Y del punto
                 point.Label = kvp.Value.ToString(); // Establecer la etiqueta del punto como la cantidad de pedidos
                 point.LabelForeColor = Color.White;
                 chartBarsP1.Series["Pedidos"].Points.Add(point); // Agregar el punto al gráfico
             }
         }
 
-        /*private void labelPedidos_Click(object sender, EventArgs e)
+        private void CargarProyectos()
         {
-            if (pedidos)
+            // Obtener todos los proyectos
+            List<Proyecto> proyectos = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosProyectos();
+            Usuario usuarioEnSesion = CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario();
+            List<Empleado> empleados = CN_Empleados.ObtenerInstancia().ObtenerTodosLosEmpleados();
+            Empleado empleadoEnSesion = empleados.FirstOrDefault(e => e.ID_User == usuarioEnSesion.ID_User);
+            List<Proyecto> proyectosDelEmpleado = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosProyectosEnLosQueParticipaUnEmpleado(empleadoEnSesion.ID_Empleado);
+            List<Proyecto> misProyectos = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosProyectosEnLosQueParticipaUnEmpleado(empleadoEnSesion.ID_Empleado);
+            labelProyectosProgreso.Text = misProyectos.Where(p => p.Estado == "En proceso").ToList().Count().ToString();
+            
+
+            // Obtener las fechas de los DateTimePicker
+            DateTime fechaInicio = dateTimePickerFechaInicio.Value;
+            DateTime fechaFin = dateTimePickerFechaFin.Value;
+
+            // Filtrar los proyectos según las fechas
+            var proyectosFiltrados = proyectos
+                .Where(p => p.FechaInicio >= fechaInicio && p.FechaFin <= fechaFin)
+                .ToList();
+
+            // Agrupar los proyectos filtrados por su estado
+            var proyectosAgrupados = proyectosFiltrados
+                .GroupBy(p => p.Estado)
+                .Select(g => new
+                {
+                    Estado = g.Key,
+                    Cantidad = g.Count()
+                }).ToList();
+
+            // Limpiar la serie existente
+            chartEstadoProyectos.Series["Series1"].Points.Clear();
+
+            // Agregar los datos agrupados a la serie existente
+            foreach (var grupo in proyectosAgrupados)
             {
-                pedidos = false;
-                labelPedidos.Text = "Pedidos +";
+                chartEstadoProyectos.Series["Series1"].Points.AddXY(grupo.Estado, grupo.Cantidad);
             }
-            else
-            {
-                pedidos = true;
-                labelPedidos.Text = "Pedidos -";
-            }
-            ActualizarPedidos();
         }
-        private void ActualizarPedidos()
-        {
-            panelP1.Visible = pedidos;
-            panelP2.Visible = pedidos;
-            panelP3.Visible = pedidos;
-            panelP4.Visible = pedidos;
-            panelP5.Visible = pedidos;
-            panelP6.Visible = pedidos;
-            chartDonutP1.Visible = pedidos;
-            chartBarsP1.Visible = pedidos;
-        }*/
+        
     }
 }

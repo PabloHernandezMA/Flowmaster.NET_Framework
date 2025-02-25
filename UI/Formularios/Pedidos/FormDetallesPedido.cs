@@ -406,8 +406,8 @@ namespace UI.Formularios.Pedidos
                 {
                     List<Empleado> empleados = (List<Empleado>)dataGridViewEmpleados.DataSource;
                     Table tablaEmpleados = new Table(new float[] { 1, 3 }); // Dos columnas, una para ID y otra para nombre
-                    tablaEmpleados.AddCell("ID").SetBold();
-                    tablaEmpleados.AddCell("Nombre").SetBold();
+                    tablaEmpleados.AddCell("ID");
+                    tablaEmpleados.AddCell("Nombre");
                     foreach (Empleado empleado in empleados)
                     {
                         tablaEmpleados.AddCell(empleado.ID_Empleado.ToString());
@@ -425,10 +425,10 @@ namespace UI.Formularios.Pedidos
                 {
                     List<DetallePedido> detallesPedido = (List<DetallePedido>)dataGridViewProductos.DataSource;
                     Table tablaDetallesPedido = new Table(new float[] { 1, 2, 2, 2 }); // Cuatro columnas para ID Producto, Cantidad, Total Detalle y Precio Unitario
-                    tablaDetallesPedido.AddCell("ID Producto").SetBold();
-                    tablaDetallesPedido.AddCell("Cantidad").SetBold();
-                    tablaDetallesPedido.AddCell("Total Detalle").SetBold();
-                    tablaDetallesPedido.AddCell("Precio Unitario").SetBold();
+                    tablaDetallesPedido.AddCell("ID Producto");
+                    tablaDetallesPedido.AddCell("Cantidad");
+                    tablaDetallesPedido.AddCell("Total Detalle");
+                    tablaDetallesPedido.AddCell("Precio Unitario");
                     foreach (DetallePedido detalle in detallesPedido)
                     {
                         tablaDetallesPedido.AddCell(detalle.ID_Producto.ToString());

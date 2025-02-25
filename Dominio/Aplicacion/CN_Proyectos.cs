@@ -120,6 +120,18 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+
+        public List<ReporteProyectosProgreso> ObtenerProgresoProyectos(DateTime fechaDesde, string estado)
+        {
+            try
+            {
+                return repositorio.ObtenerProgresoProyectos(fechaDesde, estado);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 
 }

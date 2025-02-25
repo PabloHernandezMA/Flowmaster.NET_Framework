@@ -28,26 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button365Dias = new System.Windows.Forms.Button();
-            this.button30Dias = new System.Windows.Forms.Button();
-            this.button7Dias = new System.Windows.Forms.Button();
             this.dateTimePickerFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePickerFechaInicio = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelP4 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.chartBarsP1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -68,9 +64,13 @@
             this.panel15 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.labelMisPedidosPendientes = new System.Windows.Forms.Label();
-            this.panelP4 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.chartBarsP1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel25 = new System.Windows.Forms.Panel();
+            this.panel26 = new System.Windows.Forms.Panel();
+            this.label25 = new System.Windows.Forms.Label();
+            this.labelProyectosProgreso = new System.Windows.Forms.Label();
             this.panel21 = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label22 = new System.Windows.Forms.Label();
@@ -78,16 +78,12 @@
             this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel24 = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
-            this.panel25 = new System.Windows.Forms.Panel();
-            this.panel26 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.labelProyectosProgreso = new System.Windows.Forms.Label();
+            this.flowLayoutPanel6 = new System.Windows.Forms.FlowLayoutPanel();
+            this.chartEstadoProyectos = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.panel3.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
+            this.panelP4.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
-            this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBarsP1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -98,22 +94,22 @@
             this.panel13.SuspendLayout();
             this.panel14.SuspendLayout();
             this.panel15.SuspendLayout();
-            this.panelP4.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartBarsP1)).BeginInit();
             this.flowLayoutPanel4.SuspendLayout();
+            this.panel25.SuspendLayout();
+            this.panel26.SuspendLayout();
             this.panel21.SuspendLayout();
             this.panel22.SuspendLayout();
             this.flowLayoutPanel5.SuspendLayout();
             this.panel24.SuspendLayout();
-            this.panel25.SuspendLayout();
-            this.panel26.SuspendLayout();
+            this.flowLayoutPanel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartEstadoProyectos)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.AutoScroll = true;
-            this.panel3.Controls.Add(this.button365Dias);
-            this.panel3.Controls.Add(this.button30Dias);
-            this.panel3.Controls.Add(this.button7Dias);
             this.panel3.Controls.Add(this.dateTimePickerFechaFin);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.dateTimePickerFechaInicio);
@@ -125,57 +121,12 @@
             this.panel3.Size = new System.Drawing.Size(1034, 49);
             this.panel3.TabIndex = 26;
             // 
-            // button365Dias
-            // 
-            this.button365Dias.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button365Dias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button365Dias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.button365Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button365Dias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button365Dias.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button365Dias.Location = new System.Drawing.Point(417, 5);
-            this.button365Dias.Name = "button365Dias";
-            this.button365Dias.Size = new System.Drawing.Size(119, 40);
-            this.button365Dias.TabIndex = 34;
-            this.button365Dias.Text = "Últimos 365 días";
-            this.button365Dias.UseVisualStyleBackColor = true;
-            // 
-            // button30Dias
-            // 
-            this.button30Dias.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button30Dias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button30Dias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.button30Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button30Dias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button30Dias.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button30Dias.Location = new System.Drawing.Point(292, 5);
-            this.button30Dias.Name = "button30Dias";
-            this.button30Dias.Size = new System.Drawing.Size(119, 40);
-            this.button30Dias.TabIndex = 33;
-            this.button30Dias.Text = "Últimos 30 días";
-            this.button30Dias.UseVisualStyleBackColor = true;
-            // 
-            // button7Dias
-            // 
-            this.button7Dias.FlatAppearance.BorderColor = System.Drawing.Color.WhiteSmoke;
-            this.button7Dias.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.button7Dias.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.button7Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7Dias.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7Dias.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.button7Dias.Location = new System.Drawing.Point(167, 5);
-            this.button7Dias.Name = "button7Dias";
-            this.button7Dias.Size = new System.Drawing.Size(119, 40);
-            this.button7Dias.TabIndex = 32;
-            this.button7Dias.Text = "Últimos 7 días";
-            this.button7Dias.UseVisualStyleBackColor = true;
-            // 
             // dateTimePickerFechaFin
             // 
             this.dateTimePickerFechaFin.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaFin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFechaFin.Location = new System.Drawing.Point(694, 13);
+            this.dateTimePickerFechaFin.Location = new System.Drawing.Point(304, 13);
             this.dateTimePickerFechaFin.MaxDate = new System.DateTime(2054, 3, 9, 0, 0, 0, 0);
             this.dateTimePickerFechaFin.Name = "dateTimePickerFechaFin";
             this.dateTimePickerFechaFin.Size = new System.Drawing.Size(107, 22);
@@ -187,7 +138,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label3.Location = new System.Drawing.Point(667, 13);
+            this.label3.Location = new System.Drawing.Point(277, 13);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(22, 21);
             this.label3.TabIndex = 30;
@@ -198,7 +149,7 @@
             this.dateTimePickerFechaInicio.CalendarFont = new System.Drawing.Font("Segoe UI Emoji", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaInicio.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTimePickerFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFechaInicio.Location = new System.Drawing.Point(553, 13);
+            this.dateTimePickerFechaInicio.Location = new System.Drawing.Point(163, 13);
             this.dateTimePickerFechaInicio.MaxDate = new System.DateTime(2054, 3, 9, 0, 0, 0, 0);
             this.dateTimePickerFechaInicio.Name = "dateTimePickerFechaInicio";
             this.dateTimePickerFechaInicio.Size = new System.Drawing.Size(107, 22);
@@ -227,6 +178,25 @@
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1034, 48);
             this.flowLayoutPanel1.TabIndex = 27;
             // 
+            // panelP4
+            // 
+            this.panelP4.Controls.Add(this.label1);
+            this.panelP4.Location = new System.Drawing.Point(3, 3);
+            this.panelP4.Name = "panelP4";
+            this.panelP4.Size = new System.Drawing.Size(250, 42);
+            this.panelP4.TabIndex = 36;
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label1.Location = new System.Drawing.Point(7, 5);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(145, 37);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "PEDIDOS:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.AutoSize = true;
@@ -241,129 +211,6 @@
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
             this.flowLayoutPanel2.Size = new System.Drawing.Size(1034, 212);
             this.flowLayoutPanel2.TabIndex = 28;
-            // 
-            // flowLayoutPanel3
-            // 
-            this.flowLayoutPanel3.AutoSize = true;
-            this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel3.Controls.Add(this.chart1);
-            this.flowLayoutPanel3.Controls.Add(this.chartBarsP1);
-            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 309);
-            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(1034, 262);
-            this.flowLayoutPanel3.TabIndex = 29;
-            // 
-            // chart1
-            // 
-            this.chart1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            this.chart1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(115)))), ((int)(((byte)(133)))));
-            this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
-            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            legend1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(3, 3);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            this.chart1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(63)))), ((int)(((byte)(92))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(75)))), ((int)(((byte)(124))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(81)))), ((int)(((byte)(145))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(81)))), ((int)(((byte)(149))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(80)))), ((int)(((byte)(135))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(93)))), ((int)(((byte)(106))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(124)))), ((int)(((byte)(67))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(166)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(194)))), ((int)(((byte)(103))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(157))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(217)))), ((int)(((byte)(135))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))))};
-            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            series1.BorderWidth = 7;
-            series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series1.IsValueShownAsLabel = true;
-            series1.LabelForeColor = System.Drawing.Color.WhiteSmoke;
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(408, 256);
-            this.chart1.TabIndex = 45;
-            this.chart1.Text = "chart1";
-            title1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            title1.Name = "Title1";
-            title1.Text = "PEDIDOS";
-            this.chart1.Titles.Add(title1);
-            // 
-            // chartBarsP1
-            // 
-            this.chartBarsP1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            this.chartBarsP1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(115)))), ((int)(((byte)(133)))));
-            this.chartBarsP1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea2.AxisX.IsLabelAutoFit = false;
-            chartArea2.AxisX.IsMarginVisible = false;
-            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisX.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.AxisX.MajorGrid.LineWidth = 0;
-            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisX.MinorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisX2.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisY.IsLabelAutoFit = false;
-            chartArea2.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisY.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea2.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea2.AxisY.TitleForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            chartArea2.Name = "ChartArea1";
-            this.chartBarsP1.ChartAreas.Add(chartArea2);
-            this.chartBarsP1.Location = new System.Drawing.Point(417, 3);
-            this.chartBarsP1.Name = "chartBarsP1";
-            this.chartBarsP1.PaletteCustomColors = new System.Drawing.Color[] {
-        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(63)))), ((int)(((byte)(92))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(75)))), ((int)(((byte)(124))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(81)))), ((int)(((byte)(145))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(81)))), ((int)(((byte)(149))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(80)))), ((int)(((byte)(135))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(93)))), ((int)(((byte)(106))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(124)))), ((int)(((byte)(67))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(166)))), ((int)(((byte)(0))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(194)))), ((int)(((byte)(103))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(157))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(217)))), ((int)(((byte)(135))))),
-        System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))))};
-            series2.BorderColor = System.Drawing.SystemColors.ControlDark;
-            series2.BorderWidth = 0;
-            series2.ChartArea = "ChartArea1";
-            series2.Color = System.Drawing.Color.SteelBlue;
-            series2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series2.IsValueShownAsLabel = true;
-            series2.LabelForeColor = System.Drawing.Color.WhiteSmoke;
-            series2.Legend = "Legend2";
-            series2.Name = "Pedidos";
-            series2.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            series2.YValuesPerPoint = 2;
-            this.chartBarsP1.Series.Add(series2);
-            this.chartBarsP1.Size = new System.Drawing.Size(519, 256);
-            this.chartBarsP1.TabIndex = 46;
-            this.chartBarsP1.Text = "chart2";
-            title2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title2.ForeColor = System.Drawing.Color.WhiteSmoke;
-            title2.Name = "Title1";
-            title2.Text = "PEDIDOS";
-            this.chartBarsP1.Titles.Add(title2);
             // 
             // panel1
             // 
@@ -580,24 +427,80 @@
             this.labelMisPedidosPendientes.Text = "1000";
             this.labelMisPedidosPendientes.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panelP4
+            // flowLayoutPanel3
             // 
-            this.panelP4.Controls.Add(this.label1);
-            this.panelP4.Location = new System.Drawing.Point(3, 3);
-            this.panelP4.Name = "panelP4";
-            this.panelP4.Size = new System.Drawing.Size(250, 42);
-            this.panelP4.TabIndex = 36;
+            this.flowLayoutPanel3.AutoSize = true;
+            this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel3.Controls.Add(this.chartBarsP1);
+            this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(0, 309);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1034, 262);
+            this.flowLayoutPanel3.TabIndex = 29;
             // 
-            // label1
+            // chartBarsP1
             // 
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label1.Location = new System.Drawing.Point(7, 5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 37);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "PEDIDOS:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chartBarsP1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            this.chartBarsP1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(115)))), ((int)(((byte)(133)))));
+            this.chartBarsP1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea5.AxisX.IsLabelAutoFit = false;
+            chartArea5.AxisX.IsMarginVisible = false;
+            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisX.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea5.AxisX.MajorGrid.LineWidth = 0;
+            chartArea5.AxisX.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisX.MinorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisX2.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisY.IsLabelAutoFit = false;
+            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisY.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea5.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea5.AxisY.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea5.AxisY.TitleForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            chartArea5.Name = "ChartArea1";
+            this.chartBarsP1.ChartAreas.Add(chartArea5);
+            this.chartBarsP1.Location = new System.Drawing.Point(3, 3);
+            this.chartBarsP1.Name = "chartBarsP1";
+            this.chartBarsP1.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(63)))), ((int)(((byte)(92))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(75)))), ((int)(((byte)(124))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(81)))), ((int)(((byte)(145))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(81)))), ((int)(((byte)(149))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(80)))), ((int)(((byte)(135))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(93)))), ((int)(((byte)(106))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(124)))), ((int)(((byte)(67))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(166)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(194)))), ((int)(((byte)(103))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(157))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(217)))), ((int)(((byte)(135))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))))};
+            series5.BorderColor = System.Drawing.SystemColors.ControlDark;
+            series5.BorderWidth = 0;
+            series5.ChartArea = "ChartArea1";
+            series5.Color = System.Drawing.Color.SteelBlue;
+            series5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series5.IsValueShownAsLabel = true;
+            series5.LabelForeColor = System.Drawing.Color.WhiteSmoke;
+            series5.Legend = "Legend2";
+            series5.Name = "Pedidos";
+            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            series5.YValuesPerPoint = 2;
+            this.chartBarsP1.Series.Add(series5);
+            this.chartBarsP1.Size = new System.Drawing.Size(519, 256);
+            this.chartBarsP1.TabIndex = 46;
+            this.chartBarsP1.Text = "chart2";
+            title5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            title5.Name = "Title1";
+            title5.Text = "PEDIDOS";
+            this.chartBarsP1.Titles.Add(title5);
             // 
             // flowLayoutPanel4
             // 
@@ -610,6 +513,49 @@
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
             this.flowLayoutPanel4.Size = new System.Drawing.Size(1034, 106);
             this.flowLayoutPanel4.TabIndex = 31;
+            // 
+            // panel25
+            // 
+            this.panel25.Controls.Add(this.panel26);
+            this.panel25.Location = new System.Drawing.Point(3, 3);
+            this.panel25.Name = "panel25";
+            this.panel25.Size = new System.Drawing.Size(250, 100);
+            this.panel25.TabIndex = 51;
+            // 
+            // panel26
+            // 
+            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
+            this.panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel26.Controls.Add(this.label25);
+            this.panel26.Controls.Add(this.labelProyectosProgreso);
+            this.panel26.Location = new System.Drawing.Point(3, 12);
+            this.panel26.Name = "panel26";
+            this.panel26.Size = new System.Drawing.Size(236, 72);
+            this.panel26.TabIndex = 1;
+            // 
+            // label25
+            // 
+            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(74)))), ((int)(((byte)(110)))));
+            this.label25.Dock = System.Windows.Forms.DockStyle.Right;
+            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
+            this.label25.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label25.Location = new System.Drawing.Point(92, 0);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(142, 70);
+            this.label25.TabIndex = 15;
+            this.label25.Text = "Mis proyectos en proceso";
+            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelProyectosProgreso
+            // 
+            this.labelProyectosProgreso.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
+            this.labelProyectosProgreso.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.labelProyectosProgreso.Location = new System.Drawing.Point(3, 9);
+            this.labelProyectosProgreso.Name = "labelProyectosProgreso";
+            this.labelProyectosProgreso.Size = new System.Drawing.Size(86, 54);
+            this.labelProyectosProgreso.TabIndex = 14;
+            this.labelProyectosProgreso.Text = "1000";
+            this.labelProyectosProgreso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // panel21
             // 
@@ -684,48 +630,63 @@
             this.label24.Text = "PROYECTOS:";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel25
+            // flowLayoutPanel6
             // 
-            this.panel25.Controls.Add(this.panel26);
-            this.panel25.Location = new System.Drawing.Point(3, 3);
-            this.panel25.Name = "panel25";
-            this.panel25.Size = new System.Drawing.Size(250, 100);
-            this.panel25.TabIndex = 51;
+            this.flowLayoutPanel6.AutoSize = true;
+            this.flowLayoutPanel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel6.Controls.Add(this.chartEstadoProyectos);
+            this.flowLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.flowLayoutPanel6.Location = new System.Drawing.Point(0, 725);
+            this.flowLayoutPanel6.Name = "flowLayoutPanel6";
+            this.flowLayoutPanel6.Size = new System.Drawing.Size(1034, 262);
+            this.flowLayoutPanel6.TabIndex = 32;
             // 
-            // panel26
+            // chartEstadoProyectos
             // 
-            this.panel26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
-            this.panel26.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel26.Controls.Add(this.label25);
-            this.panel26.Controls.Add(this.labelProyectosProgreso);
-            this.panel26.Location = new System.Drawing.Point(3, 12);
-            this.panel26.Name = "panel26";
-            this.panel26.Size = new System.Drawing.Size(236, 72);
-            this.panel26.TabIndex = 1;
-            // 
-            // label25
-            // 
-            this.label25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(74)))), ((int)(((byte)(110)))));
-            this.label25.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label25.Font = new System.Drawing.Font("Segoe UI Semibold", 14F, System.Drawing.FontStyle.Bold);
-            this.label25.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label25.Location = new System.Drawing.Point(92, 0);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(142, 70);
-            this.label25.TabIndex = 15;
-            this.label25.Text = "Mis proyectos en progreso";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // labelProyectosProgreso
-            // 
-            this.labelProyectosProgreso.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold);
-            this.labelProyectosProgreso.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.labelProyectosProgreso.Location = new System.Drawing.Point(3, 9);
-            this.labelProyectosProgreso.Name = "labelProyectosProgreso";
-            this.labelProyectosProgreso.Size = new System.Drawing.Size(86, 54);
-            this.labelProyectosProgreso.TabIndex = 14;
-            this.labelProyectosProgreso.Text = "1000";
-            this.labelProyectosProgreso.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.chartEstadoProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            this.chartEstadoProyectos.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(115)))), ((int)(((byte)(133)))));
+            this.chartEstadoProyectos.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            chartArea6.Name = "ChartArea1";
+            this.chartEstadoProyectos.ChartAreas.Add(chartArea6);
+            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            legend3.ForeColor = System.Drawing.Color.WhiteSmoke;
+            legend3.Name = "Legend1";
+            this.chartEstadoProyectos.Legends.Add(legend3);
+            this.chartEstadoProyectos.Location = new System.Drawing.Point(3, 3);
+            this.chartEstadoProyectos.Name = "chartEstadoProyectos";
+            this.chartEstadoProyectos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
+            this.chartEstadoProyectos.PaletteCustomColors = new System.Drawing.Color[] {
+        System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(63)))), ((int)(((byte)(92))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(47)))), ((int)(((byte)(75)))), ((int)(((byte)(124))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(81)))), ((int)(((byte)(145))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(81)))), ((int)(((byte)(149))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(80)))), ((int)(((byte)(135))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(249)))), ((int)(((byte)(93)))), ((int)(((byte)(106))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(124)))), ((int)(((byte)(67))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(166)))), ((int)(((byte)(0))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(252)))), ((int)(((byte)(194)))), ((int)(((byte)(103))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(157))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(217)))), ((int)(((byte)(135))))),
+        System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))))};
+            series6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            series6.BorderWidth = 7;
+            series6.ChartArea = "ChartArea1";
+            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series6.IsValueShownAsLabel = true;
+            series6.LabelForeColor = System.Drawing.Color.WhiteSmoke;
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartEstadoProyectos.Series.Add(series6);
+            this.chartEstadoProyectos.Size = new System.Drawing.Size(408, 256);
+            this.chartEstadoProyectos.TabIndex = 46;
+            this.chartEstadoProyectos.Text = "chartEstadoProyectos";
+            title6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title6.ForeColor = System.Drawing.Color.WhiteSmoke;
+            title6.Name = "Title1";
+            title6.Text = "Estado proyectos";
+            this.chartEstadoProyectos.Titles.Add(title6);
             // 
             // FormDashboard
             // 
@@ -734,6 +695,7 @@
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(1034, 1007);
+            this.Controls.Add(this.flowLayoutPanel6);
             this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel5);
             this.Controls.Add(this.flowLayoutPanel3);
@@ -746,10 +708,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
+            this.panelP4.ResumeLayout(false);
             this.flowLayoutPanel2.ResumeLayout(false);
-            this.flowLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.chartBarsP1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
@@ -760,14 +720,17 @@
             this.panel13.ResumeLayout(false);
             this.panel14.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
-            this.panelP4.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartBarsP1)).EndInit();
             this.flowLayoutPanel4.ResumeLayout(false);
+            this.panel25.ResumeLayout(false);
+            this.panel26.ResumeLayout(false);
             this.panel21.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.flowLayoutPanel5.ResumeLayout(false);
             this.panel24.ResumeLayout(false);
-            this.panel25.ResumeLayout(false);
-            this.panel26.ResumeLayout(false);
+            this.flowLayoutPanel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartEstadoProyectos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -776,9 +739,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button365Dias;
-        private System.Windows.Forms.Button button30Dias;
-        private System.Windows.Forms.Button button7Dias;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaFin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaInicio;
@@ -808,7 +768,6 @@
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label labelMisPedidosPendientes;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartBarsP1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
         private System.Windows.Forms.Panel panel21;
@@ -822,5 +781,7 @@
         private System.Windows.Forms.Panel panel26;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label labelProyectosProgreso;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel6;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartEstadoProyectos;
     }
 }
