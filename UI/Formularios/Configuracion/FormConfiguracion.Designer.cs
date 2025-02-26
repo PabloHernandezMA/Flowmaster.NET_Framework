@@ -32,11 +32,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestionarProveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.órdenesDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionarProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,29 +75,22 @@
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarProveedoresToolStripMenuItem,
             this.órdenesDeCompraToolStripMenuItem});
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
             this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(79, 26);
             this.proveedoresToolStripMenuItem.Text = "Sistema";
             // 
-            // gestionarProveedoresToolStripMenuItem
-            // 
-            this.gestionarProveedoresToolStripMenuItem.Name = "gestionarProveedoresToolStripMenuItem";
-            this.gestionarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
-            this.gestionarProveedoresToolStripMenuItem.Text = "Idioma";
-            // 
             // órdenesDeCompraToolStripMenuItem
             // 
             this.órdenesDeCompraToolStripMenuItem.Name = "órdenesDeCompraToolStripMenuItem";
-            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(147, 26);
+            this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.órdenesDeCompraToolStripMenuItem.Text = "Aceca de";
+            this.órdenesDeCompraToolStripMenuItem.Click += new System.EventHandler(this.órdenesDeCompraToolStripMenuItem_Click);
             // 
             // productosToolStripMenuItem
             // 
             this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.gestionarProductosToolStripMenuItem,
-            this.tiposToolStripMenuItem});
+            this.gestionarProductosToolStripMenuItem});
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
             this.productosToolStripMenuItem.Size = new System.Drawing.Size(124, 26);
             this.productosToolStripMenuItem.Text = "Base de datos";
@@ -107,15 +98,9 @@
             // gestionarProductosToolStripMenuItem
             // 
             this.gestionarProductosToolStripMenuItem.Name = "gestionarProductosToolStripMenuItem";
-            this.gestionarProductosToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
+            this.gestionarProductosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.gestionarProductosToolStripMenuItem.Text = "Conexión";
             this.gestionarProductosToolStripMenuItem.Click += new System.EventHandler(this.gestionarProductosToolStripMenuItem_Click);
-            // 
-            // tiposToolStripMenuItem
-            // 
-            this.tiposToolStripMenuItem.Name = "tiposToolStripMenuItem";
-            this.tiposToolStripMenuItem.Size = new System.Drawing.Size(149, 26);
-            this.tiposToolStripMenuItem.Text = "Respaldo";
             // 
             // FormConfiguracion
             // 
@@ -139,10 +124,8 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem gestionarProveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem órdenesDeCompraToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestionarProductosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiposToolStripMenuItem;
     }
 }

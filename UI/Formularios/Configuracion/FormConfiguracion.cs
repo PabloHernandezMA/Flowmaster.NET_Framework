@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Administracion.Usuarios.Gestionar_Usuarios;
 using UI.Configuracion.Base_De_Datos;
+using UI.Formularios.Configuracion;
 
 namespace UI.Configuracion
 {
@@ -44,6 +45,15 @@ namespace UI.Configuracion
             panelCenter.Controls.Clear(); // Limpiar cualquier control existente en el PanelCenter
             panelCenter.Controls.Add(formAdmin); // Agregar el formulario al PanelCenter
             formAdmin.Show(); // Mostrar el formulario
+        }
+
+        private void órdenesDeCompraToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario AboutBoxFlowmaster
+            AboutBoxFlowmaster aboutBox = new AboutBoxFlowmaster();
+
+            // Mostrar el formulario como un pop-up
+            aboutBox.ShowDialog();
         }
     }
 }

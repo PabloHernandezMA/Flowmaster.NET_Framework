@@ -36,6 +36,8 @@
             this.buttonMaximizarAplicacion = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panelSideBar = new System.Windows.Forms.Panel();
+            this.buttonProyectos = new System.Windows.Forms.Button();
+            this.panel12 = new System.Windows.Forms.Panel();
             this.buttonConfiguracion = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.buttonCerrarSesion = new System.Windows.Forms.Button();
@@ -50,17 +52,14 @@
             this.buttonFlowmaster = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panelTopBar = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.labelUsername = new System.Windows.Forms.Label();
+            this.buttonNotificacion = new System.Windows.Forms.Button();
             this.panel11 = new System.Windows.Forms.Panel();
             this.panelCenter = new System.Windows.Forms.Panel();
-            this.buttonProyectos = new System.Windows.Forms.Button();
-            this.panel12 = new System.Windows.Forms.Panel();
             this.panel10.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panelSideBar.SuspendLayout();
             this.panelTopBar.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel10
@@ -163,6 +162,33 @@
             this.panelSideBar.Name = "panelSideBar";
             this.panelSideBar.Size = new System.Drawing.Size(200, 662);
             this.panelSideBar.TabIndex = 8;
+            // 
+            // buttonProyectos
+            // 
+            this.buttonProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
+            this.buttonProyectos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.buttonProyectos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonProyectos.FlatAppearance.BorderSize = 0;
+            this.buttonProyectos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonProyectos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonProyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonProyectos.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.buttonProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonProyectos.Location = new System.Drawing.Point(0, 277);
+            this.buttonProyectos.Name = "buttonProyectos";
+            this.buttonProyectos.Size = new System.Drawing.Size(200, 43);
+            this.buttonProyectos.TabIndex = 21;
+            this.buttonProyectos.Text = "Proyectos";
+            this.buttonProyectos.UseVisualStyleBackColor = false;
+            this.buttonProyectos.Click += new System.EventHandler(this.buttonProyectos_Click);
+            // 
+            // panel12
+            // 
+            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel12.Location = new System.Drawing.Point(0, 272);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(200, 5);
+            this.panel12.TabIndex = 20;
             // 
             // buttonConfiguracion
             // 
@@ -349,21 +375,13 @@
             // panelTopBar
             // 
             this.panelTopBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(27)))), ((int)(((byte)(34)))));
-            this.panelTopBar.Controls.Add(this.panel5);
+            this.panelTopBar.Controls.Add(this.labelUsername);
+            this.panelTopBar.Controls.Add(this.buttonNotificacion);
             this.panelTopBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTopBar.Location = new System.Drawing.Point(205, 49);
             this.panelTopBar.Name = "panelTopBar";
             this.panelTopBar.Size = new System.Drawing.Size(929, 50);
             this.panelTopBar.TabIndex = 10;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.labelUsername);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel5.Location = new System.Drawing.Point(664, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(265, 50);
-            this.panel5.TabIndex = 4;
             // 
             // labelUsername
             // 
@@ -372,10 +390,28 @@
             this.labelUsername.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.labelUsername.Location = new System.Drawing.Point(0, 0);
             this.labelUsername.Name = "labelUsername";
-            this.labelUsername.Size = new System.Drawing.Size(265, 50);
-            this.labelUsername.TabIndex = 4;
+            this.labelUsername.Size = new System.Drawing.Size(878, 50);
+            this.labelUsername.TabIndex = 23;
             this.labelUsername.Text = "Username";
             this.labelUsername.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // buttonNotificacion
+            // 
+            this.buttonNotificacion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
+            this.buttonNotificacion.Dock = System.Windows.Forms.DockStyle.Right;
+            this.buttonNotificacion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonNotificacion.FlatAppearance.BorderSize = 0;
+            this.buttonNotificacion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonNotificacion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonNotificacion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonNotificacion.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.buttonNotificacion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonNotificacion.Image = ((System.Drawing.Image)(resources.GetObject("buttonNotificacion.Image")));
+            this.buttonNotificacion.Location = new System.Drawing.Point(878, 0);
+            this.buttonNotificacion.Name = "buttonNotificacion";
+            this.buttonNotificacion.Size = new System.Drawing.Size(51, 50);
+            this.buttonNotificacion.TabIndex = 22;
+            this.buttonNotificacion.UseVisualStyleBackColor = false;
             // 
             // panel11
             // 
@@ -394,33 +430,6 @@
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(929, 607);
             this.panelCenter.TabIndex = 12;
-            // 
-            // buttonProyectos
-            // 
-            this.buttonProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(34)))), ((int)(((byte)(43)))));
-            this.buttonProyectos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.buttonProyectos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonProyectos.FlatAppearance.BorderSize = 0;
-            this.buttonProyectos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonProyectos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.buttonProyectos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonProyectos.Font = new System.Drawing.Font("Segoe UI", 16F);
-            this.buttonProyectos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonProyectos.Location = new System.Drawing.Point(0, 277);
-            this.buttonProyectos.Name = "buttonProyectos";
-            this.buttonProyectos.Size = new System.Drawing.Size(200, 43);
-            this.buttonProyectos.TabIndex = 21;
-            this.buttonProyectos.Text = "Proyectos";
-            this.buttonProyectos.UseVisualStyleBackColor = false;
-            this.buttonProyectos.Click += new System.EventHandler(this.buttonProyectos_Click);
-            // 
-            // panel12
-            // 
-            this.panel12.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel12.Location = new System.Drawing.Point(0, 272);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(200, 5);
-            this.panel12.TabIndex = 20;
             // 
             // FormMainMenu
             // 
@@ -446,7 +455,6 @@
             this.panel3.ResumeLayout(false);
             this.panelSideBar.ResumeLayout(false);
             this.panelTopBar.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -470,8 +478,6 @@
         private System.Windows.Forms.Button buttonFlowmaster;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panelTopBar;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Button buttonMinimizarAplicacion;
         private System.Windows.Forms.Button buttonCerrarAplicacion;
@@ -480,5 +486,7 @@
         private System.Windows.Forms.Panel panelCenter;
         private System.Windows.Forms.Button buttonProyectos;
         private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label labelUsername;
+        private System.Windows.Forms.Button buttonNotificacion;
     }
 }

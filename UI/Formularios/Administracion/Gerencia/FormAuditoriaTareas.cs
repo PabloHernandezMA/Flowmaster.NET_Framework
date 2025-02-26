@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UI.Formularios.Administracion.Gerencia.Reportes
+namespace UI.Formularios.Administracion.Gerencia
 {
-    public partial class FormReportViewer: Form
+    public partial class FormAuditoriaTareas: Form
     {
-        public FormReportViewer()
+        public FormAuditoriaTareas()
         {
             InitializeComponent();
         }

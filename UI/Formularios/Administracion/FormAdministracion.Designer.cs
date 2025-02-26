@@ -49,11 +49,13 @@
             this.gestionarPermisosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gerenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCenter = new System.Windows.Forms.Panel();
-            this.proyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.auditoriaTareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -88,6 +90,7 @@
             // 
             // proveedoresToolStripMenuItem
             // 
+            this.proveedoresToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.proveedoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionarProveedoresToolStripMenuItem,
             this.órdenesDeCompraToolStripMenuItem,
@@ -116,6 +119,7 @@
             // 
             // productosToolStripMenuItem
             // 
+            this.productosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.productosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionarProductosToolStripMenuItem,
             this.tiposToolStripMenuItem});
@@ -137,6 +141,7 @@
             // 
             // empleadosToolStripMenuItem
             // 
+            this.empleadosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.empleadosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionarEmpleadosToolStripMenuItem,
             this.áreasToolStripMenuItem});
@@ -158,6 +163,7 @@
             // 
             // clientesToolStripMenuItem
             // 
+            this.clientesToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionarClientesToolStripMenuItem,
             this.remitosToolStripMenuItem1});
@@ -179,6 +185,7 @@
             // 
             // usuariosToolStripMenuItem
             // 
+            this.usuariosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.usuariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestionarUsuariosToolStripMenuItem,
             this.gestionarGruposToolStripMenuItem,
@@ -210,6 +217,7 @@
             // 
             // gerenciaToolStripMenuItem
             // 
+            this.gerenciaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gerenciaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reporteToolStripMenuItem,
             this.auditoriaToolStripMenuItem});
@@ -220,17 +228,27 @@
             // reporteToolStripMenuItem
             // 
             this.reporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.proyectosToolStripMenuItem});
+            this.proyectosToolStripMenuItem,
+            this.pedidosToolStripMenuItem});
             this.reporteToolStripMenuItem.Name = "reporteToolStripMenuItem";
             this.reporteToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.reporteToolStripMenuItem.Text = "Reporte";
             this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
             // 
+            // proyectosToolStripMenuItem
+            // 
+            this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
+            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.proyectosToolStripMenuItem.Text = "Proyectos";
+            this.proyectosToolStripMenuItem.Click += new System.EventHandler(this.proyectosToolStripMenuItem_Click);
+            // 
             // auditoriaToolStripMenuItem
             // 
+            this.auditoriaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.auditoriaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.auditoriaSesionesToolStripMenuItem,
-            this.auditoriaProductosToolStripMenuItem});
+            this.auditoriaProductosToolStripMenuItem,
+            this.auditoriaTareasToolStripMenuItem});
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
             this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.auditoriaToolStripMenuItem.Text = "Auditoria";
@@ -257,12 +275,18 @@
             this.panelCenter.Size = new System.Drawing.Size(936, 558);
             this.panelCenter.TabIndex = 1;
             // 
-            // proyectosToolStripMenuItem
+            // pedidosToolStripMenuItem
             // 
-            this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
-            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.proyectosToolStripMenuItem.Text = "Proyectos";
-            this.proyectosToolStripMenuItem.Click += new System.EventHandler(this.proyectosToolStripMenuItem_Click);
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
+            // 
+            // auditoriaTareasToolStripMenuItem
+            // 
+            this.auditoriaTareasToolStripMenuItem.Name = "auditoriaTareasToolStripMenuItem";
+            this.auditoriaTareasToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.auditoriaTareasToolStripMenuItem.Text = "Auditoria Tareas";
             // 
             // FormAdministracion
             // 
@@ -309,5 +333,7 @@
         private System.Windows.Forms.ToolStripMenuItem auditoriaSesionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proyectosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem auditoriaTareasToolStripMenuItem;
     }
 }

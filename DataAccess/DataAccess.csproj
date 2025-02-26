@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="CD_Repositorios\ConnectionToSQL.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoAreas.cs" />
+    <Compile Include="CD_Repositorios\ReposAplicacion\RepoAuditorias.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoCategorias_Producto.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoCiudades.cs" />
     <Compile Include="CD_Repositorios\ReposAplicacion\RepoClientes.cs" />

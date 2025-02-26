@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title5 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title6 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dateTimePickerFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
@@ -443,29 +443,29 @@
             this.chartBarsP1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
             this.chartBarsP1.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(115)))), ((int)(((byte)(133)))));
             this.chartBarsP1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea5.AxisX.IsLabelAutoFit = false;
-            chartArea5.AxisX.IsMarginVisible = false;
-            chartArea5.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisX.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisX.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisX.MajorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea5.AxisX.MajorGrid.LineWidth = 0;
-            chartArea5.AxisX.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisX.MinorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisX2.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisY.IsLabelAutoFit = false;
-            chartArea5.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisY.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
-            chartArea5.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
-            chartArea5.AxisY.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea5.AxisY.TitleForeColor = System.Drawing.Color.WhiteSmoke;
-            chartArea5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            chartArea5.Name = "ChartArea1";
-            this.chartBarsP1.ChartAreas.Add(chartArea5);
+            chartArea1.AxisX.IsLabelAutoFit = false;
+            chartArea1.AxisX.IsMarginVisible = false;
+            chartArea1.AxisX.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisX.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisX.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisX.MajorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisX.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisX.MajorGrid.LineWidth = 0;
+            chartArea1.AxisX.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisX.MinorGrid.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisX2.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisY.IsLabelAutoFit = false;
+            chartArea1.AxisY.LabelStyle.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.LabelStyle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisY.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisY.MajorGrid.LineColor = System.Drawing.Color.DimGray;
+            chartArea1.AxisY.MajorGrid.LineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Dot;
+            chartArea1.AxisY.MajorTickMark.LineColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.AxisY.TitleFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea1.AxisY.TitleForeColor = System.Drawing.Color.WhiteSmoke;
+            chartArea1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            chartArea1.Name = "ChartArea1";
+            this.chartBarsP1.ChartAreas.Add(chartArea1);
             this.chartBarsP1.Location = new System.Drawing.Point(3, 3);
             this.chartBarsP1.Name = "chartBarsP1";
             this.chartBarsP1.PaletteCustomColors = new System.Drawing.Color[] {
@@ -481,26 +481,26 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(157))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(217)))), ((int)(((byte)(135))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))))};
-            series5.BorderColor = System.Drawing.SystemColors.ControlDark;
-            series5.BorderWidth = 0;
-            series5.ChartArea = "ChartArea1";
-            series5.Color = System.Drawing.Color.SteelBlue;
-            series5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series5.IsValueShownAsLabel = true;
-            series5.LabelForeColor = System.Drawing.Color.WhiteSmoke;
-            series5.Legend = "Legend2";
-            series5.Name = "Pedidos";
-            series5.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
-            series5.YValuesPerPoint = 2;
-            this.chartBarsP1.Series.Add(series5);
+            series1.BorderColor = System.Drawing.SystemColors.ControlDark;
+            series1.BorderWidth = 0;
+            series1.ChartArea = "ChartArea1";
+            series1.Color = System.Drawing.Color.SteelBlue;
+            series1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series1.IsValueShownAsLabel = true;
+            series1.LabelForeColor = System.Drawing.Color.WhiteSmoke;
+            series1.Legend = "Legend2";
+            series1.Name = "Pedidos";
+            series1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.BrightPastel;
+            series1.YValuesPerPoint = 2;
+            this.chartBarsP1.Series.Add(series1);
             this.chartBarsP1.Size = new System.Drawing.Size(519, 256);
             this.chartBarsP1.TabIndex = 46;
             this.chartBarsP1.Text = "chart2";
-            title5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            title5.Name = "Title1";
-            title5.Text = "PEDIDOS";
-            this.chartBarsP1.Titles.Add(title5);
+            title1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            title1.Name = "Title1";
+            title1.Text = "PEDIDOS";
+            this.chartBarsP1.Titles.Add(title1);
             // 
             // flowLayoutPanel4
             // 
@@ -564,6 +564,7 @@
             this.panel21.Name = "panel21";
             this.panel21.Size = new System.Drawing.Size(250, 100);
             this.panel21.TabIndex = 49;
+            this.panel21.Visible = false;
             // 
             // panel22
             // 
@@ -646,13 +647,13 @@
             this.chartEstadoProyectos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
             this.chartEstadoProyectos.BorderlineColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(115)))), ((int)(((byte)(133)))));
             this.chartEstadoProyectos.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-            chartArea6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            chartArea6.Name = "ChartArea1";
-            this.chartEstadoProyectos.ChartAreas.Add(chartArea6);
-            legend3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            legend3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            legend3.Name = "Legend1";
-            this.chartEstadoProyectos.Legends.Add(legend3);
+            chartArea2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            chartArea2.Name = "ChartArea1";
+            this.chartEstadoProyectos.ChartAreas.Add(chartArea2);
+            legend1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            legend1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            legend1.Name = "Legend1";
+            this.chartEstadoProyectos.Legends.Add(legend1);
             this.chartEstadoProyectos.Location = new System.Drawing.Point(3, 3);
             this.chartEstadoProyectos.Name = "chartEstadoProyectos";
             this.chartEstadoProyectos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -669,24 +670,24 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(157))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(174)))), ((int)(((byte)(217)))), ((int)(((byte)(135))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(99)))), ((int)(((byte)(177)))), ((int)(((byte)(121)))))};
-            series6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
-            series6.BorderWidth = 7;
-            series6.ChartArea = "ChartArea1";
-            series6.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            series6.IsValueShownAsLabel = true;
-            series6.LabelForeColor = System.Drawing.Color.WhiteSmoke;
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.chartEstadoProyectos.Series.Add(series6);
+            series2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(59)))), ((int)(((byte)(66)))), ((int)(((byte)(77)))));
+            series2.BorderWidth = 7;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            series2.IsValueShownAsLabel = true;
+            series2.LabelForeColor = System.Drawing.Color.WhiteSmoke;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.chartEstadoProyectos.Series.Add(series2);
             this.chartEstadoProyectos.Size = new System.Drawing.Size(408, 256);
             this.chartEstadoProyectos.TabIndex = 46;
             this.chartEstadoProyectos.Text = "chartEstadoProyectos";
-            title6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title6.ForeColor = System.Drawing.Color.WhiteSmoke;
-            title6.Name = "Title1";
-            title6.Text = "Estado proyectos";
-            this.chartEstadoProyectos.Titles.Add(title6);
+            title2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            title2.Name = "Title1";
+            title2.Text = "Estado proyectos";
+            this.chartEstadoProyectos.Titles.Add(title2);
             // 
             // FormDashboard
             // 

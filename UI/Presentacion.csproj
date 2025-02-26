@@ -211,6 +211,12 @@
     <Compile Include="Formularios\Administracion\Gerencia\FormAuditoriaSesiones.Designer.cs">
       <DependentUpon>FormAuditoriaSesiones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Administracion\Gerencia\FormAuditoriaTareas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Administracion\Gerencia\FormAuditoriaTareas.Designer.cs">
+      <DependentUpon>FormAuditoriaTareas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Administracion\Gerencia\FormReporte.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,12 +228,6 @@
     </Compile>
     <Compile Include="Formularios\Administracion\Gerencia\FormReporteProyectos.Designer.cs">
       <DependentUpon>FormReporteProyectos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Formularios\Administracion\Gerencia\Reportes\FormReportViewer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\Administracion\Gerencia\Reportes\FormReportViewer.Designer.cs">
-      <DependentUpon>FormReportViewer.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.cs">
       <SubType>Form</SubType>
@@ -264,6 +264,12 @@
     </Compile>
     <Compile Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.Designer.cs">
       <DependentUpon>FormGestionarUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Configuracion\AboutBoxFlowmaster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Configuracion\AboutBoxFlowmaster.Designer.cs">
+      <DependentUpon>AboutBoxFlowmaster.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Configuracion\Base_De_Datos\FormBaseDeDatos.cs">
       <SubType>Form</SubType>
@@ -388,15 +394,16 @@
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormAuditoriaSesiones.resx">
       <DependentUpon>FormAuditoriaSesiones.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormAuditoriaTareas.resx">
+      <DependentUpon>FormAuditoriaTareas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormReporte.resx">
       <DependentUpon>FormReporte.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormReporteProyectos.resx">
       <DependentUpon>FormReporteProyectos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\FormReportViewer.resx">
-      <DependentUpon>FormReportViewer.cs</DependentUpon>
-    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaTareas.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportProyectosXEmpleado.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.resx">
       <DependentUpon>FormDetallesGrupo.cs</DependentUpon>
@@ -415,6 +422,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Usuarios\FormGestionarUsuarios.resx">
       <DependentUpon>FormGestionarUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Configuracion\AboutBoxFlowmaster.resx">
+      <DependentUpon>AboutBoxFlowmaster.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Configuracion\Base_De_Datos\FormBaseDeDatos.resx">
       <DependentUpon>FormBaseDeDatos.cs</DependentUpon>
