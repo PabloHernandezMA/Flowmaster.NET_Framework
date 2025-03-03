@@ -50,12 +50,12 @@
             this.gerenciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelCenter = new System.Windows.Forms.Panel();
-            this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaTareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -238,9 +238,16 @@
             // proyectosToolStripMenuItem
             // 
             this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
-            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
             this.proyectosToolStripMenuItem.Text = "Proyectos";
             this.proyectosToolStripMenuItem.Click += new System.EventHandler(this.proyectosToolStripMenuItem_Click);
+            // 
+            // pedidosToolStripMenuItem
+            // 
+            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(153, 26);
+            this.pedidosToolStripMenuItem.Text = "Pedidos";
+            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
             // 
             // auditoriaToolStripMenuItem
             // 
@@ -266,6 +273,13 @@
             this.auditoriaProductosToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.auditoriaProductosToolStripMenuItem.Text = "Auditoria Productos";
             // 
+            // auditoriaTareasToolStripMenuItem
+            // 
+            this.auditoriaTareasToolStripMenuItem.Name = "auditoriaTareasToolStripMenuItem";
+            this.auditoriaTareasToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
+            this.auditoriaTareasToolStripMenuItem.Text = "Auditoria Tareas";
+            this.auditoriaTareasToolStripMenuItem.Click += new System.EventHandler(this.auditoriaTareasToolStripMenuItem_Click);
+            // 
             // panelCenter
             // 
             this.panelCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(13)))), ((int)(((byte)(17)))), ((int)(((byte)(23)))));
@@ -274,19 +288,6 @@
             this.panelCenter.Name = "panelCenter";
             this.panelCenter.Size = new System.Drawing.Size(936, 558);
             this.panelCenter.TabIndex = 1;
-            // 
-            // pedidosToolStripMenuItem
-            // 
-            this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
-            this.pedidosToolStripMenuItem.Text = "Pedidos";
-            this.pedidosToolStripMenuItem.Click += new System.EventHandler(this.pedidosToolStripMenuItem_Click);
-            // 
-            // auditoriaTareasToolStripMenuItem
-            // 
-            this.auditoriaTareasToolStripMenuItem.Name = "auditoriaTareasToolStripMenuItem";
-            this.auditoriaTareasToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
-            this.auditoriaTareasToolStripMenuItem.Text = "Auditoria Tareas";
             // 
             // FormAdministracion
             // 

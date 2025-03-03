@@ -132,11 +132,11 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
-        public int ModificarTareaTarjetas(List<TareaTarjeta> list, int idTarjeta)
+        public int ProcesarCambiosTareas(List<TareaTarjeta> nuevas, List<TareaTarjeta> modificadas, List<int> eliminadas, int idTarjeta)
         {
             try
             {
-                return repositorio.ModificarTareaTarjetas(list, idTarjeta);
+                return repositorio.ProcesarCambiosTareas(nuevas, modificadas, eliminadas, idTarjeta);
             }
             catch (Exception ex)
             {

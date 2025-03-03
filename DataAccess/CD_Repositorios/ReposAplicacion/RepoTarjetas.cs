@@ -177,44 +177,33 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
             return ExecuteNonQuery(consultaSQL);
         }
-        public int ModificarTareaTarjetas(List<TareaTarjeta> list, int idTarjeta)
+        public int ProcesarCambiosTareas(List<TareaTarjeta> nuevas, List<TareaTarjeta> modificadas, List<int> eliminadas, int idTarjeta)
         {
-            // Obtenemos el ID del proyecto de la lista de integrantes
-            if (list == null || list.Count == 0)
+            int filasAfectadas = 0;
+
+            // Procesar eliminaciones
+            if (eliminadas != null && eliminadas.Count > 0)
             {
-                if (idTarjeta != 0)
-                {
-                    // Eliminar todos los registros para el proyecto
-                    string consultaSQLEliminarTodo = @"DELETE FROM TAREASxTARJETA WHERE ID_Tarjeta = @ID_Tarjeta";
-                    parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
-                    return ExecuteNonQuery(consultaSQLEliminarTodo);
-                }
-                return 0; // Si la lista está vacía, no hay nada que modificar
+                string sqlEliminar = "DELETE FROM TAREASxTARJETA WHERE ID_Tarea IN (" + string.Join(",", eliminadas) + ")";
+                filasAfectadas += ExecuteNonQuery(sqlEliminar);
             }
 
-            //idTarjeta = list[0].ID_Tarjeta;
-
-            // Eliminar todos los registros para el proyecto
-            string consultaSQLEliminar = @"DELETE FROM TAREASxTARJETA WHERE ID_Tarjeta = @ID_Tarjeta";
-            parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
-            int filasEliminadas = ExecuteNonQuery(consultaSQLEliminar);
-
-            // Insertar los nuevos registros de la lista
-            foreach (var tarea in list)
+            // Insertar tareas nuevas
+            foreach (var tarea in nuevas)
             {
-                string consultaSQLInsertar = @"INSERT INTO TAREASxTARJETA (Descripcion, Completada, ID_Tarjeta)
-                               VALUES (@Descripcion, @Completada, @ID_Tarjeta)";
-                parametros.Add(new SqlParameter("@Descripcion", tarea.Descripcion));
-                parametros.Add(new SqlParameter("@Completada", tarea.Completada));
-                parametros.Add(new SqlParameter("@ID_Tarjeta", idTarjeta));
-
-                // Ejecutamos la inserción para cada integrante
-                ExecuteNonQuery(consultaSQLInsertar);
+                filasAfectadas += AltaTarea(tarea);
             }
 
-            // Retornamos la cantidad de filas eliminadas (esto es solo una opción, podrías retornarlo de otra forma si prefieres)
-            return filasEliminadas;
+            // Actualizar solo las tareas que han cambiado
+            foreach (var tarea in modificadas)
+            {
+                filasAfectadas += ModificarTarea(tarea);
+            }
+
+            return filasAfectadas;
         }
+
+
 
         public List<Empleado_Tarjeta> ObtenerTodosLosEmpleadosDeLaTarjeta(int idTarjeta)
         {

@@ -78,5 +78,21 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             }
             return empleados;
         }
+        public Empleado ObtenerEmpleadoPorIdUsuario(int idUsuario)
+        {
+            Empleado empleado = new Empleado();
+            string consultaSQL = "SELECT * FROM Empleados WHERE ID_User = @ID_User";
+            parametros.Add(new SqlParameter("@ID_User", idUsuario));
+            DataTable tablaEmpleados = ExecuteReader(consultaSQL);
+            foreach (DataRow fila in tablaEmpleados.Rows)
+            {
+                empleado.ID_Empleado = Convert.ToInt32(fila["ID_Empleado"]);
+                empleado.Nombre = fila["Nombre"].ToString();
+                empleado.ID_User = Convert.ToInt32(fila["ID_User"]);
+                empleado.ID_Area = Convert.ToInt32(fila["ID_Area"]);
+                empleado.Habilitado = Convert.ToBoolean(fila["Habilitado"]);
+            }
+            return empleado;
+        }
     }
 }

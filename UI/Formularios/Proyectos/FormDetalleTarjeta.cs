@@ -20,6 +20,7 @@ namespace UI.Formularios.Proyectos
         private static FormDetalleTarjeta instancia;
         private Tarjeta estaTarjeta;
         private List<Empleado_Tarjeta> listaIntegrantes;
+        private List<TareaTarjeta> tareasDB;
         private FormDetalleTarjeta()
         {
             InitializeComponent();
@@ -78,13 +79,13 @@ namespace UI.Formularios.Proyectos
 
         private void cargarTareas()
         {
-            List<TareaTarjeta> tareas = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTareasDeLaTarjeta(ObjetoTarjeta.ID_Tarjeta);
+            tareasDB = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTareasDeLaTarjeta(ObjetoTarjeta.ID_Tarjeta);
 
-            if (tareas != null && tareas.Count > 0)
+            if (tareasDB != null && tareasDB.Count > 0)
             {
                 flowLayoutPanelTareas.Controls.Clear();
 
-                foreach (var tarea in tareas)
+                foreach (var tarea in tareasDB)
                 {
                     UserControlCheck control = new UserControlCheck(tarea);
                     control.CheckBoxChanged += Tarea_CheckBoxChanged;
@@ -152,11 +153,11 @@ namespace UI.Formularios.Proyectos
             int filasAfectadas;
             if (tarjeta.ID_Tarjeta == 0)
             {
-                // Alta de nuevo proyecto
                 filasAfectadas = CN_Tarjetas.ObtenerInstancia().AltaTarjeta(tarjeta);
                 List<Tarjeta> listaTarjetas = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTarjetasDeLaColumna((int)comboBoxColumna.SelectedValue);
                 Tarjeta ultimaTarjeta = listaTarjetas.OrderByDescending(p => p.ID_Tarjeta).FirstOrDefault();
                 idTarjeta = ultimaTarjeta.ID_Tarjeta;
+                ObjetoTarjeta = ultimaTarjeta;
                 foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
                 {
                     if (row.DataBoundItem is Empleado_Tarjeta empleado)
@@ -183,17 +184,58 @@ namespace UI.Formularios.Proyectos
             MessageBox.Show(filasAfectadas > 0
                 ? "Tarjeta guardada correctamente."
                 : "No se pudo completar la operación.");
+            this.Dispose();
         }
         private void GuardarTareas()
         {
-            List<TareaTarjeta> listaTareas = new List<TareaTarjeta>();
+            tareasDB = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTareasDeLaTarjeta(ObjetoTarjeta.ID_Tarjeta);
+            // Listas para categorizar las tareas
+            List<TareaTarjeta> tareasNuevas = new List<TareaTarjeta>();
+            List<TareaTarjeta> tareasModificadas = new List<TareaTarjeta>();
+            List<int> idsEnPanel = new List<int>();
+
+            // Recorrer cada control en el panel
             foreach (UserControlCheck control in flowLayoutPanelTareas.Controls)
             {
-                TareaTarjeta tarea = control.ObjetoTareaTarjeta;
-                listaTareas.Add(tarea);
+                TareaTarjeta tareaActual = control.ObjetoTareaTarjeta;
+
+                if (tareaActual.ID_Tarea == 0)
+                {
+                    // Es una tarea nueva: se insertará
+                    tareasNuevas.Add(tareaActual);
+                }
+                else
+                {
+                    // Tarea existente: guardar el ID para determinar eliminaciones
+                    idsEnPanel.Add(tareaActual.ID_Tarea);
+
+                    // Buscar la tarea original en la DB
+                    TareaTarjeta tareaOriginal = tareasDB.FirstOrDefault(t => t.ID_Tarea == tareaActual.ID_Tarea);
+
+                    if (tareaOriginal != null)
+                    {
+                        // Comparar propiedades relevantes (puedes agregar más propiedades si es necesario)
+                        if (tareaOriginal.Descripcion != tareaActual.Descripcion ||
+                            tareaOriginal.Completada != tareaActual.Completada)
+                        {
+                            // Solo se agrega a la lista de modificaciones si hubo cambios
+                            tareasModificadas.Add(tareaActual);
+                        }
+                    }
+                }
             }
-            int resultado = CN_Tarjetas.ObtenerInstancia().ModificarTareaTarjetas(listaTareas, idTarjeta);
+
+            // Determinar tareas eliminadas: aquellas que estaban en la DB pero no están en el panel
+            List<int> idsEliminados = tareasDB
+                .Where(t => !idsEnPanel.Contains(t.ID_Tarea))
+                .Select(t => t.ID_Tarea)
+                .ToList();
+
+            // Llamada a la función que procesa los cambios en la base de datos
+            CN_Tarjetas.ObtenerInstancia().ProcesarCambiosTareas(tareasNuevas, tareasModificadas, idsEliminados, idTarjeta);
         }
+
+
         private void GuardarEmpleados()
         {
             List<Empleado_Tarjeta> listaIntegrantes = new List<Empleado_Tarjeta>();
@@ -238,6 +280,10 @@ namespace UI.Formularios.Proyectos
         {
             UserControlCheck control = new UserControlCheck();
             control.CheckBoxChanged += Tarea_CheckBoxChanged;
+            control.ObjetoTareaTarjeta.Completada = false;
+            control.ObjetoTareaTarjeta.ID_Tarjeta = idTarjeta;
+            control.ObjetoTareaTarjeta.Descripcion = "";
+            control.ObjetoTareaTarjeta.ID_Tarea = 0;
             flowLayoutPanelTareas.Controls.Add(control);
             ActualizarProgreso();
         }

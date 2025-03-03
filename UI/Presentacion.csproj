@@ -483,7 +483,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.AuditoriaTareaTarjeta.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.ReporteProyectosProgreso.datasource" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.TareaTarjeta.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

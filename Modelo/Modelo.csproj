@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aplicacion\Area.cs" />
+    <Compile Include="Aplicacion\AuditoriaTareaTarjeta.cs" />
     <Compile Include="Aplicacion\Categoria_Producto.cs" />
     <Compile Include="Aplicacion\Ciudad.cs" />
     <Compile Include="Aplicacion\Cliente.cs" />

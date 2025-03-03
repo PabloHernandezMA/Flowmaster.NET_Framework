@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Aplicacion\ClassDataBase.cs" />
     <Compile Include="Aplicacion\CN_Areas.cs" />
+    <Compile Include="Aplicacion\CN_Auditorias.cs" />
     <Compile Include="Aplicacion\CN_Categorias_Producto.cs" />
     <Compile Include="Aplicacion\CN_Ciudades.cs" />
     <Compile Include="Aplicacion\CN_Clientes.cs" />

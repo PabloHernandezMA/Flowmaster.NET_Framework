@@ -50,6 +50,17 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public Empleado ObtenerEmpleadoPorIdUsuario(int idUsuario)
+        {
+            try
+            {
+                return repositorio.ObtenerEmpleadoPorIdUsuario(idUsuario);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public List<Empleado> ObtenerEmpleadosAsociadosAPedido(int idPedido)
         {

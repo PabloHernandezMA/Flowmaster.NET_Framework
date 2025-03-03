@@ -22,6 +22,7 @@ namespace UI.Formularios.Proyectos
             ObjetoTareaTarjeta = new TareaTarjeta();
             ObjetoTareaTarjeta.Completada = false;
             ObjetoTareaTarjeta.Descripcion = "";
+            ObjetoTareaTarjeta.ID_Tarea = 0;
             CargarDatos();
         }
         public UserControlCheck(TareaTarjeta tarea)

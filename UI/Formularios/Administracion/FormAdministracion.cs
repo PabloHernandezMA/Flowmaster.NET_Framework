@@ -132,5 +132,21 @@ namespace UI.Administracion
             panelCenter.Controls.Add(formAdmin); // Agregar el formulario al PanelCenter
             formAdmin.Show(); // Mostrar el formulario
         }
+
+        private void auditoriaTareasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Crear una instancia del formulario que deseas mostrar
+            FormAuditoriaTareas formAdmin = new FormAuditoriaTareas();
+
+            // Configurar la forma para que pueda ser incrustada
+            formAdmin.TopLevel = false;
+            formAdmin.FormBorderStyle = FormBorderStyle.None;
+            formAdmin.Dock = DockStyle.Fill;
+
+            // Agregar el formulario al PanelCenter
+            panelCenter.Controls.Clear(); // Limpiar cualquier control existente en el PanelCenter
+            panelCenter.Controls.Add(formAdmin); // Agregar el formulario al PanelCenter
+            formAdmin.Show(); // Mostrar el formulario
+        }
     }
 }
