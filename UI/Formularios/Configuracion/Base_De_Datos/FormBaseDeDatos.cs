@@ -51,6 +51,7 @@ namespace UI.Configuracion.Base_De_Datos
             {
                 sfd.Filter = "Backup Files (*.bak)|*.bak";
                 sfd.Title = "Seleccione ubicación para guardar el respaldo";
+                sfd.FileName = $"Flowmaster_{DateTime.Now:yyyyMMdd_HHmm}.bak"; // Sugerir nombre de archivo
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
@@ -59,6 +60,7 @@ namespace UI.Configuracion.Base_De_Datos
                 }
             }
         }
+
 
         private void FormBaseDeDatos_Load(object sender, EventArgs e)
         {
@@ -92,5 +94,32 @@ namespace UI.Configuracion.Base_De_Datos
                 }
             }
         }
+
+        private void buttonRestaurar_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog()) // Cambio de "sfd" a "ofd" para claridad
+            {
+                ofd.Filter = "Backup Files (*.bak)|*.bak";
+                ofd.Title = "Seleccione el archivo de respaldo";
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    // Confirmar antes de restaurar la base de datos
+                    DialogResult confirm = MessageBox.Show(
+                        "Se restaurará la base de datos y se perderán los datos actuales.\n¿Desea continuar?",
+                        "Confirmar restauración",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Warning
+                    );
+
+                    if (confirm == DialogResult.Yes)
+                    {
+                        string resultado = db.RestaurarBackup(ofd.FileName);
+                        MessageBox.Show(resultado, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+        }
+
     }
 }

@@ -43,6 +43,7 @@
             this.textBoxServidor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.buttonRestaurar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -72,6 +73,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
+            this.panel2.Controls.Add(this.buttonRestaurar);
             this.panel2.Controls.Add(this.buttonRespaldar);
             this.panel2.Controls.Add(this.textBoxContraseña);
             this.panel2.Controls.Add(this.textBoxUsuario);
@@ -98,7 +100,7 @@
             this.buttonRespaldar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonRespaldar.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.buttonRespaldar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonRespaldar.Location = new System.Drawing.Point(326, 286);
+            this.buttonRespaldar.Location = new System.Drawing.Point(330, 286);
             this.buttonRespaldar.Name = "buttonRespaldar";
             this.buttonRespaldar.Size = new System.Drawing.Size(195, 43);
             this.buttonRespaldar.TabIndex = 16;
@@ -188,7 +190,7 @@
             this.buttonProbarConexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonProbarConexion.Font = new System.Drawing.Font("Segoe UI", 16F);
             this.buttonProbarConexion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonProbarConexion.Location = new System.Drawing.Point(326, 335);
+            this.buttonProbarConexion.Location = new System.Drawing.Point(180, 335);
             this.buttonProbarConexion.Name = "buttonProbarConexion";
             this.buttonProbarConexion.Size = new System.Drawing.Size(195, 43);
             this.buttonProbarConexion.TabIndex = 9;
@@ -237,6 +239,22 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Servidor / Instancia:";
             // 
+            // buttonRestaurar
+            // 
+            this.buttonRestaurar.FlatAppearance.BorderColor = System.Drawing.Color.SteelBlue;
+            this.buttonRestaurar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonRestaurar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonRestaurar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonRestaurar.Font = new System.Drawing.Font("Segoe UI", 16F);
+            this.buttonRestaurar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonRestaurar.Location = new System.Drawing.Point(381, 335);
+            this.buttonRestaurar.Name = "buttonRestaurar";
+            this.buttonRestaurar.Size = new System.Drawing.Size(144, 43);
+            this.buttonRestaurar.TabIndex = 17;
+            this.buttonRestaurar.Text = "Restaurar";
+            this.buttonRestaurar.UseVisualStyleBackColor = true;
+            this.buttonRestaurar.Click += new System.EventHandler(this.buttonRestaurar_Click);
+            // 
             // FormBaseDeDatos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,5 +291,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button buttonRespaldar;
+        private System.Windows.Forms.Button buttonRestaurar;
     }
 }

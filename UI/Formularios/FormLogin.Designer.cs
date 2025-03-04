@@ -35,7 +35,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.labelErrorMessage = new System.Windows.Forms.Label();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.linkLabelRestablecerContrasena = new System.Windows.Forms.LinkLabel();
             this.buttonIniciarSesion = new System.Windows.Forms.Button();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
@@ -82,7 +82,7 @@
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
             this.panel3.Controls.Add(this.labelErrorMessage);
-            this.panel3.Controls.Add(this.linkLabel1);
+            this.panel3.Controls.Add(this.linkLabelRestablecerContrasena);
             this.panel3.Controls.Add(this.buttonIniciarSesion);
             this.panel3.Controls.Add(this.textBoxPassword);
             this.panel3.Controls.Add(this.textBoxUsername);
@@ -107,17 +107,18 @@
             this.labelErrorMessage.TabIndex = 6;
             this.labelErrorMessage.Text = "Mensaje de error";
             // 
-            // linkLabel1
+            // linkLabelRestablecerContrasena
             // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
-            this.linkLabel1.Location = new System.Drawing.Point(182, 303);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(170, 21);
-            this.linkLabel1.TabIndex = 5;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Restablecer contraseña";
+            this.linkLabelRestablecerContrasena.AutoSize = true;
+            this.linkLabelRestablecerContrasena.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.linkLabelRestablecerContrasena.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(88)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.linkLabelRestablecerContrasena.Location = new System.Drawing.Point(182, 303);
+            this.linkLabelRestablecerContrasena.Name = "linkLabelRestablecerContrasena";
+            this.linkLabelRestablecerContrasena.Size = new System.Drawing.Size(170, 21);
+            this.linkLabelRestablecerContrasena.TabIndex = 5;
+            this.linkLabelRestablecerContrasena.TabStop = true;
+            this.linkLabelRestablecerContrasena.Text = "Restablecer contraseña";
+            this.linkLabelRestablecerContrasena.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelRestablecerContrasena_LinkClicked);
             // 
             // buttonIniciarSesion
             // 
@@ -214,7 +215,7 @@
         private System.Windows.Forms.TextBox textBoxUsername;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.LinkLabel linkLabelRestablecerContrasena;
         private System.Windows.Forms.Label labelErrorMessage;
         private System.Windows.Forms.ErrorProvider errorProvider1;
     }

@@ -121,13 +121,13 @@
   <data name="labelErrorMessage.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        cwAAAHMBY8FD/gAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE3SURBVDhPY6AJ
-        +BTpIPIy1LHuU6xH248kv+IfqX5+/9N8uaDSuMF/Bgam54G2G1+FOX4Havz/KyUAGb//lexfCFTDCFWO
-        CkCan/pZ3vsQ5QbX9L2vAYjrkQ0B4cVYDXkeZLfpVbA9iuIPb16DMbIYFBdAtUEAyM8PvEz/ojv7w4cP
-        YIwsBsXv/heGckK1MzA8C7JrfhpgjaEQjwH//yQHeUO1A50faLv5VYgDhiJ8BvxODSyCasfufxAGh8Fr
-        rGHwHxQjUO1QL/hjeuF7b/3/7z11GOIgjOIFXIGIIxpB+C1KIILAswDrDejh8PHFczBGFoPgwDyoNgQA
-        JaQnvtZ3P0S6whVi90LgQryp8UWA7frXIY7fsCTltyCbcWpGBh9D3YWA3qn5FOkGzkx/UgN9MPxMHcDA
-        AACSsp7xvp2ZtAAAAABJRU5ErkJggg==
+        cgAAAHIBsYahGgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAE4SURBVDhPY2Cg
+        BfgU6SDyMtSx7lOsR9uPJL/iH6l+fv/TfLnQ1WGA/wwMTM8DbTe+CnP8/iPJ7/+vlABk/P5Xsn/hfwYG
+        RnR9YADS/NTP8t6HKDe4pu99Df+/99WjG7QYqyHPg+w2vQq2R1H84c1rMEYzAIQLUDSD/PzAy/QvurM/
+        fPgAxlgMePe/MJQTbsCzILvmpwHW6IrwGfD/T3KQN9yA54G2m1+FOGAowmfA79TAIoQBWPwPNgAUBq+x
+        hsF/UIzADQB7wR/TC9976/9/76nDEAdhFC/gCkQc0QjCb1ECEeyKAOsN6OHw8cVzMMY0IDAPRTMIgBLS
+        E1/rux8iXREuwOqFwIVYExIIgAx5EWC7/nWI4zd074CcDbIZp2Zk8DHUXehViEPNp0g3cGb6kxrog+Fn
+        agEAkrKe8UJI7gAAAAAASUVORK5CYII=
 </value>
   </data>
   <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

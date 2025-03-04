@@ -69,5 +69,19 @@ namespace UI
             this.Show();
             textBoxUsername.Focus();
         }
+
+        private void linkLabelRestablecerContrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (ValidacionesForm.NoEstaVacio(textBoxUsername.Text))
+            {
+                MessageBox.Show("Se enviarán instrucciones para restablecer la contraseña al email as", "Flowmaster", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Se ha enviado un email a la dirección proporcionada con las instrucciones para restablecer la contraseña", "Flowmaster", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                msgError("Por favor ingrese nombre de usuario o email");
+                textBoxUsername.Focus();
+            }
+        }
     }
 }
