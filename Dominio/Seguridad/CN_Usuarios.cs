@@ -64,6 +64,18 @@ namespace Dominio.Clases
             }
         }
 
+        public Usuario RestablecerContraseña(string username, string email, string password)
+        {
+            try
+            {
+                return repositorioUsuarios.RestablecerContraseña(username, email, password);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public IEnumerable<Usuario> Filtrar(string filtroUsername, string filtroID_User, string filtroUser_Email, bool filtroIs_Enabled)
         {
             if (usuarios != null && usuarios.Any())

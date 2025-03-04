@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.CD_Repositorios.ReposNegocio
 {
-    public class RepoUsuarios: RepositorioMaestro
+    public class RepoUsuarios : RepositorioMaestro
     {
         public List<Grupo> ObtenerTodosLosGruposMiembro;
 
@@ -218,6 +219,34 @@ namespace DataAccess.CD_Repositorios.ReposNegocio
             }
 
             return usuarios;
+        }
+        public Usuario RestablecerContraseña(string username, string email, string password)
+        {
+            string querySQL = @"UPDATE USUARIOS
+                                   SET User_Password = @Password
+                                   WHERE Username = @Username OR User_Email = @Email";
+            parametros.Add(new SqlParameter("@Password", password));
+            parametros.Add(new SqlParameter("@Username", username));
+            parametros.Add(new SqlParameter("@Email", email));
+
+            ExecuteNonQuery(querySQL);
+            string consultaSQL = @"SELECT * 
+                            FROM USUARIOS 
+                            WHERE Username = @Username OR User_Email = @Email";
+            parametros.Add(new SqlParameter("@Username", username));
+            parametros.Add(new SqlParameter("@Email", email));
+
+            DataTable tablaUsuarios = ExecuteReader(consultaSQL);
+            Usuario usuario = new Usuario();
+            foreach (DataRow fila in tablaUsuarios.Rows)
+            {
+                usuario.ID_User = Convert.ToInt32(fila["ID_User"]);
+                usuario.Username = fila["Username"].ToString();
+                usuario.User_Password = fila["User_Password"].ToString();
+                usuario.User_Email = fila["User_Email"].ToString();
+                usuario.is_Enabled = Convert.ToBoolean(fila["is_Enabled"]);
+            }
+            return usuario;
         }
     }
 }
