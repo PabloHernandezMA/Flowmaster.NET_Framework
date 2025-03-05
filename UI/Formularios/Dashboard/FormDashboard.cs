@@ -165,6 +165,5 @@ namespace UI.Formularios.Dashboard
                 chartEstadoProyectos.Series["Series1"].Points.AddXY(grupo.Estado, grupo.Cantidad);
             }
         }
-        
     }
 }

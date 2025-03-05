@@ -1115,13 +1115,15 @@
                 </Paragraph>
               </Paragraphs>
               <rd:DefaultName>Textbox1</rd:DefaultName>
-              <Top>0.07056cm</Top>
+              <Top>0.03528cm</Top>
+              <Left>4.25979cm</Left>
               <Height>1.04979cm</Height>
-              <Width>21.04411cm</Width>
+              <Width>13.78037cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
                 </Border>
+                <BackgroundColor>#0d1117</BackgroundColor>
                 <PaddingLeft>2pt</PaddingLeft>
                 <PaddingRight>2pt</PaddingRight>
                 <PaddingTop>2pt</PaddingTop>
@@ -1133,7 +1135,7 @@
             <Border>
               <Style>None</Style>
             </Border>
-            <BackgroundColor>DarkGray</BackgroundColor>
+            <BackgroundColor>#0d1117</BackgroundColor>
           </Style>
         </PageFooter>
         <PageHeight>29.7cm</PageHeight>

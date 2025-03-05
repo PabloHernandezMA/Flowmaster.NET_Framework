@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonExcel = new System.Windows.Forms.Button();
             this.checkBoxEmpleado = new System.Windows.Forms.CheckBox();
             this.comboBoxEmpleado = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,7 +44,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.reportViewerSesiones = new Microsoft.Reporting.WinForms.ReportViewer();
             this.reportViewerSesionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonExcel = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.reportViewerSesionesBindingSource)).BeginInit();
@@ -66,6 +66,22 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(837, 170);
             this.panel1.TabIndex = 57;
+            // 
+            // buttonExcel
+            // 
+            this.buttonExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
+            this.buttonExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonExcel.Location = new System.Drawing.Point(565, 116);
+            this.buttonExcel.Name = "buttonExcel";
+            this.buttonExcel.Size = new System.Drawing.Size(124, 34);
+            this.buttonExcel.TabIndex = 66;
+            this.buttonExcel.Text = "Generar Excel";
+            this.buttonExcel.UseVisualStyleBackColor = true;
+            this.buttonExcel.Click += new System.EventHandler(this.buttonExcel_Click);
             // 
             // checkBoxEmpleado
             // 
@@ -110,7 +126,7 @@
             this.dateTimePickerFechaFin.Name = "dateTimePickerFechaFin";
             this.dateTimePickerFechaFin.Size = new System.Drawing.Size(172, 26);
             this.dateTimePickerFechaFin.TabIndex = 61;
-            this.dateTimePickerFechaFin.Value = new System.DateTime(2025, 3, 1, 0, 0, 0, 0);
+            this.dateTimePickerFechaFin.Value = new System.DateTime(2026, 1, 1, 23, 59, 0, 0);
             // 
             // label1
             // 
@@ -148,7 +164,7 @@
             this.dateTimePickerFechaInicio.Name = "dateTimePickerFechaInicio";
             this.dateTimePickerFechaInicio.Size = new System.Drawing.Size(172, 26);
             this.dateTimePickerFechaInicio.TabIndex = 55;
-            this.dateTimePickerFechaInicio.Value = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerFechaInicio.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -201,22 +217,6 @@
             this.reportViewerSesiones.ServerReport.BearerToken = null;
             this.reportViewerSesiones.Size = new System.Drawing.Size(794, 327);
             this.reportViewerSesiones.TabIndex = 58;
-            // 
-            // buttonExcel
-            // 
-            this.buttonExcel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonExcel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonExcel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumSeaGreen;
-            this.buttonExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExcel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonExcel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonExcel.Location = new System.Drawing.Point(565, 116);
-            this.buttonExcel.Name = "buttonExcel";
-            this.buttonExcel.Size = new System.Drawing.Size(124, 34);
-            this.buttonExcel.TabIndex = 66;
-            this.buttonExcel.Text = "Generar Excel";
-            this.buttonExcel.UseVisualStyleBackColor = true;
-            this.buttonExcel.Click += new System.EventHandler(this.buttonExcel_Click);
             // 
             // FormAuditoriaSesiones
             // 

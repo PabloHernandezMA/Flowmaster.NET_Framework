@@ -430,6 +430,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaSesiones.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaTareas.rdlc" />
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportPedidosPorEmpleado.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportProyectosXEmpleado.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.resx">
       <DependentUpon>FormDetallesGrupo.cs</DependentUpon>
@@ -510,6 +511,8 @@
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.AuditoriaTareaTarjeta.datasource" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.Cliente.datasource" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.Pedido.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.ReporteProyectosProgreso.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.TareaTarjeta.datasource" />
     <None Include="Properties\DataSources\Modelo.Seguridad.AuditoriaSesiones.datasource" />

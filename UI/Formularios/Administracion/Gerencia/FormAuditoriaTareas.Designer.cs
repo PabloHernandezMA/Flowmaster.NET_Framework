@@ -67,7 +67,7 @@
             this.dateTimePickerFechaFin.Name = "dateTimePickerFechaFin";
             this.dateTimePickerFechaFin.Size = new System.Drawing.Size(140, 26);
             this.dateTimePickerFechaFin.TabIndex = 61;
-            this.dateTimePickerFechaFin.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerFechaFin.Value = new System.DateTime(2026, 1, 1, 0, 0, 0, 0);
             // 
             // label1
             // 
