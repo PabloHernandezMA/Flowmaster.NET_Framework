@@ -103,6 +103,7 @@ namespace UI
                     buttonIniciarSesion.Visible = false;
                     textBoxCodigo.Visible = true;
                     labelCodigo.Visible = true;
+                    labelPassword.Text = "Nueva Contraseña";
                     buttonCambiarPassword.Visible = true;
                 }
                 else
@@ -172,6 +173,7 @@ namespace UI
                     labelCodigo.Visible = false;
                     buttonCambiarPassword.Visible = false;
                     buttonIniciarSesion.Visible = true;
+                    labelPassword.Text = "Contraseña";
 
                     // Eliminar el código de la lista para seguridad
                     codigosRestablecimiento.Remove(usernameOrEmail);

@@ -34,15 +34,8 @@ namespace Dominio.Aplicacion
         {
             try
             {
-                if (pedidos.Count > 0)
-                {
-                    return pedidos;
-                }
-                else
-                {
-                    pedidos = repositorio.ObtenerTodosLosPedidos();
-                    return pedidos;
-                }
+                pedidos = repositorio.ObtenerTodosLosPedidos();
+                return pedidos;
             }
             catch (Exception ex)
             {
