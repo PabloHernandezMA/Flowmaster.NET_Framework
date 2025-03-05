@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo.Aplicacion;
 
 namespace DataAccess.CD_Repositorios.ReposSeguridad
 {
@@ -32,7 +33,52 @@ namespace DataAccess.CD_Repositorios.ReposSeguridad
             }
             return auditorias;
         }
+        public List<AuditoriaSesiones> ObtenerAuditoriaSesionesPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            List<AuditoriaSesiones> auditorias = new List<AuditoriaSesiones>();
+            string consultaSQL = "SELECT * FROM AuditoriaSesiones WHERE FechaHora >= @fechaInicio AND FechaHora <= @fechaFin ORDER BY ID_Auditoria";
+            parametros.Add(new SqlParameter("@fechaInicio", fechaInicio));
+            parametros.Add(new SqlParameter("@fechaFin", fechaFin));
 
+            DataTable tablaAuditorias = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaAuditorias.Rows)
+            {
+                AuditoriaSesiones auditoria = new AuditoriaSesiones
+                {
+                    ID_Auditoria = Convert.ToInt32(fila["ID_Auditoria"]),
+                    FechaHora = Convert.ToDateTime(fila["FechaHora"]),
+                    TipoOperacion = Convert.ToInt32(fila["TipoOperacion"]),
+                    ID_User = Convert.ToInt32(fila["ID_User"]),
+                    Username = fila["Username"].ToString()
+                };
+                auditorias.Add(auditoria);
+            }
+            return auditorias;
+        }
+        public List<AuditoriaSesiones> ObtenerAuditoriaSesionesPorFechaYUsuario(DateTime fechaInicio, DateTime fechaFin, string empleado)
+        {
+            List<AuditoriaSesiones> auditorias = new List<AuditoriaSesiones>();
+            string consultaSQL = "SELECT * FROM AuditoriaSesiones WHERE FechaHora >= @fechaInicio AND FechaHora <= @fechaFin AND  ORDER BY ID_Auditoria";
+            parametros.Add(new SqlParameter("@fechaInicio", fechaInicio));
+            parametros.Add(new SqlParameter("@fechaFin", fechaFin));
+
+            DataTable tablaAuditorias = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaAuditorias.Rows)
+            {
+                AuditoriaSesiones auditoria = new AuditoriaSesiones
+                {
+                    ID_Auditoria = Convert.ToInt32(fila["ID_Auditoria"]),
+                    FechaHora = Convert.ToDateTime(fila["FechaHora"]),
+                    TipoOperacion = Convert.ToInt32(fila["TipoOperacion"]),
+                    ID_User = Convert.ToInt32(fila["ID_User"]),
+                    Username = fila["Username"].ToString()
+                };
+                auditorias.Add(auditoria);
+            }
+            return auditorias;
+        }
         public int RegistrarAuditoria(AuditoriaSesiones auditoria)
         {
             string consultaSQL = @"INSERT INTO AuditoriaSesiones (FechaHora, TipoOperacion, ID_User, Username) 

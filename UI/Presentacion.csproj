@@ -403,6 +403,7 @@
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\FormReporteProyectos.resx">
       <DependentUpon>FormReporteProyectos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaSesiones.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaTareas.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportProyectosXEmpleado.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.resx">
@@ -486,6 +487,7 @@
     <None Include="Properties\DataSources\Modelo.Aplicacion.AuditoriaTareaTarjeta.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.ReporteProyectosProgreso.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.TareaTarjeta.datasource" />
+    <None Include="Properties\DataSources\Modelo.Seguridad.AuditoriaSesiones.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

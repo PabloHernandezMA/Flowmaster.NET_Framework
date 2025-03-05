@@ -76,9 +76,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             this.label1.Location = new System.Drawing.Point(12, 95);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 21);
+            this.label1.Size = new System.Drawing.Size(98, 21);
             this.label1.TabIndex = 60;
-            this.label1.Text = "Fecha desde:";
+            this.label1.Text = "Fecha hasta:";
             // 
             // buttonGenerar
             // 
@@ -150,12 +150,12 @@
             // 
             // reportViewerTareas
             // 
-            this.reportViewerTareas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewerTareas.Dock = System.Windows.Forms.DockStyle.Left;
             this.reportViewerTareas.LocalReport.ReportEmbeddedResource = "UI.Formularios.Administracion.Gerencia.Reportes.ReportAuditoriaTareas.rdlc";
             this.reportViewerTareas.Location = new System.Drawing.Point(0, 190);
             this.reportViewerTareas.Name = "reportViewerTareas";
             this.reportViewerTareas.ServerReport.BearerToken = null;
-            this.reportViewerTareas.Size = new System.Drawing.Size(800, 260);
+            this.reportViewerTareas.Size = new System.Drawing.Size(778, 260);
             this.reportViewerTareas.TabIndex = 56;
             // 
             // reportViewerTareasBindingSource
