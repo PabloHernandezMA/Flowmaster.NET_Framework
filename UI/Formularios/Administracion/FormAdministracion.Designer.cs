@@ -53,7 +53,6 @@
             this.pedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaSesionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.auditoriaProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.auditoriaTareasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panelCenter = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
@@ -101,18 +100,21 @@
             // 
             // gestionarProveedoresToolStripMenuItem
             // 
+            this.gestionarProveedoresToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gestionarProveedoresToolStripMenuItem.Name = "gestionarProveedoresToolStripMenuItem";
             this.gestionarProveedoresToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.gestionarProveedoresToolStripMenuItem.Text = "Gestionar proveedores";
             // 
             // órdenesDeCompraToolStripMenuItem
             // 
+            this.órdenesDeCompraToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.órdenesDeCompraToolStripMenuItem.Name = "órdenesDeCompraToolStripMenuItem";
             this.órdenesDeCompraToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.órdenesDeCompraToolStripMenuItem.Text = "Órdenes de compra";
             // 
             // remitosToolStripMenuItem
             // 
+            this.remitosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.remitosToolStripMenuItem.Name = "remitosToolStripMenuItem";
             this.remitosToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
             this.remitosToolStripMenuItem.Text = "Remitos";
@@ -151,12 +153,14 @@
             // 
             // gestionarEmpleadosToolStripMenuItem
             // 
+            this.gestionarEmpleadosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gestionarEmpleadosToolStripMenuItem.Name = "gestionarEmpleadosToolStripMenuItem";
             this.gestionarEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.gestionarEmpleadosToolStripMenuItem.Text = "Gestionar empleados";
             // 
             // áreasToolStripMenuItem
             // 
+            this.áreasToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.áreasToolStripMenuItem.Name = "áreasToolStripMenuItem";
             this.áreasToolStripMenuItem.Size = new System.Drawing.Size(235, 26);
             this.áreasToolStripMenuItem.Text = "Áreas";
@@ -173,12 +177,14 @@
             // 
             // gestionarClientesToolStripMenuItem
             // 
+            this.gestionarClientesToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gestionarClientesToolStripMenuItem.Name = "gestionarClientesToolStripMenuItem";
             this.gestionarClientesToolStripMenuItem.Size = new System.Drawing.Size(210, 26);
             this.gestionarClientesToolStripMenuItem.Text = "Gestionar clientes";
             // 
             // remitosToolStripMenuItem1
             // 
+            this.remitosToolStripMenuItem1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.remitosToolStripMenuItem1.Name = "remitosToolStripMenuItem1";
             this.remitosToolStripMenuItem1.Size = new System.Drawing.Size(210, 26);
             this.remitosToolStripMenuItem1.Text = "Remitos";
@@ -196,6 +202,7 @@
             // 
             // gestionarUsuariosToolStripMenuItem
             // 
+            this.gestionarUsuariosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gestionarUsuariosToolStripMenuItem.Name = "gestionarUsuariosToolStripMenuItem";
             this.gestionarUsuariosToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.gestionarUsuariosToolStripMenuItem.Text = "Gestionar usuarios";
@@ -203,6 +210,7 @@
             // 
             // gestionarGruposToolStripMenuItem
             // 
+            this.gestionarGruposToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gestionarGruposToolStripMenuItem.Name = "gestionarGruposToolStripMenuItem";
             this.gestionarGruposToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.gestionarGruposToolStripMenuItem.Text = "Gestionar grupos";
@@ -210,6 +218,7 @@
             // 
             // gestionarPermisosToolStripMenuItem
             // 
+            this.gestionarPermisosToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.gestionarPermisosToolStripMenuItem.Name = "gestionarPermisosToolStripMenuItem";
             this.gestionarPermisosToolStripMenuItem.Size = new System.Drawing.Size(221, 26);
             this.gestionarPermisosToolStripMenuItem.Text = "Gestionar permisos";
@@ -227,6 +236,7 @@
             // 
             // reporteToolStripMenuItem
             // 
+            this.reporteToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.reporteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.proyectosToolStripMenuItem,
             this.pedidosToolStripMenuItem});
@@ -254,7 +264,6 @@
             this.auditoriaToolStripMenuItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.auditoriaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.auditoriaSesionesToolStripMenuItem,
-            this.auditoriaProductosToolStripMenuItem,
             this.auditoriaTareasToolStripMenuItem});
             this.auditoriaToolStripMenuItem.Name = "auditoriaToolStripMenuItem";
             this.auditoriaToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
@@ -266,12 +275,6 @@
             this.auditoriaSesionesToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
             this.auditoriaSesionesToolStripMenuItem.Text = "Auditoria Sesiones";
             this.auditoriaSesionesToolStripMenuItem.Click += new System.EventHandler(this.auditoriaSesionesToolStripMenuItem_Click);
-            // 
-            // auditoriaProductosToolStripMenuItem
-            // 
-            this.auditoriaProductosToolStripMenuItem.Name = "auditoriaProductosToolStripMenuItem";
-            this.auditoriaProductosToolStripMenuItem.Size = new System.Drawing.Size(227, 26);
-            this.auditoriaProductosToolStripMenuItem.Text = "Auditoria Productos";
             // 
             // auditoriaTareasToolStripMenuItem
             // 
@@ -332,7 +335,6 @@
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaSesionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem auditoriaProductosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proyectosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem auditoriaTareasToolStripMenuItem;

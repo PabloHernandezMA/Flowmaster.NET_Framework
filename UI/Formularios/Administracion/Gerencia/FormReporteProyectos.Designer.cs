@@ -163,7 +163,7 @@
             // 
             // reportViewerProyectos
             // 
-            this.reportViewerProyectos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.reportViewerProyectos.Dock = System.Windows.Forms.DockStyle.Left;
             reportDataSource1.Name = "DataSetProyectos";
             reportDataSource1.Value = this.reporteProyectosProgresoBindingSource;
             this.reportViewerProyectos.LocalReport.DataSources.Add(reportDataSource1);
@@ -171,7 +171,7 @@
             this.reportViewerProyectos.Location = new System.Drawing.Point(0, 190);
             this.reportViewerProyectos.Name = "reportViewerProyectos";
             this.reportViewerProyectos.ServerReport.BearerToken = null;
-            this.reportViewerProyectos.Size = new System.Drawing.Size(800, 513);
+            this.reportViewerProyectos.Size = new System.Drawing.Size(771, 513);
             this.reportViewerProyectos.TabIndex = 54;
             // 
             // FormReporteProyectos
