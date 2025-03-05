@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Reporting.WinForms;
 using Dominio;
+using Modelo.Seguridad;
+using Dominio.Seguridad;
 
 namespace UI.Formularios.Administracion.Gerencia
 {
@@ -32,7 +34,7 @@ namespace UI.Formularios.Administracion.Gerencia
             List<Empleado> empleados = CN_Empleados.ObtenerInstancia().ObtenerTodosLosEmpleados();
             var empleadosHabilitados = empleados.Where(e => e.Habilitado).ToList();
             comboBoxEmpleado.DataSource = empleadosHabilitados;
-            comboBoxEmpleado.ValueMember = "ID_Empleado";
+            comboBoxEmpleado.ValueMember = "ID_User";
             comboBoxEmpleado.DisplayMember = "Nombre";
             comboBoxEmpleado.Text = "Todos";
         }
@@ -45,7 +47,15 @@ namespace UI.Formularios.Administracion.Gerencia
 
         private void buttonGenerar_Click(object sender, EventArgs e)
         {
-            List<> datosReporte = ;
+            List<AuditoriaSesiones> datosReporte;
+            if (checkBoxEmpleado.Checked)
+            {
+                datosReporte = CN_AuditoriaSesiones.ObtenerInstancia().ObtenerAuditoriaSesionesPorFechaYUsuario(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value, (int)comboBoxEmpleado.SelectedValue);  
+            }
+            else
+            {
+                datosReporte = CN_AuditoriaSesiones.ObtenerInstancia().ObtenerAuditoriaSesionesPorFecha(dateTimePickerFechaInicio.Value, dateTimePickerFechaFin.Value);
+            }
             if (datosReporte == null || datosReporte.Count == 0)
             {
                 MessageBox.Show("No hay datos para mostrar en el reporte.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -56,7 +66,7 @@ namespace UI.Formularios.Administracion.Gerencia
             this.reportViewerSesiones.LocalReport.SetParameters(new ReportParameter("ReportParameterFechaInicio", dateTimePickerFechaInicio.Value.ToString("yyyy-MM-dd")));
             this.reportViewerSesiones.LocalReport.SetParameters(new ReportParameter("ReportParameterFechaFin", dateTimePickerFechaFin.Value.ToString("yyyy-MM-dd")));
             this.reportViewerSesiones.LocalReport.DataSources.Clear();
-            this.reportViewerSesiones.LocalReport.DataSources.Add(new ReportDataSource("DataSetTareas", reportViewerTareasBindingSource));
+            this.reportViewerSesiones.LocalReport.DataSources.Add(new ReportDataSource("DataSetSesiones", reportViewerSesionesBindingSource));
             this.reportViewerSesiones.RefreshReport();
         }
     }

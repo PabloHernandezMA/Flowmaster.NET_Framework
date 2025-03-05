@@ -51,6 +51,33 @@ namespace Dominio.Seguridad
             }
         }
 
+        public List<AuditoriaSesiones> ObtenerAuditoriaSesionesPorFecha(DateTime fechaInicio, DateTime fechaFin)
+        {
+            try
+            {
+                auditorias = repositorioAuditoriaSesiones.ObtenerAuditoriaSesionesPorFecha(fechaInicio, fechaFin);
+                return auditorias;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+        public List<AuditoriaSesiones> ObtenerAuditoriaSesionesPorFechaYUsuario(DateTime fechaInicio, DateTime fechaFin, int idUsuario)
+        {
+            try
+            {
+                auditorias = repositorioAuditoriaSesiones.ObtenerAuditoriaSesionesPorFechaYUsuario(fechaInicio, fechaFin, idUsuario);
+                return auditorias;
+            }
+            catch (Exception ex)
+            {
+                // Manejo de excepciones, puedes lanzarla nuevamente o manejarla de otra manera según tus necesidades.
+                throw ex;
+            }
+        }
+
         public int RegistrarAuditoria(AuditoriaSesiones auditoria)
         {
             try

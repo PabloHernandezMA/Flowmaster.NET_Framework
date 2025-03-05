@@ -56,12 +56,13 @@ namespace DataAccess.CD_Repositorios.ReposSeguridad
             }
             return auditorias;
         }
-        public List<AuditoriaSesiones> ObtenerAuditoriaSesionesPorFechaYUsuario(DateTime fechaInicio, DateTime fechaFin, string empleado)
+        public List<AuditoriaSesiones> ObtenerAuditoriaSesionesPorFechaYUsuario(DateTime fechaInicio, DateTime fechaFin, int idUsuario)
         {
             List<AuditoriaSesiones> auditorias = new List<AuditoriaSesiones>();
-            string consultaSQL = "SELECT * FROM AuditoriaSesiones WHERE FechaHora >= @fechaInicio AND FechaHora <= @fechaFin AND  ORDER BY ID_Auditoria";
+            string consultaSQL = "SELECT * FROM AuditoriaSesiones WHERE FechaHora >= @fechaInicio AND FechaHora <= @fechaFin AND ID_User = @idUsuario ORDER BY ID_Auditoria";
             parametros.Add(new SqlParameter("@fechaInicio", fechaInicio));
             parametros.Add(new SqlParameter("@fechaFin", fechaFin));
+            parametros.Add(new SqlParameter("@idUsuario", idUsuario));
 
             DataTable tablaAuditorias = ExecuteReader(consultaSQL);
 

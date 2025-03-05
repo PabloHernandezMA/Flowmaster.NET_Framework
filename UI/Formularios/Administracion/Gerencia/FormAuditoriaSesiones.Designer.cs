@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBoxEmpleado = new System.Windows.Forms.CheckBox();
+            this.comboBoxEmpleado = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.dateTimePickerFechaFin = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonGenerar = new System.Windows.Forms.Button();
@@ -38,9 +41,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxEmpleado = new System.Windows.Forms.ComboBox();
-            this.checkBoxEmpleado = new System.Windows.Forms.CheckBox();
             this.reportViewerSesiones = new Microsoft.Reporting.WinForms.ReportViewer();
             this.reportViewerSesionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
@@ -65,15 +65,50 @@
             this.panel1.Size = new System.Drawing.Size(837, 170);
             this.panel1.TabIndex = 57;
             // 
+            // checkBoxEmpleado
+            // 
+            this.checkBoxEmpleado.AutoSize = true;
+            this.checkBoxEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.checkBoxEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEmpleado.Location = new System.Drawing.Point(360, 133);
+            this.checkBoxEmpleado.Name = "checkBoxEmpleado";
+            this.checkBoxEmpleado.Size = new System.Drawing.Size(12, 11);
+            this.checkBoxEmpleado.TabIndex = 65;
+            this.checkBoxEmpleado.UseVisualStyleBackColor = true;
+            this.checkBoxEmpleado.CheckedChanged += new System.EventHandler(this.checkBoxEmpleado_CheckedChanged);
+            // 
+            // comboBoxEmpleado
+            // 
+            this.comboBoxEmpleado.Enabled = false;
+            this.comboBoxEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.comboBoxEmpleado.FormattingEnabled = true;
+            this.comboBoxEmpleado.Location = new System.Drawing.Point(117, 120);
+            this.comboBoxEmpleado.Name = "comboBoxEmpleado";
+            this.comboBoxEmpleado.Size = new System.Drawing.Size(237, 29);
+            this.comboBoxEmpleado.TabIndex = 64;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label2.Location = new System.Drawing.Point(29, 123);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 21);
+            this.label2.TabIndex = 63;
+            this.label2.Text = "Empleado:";
+            // 
             // dateTimePickerFechaFin
             // 
+            this.dateTimePickerFechaFin.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTimePickerFechaFin.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFechaFin.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerFechaFin.Location = new System.Drawing.Point(117, 85);
             this.dateTimePickerFechaFin.Name = "dateTimePickerFechaFin";
-            this.dateTimePickerFechaFin.Size = new System.Drawing.Size(140, 26);
+            this.dateTimePickerFechaFin.Size = new System.Drawing.Size(172, 26);
             this.dateTimePickerFechaFin.TabIndex = 61;
-            this.dateTimePickerFechaFin.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerFechaFin.Value = new System.DateTime(2025, 3, 1, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -104,13 +139,14 @@
             // 
             // dateTimePickerFechaInicio
             // 
+            this.dateTimePickerFechaInicio.CustomFormat = "dd/MM/yyyy HH:mm";
             this.dateTimePickerFechaInicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePickerFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerFechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dateTimePickerFechaInicio.Location = new System.Drawing.Point(117, 50);
             this.dateTimePickerFechaInicio.Name = "dateTimePickerFechaInicio";
-            this.dateTimePickerFechaInicio.Size = new System.Drawing.Size(140, 26);
+            this.dateTimePickerFechaInicio.Size = new System.Drawing.Size(172, 26);
             this.dateTimePickerFechaInicio.TabIndex = 55;
-            this.dateTimePickerFechaInicio.Value = new System.DateTime(2020, 1, 1, 0, 0, 0, 0);
+            this.dateTimePickerFechaInicio.Value = new System.DateTime(2025, 1, 1, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -153,40 +189,6 @@
             this.label3.Size = new System.Drawing.Size(219, 30);
             this.label3.TabIndex = 0;
             this.label3.Text = "Auditoria de sesiones";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label2.Location = new System.Drawing.Point(29, 123);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 21);
-            this.label2.TabIndex = 63;
-            this.label2.Text = "Empleado:";
-            // 
-            // comboBoxEmpleado
-            // 
-            this.comboBoxEmpleado.Enabled = false;
-            this.comboBoxEmpleado.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.comboBoxEmpleado.FormattingEnabled = true;
-            this.comboBoxEmpleado.Location = new System.Drawing.Point(117, 120);
-            this.comboBoxEmpleado.Name = "comboBoxEmpleado";
-            this.comboBoxEmpleado.Size = new System.Drawing.Size(237, 29);
-            this.comboBoxEmpleado.TabIndex = 64;
-            // 
-            // checkBoxEmpleado
-            // 
-            this.checkBoxEmpleado.AutoSize = true;
-            this.checkBoxEmpleado.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkBoxEmpleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.checkBoxEmpleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxEmpleado.Location = new System.Drawing.Point(360, 133);
-            this.checkBoxEmpleado.Name = "checkBoxEmpleado";
-            this.checkBoxEmpleado.Size = new System.Drawing.Size(12, 11);
-            this.checkBoxEmpleado.TabIndex = 65;
-            this.checkBoxEmpleado.UseVisualStyleBackColor = true;
-            this.checkBoxEmpleado.CheckedChanged += new System.EventHandler(this.checkBoxEmpleado_CheckedChanged);
             // 
             // reportViewerSesiones
             // 
