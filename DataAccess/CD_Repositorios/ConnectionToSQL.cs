@@ -35,6 +35,11 @@ namespace DataAccess
                 string json = File.ReadAllText(configFilePath);
                 config = JsonConvert.DeserializeObject<ConnectionConfig>(json);
             }
+            else if (File.Exists("C:\\UAI\\Flowmaster.NET_Framework\\DataAccess\\configSQL.json"))
+            {
+                string json = File.ReadAllText("C:\\UAI\\Flowmaster.NET_Framework\\DataAccess\\configSQL.json");
+                config = JsonConvert.DeserializeObject<ConnectionConfig>(json);
+            }
             else
             {
                 throw new FileNotFoundException("El archivo de configuración de la base de datos no se encontró.");
