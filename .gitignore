@@ -4,7 +4,11 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 Gpass.txt
+
 configSQL.json
+
+DataAccess/configSQL.json
+
 # User-specific files
 *.rsuser
 *.suo
