@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
@@ -129,6 +131,7 @@ namespace UI
         {
             try
             {
+                string password = File.ReadAllText(ConfigurationManager.AppSettings["GpassPath"]);
                 MailMessage mail = new MailMessage();
                 mail.To.Add(destinatario);
                 mail.Subject = asunto;
@@ -137,7 +140,7 @@ namespace UI
                 mail.IsBodyHtml = true;
 
                 SmtpClient smtp = new SmtpClient("smtp.gmail.com");
-                smtp.Credentials = new System.Net.NetworkCredential("flowmasteremail@gmail.com", "vply anbf xqip zbrz");
+                smtp.Credentials = new System.Net.NetworkCredential("flowmasteremail@gmail.com", password);
                 smtp.EnableSsl = true;
                 smtp.Port = 587;
                 smtp.Send(mail);
