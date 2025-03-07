@@ -1,4 +1,5 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
 using Modelo;
 using Modelo.Aplicacion;
 using System;
@@ -16,6 +17,12 @@ namespace UI.Formularios.Proyectos
 {
     public partial class FormGestionarProyectos : Form
     {
+        private int Buscar_proyectos = 111;
+        private int Ver_proyecto = 112;
+        private int Agregar_proyecto = 113;
+        private int Borrar_proyecto = 114;
+        private int Editar_proyecto = 115;
+
         private CN_Proyectos proyectos;
         private static FormGestionarProyectos instance;
         private List<Proyecto> ListaDeProyectos; // Lista completa de proyectos
@@ -52,6 +59,16 @@ namespace UI.Formularios.Proyectos
         private void FormGestionarProyectos_Load(object sender, EventArgs e)
         {
             InicializarEventos();
+            CargarPermisos();
+        }
+        private void CargarPermisos()
+        {
+            buttonBuscar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Buscar_proyectos);
+            buttonVerDetalles.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Ver_proyecto);
+            buttonAgregar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Agregar_proyecto);
+            buttonEliminar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Borrar_proyecto);
+            buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Editar_proyecto);
+            
         }
         private void InicializarEventos()
         {
