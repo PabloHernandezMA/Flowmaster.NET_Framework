@@ -1,10 +1,12 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,20 @@ namespace UI.Formularios.Proyectos
         {
             InitializeComponent();
             comboBoxEstadoProyecto.SelectedIndex = 0;
+            if (listaIntegrantes == null)
+            {
+                listaIntegrantes = new List<Integrante>();
+            }
+            Empleado empleadoEnSesion = CN_Empleados.ObtenerInstancia().ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User);
+            Integrante creador = new Integrante
+            {
+                Nombre = empleadoEnSesion.Nombre,
+                ID_Empleado = empleadoEnSesion.ID_Empleado,
+                ID_Proyecto = string.IsNullOrWhiteSpace(textBoxNumero.Text) ? 0 : int.Parse(textBoxNumero.Text),
+                Cargo = "Administrador"
+            };
+            listaIntegrantes.Add(creador);
+            CargarEmpleados(listaIntegrantes);
         }
 
         private FormDetalleProyecto(Proyecto proyecto) : this()
@@ -80,9 +96,59 @@ namespace UI.Formularios.Proyectos
         {
             this.Dispose();
         }
+        private bool EsAdministrador()
+        {
+            if (string.IsNullOrWhiteSpace(textBoxNumero.Text))
+            {
+                if (HayAdministrador())
+                {
+                    return true;
+                }
+                
+                int idEmpleadoActual = CN_Empleados.ObtenerInstancia()
+        .ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User)
+        .ID_Empleado;
 
+                foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
+                {
+                    if (row.DataBoundItem is Integrante integrante &&
+                        integrante.ID_Empleado == idEmpleadoActual &&
+                        integrante.Cargo == "Administrador")
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            else
+            {
+                return CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto).Any(i => i.ID_Empleado == CN_Empleados.ObtenerInstancia().ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User).ID_Empleado && i.Cargo == "Administrador");
+
+            }
+        }
+        private bool HayAdministrador()
+        {
+            foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
+            {
+                if (row.DataBoundItem is Integrante integrante && integrante.Cargo == "Administrador")
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            if (!EsAdministrador())
+            {
+                MessageBox.Show("Usted no tiene el cargo Administrador en este proyecto, no puede realizar cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!HayAdministrador())
+            {
+                MessageBox.Show("El proyecto debe tener al menos un Administrador, verifique la pestaña Empleados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (!VerificarCampos())
             {
                 MessageBox.Show("Verifique los campos del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

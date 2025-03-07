@@ -47,6 +47,13 @@ namespace UI.Formularios.Proyectos
             {
                 formulario.ShowDialog();
             }
+            FlowLayoutPanel parent = this.Parent as FlowLayoutPanel;
+
+            if (parent != null)
+            {
+                // Remover este UserControl del FlowLayoutPanel
+                parent.
+            }
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)

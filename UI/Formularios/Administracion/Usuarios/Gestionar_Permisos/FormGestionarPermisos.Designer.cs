@@ -36,7 +36,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.buttonModificar = new System.Windows.Forms.Button();
-            this.buttonVerDetalles = new System.Windows.Forms.Button();
+            this.buttonVerPermisos = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -71,7 +71,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(48)))), ((int)(((byte)(56)))));
             this.panel2.Controls.Add(this.buttonModificar);
-            this.panel2.Controls.Add(this.buttonVerDetalles);
+            this.panel2.Controls.Add(this.buttonVerPermisos);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel2.Location = new System.Drawing.Point(751, 100);
             this.panel2.Name = "panel2";
@@ -86,28 +86,28 @@
             this.buttonModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonModificar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonModificar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonModificar.Location = new System.Drawing.Point(18, 173);
+            this.buttonModificar.Location = new System.Drawing.Point(18, 93);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(170, 35);
             this.buttonModificar.TabIndex = 8;
-            this.buttonModificar.Text = "Modificar";
+            this.buttonModificar.Text = "Modificar permisos";
             this.buttonModificar.UseVisualStyleBackColor = true;
             // 
-            // buttonVerDetalles
+            // buttonVerPermisos
             // 
-            this.buttonVerDetalles.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonVerDetalles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
-            this.buttonVerDetalles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
-            this.buttonVerDetalles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonVerDetalles.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
-            this.buttonVerDetalles.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonVerDetalles.Location = new System.Drawing.Point(18, 52);
-            this.buttonVerDetalles.Name = "buttonVerDetalles";
-            this.buttonVerDetalles.Size = new System.Drawing.Size(170, 35);
-            this.buttonVerDetalles.TabIndex = 6;
-            this.buttonVerDetalles.Text = "Ver detalles";
-            this.buttonVerDetalles.UseVisualStyleBackColor = true;
-            this.buttonVerDetalles.Click += new System.EventHandler(this.buttonVerDetalles_Click);
+            this.buttonVerPermisos.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonVerPermisos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonVerPermisos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonVerPermisos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVerPermisos.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonVerPermisos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonVerPermisos.Location = new System.Drawing.Point(18, 52);
+            this.buttonVerPermisos.Name = "buttonVerPermisos";
+            this.buttonVerPermisos.Size = new System.Drawing.Size(170, 35);
+            this.buttonVerPermisos.TabIndex = 6;
+            this.buttonVerPermisos.Text = "Ver permisos";
+            this.buttonVerPermisos.UseVisualStyleBackColor = true;
+            this.buttonVerPermisos.Click += new System.EventHandler(this.buttonVerDetalles_Click);
             // 
             // panel3
             // 
@@ -181,6 +181,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FormGestionarPermisos";
             this.Text = "FormGestionarPermisos";
+            this.Load += new System.EventHandler(this.FormGestionarPermisos_Load);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -194,7 +195,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button buttonModificar;
-        private System.Windows.Forms.Button buttonVerDetalles;
+        private System.Windows.Forms.Button buttonVerPermisos;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label4;

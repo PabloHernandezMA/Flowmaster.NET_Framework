@@ -1,4 +1,5 @@
-﻿using Dominio.Clases;
+﻿using Dominio;
+using Dominio.Clases;
 using Modelo;
 using System;
 using System.Collections.Generic;
@@ -40,6 +41,10 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
 
         private void FormDetallesPermiso_Load(object sender, EventArgs e)
         {
+            buttonCancelar.Visible = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(110);
+            buttonGuardar.Visible = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(110);
+            buttonDarPermiso.Visible = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(110);
+            buttonQuitarPermiso.Visible = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(110);
             // Suscribir los eventos CheckedChanged de los CheckBox
             checkBoxUsuarios.CheckedChanged += FiltrarDataGridView;
             checkBoxGrupos.CheckedChanged += FiltrarDataGridView;

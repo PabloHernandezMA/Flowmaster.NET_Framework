@@ -55,7 +55,15 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
                                                 SELECT ID_Columna FROM COLUMNAS WHERE ID_Proyecto = @ID_Proyecto
                                             )
                                         );
-
+                                        -- Eliminar tareas
+                                        DELETE FROM TAREASxTARJETA 
+										WHERE ID_Tarjeta IN (
+											SELECT ID_Tarjeta FROM TARJETAS 
+											WHERE ID_Columna IN (
+												SELECT ID_Columna FROM COLUMNAS 
+												WHERE ID_Proyecto = @ID_Proyecto
+											)
+										);
                                         -- Eliminar tarjetas del proyecto
                                         DELETE FROM TARJETAS
                                         WHERE ID_Columna IN (

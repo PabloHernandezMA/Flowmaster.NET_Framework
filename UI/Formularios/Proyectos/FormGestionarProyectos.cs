@@ -66,9 +66,11 @@ namespace UI.Formularios.Proyectos
             buttonBuscar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Buscar_proyectos);
             buttonVerDetalles.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Ver_proyecto);
             buttonAgregar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Agregar_proyecto);
-            buttonEliminar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Borrar_proyecto);
-            buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Editar_proyecto);
-            
+            //buttonEliminar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Borrar_proyecto);
+            //buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Editar_proyecto);
+            buttonEliminar.Enabled = false;
+            buttonModificar.Enabled = false;
+
         }
         private void InicializarEventos()
         {
@@ -79,7 +81,8 @@ namespace UI.Formularios.Proyectos
             dateTimePickerFechaInicio.ValueChanged += (s, e) => FiltrarResultados();
             comboBoxEmpleado.SelectedValueChanged += (s, e) => FiltrarResultados();
         }
-        private void CargarComboBoxEmpleados() {
+        private void CargarComboBoxEmpleados()
+        {
             List<Empleado> empleados = CN_Empleados.ObtenerInstancia().ObtenerTodosLosEmpleados();
             var empleadosHabilitados = empleados.Where(e => e.Habilitado).ToList();
             comboBoxEmpleado.DataSource = empleadosHabilitados;
@@ -137,6 +140,8 @@ namespace UI.Formularios.Proyectos
 
         private void ActualizarDataGridView()
         {
+            buttonModificar.Enabled = false;
+            buttonEliminar.Enabled = false;
             dataGridView1.DataSource = null;
             dataGridView1.DataSource = listaFiltrada;
             // Ocultar columnas no deseadas
@@ -215,6 +220,30 @@ namespace UI.Formularios.Proyectos
             else
             {
                 MessageBox.Show("Por favor, seleccione un proyecto.");
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Proyecto ObjSeleccionado = (Proyecto)dataGridView1.SelectedRows[0].DataBoundItem;
+
+            int idEmpleadoActual = CN_Empleados.ObtenerInstancia()
+                .ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User)
+                .ID_Empleado;
+
+            // Obtener la lista de integrantes del proyecto seleccionado
+            List<Integrante> integrantes = proyectos.ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(ObjSeleccionado.ID_Proyecto);
+
+            // Verificar si el empleado actual está en la lista de integrantes
+            if (integrantes.Any(i => i.ID_Empleado == idEmpleadoActual && i.Cargo == "Administrador"))
+            {
+                buttonEliminar.Enabled = true;
+                buttonModificar.Enabled = true;
+            }
+            else
+            {
+                buttonEliminar.Enabled = false;
+                buttonModificar.Enabled = false;
             }
         }
     }

@@ -67,7 +67,7 @@ namespace UI.Administracion
         private void gestionarPermisosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Crear una instancia del formulario que deseas mostrar
-            FormGestionarPermisos formAdmin = new FormGestionarPermisos();
+            FormDetallesPermiso formAdmin = new FormDetallesPermiso();
 
             // Configurar la forma para que pueda ser incrustada
             formAdmin.TopLevel = false;

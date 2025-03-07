@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dominio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,12 @@ namespace UI.Formularios.Administracion.Usuarios.Gestionar_Permisos
             {
                 FormDetallesPermiso.ShowDialog();
             }
+        }
+
+        private void FormGestionarPermisos_Load(object sender, EventArgs e)
+        {
+            buttonVerPermisos.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(109);
+            buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(110);
         }
     }
 }

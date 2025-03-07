@@ -91,7 +91,12 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
         public int BajaColumna(int idColumna)
         {
-            string consultaSQL = @"DELETE FROM EMPLEADOxTARJETA
+            string consultaSQL = @"DELETE FROM TAREASxTARJETA 
+                                    WHERE ID_Tarjeta IN (
+                                        SELECT ID_Tarjeta FROM TARJETAS 
+                                        WHERE ID_Columna = @ID_Columna
+                                    );
+                                    DELETE FROM EMPLEADOxTARJETA
                                     WHERE ID_Tarjeta IN (SELECT ID_Tarjeta FROM TARJETAS WHERE ID_Columna = @ID_Columna);
                                     DELETE FROM TARJETAS WHERE ID_Columna = @ID_Columna;
                                     DELETE FROM COLUMNAS WHERE ID_Columna = @ID_Columna";

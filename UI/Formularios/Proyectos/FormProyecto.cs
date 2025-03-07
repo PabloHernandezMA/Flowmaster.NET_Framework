@@ -16,6 +16,7 @@ namespace UI.Formularios.Proyectos
     {
         private CN_Proyectos proyectos;
         private Proyecto esteProyecto;
+        private List<Integrante> listaIntegrantes;
         private static FormProyecto instance;
         private CN_Columnas columnas;
         private FormProyecto()
@@ -50,12 +51,12 @@ namespace UI.Formularios.Proyectos
             cargarColumnas(esteProyecto.ID_Proyecto);
             // Se registra como observador
             GestorTareas.ObtenerInstancia().AgregarObservador(this);
-
             // Carga inicial de tareas
             Actualizar();
         }
         private void cargarDatosProyecto()
         {
+            listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
             this.Text = $"Proyecto: {esteProyecto.Nombre}";
             labelProyecto.Text = $"Proyecto: {esteProyecto.ID_Proyecto}";
             textBoxNombreProyecto.Text = esteProyecto.Nombre;
