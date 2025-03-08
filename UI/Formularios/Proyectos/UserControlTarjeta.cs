@@ -1,4 +1,5 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
@@ -37,7 +38,14 @@ namespace UI.Formularios.Proyectos
             int tareasCompletadas = tareas.Count(t => t.Completada);
 
             labelTarjeta.Text = ObjetoTarjeta.Nombre;
-            labelFechaFin.Text = $"Tareas: {tareasCompletadas}/{totalTareas}";
+            if (totalTareas == 0)
+            {
+                labelFechaFin.Text = "Sin tareas";
+            }
+            else
+            {
+                labelFechaFin.Text = $"Tareas: {tareasCompletadas}/{totalTareas}";
+            }
         }
 
         private void panelRight_MouseDown(object sender, MouseEventArgs e)
@@ -58,6 +66,11 @@ namespace UI.Formularios.Proyectos
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermiso())
+            {
+                MessageBox.Show("No tiene permisos para eliminar la tarjeta.");
+                return;
+            }
             DialogResult resultado = MessageBox.Show("¿Está seguro de querer eliminar la tarjeta?",
                                                       "Confirmar Eliminación",
                                                       MessageBoxButtons.YesNo,
@@ -82,6 +95,23 @@ namespace UI.Formularios.Proyectos
             else
             {
                 MessageBox.Show("La eliminación ha sido cancelada.");
+            }
+        }
+        private bool VerificarPermiso()
+        {
+            List<Columna> columnas = CN_Columnas.ObtenerInstancia().ObtenerTodasLasColumnasDelProyectoPorTarjeta(ObjetoTarjeta.ID_Tarjeta);
+            Columna columna = columnas.FirstOrDefault(c => c.ID_Columna == ObjetoTarjeta.ID_Columna); // Encontrar la columna a la que pertenece la tarjeta por ObjetoTarjeta.ID_Columna
+            int idEmpleadoActual = CN_Empleados.ObtenerInstancia()
+                .ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User)
+                .ID_Empleado;
+            List<Integrante> listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(columna.ID_Proyecto);
+            if (listaIntegrantes.Any(i => i.ID_Empleado == idEmpleadoActual && (i.Cargo == "Administrador" || i.Cargo == "Colaborador")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

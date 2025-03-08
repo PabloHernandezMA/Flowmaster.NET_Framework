@@ -138,7 +138,11 @@ namespace UI.Formularios.Proyectos
         private void flowLayoutPanelDeTarjetas_DragDrop(object sender, DragEventArgs e)
         {
             UserControlTarjeta tarjetaMovida = (UserControlTarjeta)e.Data.GetData(typeof(UserControlTarjeta));
-
+            if (!VerificarPermiso())
+            {
+                MessageBox.Show("No tiene permisos para realizar esta acción.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (tarjetaMovida.ObjetoTarjeta.ID_Columna != this.columnaDB.ID_Columna)
             {
                 // La tarjeta se movió a otra columna
@@ -195,11 +199,6 @@ namespace UI.Formularios.Proyectos
 
         private void MoverTarjetaPorArrastre(UserControlTarjeta tarjetaMovida, int nuevaPosicion)
         {
-            if (!VerificarPermiso())
-            {
-                MessageBox.Show("No tiene permisos para realizar esta acción.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
             List<Tarjeta> tarjetasDeColumna = CN_Tarjetas.ObtenerInstancia()
                                                           .ObtenerTodasLasTarjetasDeLaColumna(columnaDB.ID_Columna)
                                                           .OrderBy(t => t.Posicion)

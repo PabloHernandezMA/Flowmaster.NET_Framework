@@ -219,9 +219,9 @@ namespace UI.Formularios.Proyectos
                 esValido = false;
             }
 
-            if (dateTimePickerInicio.Value >= dateTimePickerFin.Value)
+            if (dateTimePickerInicio.Value > dateTimePickerFin.Value)
             {
-                errorProvider1.SetError(dateTimePickerFin, "La fecha de fin debe ser posterior a la de inicio.");
+                errorProvider1.SetError(dateTimePickerFin, "La fecha de fin debe ser igual o posterior a la de inicio.");
                 esValido = false;
             }
 

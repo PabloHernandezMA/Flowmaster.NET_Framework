@@ -1,4 +1,5 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace UI.Formularios.Proyectos
         private Tarjeta estaTarjeta;
         private List<Empleado_Tarjeta> listaIntegrantes;
         private List<TareaTarjeta> tareasDB;
+        private List<Columna> columnasDelProyecto;
         private FormDetalleTarjeta()
         {
             InitializeComponent();
@@ -38,11 +40,11 @@ namespace UI.Formularios.Proyectos
         {
             InitializeComponent();
             idTarjeta = 0;
-            List<Columna> columnas = CN_Columnas.ObtenerInstancia().ObtenerTodasLasColumnasDelProyecto(columna.ID_Proyecto);
-            comboBoxColumna.DataSource = columnas;
+            columnasDelProyecto = CN_Columnas.ObtenerInstancia().ObtenerTodasLasColumnasDelProyecto(columna.ID_Proyecto);
+            comboBoxColumna.DataSource = columnasDelProyecto;
             comboBoxColumna.DisplayMember = "Nombre";
             comboBoxColumna.ValueMember = "ID_Columna";
-            comboBoxColumna.SelectedItem = columnas.FirstOrDefault(c => c.ID_Columna == columna.ID_Columna);
+            comboBoxColumna.SelectedItem = columnasDelProyecto.FirstOrDefault(c => c.ID_Columna == columna.ID_Columna);
         }
         public static FormDetalleTarjeta ObtenerInstancia(Columna columna)
         {
@@ -63,7 +65,7 @@ namespace UI.Formularios.Proyectos
         private void cargarDatos()
         {
             CN_Columnas columnas = CN_Columnas.ObtenerInstancia();
-            List<Columna> columnasDelProyecto = columnas.ObtenerTodasLasColumnasDelProyectoPorTarjeta(estaTarjeta.ID_Tarjeta);
+            columnasDelProyecto = columnas.ObtenerTodasLasColumnasDelProyectoPorTarjeta(estaTarjeta.ID_Tarjeta);
             comboBoxColumna.DataSource = columnasDelProyecto;
             comboBoxColumna.DisplayMember = "Nombre";
             comboBoxColumna.ValueMember = "ID_Columna";
@@ -72,7 +74,7 @@ namespace UI.Formularios.Proyectos
             textBoxDescTarjeta.Text = estaTarjeta.Descripcion;
             comboBoxColumna.SelectedValue = estaTarjeta.ID_Columna;
             cargarTareas();
-            if (idTarjeta!=0) { CargarEmpleados(CN_Tarjetas.ObtenerInstancia().ObtenerTodosLosEmpleadosDeLaTarjeta(idTarjeta)); }
+            if (idTarjeta != 0) { CargarEmpleados(CN_Tarjetas.ObtenerInstancia().ObtenerTodosLosEmpleadosDeLaTarjeta(idTarjeta)); }
         }
         // Agregar como campo de la clase
         //private Dictionary<string, TareaTarjeta> tareasDict = new Dictionary<string, TareaTarjeta>();
@@ -136,6 +138,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermisos())
+            {
+                MessageBox.Show("No tiene permisos para esto.");
+                return;
+            }
             if (!VerificarCampos())
             {
                 MessageBox.Show("Verifique los campos del formulario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -278,6 +285,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonAddEdit_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermisos())
+            {
+                MessageBox.Show("No tiene permisos para esto.");
+                return;
+            }
             UserControlCheck control = new UserControlCheck();
             control.CheckBoxChanged += Tarea_CheckBoxChanged;
             control.ObjetoTareaTarjeta.Completada = false;
@@ -295,6 +307,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonAgregarEmpleado_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermisos())
+            {
+                MessageBox.Show("No tiene permisos para esto.");
+                return;
+            }
             FormGestionarEmpleados form = FormGestionarEmpleados.ObtenerInstancia(1);
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -336,6 +353,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonEliminarEmpleado_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermisos())
+            {
+                MessageBox.Show("No tiene permisos para esto.");
+                return;
+            }
             if (dataGridViewEmpleados.SelectedRows.Count > 0)
             {
                 // Crear una lista para almacenar los integrantes
@@ -354,6 +376,28 @@ namespace UI.Formularios.Proyectos
                 dataGridViewEmpleados.DataSource = null;
                 CargarEmpleados(listaIntegrantes);
             }
+        }
+
+        private bool VerificarPermisos()
+        {
+            Columna columna = columnasDelProyecto.FirstOrDefault(); // Encontrar la columna a la que pertenece la tarjeta por ObjetoTarjeta.ID_Columna
+            int idEmpleadoActual = CN_Empleados.ObtenerInstancia()
+                .ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User)
+                .ID_Empleado;
+            List<Integrante> listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(columna.ID_Proyecto);
+            if (listaIntegrantes.Any(i => i.ID_Empleado == idEmpleadoActual && (i.Cargo == "Administrador" || i.Cargo == "Colaborador")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private void FormDetalleTarjeta_Load(object sender, EventArgs e)
+        {
+            
         }
     }
 }
