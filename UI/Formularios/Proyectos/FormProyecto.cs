@@ -52,7 +52,7 @@ namespace UI.Formularios.Proyectos
             // Se registra como observador
             GestorTareas.ObtenerInstancia().AgregarObservador(this);
             // Carga inicial de tareas
-            Actualizar();
+            ActualizarProgreso();
         }
         private void cargarDatosProyecto()
         {
@@ -65,6 +65,12 @@ namespace UI.Formularios.Proyectos
             
         }
         public void Actualizar()
+        {
+            ActualizarProgreso();
+            cargarColumnas(esteProyecto.ID_Proyecto);
+        }
+
+        private void ActualizarProgreso()
         {
             List<TareaTarjeta> tareas = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTareasDelProyecto(esteProyecto.ID_Proyecto);
 
@@ -97,8 +103,8 @@ namespace UI.Formularios.Proyectos
 
         private void ControlColumna_AgregarTarjetaClicked(object sender, EventArgs e)
         {
-            cargarColumnas(esteProyecto.ID_Proyecto);
-            Actualizar();
+            //cargarColumnas(esteProyecto.ID_Proyecto);
+            //ActualizarProgreso();
         }
         private void buttonAgregarColumna_Click(object sender, EventArgs e)
         {
@@ -188,7 +194,7 @@ namespace UI.Formularios.Proyectos
 
         private void flowLayoutPanelTablero_ControlRemoved(object sender, ControlEventArgs e)
         {
-            Actualizar();
+            ActualizarProgreso();
         }
 
         private void FormProyecto_FormClosing(object sender, FormClosingEventArgs e)

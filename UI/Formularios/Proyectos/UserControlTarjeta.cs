@@ -29,8 +29,15 @@ namespace UI.Formularios.Proyectos
         }
         public void ActualizarFormulario()
         {
+            // Obtener todas las tareas de la tarjeta
+            var tareas = CN_Tarjetas.ObtenerInstancia().ObtenerTodasLasTareasDeLaTarjeta(ObjetoTarjeta.ID_Tarjeta);
+            // Contar el número total de tareas
+            int totalTareas = tareas.Count();
+            // Contar el número de tareas completadas
+            int tareasCompletadas = tareas.Count(t => t.Completada);
+
             labelTarjeta.Text = ObjetoTarjeta.Nombre;
-            labelFechaFin.Text = ObjetoTarjeta.Posicion.ToString();
+            labelFechaFin.Text = $"Tareas: {tareasCompletadas}/{totalTareas}";
         }
 
         private void panelRight_MouseDown(object sender, MouseEventArgs e)
@@ -46,13 +53,6 @@ namespace UI.Formularios.Proyectos
             using (FormDetalleTarjeta formulario = FormDetalleTarjeta.ObtenerInstancia(ObjetoTarjeta))
             {
                 formulario.ShowDialog();
-            }
-            FlowLayoutPanel parent = this.Parent as FlowLayoutPanel;
-
-            if (parent != null)
-            {
-                // Remover este UserControl del FlowLayoutPanel
-                parent.
             }
         }
 
