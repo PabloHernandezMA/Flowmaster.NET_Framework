@@ -66,10 +66,8 @@ namespace UI.Formularios.Proyectos
             buttonBuscar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Buscar_proyectos);
             buttonVerDetalles.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Ver_proyecto);
             buttonAgregar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Agregar_proyecto);
-            //buttonEliminar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Borrar_proyecto);
-            //buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Editar_proyecto);
-            buttonEliminar.Enabled = false;
-            buttonModificar.Enabled = false;
+            buttonEliminar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Borrar_proyecto);
+            buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Editar_proyecto);
 
         }
         private void InicializarEventos()
@@ -239,6 +237,8 @@ namespace UI.Formularios.Proyectos
             {
                 buttonEliminar.Enabled = true;
                 buttonModificar.Enabled = true;
+                buttonEliminar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Borrar_proyecto);
+                buttonModificar.Enabled = CN_UsuarioEnSesion.ObtenerInstancia().VerificarPermiso(Editar_proyecto);
             }
             else
             {
