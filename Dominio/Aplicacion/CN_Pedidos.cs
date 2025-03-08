@@ -42,6 +42,17 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public List<Factura> ObtenerDatosParaFactura(int idPedido)
+        {
+            try
+            {
+                return repositorio.ObtenerDatosParaFactura(idPedido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public List<Pedido> ObtenerTodosLosPedidosPorIDEmpleado(int idEmpleado)
         {
             pedidos = repositorio.ObtenerTodosLosPedidosPorIDEmpleado(idEmpleado);

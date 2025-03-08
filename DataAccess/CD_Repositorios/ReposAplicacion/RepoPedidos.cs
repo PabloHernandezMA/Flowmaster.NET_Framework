@@ -171,5 +171,40 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
             return cantidadPedidosPendientes;
         }
+
+        public List<Factura> ObtenerDatosParaFactura(int iDpedido)
+        {
+            List<Factura> facturas = new List<Factura>();
+            string consultaSQL = @"
+        SELECT 
+            C.Nombre AS Nombre_Cliente,
+            PR.Nombre AS Nombre_Producto,
+            DP.Cantidad,
+            DP.PrecioUnitario,
+            DP.TotalDetalle
+        FROM PEDIDOS P
+        JOIN CLIENTES C ON P.ID_Cliente = C.ID_Cliente
+        JOIN DETALLES_PEDIDO DP ON P.ID_Pedido = DP.ID_Pedido
+        JOIN PRODUCTOS PR ON DP.ID_Producto = PR.ID_Producto
+        WHERE P.ID_Pedido = @ID_Pedido";
+
+            // Debes inicializar la variable ID_Empleado antes de usarla en la consulta
+            parametros.Add(new SqlParameter("@ID_Pedido", iDpedido));
+
+            DataTable tablaDatos = ExecuteReader(consultaSQL);
+            
+            foreach (DataRow fila in tablaDatos.Rows)
+            {
+                Factura factura = new Factura
+                {
+                    Nombre_Producto = fila["Nombre_Producto"].ToString(),
+                    Cantidad = Convert.ToInt32(fila["Cantidad"]),
+                    PrecioUnitario = Convert.ToDecimal(fila["PrecioUnitario"]),
+                    TotalDetalle = Convert.ToDecimal(fila["TotalDetalle"])
+                };
+                facturas.Add(factura);
+            }
+            return facturas;
+        }
     }
 }

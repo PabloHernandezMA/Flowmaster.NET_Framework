@@ -339,6 +339,12 @@
     <Compile Include="Formularios\Pedidos\FormDetallesPedido.Designer.cs">
       <DependentUpon>FormDetallesPedido.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Pedidos\FormFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Pedidos\FormFactura.Designer.cs">
+      <DependentUpon>FormFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Pedidos\FormGestionarPedidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -431,6 +437,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaSesiones.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportAuditoriaTareas.rdlc" />
+    <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportFactura.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportPedidosPorEmpleado.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Gerencia\Reportes\ReportProyectosXEmpleado.rdlc" />
     <EmbeddedResource Include="Formularios\Administracion\Usuarios\Gestionar_Grupos\FormDetallesGrupo.resx">
@@ -475,6 +482,9 @@
     <EmbeddedResource Include="Formularios\Pedidos\FormDetallesPedido.resx">
       <DependentUpon>FormDetallesPedido.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Pedidos\FormFactura.resx">
+      <DependentUpon>FormFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Pedidos\FormGestionarPedidos.resx">
       <DependentUpon>FormGestionarPedidos.cs</DependentUpon>
     </EmbeddedResource>
@@ -513,7 +523,10 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.AuditoriaTareaTarjeta.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.Cliente.datasource" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.DetallePedido.datasource" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.Factura.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.Pedido.datasource" />
+    <None Include="Properties\DataSources\Modelo.Aplicacion.Producto.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.ReporteProyectosProgreso.datasource" />
     <None Include="Properties\DataSources\Modelo.Aplicacion.TareaTarjeta.datasource" />
     <None Include="Properties\DataSources\Modelo.Seguridad.AuditoriaSesiones.datasource" />

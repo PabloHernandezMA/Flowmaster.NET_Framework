@@ -52,6 +52,7 @@
     <Compile Include="Aplicacion\Empleado_Pedido.cs" />
     <Compile Include="Aplicacion\Empleado_Tarjeta.cs" />
     <Compile Include="Aplicacion\Estado_Pedido.cs" />
+    <Compile Include="Aplicacion\Factura.cs" />
     <Compile Include="Aplicacion\Integrante.cs" />
     <Compile Include="Aplicacion\Pedido.cs" />
     <Compile Include="Aplicacion\Producto.cs" />
