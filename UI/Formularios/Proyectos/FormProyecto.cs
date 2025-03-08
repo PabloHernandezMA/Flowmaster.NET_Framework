@@ -1,4 +1,5 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
@@ -56,7 +57,6 @@ namespace UI.Formularios.Proyectos
         }
         private void cargarDatosProyecto()
         {
-            listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
             this.Text = $"Proyecto: {esteProyecto.Nombre}";
             labelProyecto.Text = $"Proyecto: {esteProyecto.ID_Proyecto}";
             textBoxNombreProyecto.Text = esteProyecto.Nombre;
@@ -108,6 +108,10 @@ namespace UI.Formularios.Proyectos
         }
         private void buttonAgregarColumna_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermiso())
+            {
+                return;
+            }
             int numeroDeColumnas = 0;
             numeroDeColumnas = flowLayoutPanelTablero.Controls.OfType<UserControlColumna>().Count();
             Columna objColumnaNueva = new Columna();
@@ -168,6 +172,10 @@ namespace UI.Formularios.Proyectos
 
         private void MoverColumnaPorArrastre(UserControlColumna columnaMovida, int nuevaPosicion)
         {
+            if (!VerificarPermiso())
+            {
+                return;
+            }
             List<Columna> columnasDelProyecto = columnas.ObtenerTodasLasColumnasDelProyecto(esteProyecto.ID_Proyecto)
                                                          .OrderBy(c => c.Posicion)
                                                          .ToList();
@@ -201,6 +209,22 @@ namespace UI.Formularios.Proyectos
         {
             // Se elimina del gestor al cerrar el formulario
             GestorTareas.ObtenerInstancia().RemoverObservador(this);
+        }
+        private bool VerificarPermiso()
+        {
+            int idEmpleadoActual = CN_Empleados.ObtenerInstancia()
+                .ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User)
+                .ID_Empleado;
+            listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
+            if (listaIntegrantes.Any(i => i.ID_Empleado == idEmpleadoActual && (i.Cargo == "Administrador" || i.Cargo == "Colaborador")))
+            {
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("No tiene permisos para realizar esta acción.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
         }
     }
 }

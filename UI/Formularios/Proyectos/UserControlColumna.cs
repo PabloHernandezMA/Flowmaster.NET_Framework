@@ -1,4 +1,5 @@
-﻿using Dominio.Aplicacion;
+﻿using Dominio;
+using Dominio.Aplicacion;
 using Modelo.Aplicacion;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,14 @@ namespace UI.Formularios.Proyectos
             ObjetoColumna = columnaGuardada;
             this.Visible = columnaDB.Visible; // Controlar la visibilidad
             textBoxTituloColumna.Text = columnaDB.Nombre;
+            if (!VerificarPermiso())
+            {
+                textBoxTituloColumna.Enabled = false;
+            }
+            else if (columnaDB.Nombre == "Nueva*")
+            {
+                textBoxTituloColumna.Focus();
+            }
             cargarTarjetas(); // Cargar tarjetas después de la configuración
         }
         private void cargarTarjetas()
@@ -58,6 +67,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonAgregarTarjeta_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermiso())
+            {
+                MessageBox.Show("No tiene permisos para realizar esta acción.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             using (FormDetalleTarjeta formulario = FormDetalleTarjeta.ObtenerInstancia(ObjetoColumna))
             {
                 formulario.ShowDialog();
@@ -67,6 +81,16 @@ namespace UI.Formularios.Proyectos
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (!VerificarPermiso())
+            {
+                MessageBox.Show("No tiene permisos para realizar esta acción.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            DialogResult dialogResultEliminarColumna = MessageBox.Show("¿Está seguro de querer eliminar la columna?", "Eliminar columna", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResultEliminarColumna == DialogResult.No)
+            {
+                return;
+            }
             CN_Columnas.ObtenerInstancia().BajaColumna(columnaDB.ID_Columna);
             FlowLayoutPanel parent = this.Parent as FlowLayoutPanel;
 
@@ -171,6 +195,11 @@ namespace UI.Formularios.Proyectos
 
         private void MoverTarjetaPorArrastre(UserControlTarjeta tarjetaMovida, int nuevaPosicion)
         {
+            if (!VerificarPermiso())
+            {
+                MessageBox.Show("No tiene permisos para realizar esta acción.", "Permiso denegado", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             List<Tarjeta> tarjetasDeColumna = CN_Tarjetas.ObtenerInstancia()
                                                           .ObtenerTodasLasTarjetasDeLaColumna(columnaDB.ID_Columna)
                                                           .OrderBy(t => t.Posicion)
@@ -207,6 +236,21 @@ namespace UI.Formularios.Proyectos
 
                 // Recargar UI
                 cargarTarjetas();
+            }
+        }
+        private bool VerificarPermiso()
+        {
+            int idEmpleadoActual = CN_Empleados.ObtenerInstancia()
+                .ObtenerEmpleadoPorIdUsuario(CN_UsuarioEnSesion.ObtenerInstancia().ObtenerUsuario().ID_User)
+                .ID_Empleado;
+            List<Integrante> listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(ObjetoColumna.ID_Proyecto);
+            if (listaIntegrantes.Any(i => i.ID_Empleado == idEmpleadoActual && (i.Cargo == "Administrador" || i.Cargo == "Colaborador")))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
