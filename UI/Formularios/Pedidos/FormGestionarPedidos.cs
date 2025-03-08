@@ -32,22 +32,63 @@ namespace UI.Formularios.Pedidos
             }
             return instance;
         }
-
         private void FormGestionarPedidos_Load(object sender, EventArgs e)
         {
             pedidos = CN_Pedidos.ObtenerInstancia();
         }
 
-        private void buttonBuscar_Click(object sender, EventArgs e)
+        private int pageIndex = 0;
+        private int pageSize = 30;
+        private int totalPages = 0;
+        private List<Pedido> pedidosDB;
+        private void LoadData()
         {
             try
             {
-                dataGridView1.DataSource = pedidos.ObtenerTodosLosPedidos();
+                pedidosDB = pedidos.ObtenerTodosLosPedidos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+            // Calcula la cantidad total de páginas
+            totalPages = (int)Math.Ceiling((double)pedidosDB.Count() / pageSize);
+
+            // Carga los datos para la página actual
+            var datos = pedidosDB.Skip(pageIndex * pageSize).Take(pageSize).ToList();
+
+            // Asigna los datos al DataGridView
+            dataGridView1.DataSource = datos;
+
+            // Actualiza la etiqueta de paginación
+            labelNumeroDePagina.Text = $"{pageIndex + 1} / {totalPages}";
+        }
+
+        private void buttonSiguiente_Click(object sender, EventArgs e)
+        {
+            // Avanza a la página siguiente
+            if (pageIndex < totalPages - 1)
+            {
+                pageIndex++;
+                LoadData();
+            }
+        }
+
+        private void buttonAnterior_Click(object sender, EventArgs e)
+        {
+            // Retrocede a la página anterior
+            if (pageIndex > 0)
+            {
+                pageIndex--;
+                LoadData();
+            }
+        }
+
+
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            LoadData();
         }
 
         private void buttonVerDetalles_Click(object sender, EventArgs e)
