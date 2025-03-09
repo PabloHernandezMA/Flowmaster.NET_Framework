@@ -412,6 +412,7 @@
             this.buttonNotificacion.Size = new System.Drawing.Size(51, 50);
             this.buttonNotificacion.TabIndex = 22;
             this.buttonNotificacion.UseVisualStyleBackColor = false;
+            this.buttonNotificacion.Visible = false;
             // 
             // panel11
             // 

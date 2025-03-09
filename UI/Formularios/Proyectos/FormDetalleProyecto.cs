@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UI.Formularios.Administracion.Empleados;
+using UI.Formularios.Pedidos;
 using static UI.ValidacionesForm;
 
 namespace UI.Formularios.Proyectos
@@ -66,6 +67,8 @@ namespace UI.Formularios.Proyectos
             dateTimePickerFin.Value = esteProyecto.FechaFin;
             listaIntegrantes = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosIntegrantesDeUnProyectoYSusCargos(esteProyecto.ID_Proyecto);
             CargarEmpleados(listaIntegrantes);
+            listaPedidos = CN_Proyectos.ObtenerInstancia().ObtenerPEDIDOSxPROYECTO(esteProyecto.ID_Proyecto);
+            CargarPEDIDOSxPROYECTO(listaPedidos);
         }
         private void CargarEmpleados(List<Integrante> listaDeIntegrantes)
         {
@@ -174,6 +177,7 @@ namespace UI.Formularios.Proyectos
                 List<Proyecto> listaProyectos = CN_Proyectos.ObtenerInstancia().ObtenerTodosLosProyectos();
                 Proyecto ultimoProyecto = listaProyectos.OrderByDescending(p => p.ID_Proyecto).FirstOrDefault();
                 textBoxNumero.Text = ultimoProyecto.ID_Proyecto.ToString();
+                esteProyecto = ultimoProyecto;
                 foreach (DataGridViewRow row in dataGridViewEmpleados.Rows)
                 {
                     if (row.DataBoundItem is Integrante integrante)
@@ -181,15 +185,21 @@ namespace UI.Formularios.Proyectos
                         integrante.ID_Proyecto = ultimoProyecto.ID_Proyecto;
                     }
                 }
-                GuardarEmpleados();
+                foreach (DataGridViewRow row in dataGridViewPedidos.Rows)
+                {
+                    if (row.DataBoundItem is PEDIDOxPROYECTO integrante)
+                    {
+                        integrante.ID_Proyecto = ultimoProyecto.ID_Proyecto;
+                    }
+                }
             }
             else
             {
                 // Modificación de proyecto existente
                 filasAfectadas = CN_Proyectos.ObtenerInstancia().ModificarProyecto(proyecto);
-                GuardarEmpleados();
             }
-
+            GuardarEmpleados();
+            GuardarPEDIDOSxPROYECTO();
             MessageBox.Show(filasAfectadas > 0
                 ? "Proyecto guardado correctamente."
                 : "No se pudo completar la operación.");
@@ -206,7 +216,7 @@ namespace UI.Formularios.Proyectos
                     listaIntegrantes.Add(integrante);
                 }
             }
-            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes, string.IsNullOrWhiteSpace(textBoxNumero.Text) ? 0 : int.Parse(textBoxNumero.Text));        
+            int resultado = CN_Proyectos.ObtenerInstancia().ModificarEmpleadosxProyecto(listaIntegrantes, esteProyecto.ID_Proyecto);        
         }
         private bool VerificarCampos()
         {
@@ -230,6 +240,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
+            if (!EsAdministrador())
+            {
+                MessageBox.Show("Usted no tiene el cargo Administrador en este proyecto, no puede realizar cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FormGestionarEmpleados form = FormGestionarEmpleados.ObtenerInstancia(1);
             if (form.ShowDialog() == DialogResult.OK)
             {
@@ -256,6 +271,11 @@ namespace UI.Formularios.Proyectos
 
         private void buttonEliminar_Click(object sender, EventArgs e)
         {
+            if (!EsAdministrador())
+            {
+                MessageBox.Show("Usted no tiene el cargo Administrador en este proyecto, no puede realizar cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (dataGridViewEmpleados.SelectedRows.Count > 0)
             {
                 // Crear una lista para almacenar los integrantes
@@ -275,6 +295,89 @@ namespace UI.Formularios.Proyectos
                 // Actualizar el DataGridView (esto es necesario si el DataGridView no se actualiza automáticamente)
                 CargarEmpleados(listaIntegrantes);
             }
+        }
+
+        List<PEDIDOxPROYECTO> listaPedidos;
+        private void CargarPEDIDOSxPROYECTO(List<PEDIDOxPROYECTO> listaPedidos)
+        {
+            dataGridViewPedidos.DataSource = listaPedidos;
+            dataGridViewPedidos.Columns["ID_Proyecto"].Visible = false;
+            dataGridViewPedidos.Columns["ID_Pedido"].Visible = true;
+        }
+        private void buttonVerPedido_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewPedidos.SelectedRows.Count > 0)
+            {
+                // Logica para abrir FormDetallePedido usando el ID del pedido seleccionado
+                int idPedido = ((PEDIDOxPROYECTO)dataGridViewPedidos.SelectedRows[0].DataBoundItem).ID_Pedido;
+                using (FormDetallesPedido formulario = FormDetallesPedido.ObtenerInstancia(idPedido, 0))
+                {
+                    formulario.ShowDialog();
+                }
+            }
+        }
+
+        private void buttonAgregarPedido_Click(object sender, EventArgs e)
+        {
+            if (!EsAdministrador())
+            {
+                MessageBox.Show("Usted no tiene el cargo Administrador en este proyecto, no puede realizar cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            // Logica para agregar un PEDIDOxPROYECTO al dataGridViewPedidos
+            FormGestionarPedidos form = FormGestionarPedidos.GetInstance();
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Pedido pedidoSeleccionado = form.pedidoSeleccionado;
+                if (listaPedidos == null)
+                {
+                    listaPedidos = new List<PEDIDOxPROYECTO>();
+                }
+                if (pedidoSeleccionado != null && !listaPedidos.Any(i => i.ID_Pedido == pedidoSeleccionado.ID_Pedido))
+                {
+                    PEDIDOxPROYECTO nuevoPedido = new PEDIDOxPROYECTO
+                    {
+                        ID_Pedido = pedidoSeleccionado.ID_Pedido,
+                        ID_Proyecto = string.IsNullOrWhiteSpace(textBoxNumero.Text) ? 0 : int.Parse(textBoxNumero.Text)
+                    };
+                    listaPedidos.Add(nuevoPedido);
+                    dataGridViewPedidos.DataSource = null;
+                    CargarPEDIDOSxPROYECTO(listaPedidos);
+                }
+            }
+        }
+
+        private void buttonEliminarPedido_Click(object sender, EventArgs e)
+        {
+            if (!EsAdministrador())
+            {
+                MessageBox.Show("Usted no tiene el cargo Administrador en este proyecto, no puede realizar cambios", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (dataGridViewPedidos.SelectedRows.Count > 0)
+            {
+                // Obtener el objeto PEDIDOxPROYECTO correspondiente a la fila seleccionada
+                PEDIDOxPROYECTO pedidoSeleccionado = (PEDIDOxPROYECTO)dataGridViewPedidos.SelectedRows[0].DataBoundItem;
+
+                // Eliminar el pedido de la lista
+                listaPedidos.Remove(pedidoSeleccionado);
+                dataGridViewPedidos.DataSource = null;
+                // Actualizar el DataGridView (esto es necesario si el DataGridView no se actualiza automáticamente)
+                CargarPEDIDOSxPROYECTO(listaPedidos);
+            }
+        }
+        private void GuardarPEDIDOSxPROYECTO()
+        {
+            List<PEDIDOxPROYECTO> listaNuevaPedidos = new List<PEDIDOxPROYECTO>();
+            foreach (DataGridViewRow row in dataGridViewPedidos.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    PEDIDOxPROYECTO integrante = (PEDIDOxPROYECTO)row.DataBoundItem;
+                    listaNuevaPedidos.Add(integrante);
+                }
+            }
+            int resultado = CN_Proyectos.ObtenerInstancia().ModificarPEDIDOxPROYECTO(listaNuevaPedidos, esteProyecto.ID_Proyecto);
         }
     }
 }

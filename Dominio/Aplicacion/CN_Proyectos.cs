@@ -132,6 +132,50 @@ namespace Dominio.Aplicacion
                 throw ex;
             }
         }
+        public List<PEDIDOxPROYECTO> ObtenerPEDIDOSxPROYECTO(int idProyecto)
+        {
+            try
+            {
+                return repositorio.ObtenerPEDIDOxPROYECTO(idProyecto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int AltaPEDIDOxPROYECTO(PEDIDOxPROYECTO pedido)
+        {
+            try
+            {
+                return repositorio.AltaPEDIDOxPROYECTO(pedido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int BajaPEDIDOxPROYECTO(PEDIDOxPROYECTO pedido)
+        {
+            try
+            {
+                return repositorio.BajaPEDIDOxPROYECTO(pedido);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public int ModificarPEDIDOxPROYECTO(List<PEDIDOxPROYECTO> pedido, int idProyecto)
+        {
+            try
+            {
+                return repositorio.ModificarPEDIDOxPROYECTO(pedido, idProyecto);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 
 }

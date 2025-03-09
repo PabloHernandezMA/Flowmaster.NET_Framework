@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -52,6 +56,12 @@
             this.buttonAgregar = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonVerPedido = new System.Windows.Forms.Button();
+            this.buttonEliminarPedido = new System.Windows.Forms.Button();
+            this.buttonAgregarPedido = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dataGridViewPedidos = new System.Windows.Forms.DataGridView();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
@@ -60,6 +70,8 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,6 +104,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabControl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -250,7 +263,7 @@
             this.buttonEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonEliminar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.buttonEliminar.Location = new System.Drawing.Point(513, 127);
+            this.buttonEliminar.Location = new System.Drawing.Point(513, 111);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(170, 35);
             this.buttonEliminar.TabIndex = 34;
@@ -279,7 +292,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
-            this.label7.Location = new System.Drawing.Point(8, 17);
+            this.label7.Location = new System.Drawing.Point(8, 20);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(171, 21);
             this.label7.TabIndex = 32;
@@ -291,15 +304,138 @@
             this.dataGridViewEmpleados.AllowUserToDeleteRows = false;
             this.dataGridViewEmpleados.AllowUserToOrderColumns = true;
             this.dataGridViewEmpleados.AllowUserToResizeRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewEmpleados.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewEmpleados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewEmpleados.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             this.dataGridViewEmpleados.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridViewEmpleados.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewEmpleados.EnableHeadersVisualStyles = false;
+            this.dataGridViewEmpleados.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridViewEmpleados.Location = new System.Drawing.Point(12, 61);
+            this.dataGridViewEmpleados.MultiSelect = false;
+            this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
+            this.dataGridViewEmpleados.RowHeadersVisible = false;
+            this.dataGridViewEmpleados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewEmpleados.Size = new System.Drawing.Size(436, 201);
+            this.dataGridViewEmpleados.TabIndex = 19;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(38)))), ((int)(((byte)(45)))));
+            this.tabPage3.Controls.Add(this.buttonVerPedido);
+            this.tabPage3.Controls.Add(this.buttonEliminarPedido);
+            this.tabPage3.Controls.Add(this.buttonAgregarPedido);
+            this.tabPage3.Controls.Add(this.label8);
+            this.tabPage3.Controls.Add(this.dataGridViewPedidos);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(755, 354);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Pedidos relacionados";
+            // 
+            // buttonVerPedido
+            // 
+            this.buttonVerPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonVerPedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonVerPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonVerPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonVerPedido.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonVerPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonVerPedido.Location = new System.Drawing.Point(513, 161);
+            this.buttonVerPedido.Name = "buttonVerPedido";
+            this.buttonVerPedido.Size = new System.Drawing.Size(170, 35);
+            this.buttonVerPedido.TabIndex = 39;
+            this.buttonVerPedido.Text = "Ver pedido";
+            this.buttonVerPedido.UseVisualStyleBackColor = true;
+            this.buttonVerPedido.Click += new System.EventHandler(this.buttonVerPedido_Click);
+            // 
+            // buttonEliminarPedido
+            // 
+            this.buttonEliminarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonEliminarPedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonEliminarPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonEliminarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonEliminarPedido.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonEliminarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonEliminarPedido.Location = new System.Drawing.Point(513, 111);
+            this.buttonEliminarPedido.Name = "buttonEliminarPedido";
+            this.buttonEliminarPedido.Size = new System.Drawing.Size(170, 35);
+            this.buttonEliminarPedido.TabIndex = 38;
+            this.buttonEliminarPedido.Text = "Eliminar";
+            this.buttonEliminarPedido.UseVisualStyleBackColor = true;
+            this.buttonEliminarPedido.Click += new System.EventHandler(this.buttonEliminarPedido_Click);
+            // 
+            // buttonAgregarPedido
+            // 
+            this.buttonAgregarPedido.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAgregarPedido.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(68)))), ((int)(((byte)(89)))));
+            this.buttonAgregarPedido.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(24)))), ((int)(((byte)(31)))));
+            this.buttonAgregarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAgregarPedido.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.buttonAgregarPedido.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.buttonAgregarPedido.Location = new System.Drawing.Point(513, 61);
+            this.buttonAgregarPedido.Name = "buttonAgregarPedido";
+            this.buttonAgregarPedido.Size = new System.Drawing.Size(170, 35);
+            this.buttonAgregarPedido.TabIndex = 37;
+            this.buttonAgregarPedido.Text = "Agregar";
+            this.buttonAgregarPedido.UseVisualStyleBackColor = true;
+            this.buttonAgregarPedido.Click += new System.EventHandler(this.buttonAgregarPedido_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
+            this.label8.Location = new System.Drawing.Point(8, 20);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(169, 21);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Pedidos relacionados:";
+            // 
+            // dataGridViewPedidos
+            // 
+            this.dataGridViewPedidos.AllowUserToAddRows = false;
+            this.dataGridViewPedidos.AllowUserToDeleteRows = false;
+            this.dataGridViewPedidos.AllowUserToOrderColumns = true;
+            this.dataGridViewPedidos.AllowUserToResizeRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(39)))), ((int)(((byte)(61)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.SteelBlue;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGridViewPedidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridViewPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
+            this.dataGridViewPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridViewPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(91)))), ((int)(((byte)(91)))), ((int)(((byte)(91)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -308,8 +444,8 @@
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewEmpleados.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dataGridViewEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dataGridViewPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,23 +453,24 @@
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewEmpleados.DefaultCellStyle = dataGridViewCellStyle7;
-            this.dataGridViewEmpleados.EnableHeadersVisualStyles = false;
-            this.dataGridViewEmpleados.GridColor = System.Drawing.Color.SteelBlue;
-            this.dataGridViewEmpleados.Location = new System.Drawing.Point(12, 50);
-            this.dataGridViewEmpleados.MultiSelect = false;
-            this.dataGridViewEmpleados.Name = "dataGridViewEmpleados";
-            this.dataGridViewEmpleados.RowHeadersVisible = false;
-            this.dataGridViewEmpleados.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.dataGridViewPedidos.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dataGridViewPedidos.EnableHeadersVisualStyles = false;
+            this.dataGridViewPedidos.GridColor = System.Drawing.Color.SteelBlue;
+            this.dataGridViewPedidos.Location = new System.Drawing.Point(12, 61);
+            this.dataGridViewPedidos.MultiSelect = false;
+            this.dataGridViewPedidos.Name = "dataGridViewPedidos";
+            this.dataGridViewPedidos.ReadOnly = true;
+            this.dataGridViewPedidos.RowHeadersVisible = false;
+            this.dataGridViewPedidos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(28)))), ((int)(((byte)(38)))));
             dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.WhiteSmoke;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.SteelBlue;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGridViewEmpleados.RowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.dataGridViewEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewEmpleados.Size = new System.Drawing.Size(436, 201);
-            this.dataGridViewEmpleados.TabIndex = 19;
+            this.dataGridViewPedidos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridViewPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewPedidos.Size = new System.Drawing.Size(436, 201);
+            this.dataGridViewPedidos.TabIndex = 35;
             // 
             // buttonCancelar
             // 
@@ -390,6 +527,9 @@
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
@@ -419,5 +559,11 @@
         private System.Windows.Forms.DataGridView dataGridViewEmpleados;
         private System.Windows.Forms.Button buttonEliminar;
         private System.Windows.Forms.Button buttonAgregar;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button buttonEliminarPedido;
+        private System.Windows.Forms.Button buttonAgregarPedido;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DataGridView dataGridViewPedidos;
+        private System.Windows.Forms.Button buttonVerPedido;
     }
 }

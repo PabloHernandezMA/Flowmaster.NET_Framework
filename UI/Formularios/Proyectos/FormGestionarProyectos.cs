@@ -109,7 +109,6 @@ namespace UI.Formularios.Proyectos
 
         private void FiltrarResultados()
         {
-            labelEmpleado.Text = comboBoxEmpleado.SelectedValue.ToString();
             CargarProyectos();
             // Filtrado usando LINQ
             if (comboBoxEmpleado.Enabled == false)

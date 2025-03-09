@@ -47,7 +47,10 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
 
         public int BajaProyecto(int idProyecto)
         {
-            string consultaSQL = @"-- Eliminar empleados asociados a tarjetas del proyecto
+            string consultaSQL = @"-- Eliminar PEDIDOSxPROYECTO
+                                        DELETE FROM PEDIDOSxPROYECTO
+                                        WHERE ID_Proyecto = @ID_Proyecto;
+                                   -- Eliminar empleados asociados a tarjetas del proyecto
                                         DELETE FROM EMPLEADOxTARJETA
                                         WHERE ID_Tarjeta IN (
                                             SELECT ID_Tarjeta FROM TARJETAS
@@ -231,7 +234,79 @@ namespace DataAccess.CD_Repositorios.ReposAplicacion
             }
             return proyectos;
         }
+        public List<PEDIDOxPROYECTO> ObtenerPEDIDOxPROYECTO(int idProyecto)
+        {
+            List<PEDIDOxPROYECTO> proyectos = new List<PEDIDOxPROYECTO>();
+            string consultaSQL = @"SELECT * FROM PEDIDOSxPROYECTO WHERE  ID_Proyecto = @ID_Proyecto order by ID_Pedido";
+            parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
 
+            DataTable tablaProyectos = ExecuteReader(consultaSQL);
+
+            foreach (DataRow fila in tablaProyectos.Rows)
+            {
+                proyectos.Add(new PEDIDOxPROYECTO
+                {
+                    ID_Pedido = Convert.ToInt32(fila["ID_Pedido"]),
+                    ID_Proyecto = Convert.ToInt32(fila["ID_Proyecto"])
+                });
+            }
+            return proyectos;
+        }
+        public int AltaPEDIDOxPROYECTO(PEDIDOxPROYECTO proyecto)
+        {
+            string consultaSQL = @"INSERT INTO PEDIDOSxPROYECTO (ID_Pedido, ID_Proyecto)
+                                    VALUES (@ID_Pedido, @ID_Proyecto)";
+            parametros.Add(new SqlParameter("@ID_Pedido", proyecto.ID_Pedido));
+            parametros.Add(new SqlParameter("@ID_Proyecto", proyecto.ID_Proyecto));
+
+            return ExecuteNonQuery(consultaSQL);
+        }
+
+        public int BajaPEDIDOxPROYECTO(PEDIDOxPROYECTO proyecto)
+        {
+            string consultaSQL = @"DELETE FROM PEDIDOSxPROYECTO
+                                   WHERE ID_Pedido = @ID_Pedido AND ID_Proyecto = @ID_Proyecto";
+            parametros.Add(new SqlParameter("@ID_Pedido", proyecto.ID_Pedido));
+            parametros.Add(new SqlParameter("@ID_Proyecto", proyecto.ID_Proyecto));
+            return ExecuteNonQuery(consultaSQL);
+        }
+        public int ModificarPEDIDOxPROYECTO(List<PEDIDOxPROYECTO> integrantes, int idProyecto)
+        {
+            // Obtenemos el ID del proyecto de la lista de integrantes
+            if (integrantes == null || integrantes.Count == 0)
+            {
+                if (idProyecto != 0)
+                {
+                    // Eliminar todos los registros para el proyecto
+                    string consultaSQLEliminarTodo = @"DELETE FROM PEDIDOSxPROYECTO WHERE ID_Proyecto = @ID_Proyecto";
+                    parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
+                    return ExecuteNonQuery(consultaSQLEliminarTodo);
+                }
+                return 0; // Si la lista está vacía, no hay nada que modificar
+            }
+
+            idProyecto = integrantes[0].ID_Proyecto;
+
+            // Eliminar todos los registros para el proyecto
+            string consultaSQLEliminar = @"DELETE FROM PEDIDOSxPROYECTO WHERE ID_Proyecto = @ID_Proyecto";
+            parametros.Add(new SqlParameter("@ID_Proyecto", idProyecto));
+            int filasEliminadas = ExecuteNonQuery(consultaSQLEliminar);
+
+            // Insertar los nuevos registros de la lista
+            foreach (var integrante in integrantes)
+            {
+                string consultaSQLInsertar = @"INSERT INTO PEDIDOSxPROYECTO (ID_Pedido, ID_Proyecto)
+                                      VALUES (@ID_Pedido, @ID_Proyecto)";
+                parametros.Add(new SqlParameter("@ID_Pedido", integrante.ID_Pedido));
+                parametros.Add(new SqlParameter("@ID_Proyecto", integrante.ID_Proyecto));
+
+                // Ejecutamos la inserción para cada integrante
+                ExecuteNonQuery(consultaSQLInsertar);
+            }
+
+            // Retornamos la cantidad de filas eliminadas (esto es solo una opción, podrías retornarlo de otra forma si prefieres)
+            return filasEliminadas;
+        }
     }
 
 }

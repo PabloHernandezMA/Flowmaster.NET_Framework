@@ -321,7 +321,8 @@
             this.labelNumeroDePagina.Name = "labelNumeroDePagina";
             this.labelNumeroDePagina.Size = new System.Drawing.Size(42, 28);
             this.labelNumeroDePagina.TabIndex = 2;
-            this.labelNumeroDePagina.Text = "1/2";
+            this.labelNumeroDePagina.Text = "1/1";
+            this.labelNumeroDePagina.Visible = false;
             // 
             // linkLabelPaginaSiguiente
             // 
@@ -337,6 +338,7 @@
             this.linkLabelPaginaSiguiente.TabIndex = 1;
             this.linkLabelPaginaSiguiente.TabStop = true;
             this.linkLabelPaginaSiguiente.Text = ">";
+            this.linkLabelPaginaSiguiente.Visible = false;
             this.linkLabelPaginaSiguiente.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             // 
             // linkLabelPaginaPrevia
@@ -353,6 +355,7 @@
             this.linkLabelPaginaPrevia.TabIndex = 0;
             this.linkLabelPaginaPrevia.TabStop = true;
             this.linkLabelPaginaPrevia.Text = "<";
+            this.linkLabelPaginaPrevia.Visible = false;
             this.linkLabelPaginaPrevia.VisitedLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(209)))), ((int)(((byte)(217)))));
             // 
             // dataGridView1
