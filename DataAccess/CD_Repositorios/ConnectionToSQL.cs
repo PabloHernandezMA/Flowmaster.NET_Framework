@@ -33,7 +33,22 @@ namespace DataAccess
             if (File.Exists(configFilePath))
             {
                 string json = File.ReadAllText(configFilePath);
-                config = JsonConvert.DeserializeObject<ConnectionConfig>(json);
+
+                JsonSerializerSettings settings = new JsonSerializerSettings
+                {
+                    MissingMemberHandling = MissingMemberHandling.Error
+                };
+
+                try
+                {
+                    config = JsonConvert.DeserializeObject<ConnectionConfig>(json, settings);
+                }
+                catch (JsonSerializationException ex)
+                {
+                    // Manejar la excepción
+                    Console.WriteLine("Error al deserializar el archivo de configuración: " + ex.Message);
+                    return;
+                }
             }
             else if (File.Exists("C:\\UAI\\Flowmaster.NET_Framework\\DataAccess\\configSQL.json"))
             {
@@ -48,10 +63,48 @@ namespace DataAccess
 
         protected SqlConnection OpenConnection()
         {
+            // Verificar si los campos necesarios están completos
+            if (string.IsNullOrWhiteSpace(config.Server))
+            {
+                throw new InvalidOperationException("El campo 'Server' está vacío o no se ha definido.");
+            }
+
+            if (string.IsNullOrWhiteSpace(config.Database))
+            {
+                throw new InvalidOperationException("El campo 'Database' está vacío o no se ha definido.");
+            }
+
+            if (string.IsNullOrWhiteSpace(config.Username))
+            {
+                throw new InvalidOperationException("El campo 'Username' está vacío o no se ha definido.");
+            }
+
+            if (string.IsNullOrWhiteSpace(config.Password))
+            {
+                throw new InvalidOperationException("El campo 'Password' está vacío o no se ha definido.");
+            }
+
             string connectionString = $"Server={config.Server};Database={config.Database};User ID={config.Username};Password={config.Password};";
 
             SqlConnection connection = new SqlConnection(connectionString);
-            //connection.Open();
+            try
+            {
+                connection.Open(); // Intenta abrir la conexión
+                                   // Aquí puedes realizar otras pruebas si es necesario
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                // Asegurarse de cerrar la conexión
+                if (connection.State == System.Data.ConnectionState.Open)
+                {
+                    connection.Close();
+                }
+            }
+
             return connection;
         }
     }
